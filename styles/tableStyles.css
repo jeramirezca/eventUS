@@ -1,0 +1,299 @@
+table{
+    border-collapse: collapse;
+    font-family: Montserrat, sans-serif;
+    font-size: calc(12px + 0.15vw);
+    width: 90%;
+}
+  
+th:first-child, td:first-child {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+  
+th {
+    padding: 0.5rem 0.7rem;
+    text-align: center;
+    color: #fff;
+}
+  
+td {
+    border: 1px solid #ccc;
+    padding: 0.5rem 0.7rem;
+    text-align: center;
+    background: #fff;
+}
+  
+thead th {
+    white-space: nowrap;
+}
+  
+tbody{
+    margin: 0px 0px 0px 0px;
+}
+
+.h-r{
+    border-radius: 15px 0px 0px 0px;
+}
+
+.h-l{
+    border-radius: 0px 15px 0px 0px;
+}
+
+@media screen and (max-width: 600px){
+    thead{
+      display: none;
+    }
+  
+    td{
+      display: block;
+    }
+  
+    td:first-child{
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+    }
+    
+    td:nth-child(2)::before{
+      content: "Company";
+    }
+  
+    td:nth-child(3)::before{
+      content: "Age";
+    }
+  
+    td:nth-child(4)::before{
+      content: "Designation";
+    }
+  
+    td:nth-child(5)::before{
+      content: "Hobbies";
+    }
+  
+    td{
+      text-align: right;
+    }
+  
+    td::before{
+      float: left;
+      font-weight: bold;
+    }
+}
+
+/*   .table-top{
+    margin-top: 20px;
+  }
+  
+  .separate-button{
+    display:flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .mr-10{
+    margin-right:10px;
+  }
+
+  .mr-60{
+    margin-right:60px;
+  }
+  
+  
+.top-button{
+  display:flex;
+  justify-content: end;
+  width: 100%;
+  margin-bottom: 10px;
+  
+}
+
+.icon-s{
+
+  width: 20px;
+  height: 20px;
+
+}
+
+.icon-box{
+  
+  width: 20px;
+  height: 20px;
+}
+
+
+.icon-color{
+
+  fill: #003333;
+
+}
+
+.icon-color2{
+  fill:#84B522
+}
+.icon-color3{
+  fill:#fff
+}
+
+.apuntador{
+  cursor:pointer;
+  transition: all 0.7s ease;
+}
+
+.apuntador:hover{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  transition: all 0.7s ease;
+}
+
+.button-icon{
+  align-content: none;
+  justify-content: none;
+  display: inline-block; 
+  background-color:#003333d8;
+  border: 10px;
+  width: 40px;
+  height: 40px;  
+  transition: all 0.5s ease;
+  border-radius: 10px;
+  }
+
+.button-icon:hover{
+  display: inline-block; 
+  background-color: #003333;
+  transition: all 0.5s ease;
+}
+
+.margen-out{
+  
+  margin: 20px 0px 0px 30px;
+
+}
+
+.button{
+  display: inline-block; 
+  background-color:rgba(0,51,51, 0.80);
+  color:white;
+  border: 10px;
+  width: 91px;
+  height: 28px;
+  border-radius: 15px;
+  cursor:pointer;
+  }
+
+ .button:focus{
+     outline:auto;
+ } 
+
+ .button:active{
+     transform:scale(0.98);
+ }
+
+ .button-block{
+     display:block;
+     width:100%;
+ }
+
+ .navegarTabla{
+  height: fit-content;
+  overflow-y: auto;
+  margin-bottom: 100px;
+}
+ 
+.busqueda{
+  padding: 7px;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+.buscador{
+  border-radius: 5px;
+  background-color: rgba(0, 51, 51, 0.055);
+  margin-right: 8px;
+  padding-left: 0px;
+  width: 0px;
+  cursor:default;
+  transition: all 0.5s ease;
+}
+
+.buscador.activo{
+  display: inline;
+  margin-right: 8px;
+  padding-left: 5px;
+  width: 170px;
+  cursor:text;
+  transition: all 0.5s ease;
+  
+}
+
+.buscador.activo:hover{
+  background-color: rgba(0, 51, 51, 0.164);
+  transition: all 0.5s ease;
+}
+
+.campoEdicion{
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  border-radius: 7px;
+  background-color: #00333318;
+  transition: all 0.5s ease;
+}  
+  
+.campoEdicion:hover{
+  background-color: #0033333b;
+  transition: all 0.5s ease;
+}
+
+.fontSize-s{
+  font-size: 20px;
+}
+
+.boton-side{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton-side a{
+  margin-left: 5px;
+  width: 27px;
+}
+
+.ocultar{
+  display: none;
+}
+
+.width-s{
+  margin-left: 6px;
+  width: 80px;
+}
+
+.totalVenta{
+  margin-top: 20px;
+}
+
+.totalVenta label{
+   margin-right: 10px;
+  text-align: center;
+}
+
+.totalVenta input{
+  width: 200px;
+}
+
+.verVenta{
+  color: red;
+}
+
+.margen-abajo{
+  font-size: 35px;
+  margin-bottom: 25px;
+}
+
+.separar{
+  margin-right: 8px;
+} */
