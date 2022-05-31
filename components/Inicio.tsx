@@ -1,8 +1,10 @@
 import React from "react";
+import {Fragment} from "react";
 import Link from 'next/link'; 
 
 const Inicio = () => {
   return (
+    
     <div className="flex justify-center items-center flex-row ">
       <div className="hidden md:block flex justify-center items-center flex-col pt-40 text-center m-6">
         <img
