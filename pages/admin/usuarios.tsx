@@ -1,12 +1,19 @@
 import React from 'react'
-import Layout from '../../layout/layout'
 import TablaUsuarios from '../../components/TablaUsuarios'
+import Layout from '../../layout/Layout'
+import Head from "next/head";
 
 const usuarios = () => {
   return (
-    <Layout>     
-      <TablaUsuarios />
-    </Layout>
+    <>
+      <Head>
+        <title>Usuarios
+        </title>
+      </Head>
+      <Layout>
+        <TablaUsuarios />
+      </Layout>
+    </>
   )
 }
 

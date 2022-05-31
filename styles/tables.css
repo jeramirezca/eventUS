@@ -42,6 +42,12 @@ tbody{
 }
 
 @media screen and (max-width: 600px){
+
+    table{
+      width: 80vw;
+      overflow: hidden;
+    }
+
     thead{
       display: none;
     }

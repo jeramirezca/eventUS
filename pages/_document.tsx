@@ -7,7 +7,7 @@ export default function Document() {
         <script src="https://kit.fontawesome.com/a1d72236eb.js"></script>
       </Head>
 
-      <body >
+      <body className='bg-blanco-light'>
         <Main />
         <NextScript />
       </body>

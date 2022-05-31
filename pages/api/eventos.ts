@@ -1,23 +1,11 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-type Data = {
-  name: string
-}
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
-}
-
-/* // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default  async(req, res) =>{
+export default  async(req: NextApiRequest, res: NextApiResponse) =>{
+    if (req.method== "GET")
   try{
     const post = await prisma.post.create({
       data:{
@@ -30,4 +18,4 @@ export default  async(req, res) =>{
     res.json({error: 'an error ocurred'});
     return;
   }
-} */
+} 
