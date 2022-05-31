@@ -129,7 +129,7 @@ export class LinkedRef<T> {
 				let aux : NodeUS<T> | null  = this.first;
 				while(aux?.getNext() != null) {
 					list = "\n"+ list + aux?.getData()+",";
-					aux = aux!.getNext(); //POSIBLE ERROR
+					aux = aux!.getNext(); 
 				}
 				list = list + aux!.getData()+"]";
 				
