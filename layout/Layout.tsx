@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Navbar from '../components/Navbar'
 
-const Layout = ({ children }) => {
+type MyComponentProps = React.PropsWithChildren<{}>;
+
+const Layout = ({ children }: MyComponentProps) => {
   return (
     <>
         <Navbar/>

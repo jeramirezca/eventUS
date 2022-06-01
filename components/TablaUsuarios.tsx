@@ -4,7 +4,7 @@ import Link from "next/link";
 const TablaUsuarios = () => {
   return (
     <div className="md:w-96 w-2/4 rounded-3xl">
-      <h1 className="text-azul f">Listado de Productos</h1>
+      <h1 className="titulo">Listado de Productos</h1>
       <div className="flex justify-center items-center flex-col">
         <div className="top-button">
           <button>
@@ -43,17 +43,17 @@ const TablaUsuarios = () => {
                 <td>5000</td>
                 <td className="iconosTabla">
                   <button>
-                    <i className="fa-solid fa-right-to-bracket"></i>
+                    <i className="fa-solid fa-eye"></i>
                   </button>
                 </td>
                 <td className="iconosTabla">
                   <button>
-                    <i className="fa-solid fa-right-to-bracket"></i>
+                    <i className="fa-solid fa-pen-to-square"></i>
                   </button>
                 </td>
                 <td className="iconosTabla">
                   <button>
-                    <i className="fa-solid fa-right-to-bracket"></i>
+                    <i className="fa-solid fa-trash-can"></i>
                   </button>
                 </td>
               </tr>

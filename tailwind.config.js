@@ -5,7 +5,7 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       'blanco': {
-        light: '#000000',
+        light: '#ffffff9a',
         DEFAULT: '#e9ebed',
         dark: '#82efea',
       },
@@ -16,8 +16,10 @@ module.exports = {
       },
       'azul': {
         light: '#cce8ff',
+        light2: '#86c8fd8c',
         DEFAULT: '#26648b',
         dark: '#82efea',
+        dark2: '#116295c0',
       },
       'gris': {
         light: '#cce8ff',
