@@ -1,4 +1,9 @@
-class Usuario {
+import { LinkedRef } from "../structures/LinkedRef";
+import { QueueRef } from "../structures/QueueRef";
+import { StackRef } from "../structures/StackRef";
+import { Notificacion } from "./Notificacion";
+
+export class Usuario{
     private id: string;
     private nombre:string
     private correo:string;
@@ -62,7 +67,7 @@ class Usuario {
         return this.autorizado;
     }
 
-    public  setAutorizado(string:boolean ):void {
+    public  setAutorizado(string:boolean ):void|null {
         this.autorizado = string;
     }
 

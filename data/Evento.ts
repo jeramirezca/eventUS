@@ -1,5 +1,8 @@
+import { Creador } from "./Creador";
+import { Estudiante } from "./Estudiante";
+import { Usuario } from "./Usuario";
 
-public class Evento {
+export class Evento {
     private id:string;
     private nombre:string;
     private fechaInicio:string; //Date
@@ -38,7 +41,7 @@ public class Evento {
 	}
 	//Setters y getters
 
-	public  getProponente():Usuario|undefined {
+	public  getProponente():Usuario {
 		return this.proponente;
 	}
 
@@ -145,7 +148,7 @@ public class Evento {
 		let cadena:string = "";
 		cadena+= "Nombre: "+ this.getNombre()+"\n"+"Fi "+this.getFechaInicio()+" Ff "+this.getFechaFinal();
 		cadena+= "\n"+"Lugar "+this.getLugar()+ "\n"+"Descripcion: "+this.getDescripcion()+ "\n";
-		cadena+="Propone: " + ((Creador) this.getCreador()).getDependenciaAdmin();
+		cadena+="Propone: " + this.creador.getDependenciaAdmin();
 		return cadena;
 	}
 

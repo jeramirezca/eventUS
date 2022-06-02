@@ -1,4 +1,10 @@
-class Administrador extends Usuario {
+import { LinkedRef } from "../structures/LinkedRef";
+import { QueueRef } from "../structures/QueueRef";
+import { Creador } from "./Creador";
+import { Estudiante } from "./Estudiante";
+import { Usuario } from "./Usuario";
+
+export class Administrador extends Usuario {
     public static usuariosVerificar:QueueRef<Usuario>;
     public static  usuariosRegistrados:LinkedRef<Usuario>;
     
@@ -6,12 +12,10 @@ class Administrador extends Usuario {
 
     public constructor(id:string , nombre:string , correo:string , contrasena:string ,autorizado:boolean) {
         super(id, nombre, correo, contrasena, autorizado);
-        
-        
     }
     public static inicializar(){
-        this.usuariosVerificar=new QueueRef<>();
-        this.usuariosRegistrados=new LinkedRef<>();
+        this.usuariosVerificar=new QueueRef<Usuario>();
+        this.usuariosRegistrados=new LinkedRef<Usuario>();
     }
     //Getters y Setters
 
@@ -34,20 +38,27 @@ class Administrador extends Usuario {
     //Métodos
 
     public autorizarUsuario():void {
-        Administrador.usuariosVerificar.first().setAutorizado(true);// Proceso donde se autoriza (Trabaja sobre usuariosVerificar)
+
+       
+        let user:Usuario=Administrador.usuariosVerificar.first()as Usuario;
+        user.setAutorizado(true);
+        
+        // Proceso donde se autoriza (Trabaja sobre usuariosVerificar)
         /*
          * Cuando se autorice un usuario, su estado va a cambiar a autorizado y debera
          * ser
          * casteado a creador.
          */
-        Administrador.usuariosRegistrados.addFirst( Administrador.usuariosVerificar.first());
+        
+        Administrador.usuariosRegistrados.addFirst(user);
         Administrador.usuariosVerificar.dequeue(); // desencolar()
         
     }
 
     public  desautorizarUsuario():void {
-        Administrador.usuariosVerificar.first().setAutorizado(false);// proceso donde se desautoriza (Trabaja sobre
-                                                            // usuariosVerificar)
+        // proceso donde se desautoriza (Trabaja sobre
+        let user:Usuario=Administrador.usuariosVerificar.first()as Usuario;   
+        user.setAutorizado(false);                                                 // usuariosVerificar)
         /*
          * Cuando se desautorice un usuario, su estado va a cambiar a desautorizado y
          * debera ser

@@ -1,4 +1,11 @@
-class Creador extends Usuario {
+import { LinkedRef } from "../structures/LinkedRef";
+import { QueueRef } from "../structures/QueueRef";
+import { Estudiante } from "./Estudiante";
+import { Evento } from "./Evento";
+import { Notificacion } from "./Notificacion";
+import { Usuario } from "./Usuario";
+
+export class Creador extends Usuario {
     private eventosCreados:LinkedRef<Evento>;
     private  propuestasEventos:QueueRef<Evento>;
     private dependenciaAdmin:string;
@@ -8,8 +15,8 @@ class Creador extends Usuario {
     public constructor(id:string ,  nombre:string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
         super(id, nombre, correo, contrasenia,estado);
         //el super siempre se debe poner primero para evitar errores
-        this.eventosCreados = new LinkedRef<>();
-        this.propuestasEventos = new QueueRef<>();
+        this.eventosCreados = new LinkedRef<Evento>();
+        this.propuestasEventos = new QueueRef<Evento>();
         this.dependenciaAdmin = dep;                 
   
     }
@@ -46,7 +53,7 @@ class Creador extends Usuario {
         creador:Creador, facultad:string):boolean {
         let  creado:boolean = false;
         if(id != null && nombre !=null && fechaInicio !=null && fechaFinal!=null && descripcion != null &&facultad !=null){
-            this.eventosCreados.addLatest(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this, facultad,this));
+            this.eventosCreados.addLatest(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this, facultad,creador as unknown as Estudiante));
             //lo comento para evitar errores por no tener usuario
             creado = true;
         }
@@ -60,7 +67,7 @@ class Creador extends Usuario {
         e.setLugar(nuevoLugar);
         if(this.eventosCreados.exists(e)){
             this.eventosCreados.remove(this.eventosCreados.indexOf(e));
-           this.eventosCreados.addLatest(e);
+            this.eventosCreados.addLatest(e);
         } 
         return e;
         
@@ -73,13 +80,13 @@ class Creador extends Usuario {
             let a:number = this.eventosCreados.indexOf(borrar);
             this.eventosCreados.remove(a);
             borrado = true;
-           }
+        }
         return borrado;
     }
 
     public  aceptarEvento():Evento{
         //aniade el evento a eventos creados y lo saca de eventos propuestos si existe
-        let aceptado:Evento = this.propuestasEventos.dequeue();
+        let aceptado:Evento= this.propuestasEventos.dequeue()as unknown as Evento;
         this.eventosCreados.addLatest(aceptado);
         
         /*
@@ -87,18 +94,19 @@ class Creador extends Usuario {
         if(propuestasEventos.exists(aceptar)){
             int a = propuestasEventos.indexOf(aceptar);
             propuestasEventos.remove(a);
-           }
+        }
            */
         
         //mandar una notificacion al estudiante de que su evento fue aceptado
-        let user:Usuario = aceptado.getProponente();
+        let user:Usuario= aceptado.getProponente();
         user.getNotificaciones().push(new Notificacion(user.getId(), aceptado.getFechaInicio(), "tu evento fue aceptado: ' "+aceptado.getNombre()+" '"));
         return aceptado;
     }
 
     public rechazarEvento():void{
         //si el elemento existe en las propuestas eliminarlo
-        let rechazado:Usuario  = this.propuestasEventos.dequeue();
+        let rechazado:Evento= this.propuestasEventos.dequeue()as unknown as Evento;
+        
         /*
        if(propuestasEventos.exists(aceptar)){
         int a = propuestasEventos.indexOf(aceptar);

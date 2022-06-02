@@ -1,7 +1,12 @@
-
-class Estudiante extends Usuario{
+import { LinkedRef } from "../structures/LinkedRef";
+import { QueueRef } from "../structures/QueueRef";
+import { Creador } from "./Creador";
+import { Evento } from "./Evento";
+import { Notificacion } from "./Notificacion";
+import { Usuario } from "./Usuario";
+export class Estudiante extends Usuario{
     private programaEstudio:string;
-    private eventosGuardados;LinkedRef<Evento>;
+    private eventosGuardados:LinkedRef<Evento>;
     private eventosPropuestos:LinkedRef<Evento>;
     private notificacionesPendientes:QueueRef<Notificacion>;
 
@@ -12,6 +17,7 @@ class Estudiante extends Usuario{
         super(id, nombre,correo,contrasena,true);
         this.eventosGuardados= new LinkedRef<Evento>();
         this.eventosPropuestos= new LinkedRef<Evento>();
+        this.notificacionesPendientes=new QueueRef<Notificacion>();
         this.programaEstudio=programaEstudio;
     }
 

@@ -1,4 +1,5 @@
-class Notificacion {
+
+export class Notificacion {
     private id:string;
     private fecha:string;
     private descripcion?:string;
