@@ -13,12 +13,13 @@ export class Estudiante extends Usuario{
     // CONSTRUCTORES
     
 
-    public constructor (id:string , nombre:string , correo:string , contrasena:string,programaEstudio:string |""){
-        super(id, nombre,correo,contrasena,true);
+    public constructor (id:string , nombre:string , user:string, correo:string , contrasena:string,programaEstudio:string |""){
+        super(id, nombre,user,correo,contrasena,true);
         this.eventosGuardados= new LinkedRef<Evento>();
         this.eventosPropuestos= new LinkedRef<Evento>();
         this.notificacionesPendientes=new QueueRef<Notificacion>();
         this.programaEstudio=programaEstudio;
+        this.rol = "ESTUDIANTE"
     }
 
     //GETTERS AND SETTERS

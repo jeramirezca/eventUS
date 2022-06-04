@@ -4,22 +4,36 @@ import { StackRef } from "../structures/StackRef";
 import { Notificacion } from "./Notificacion";
 
 export class Usuario{
-    private id: string;
-    private nombre:string
-    private correo:string;
-    private contrasena:string;
-    private notificaciones:StackRef<Notificacion> ;
-    private autorizado:boolean;
+    public id: string;
+    public nombre:string;
+    public user:string;
+    public correo:string;
+    public contrasena:string;
+    public notificaciones:StackRef<Notificacion> ;
+    public autorizado:boolean;
+    public rol: string = "INDEFINIDO";
 
     // contructor
 
-    public constructor(id:string , nombre:string , correo:string , contrasena:string ,autorizado:boolean) {
+    public fromJson(json:any) {
+        this.id = json.id;
+        this.nombre = json.nombre;
+        this.user = json.user;
+        this.correo = json.correo;
+        this.contrasena = json.contrasena;
+        this.autorizado = json.autorizado;
+        this.notificaciones = json.notificaciones;
+    }
+
+    public constructor(id:string , nombre:string , user:string, correo:string , contrasena:string ,autorizado:boolean) {
         this.id = id;
         this.nombre = nombre;
+        this.user = user;
         this.correo = correo;
         this.contrasena = contrasena;
         this.autorizado = autorizado;
         this.notificaciones = new StackRef<Notificacion>();
+        this.rol = "";
     }
 
     // getters and setters
@@ -81,14 +95,14 @@ export class Usuario{
         }
     }
 
-    private  buscarEvento() :void{
+    public  buscarEvento() :void{
         // podria recibir una Linkedref de eventos, junto a un evento a buscar
         // busca atraves de los eventos que se encuentren contenidos en una lista
     }
 
        
     public toString():string {
-        return "[ Usuario: " + this.id + ",  Nombre: " + this.nombre + "  Correo: " + this.correo +"]";
+        return "[ Usuario:" + this.id + ", Nombre: " + this.nombre + "  Correo: " + this.correo +"]";
     }
 
 

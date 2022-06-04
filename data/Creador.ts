@@ -12,13 +12,13 @@ export class Creador extends Usuario {
 
     //Constructor
 
-    public constructor(id:string ,  nombre:string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
-        super(id, nombre, correo, contrasenia,estado);
+    public constructor(id:string ,  nombre:string,user: string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
+        super(id, nombre,user, correo, contrasenia,estado);
         //el super siempre se debe poner primero para evitar errores
         this.eventosCreados = new LinkedRef<Evento>();
         this.propuestasEventos = new QueueRef<Evento>();
         this.dependenciaAdmin = dep;                 
-  
+        this.rol = "CREADOR"
     }
 
     //Getters y Setters

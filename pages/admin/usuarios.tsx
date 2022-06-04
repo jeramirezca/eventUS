@@ -10,6 +10,7 @@ const usuarios = () => {
         <title>Usuarios
         </title>
       </Head>
+      
       <Layout>
         <TablaUsuarios />
       </Layout>

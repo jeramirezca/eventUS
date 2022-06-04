@@ -17,7 +17,7 @@ module.exports = {
       'azul': {
         light: '#cce8ff',
         light2: '#86c8fd8c',
-        DEFAULT: '#26648b',
+        DEFAULT: '#006092',
         dark: '#82efea',
         dark2: '#116295c0',
       },
