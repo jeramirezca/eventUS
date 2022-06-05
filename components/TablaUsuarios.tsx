@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { useListUsers } from "../contexts/listUsers";
 import { Usuario } from '../data/Usuario';
+import { Button } from "react-scroll";
+import { LinkedRef } from '../structures/LinkedRef';
 
 
 const TablaUsuarios = () => {
@@ -14,32 +16,42 @@ const TablaUsuarios = () => {
     console.log(search);
   },[search]);
 
-  var list = [];
+  const eliminarUsuario=(index:any)=>{
+    var index2 = parseInt(index);
+    //setListaUsuarios(listaUsuarios.remove(index2));
+    console.log("eliminado");
+    console.log(listaUsuarios);
+  }
 
+  const getButtonId = (e:any) => {
+    console.log(e.currentTarget.id);
+  }
+  
+  var list = [];
+  var index = 0;
   var auxn = listaUsuarios.first;
   while(auxn != null){
     var aux = auxn.data;
     if (aux?.nombre.toUpperCase().includes(search.toUpperCase())||aux?.user.toUpperCase().includes(search.toUpperCase())||aux?.autorizado.toString().toUpperCase().includes(search.toUpperCase())||aux?.rol.toUpperCase().includes(search.toUpperCase())||aux?.correo.toUpperCase().includes(search.toUpperCase())){
-      console.log("puchado");
       list.push(
-        <tr>
+        <tr> 
           <td>{aux?.nombre}</td>
           <td>{aux?.user}</td>
           <td>{aux?.rol}</td>
           <td>{aux?.correo}</td>
           <td>{aux?.autorizado.toString()}</td>
-          <td className="iconosTabla">
+          {/* <td className="iconosTabla">
             <button aria-label="Ver">
               <i className="fa-solid fa-eye"></i>
             </button>
-          </td>
+          </td> */}
           <td className="iconosTabla">
             <button aria-label="editar">
               <i className="fa-solid fa-pen-to-square"></i>
             </button>
           </td>
           <td className="iconosTabla">
-            <button aria-label="Eliminar">
+            <button aria-label="Eliminar" id={index.toString()} onClick={(e)=>{eliminarUsuario(e.currentTarget.id)}}>
               <i className="fa-solid fa-trash-can"></i>
             </button>
           </td>
@@ -47,6 +59,7 @@ const TablaUsuarios = () => {
       );
     }
     auxn = auxn.next;
+    index+=1;
   }
 
   return (
@@ -79,9 +92,9 @@ const TablaUsuarios = () => {
                 <th className="th1 bg-azul">ROL</th>
                 <th className="th1 bg-azul">CORREO</th>
                 <th className="th1 bg-azul">AUTORIZADO</th>
-                <th className="th2 bg-azul">
+                {/* <th className="th2 bg-azul">
                   <span>Ver</span>
-                </th>
+                </th> */}
                 <th className="bg-azul">
                   <span>Editar</span>
                 </th>

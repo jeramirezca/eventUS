@@ -12,7 +12,7 @@ const Perfil = () => {
         <div className="">
           <label className="">Nombre</label>
           <input
-            id="usuario"
+            id="nombre"
             value = {user.nombre}
             /* onChange = {(e) =>{
               setUser1(e.target.value);
@@ -21,7 +21,43 @@ const Perfil = () => {
             placeholder= {user.nombre}
             className=""
             disabled
-          />          
+          />        
+          <label className="">Usuario</label>
+          <input
+            id="usuario"
+            value = {user.user}
+            /* onChange = {(e) =>{
+              setUser1(e.target.value);
+            }} */
+            type="text"
+            placeholder= {user.user}
+            className=""
+            disabled
+          />     
+          <label className="">Correo</label>
+          <input
+            id="correo"
+            value = {user.correo}
+            /* onChange = {(e) =>{
+              setUser1(e.target.value);
+            }} */
+            type="text"
+            placeholder= {user.correo}
+            className=""
+            disabled
+          />   
+          <label className="">Rol</label>
+          <input
+            id="rol"
+            value = {user.rol}
+            /* onChange = {(e) =>{
+              setUser1(e.target.value);
+            }} */
+            type="text"
+            placeholder= {user.rol}
+            className=""
+            disabled
+          />                  
         </div>
         <button className="bg-azul mt-6 mb-2" /* onClick={() => autent(user1,password)} */> 
           Editar

@@ -5,8 +5,8 @@ import { Usuario } from "./Usuario";
 export class Evento {
     private id:string;
     private nombre:string;
-    private fechaInicio:string; //Date
-    private fechaFinal:string; //Date
+    private fechaInicio:Date; //Date
+    private fechaFinal:Date; //Date
     private lugar:string;
     private descripcion:string;
 	private facultad:string;
@@ -18,7 +18,7 @@ export class Evento {
 
 	//Constructor
 
-    constructor(id:string , nombre:string, fechaInicio:string, fechaFinal:string,lugar:string, descripcion:string,
+    constructor(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
 			creador:Creador, facultad:string, proponente:Estudiante, aforo?:number, etiquetas?:string[]) {
 		
 		this.id = id;
@@ -61,7 +61,7 @@ export class Evento {
 	public setNombre(nombre:string):void {
 		this.nombre = nombre;
 	}
-	public getFechaInicio():string {
+	/* public getFechaInicio():string {
 		return this.fechaInicio;
 	}
 	public setFechaInicio(fechaInicio:string):void {
@@ -72,7 +72,7 @@ export class Evento {
 	}
 	public setFechaFinal(fechaFinal:string):void {
 		this.fechaFinal = fechaFinal;
-	}
+	} */
 	public getLugar(): String  {
 		return this.lugar;
 	}
@@ -146,7 +146,7 @@ export class Evento {
 
 	public  toString():string{
 		let cadena:string = "";
-		cadena+= "Nombre: "+ this.getNombre()+"\n"+"Fi "+this.getFechaInicio()+" Ff "+this.getFechaFinal();
+		cadena+= "Nombre: "+ this.getNombre()+"\n"+"Fi "+this.fechaInicio+" Ff "+this.fechaFinal;
 		cadena+= "\n"+"Lugar "+this.getLugar()+ "\n"+"Descripcion: "+this.getDescripcion()+ "\n";
 		cadena+="Propone: " + this.creador.getDependenciaAdmin();
 		return cadena;

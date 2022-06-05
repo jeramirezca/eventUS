@@ -28,6 +28,10 @@ const Login = () => {
     autent("anton","anton"); 
   },[]);*/
 
+  useEffect(() => {
+    console.log("info", listaUsuarios) ;
+  },[]);
+
   const autent = (user: String, contrasena: String) =>{
     var aux = listaUsuarios.first;
     while (aux != null){

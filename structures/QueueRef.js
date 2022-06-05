@@ -89,8 +89,8 @@ var QueueRef = /** @class */ (function () {
     };
     return QueueRef;
 }());
-exports.QueueRef = QueueRef;
-var cola = new QueueRef();
+ exports.QueueRef = QueueRef;
+/*var cola = new QueueRef();
 console.log(cola.empty());
 cola.enqueue(1);
 cola.enqueue(2);
@@ -104,4 +104,4 @@ cola.dequeue();
 console.log(cola.toString());
 cola.dequeue();
 console.log(cola.toString());
-console.log(cola.size());
+console.log(cola.size()); */

@@ -96,7 +96,7 @@ var LinkedRef = /** @class */ (function () {
             this.latest = aux;
         }
         this.count++;
-        return this.latest.getElement();
+        return this.latest.data;
     };
     LinkedRef.prototype.add = function (element, index) {
         if (index == 0) {
@@ -114,7 +114,7 @@ var LinkedRef = /** @class */ (function () {
             var aux = new NodeUS_1.NodeUS(element, current); //getNode(index+1)
             prev.setNext(aux);
             this.count++;
-            return this.getNode(index).getElement();
+            return this.getNode(index).data;
         }
     };
     LinkedRef.prototype.toString = function () {
@@ -139,10 +139,10 @@ var LinkedRef = /** @class */ (function () {
         else {
             var aux = this.first;
             while (aux != null) {
-                if (element == aux.getElement()) {
+                if (element == aux.data) {
                     return true;
                 }
-                aux = aux.getNext();
+                aux = aux.next;
             }
             return false;
         }
@@ -155,11 +155,11 @@ var LinkedRef = /** @class */ (function () {
             var aux = this.first;
             var position = 0;
             while (aux != null) {
-                if (element == aux.getElement()) {
+                if (element == aux.data) {
                     return position;
                 }
                 position++;
-                aux = aux.getNext();
+                aux = aux.next;
             }
             return -1;
         }
@@ -169,8 +169,8 @@ var LinkedRef = /** @class */ (function () {
             return null;
         }
         else {
-            var element = this.first.getElement();
-            var aux = this.first.getNext();
+            var element = this.first.data;
+            var aux = this.first.next;
             this.first = null;
             this.first = aux;
             if (this.size() == 1) {
@@ -185,7 +185,7 @@ var LinkedRef = /** @class */ (function () {
             return null;
         }
         else {
-            var element = this.latest.getElement();
+            var element = this.latest.data;
             var aux = this.getNode(this.size() - 2);
             if (aux == null) {
                 this.latest = null;
@@ -218,8 +218,8 @@ var LinkedRef = /** @class */ (function () {
         else {
             var prev = this.getNode(index - 1);
             var current = this.getNode(index);
-            var next = current.getNext();
-            var element = current.getElement();
+            var next = current.next;
+            var element = current.data;
             current = null;
             prev.setNext(next);
             this.count--;
@@ -233,7 +233,7 @@ var LinkedRef = /** @class */ (function () {
         else {
             var aux = this.getNode(index);
             aux.setElement(element);
-            return aux.getElement();
+            return aux.data;
         }
     };
 
@@ -245,8 +245,8 @@ var LinkedRef = /** @class */ (function () {
 
     return LinkedRef;
 }());
-exports.LinkedRef = LinkedRef;
-var pruebaL = new LinkedRef();
+ exports.LinkedRef = LinkedRef;
+/*var pruebaL = new LinkedRef();
 pruebaL.empty();
 console.log(pruebaL.toString());
 pruebaL.add(1, 0);
@@ -276,5 +276,5 @@ console.log("Prueba de lista con referencias");
 pruebaL.modify(1, 1);
 console.log(pruebaL.toString());
 pruebaL.modify(10, 3);
-console.log(pruebaL.toString());
+console.log(pruebaL.toString()); */
  
