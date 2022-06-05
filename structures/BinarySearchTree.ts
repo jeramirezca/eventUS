@@ -1,10 +1,10 @@
 export class node<T> {
     data: T
-    right: node<T>
-    left: node<T>
+    right: node<T>|null
+    left: node<T>|null
     height: number
 
-    constructor(data = null) {
+    constructor(data:T) {
         this.data = data
         this.right = null
         this.left = null
@@ -13,13 +13,13 @@ export class node<T> {
 }
 
 export class BinarySearchTree<T> {
-    root: node<T>
+    root: node<T>|null
 
     constructor() {
         this.root = null
     }
 
-    protected insert2 = (data: T, root: node<T>): node<T> => {
+    protected insert2 = (data: T, root: node<T>|null): node<T> => {
         if (!root) {
             return new node<T>(data)
         }
@@ -37,7 +37,7 @@ export class BinarySearchTree<T> {
         this.root = this.insert2(data, this.root)
     }
 
-    findMin = (ref?: node<T>): T => {
+    findMin = (ref?: node<T>|null): T => {
         if (!ref) {
             if (!this.root) {
                 throw new Error("Árbol vacío.");
@@ -57,7 +57,7 @@ export class BinarySearchTree<T> {
         return ref.right? this.findMax(ref.right): ref.data
     }
 
-    remove = (data: T, root?: node<T>): node<T> => {
+    remove = (data: T, root: node<T>|null): node<T>|null=> {
         if (root) {
             if ((data > root.data && !root.right) || (data < root.data && !root.left)) {
                 throw new Error(`${data} no está en el árbol. Imposible eliminar.`);
@@ -124,13 +124,14 @@ export class BinarySearchTree<T> {
         return 1 + Math.max(lHeight, rHeight)
     }
 
-    protected inOrder = (ref: node<T>, s = ""): string => {
-        if (ref.left != null) {
-            s = this.inOrder(ref.left, s)
+    protected inOrder = (ref: node<T>|null, s = ""): string => {
+        let ref2:node<T>=ref as node<T>
+        if (ref2.left != null) {
+            s = this.inOrder(ref2.left, s)
         }
-        s += (s.length > 0? `, ${ref.data}`: `${ref.data}`)
-        if (ref.right != null) {
-            s = this.inOrder(ref.right, s)
+        s += (s.length > 0? `, ${ref2.data}`: `${ref2.data}`)
+        if (ref2.right != null) {
+            s = this.inOrder(ref2.right, s)
         }
         return s
     }
