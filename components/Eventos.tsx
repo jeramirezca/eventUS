@@ -1,21 +1,39 @@
-import React from 'react'
+import React, { FormEventHandler, useState } from 'react'
 import Link from 'next/link';
 
+type Profile={
+  nombre:string;
+  facultad:string;
+}
+
 const Eventos = () => {
+  const[nombre, setNombre]=useState("")
+
+  const[facultad, setFacultad]=useState("")
+  const handleOnChange=(e: { target: { value: React.SetStateAction<string>; }; })=>{
+    setNombre(e.target.value)
+  }
+  const handleSubmit:FormEventHandler<HTMLFormElement>=(e)=>{
+    
+  }
+  
   return (
     <div className='flex justify-center items-center flex-row w-full'>
         <div className="hidden md:block w-2/5 bg-azul-light rounded-3xl mr-6">
         <form className="">
         <h1 className="font-bold text-3xl p-4">filtro</h1>
         <div className="flex flex-col justify-center items-center">
-          <label className="">fecha</label>
+          <label className="">Nombre del evento</label>
           <input
+            value={nombre}
+            onChange={handleOnChange}
             id="usuario"
             type="text"
             placeholder="Ingrese su usuario"
             className=""
           />
-          <label className="p-3">Contraseña</label>
+          {nombre}
+          <label className="p-3"> Facultad</label>
           <input
             id="contrasena"
             type="password"
@@ -58,7 +76,7 @@ const Eventos = () => {
                         <div className='flex justify-center items-center'>
                         <span className='px-2 py-1 bg-purple m-2 rounded-md'>
                             fecha
-                            </span>
+                            </span>  
                             <span className='maxWidth bg-negro '>
                                 holaaaaaaaaaaaaaaaaaaaaaa
                             </span>  
@@ -85,3 +103,7 @@ const Eventos = () => {
 }
 
 export default Eventos
+
+function value(value: any): void {
+  throw new Error('Function not implemented.');
+}

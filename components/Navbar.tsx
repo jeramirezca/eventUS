@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 import {Transition} from '@headlessui/react';
 //import {Link} from "react-scroll"; 
 import Link from 'next/link';
+import pageEstu from "../pages/estudiante/pageEstu";
 
 const Navbar = () => {
 
     /* Inicializamos la pestaña como falsa porque estará cerrada y cambiara a lo largo del programa */
-    const[isOpen, setIsOpen] = useState(false);
+  const[isOpen, setIsOpen] = useState(false);
 	const[authToken, setauthToken] = useState(false);
 
   return (
@@ -71,7 +72,7 @@ const Navbar = () => {
                   </>
                 ) : (
                   <>
-                    <Link href="/login">
+                    <Link href="/estudiante/pageEstu">
                       <div
                         onClick={() => setauthToken(!authToken)}
                         className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all"
