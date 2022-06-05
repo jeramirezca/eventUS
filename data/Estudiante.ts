@@ -9,6 +9,7 @@ export class Estudiante extends Usuario{
     private eventosGuardados:LinkedRef<Evento>;
     private eventosPropuestos:LinkedRef<Evento>;
     private notificacionesPendientes:QueueRef<Notificacion>;
+	public toJSON : string;
 
     // CONSTRUCTORES
     
@@ -19,6 +20,7 @@ export class Estudiante extends Usuario{
         this.eventosPropuestos= new LinkedRef<Evento>();
         this.notificacionesPendientes=new QueueRef<Notificacion>();
         this.programaEstudio=programaEstudio;
+        this.toJSON = JSON.stringify(this);
     }
 
     //GETTERS AND SETTERS
@@ -75,11 +77,18 @@ export class Estudiante extends Usuario{
             // pendiente poder enviar ese evento al creador para que lo pueda autorizar
         }
       
-
-    
     public guardarEvento(nuevoEvento:Evento):void{
         this.eventosGuardados.addLatest(nuevoEvento);
     }
 
+    public fromJSON = function (json: string) : Estudiante{
+        let obj = JSON.parse (json);
+        let estudianteAux = new Estudiante (obj.id , obj.nombre, obj.correo, obj.contrasena, obj.programaEstudio);
+        let  eventosGuardados:LinkedRef<Evento> = new LinkedRef<Evento>();
+        /*for (let i = 0; i < eventosGuardados.size() ; i++) {
+            obj.eventosGuardados;
+        }*/
+        return estudianteAux;
+    };
     
 }

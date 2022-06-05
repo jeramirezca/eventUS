@@ -59,18 +59,3 @@ var StackRef = /** @class */ (function () {
     return StackRef;
 }());
 exports.StackRef = StackRef;
-var pila = new StackRef();
-console.log(pila.empty());
-pila.push(1);
-pila.push(2);
-pila.push(3);
-console.log(pila.toString());
-pila.push(4);
-pila.push(5);
-console.log(pila.toString());
-pila.pop();
-pila.pop();
-console.log(pila.toString());
-pila.pop();
-console.log(pila.toString());
-console.log(pila.size());

@@ -16,6 +16,8 @@ export class Evento {
     private aforo?:number;
     private etiquetas: string[];
 
+	public toJSON : string;
+	
 	//Constructor
 
     constructor(id:string , nombre:string, fechaInicio:string, fechaFinal:string,lugar:string, descripcion:string,
@@ -37,7 +39,7 @@ export class Evento {
         }else{
             this.etiquetas=new Array();
         }
-        
+        this.toJSON = JSON.stringify(this);
 	}
 	//Setters y getters
 
@@ -142,7 +144,11 @@ export class Evento {
 		return this.facultad;
 	}
 
-	
+	public fromJSON = function (json: string) : Evento{
+        var obj = JSON.parse (json);
+        return new Evento (obj.id , obj.nombre, obj.fechaInicio, obj.fechaFinal,obj.lugar, obj.descripcion,
+			obj.creador, obj.facultad, obj.proponente, obj.aforo, obj.etiquetas);
+    };
 
 	public  toString():string{
 		let cadena:string = "";

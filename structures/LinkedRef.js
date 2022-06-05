@@ -122,7 +122,7 @@ var LinkedRef = /** @class */ (function () {
             var aux = this.first;
             while ((aux === null || aux === void 0 ? void 0 : aux.getNext()) != null) {
                 list = "\n" + list + (aux === null || aux === void 0 ? void 0 : aux.getData()) + ",";
-                aux = aux.getNext(); //POSIBLE ERROR
+                aux = aux.getNext();
             }
             list = list + aux.getData() + "]";
         }
@@ -235,34 +235,3 @@ var LinkedRef = /** @class */ (function () {
     return LinkedRef;
 }());
 exports.LinkedRef = LinkedRef;
-var pruebaL = new LinkedRef();
-pruebaL.empty();
-console.log(pruebaL.toString());
-pruebaL.add(1, 0);
-console.log(pruebaL.toString());
-pruebaL.addFirst(2);
-pruebaL.addFirst(3);
-pruebaL.addFirst(9);
-console.log(pruebaL.toString());
-pruebaL.add(1.1, 1);
-console.log(pruebaL.toString());
-pruebaL.add(4.1, 4);
-console.log(pruebaL.toString());
-pruebaL.addLatest(5);
-pruebaL.addLatest(6);
-console.log(pruebaL.toString());
-console.log(pruebaL.exists(9).toString());
-console.log(pruebaL.toString());
-console.log(pruebaL.indexOf(9).toString());
-console.log(pruebaL.toString());
-pruebaL.remove(4);
-console.log(pruebaL.toString());
-pruebaL.removeFirst();
-console.log(pruebaL.toString());
-pruebaL.removeLatest();
-console.log(pruebaL.toString());
-console.log("Prueba de lista con referencias");
-pruebaL.modify(1, 1);
-console.log(pruebaL.toString());
-pruebaL.modify(10, 3);
-console.log(pruebaL.toString());

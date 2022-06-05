@@ -10,6 +10,7 @@ export class Usuario{
     private contrasena:string;
     private notificaciones:StackRef<Notificacion> ;
     private autorizado:boolean;
+	public toJSON : string;
 
     // contructor
 
@@ -20,6 +21,7 @@ export class Usuario{
         this.contrasena = contrasena;
         this.autorizado = autorizado;
         this.notificaciones = new StackRef<Notificacion>();
+        this.toJSON = JSON.stringify(this);
     }
 
     // getters and setters
@@ -72,6 +74,11 @@ export class Usuario{
     }
 
     // metodos
+
+	public fromJSON = function (json: string) : Usuario{
+        var obj = JSON.parse (json);
+        return new Usuario (obj.id , obj.nombre, obj.correo, obj.contrasena, obj.autorizado);
+    };
 
     public  eliminarNotificacion():void {
         if(this.notificaciones.empty()){
