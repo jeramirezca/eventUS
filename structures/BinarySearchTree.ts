@@ -1,5 +1,5 @@
 export class node<T> {
-    data: T
+    data: T | null
     right: node<T>|null
     left: node<T>|null
     height: number
@@ -19,14 +19,14 @@ export class BinarySearchTree<T> {
         this.root = null
     }
 
-    protected insert2 = (data: T, root: node<T>|null): node<T> => {
+    protected insert2 = (data: T, root: node<T>|null): node<T> | null => {
         if (!root) {
             return new node<T>(data)
         }
-        if (data > root.data) {
+        if (data > root.data!) {
             root.right = this.insert2(data, root.right)
         }
-        else if (data < root.data) {
+        else if (data < root.data!) {
             root.left = this.insert2(data, root.left)
         }
         root.height = this.getHeight(root)
@@ -37,7 +37,7 @@ export class BinarySearchTree<T> {
         this.root = this.insert2(data, this.root)
     }
 
-    findMin = (ref?: node<T>|null): T => {
+    findMin = (ref?: node<T>|null): T | null => {
         if (!ref) {
             if (!this.root) {
                 throw new Error("Árbol vacío.");
@@ -47,7 +47,7 @@ export class BinarySearchTree<T> {
         return ref.left? this.findMin(ref.left): ref.data
     }
 
-    findMax = (ref?: node<T>): T => {
+    findMax = (ref?: node<T>): T | null => {
         if (!ref) {
             if (!this.root) {
                 throw new Error("Árbol vacío.");
@@ -59,14 +59,14 @@ export class BinarySearchTree<T> {
 
     remove = (data: T, root: node<T>|null): node<T>|null=> {
         if (root) {
-            if ((data > root.data && !root.right) || (data < root.data && !root.left)) {
+            if ((data > root.data! && !root.right) || (data < root.data! && !root.left)) {
                 throw new Error(`${data} no está en el árbol. Imposible eliminar.`);
             }
-            if (data > root.data && root.right) {
+            if (data > root.data! && root.right) {
                 root.right = this.remove(data, root.right)
                 root.height = this.getHeight(root)
             }
-            else if (data < root.data && root.left) {
+            else if (data < root.data! && root.left) {
                 root.left = this.remove(data, root.left)
                 root.height = this.getHeight(root)
             }
@@ -82,7 +82,7 @@ export class BinarySearchTree<T> {
                 }
                 else {
                     root.data = this.findMin(root.right)
-                    root.right = this.remove(root.data, root.right)
+                    root.right = this.remove(root.data!, root.right)
                     root.height = this.getHeight(root)
                 }
             }
@@ -105,10 +105,10 @@ export class BinarySearchTree<T> {
         if (data == root.data) {
             return root
         }
-        else if (data > root.data && root.right) {
+        else if (data > root.data! && root.right) {
             return this.search(data, root.right)
         }
-        else if (data < root.data && root.left) {
+        else if (data < root.data! && root.left) {
             return this.search(data, root.left)
         }
         else {
