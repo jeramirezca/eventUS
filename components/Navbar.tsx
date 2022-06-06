@@ -4,7 +4,6 @@ import {Transition} from '@headlessui/react';
 import Link from 'next/link';
 import { useAuth } from '../contexts/auth';
 import { useUser } from '../contexts/user';
-import pageEstu from "../pages/estudiante/pageEstu";
 
 const Navbar = () => {
 

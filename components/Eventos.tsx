@@ -32,9 +32,9 @@ const Eventos = () => {
     console.log(e.currentTarget.id);
   }
   
-  /* var list = [];
+/*   var list = [];
   var index = 0;
-  var auxn = listaUsuarios.first;
+  var auxn = listaEventos.first;
   while(auxn != null){
     var aux = auxn.data;
     if (aux?.nombre.toUpperCase().includes(search.toUpperCase())||aux?.user.toUpperCase().includes(search.toUpperCase())||aux?.autorizado.toString().toUpperCase().includes(search.toUpperCase())||aux?.rol.toUpperCase().includes(search.toUpperCase())||aux?.correo.toUpperCase().includes(search.toUpperCase())){
@@ -45,18 +45,13 @@ const Eventos = () => {
           <td>{aux?.rol}</td>
           <td>{aux?.correo}</td>
           <td>{aux?.autorizado.toString()}</td>
-          {/* <td className="iconosTabla">
-            <button aria-label="Ver">
-              <i className="fa-solid fa-eye"></i>
-            </button>
-          </td> }
           <td className="iconosTabla">
             <button aria-label="ver">
               <i className="fa-solid fa-eye"></i>
             </button>
           </td>
           <td className="iconosTabla">
-            <button aria-label="guardar" id={index.toString()} onClick={()=>{console.log(guardado)}}>
+            <button aria-label="guardar" id={index.toString()} onClick={()=>{console.log("guardado")}}>
               <i className="fa-solid fa-trash-can"></i>
             </button>
           </td>
@@ -65,7 +60,7 @@ const Eventos = () => {
     }
     auxn = auxn.next;
     index+=1;
-  } */
+  }  */
   
   return (
     <div className="md:w-96 w-2/4 rounded-3xl">
@@ -92,13 +87,10 @@ const Eventos = () => {
             <thead>
               <tr>
                 <th className="h-r bg-azul">NOMBRE</th>
-                <th className="th1 bg-azul">USUARIO</th>
-                <th className="th1 bg-azul">ROL</th>
-                <th className="th1 bg-azul">CORREO</th>
-                <th className="th1 bg-azul">AUTORIZADO</th>
-                {/* <th className="th2 bg-azul">
-                  <span>Ver</span>
-                </th> */}
+                <th className="th1 bg-azul">FECHA</th>
+                <th className="th1 bg-azul">LUGAR</th>
+                <th className="th1 bg-azul">CREADOR</th>
+                <th className="th1 bg-azul">FACULTAD</th>
                 <th className="bg-azul">
                   <span>Editar</span>
                 </th>
