@@ -62,16 +62,16 @@ export class AVL<T> extends BinarySearchTree<T> {
         return root
     }
 
-    protected insert2 = (data: T, root: node<T> | null ): node<T> | null => {
+    protected insert2 = (data: T, root: node<T> | null ,posicion:number): node<T> | null => {
         if (!root) {
-            return new node<T>(data)
+            return new node<T>(data,posicion)
         }
         if (data > root.data!) {
-            root.right = this.insert2(data, root.right)
+            root.right = this.insert2(data, root.right,posicion)
             root = this.balance(root)
         }
         else if (data < root.data!) {
-            root.left = this.insert2(data, root.left)
+            root.left = this.insert2(data, root.left,posicion)
             root = this.balance(root)
         }
         return root

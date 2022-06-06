@@ -61,7 +61,7 @@ export class Evento {
 	public setNombre(nombre:string):void {
 		this.nombre = nombre;
 	}
-	 public getFechaInicio():Date {
+	public getFechaInicio():Date {
 		return this.fechaInicio;
 	}
 	public setFechaInicio(fechaInicio:Date):void {
