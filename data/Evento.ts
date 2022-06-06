@@ -3,18 +3,18 @@ import { Estudiante } from "./Estudiante";
 import { Usuario } from "./Usuario";
 
 export class Evento {
-    private id:string;
-    private nombre:string;
-    private fechaInicio:Date; //Date
-    private fechaFinal:Date; //Date
-    private lugar:string;
-    private descripcion:string;
-	private facultad:string;
-    private creador:Creador;
-	private proponente:Estudiante;
-    private estado?:boolean; //Aprobado o negado.
-    private aforo?:number;
-    private etiquetas: string[];
+    public id:string;
+    public nombre:string;
+    public fechaInicio:Date; //Date
+    public fechaFinal:Date; //Date
+    public lugar:string;
+    public descripcion:string;
+	public facultad:string;
+    public creador:Creador;
+	public proponente:Estudiante;
+    public estado?:boolean; //Aprobado o negado.
+    public aforo?:number;
+    public etiquetas: string[];
 
 	//Constructor
 

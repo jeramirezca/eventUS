@@ -19,10 +19,13 @@ export const pruebasEventos = () =>{
     ListaEventos.addLatest(evento2);
     ListaEventos.addLatest(evento3);
     ListaEventos.addLatest(evento4);
-
-
+    let ListaEventos2 = new Array();
+    ListaEventos2.push(evento1);
+    ListaEventos2.push(evento2);
+    ListaEventos2.push(evento3);
+    ListaEventos2.push(evento4);
     //ListaUsuarios.remove(1);
-    return ListaEventos;
+    return ListaEventos2;
 }
 
 

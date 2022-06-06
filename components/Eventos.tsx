@@ -10,6 +10,7 @@ type Profile={
 const Eventos = () => {
   const {listaEventos, setListaEventos} = useListEvents();
   const [searchNombre, setSearchNombre] = useState("");
+  const [paramSearch, setParamSearch] = useState("");
   const [buscando, setBuscando] = useState(false);
   const[nombre, setNombre]=useState("")
   const[facultad, setFacultad]=useState("")
@@ -17,34 +18,37 @@ const Eventos = () => {
 
    useEffect(() => {
     console.log(search);
+    console.log(paramSearch);
   },[search]);
-
-  /* const eliminarUsuario=(index:any)=>{
-    var index2 = parseInt(index);
-    var list2 = listaUsuarios;
-    list2.remove(index2);
-    setListaUsuarios(list2);
-    console.log("eliminado");
-    console.log(listaUsuarios);
-  } */
 
   const getButtonId = (e:any) => {
     console.log(e.currentTarget.id);
   }
   
-/*   var list = [];
-  var index = 0;
-  var auxn = listaEventos.first;
-  while(auxn != null){
+  var list = [];
+  let index = 0;
+
+  while(index < listaEventos.length()){
     var aux = auxn.data;
-    if (aux?.nombre.toUpperCase().includes(search.toUpperCase())||aux?.user.toUpperCase().includes(search.toUpperCase())||aux?.autorizado.toString().toUpperCase().includes(search.toUpperCase())||aux?.rol.toUpperCase().includes(search.toUpperCase())||aux?.correo.toUpperCase().includes(search.toUpperCase())){
+    let param = search.toUpperCase(); 
+    if(paramSearch== "NOMBRE"){
+      param = aux?.nombre.toUpperCase(); 
+    }else if(paramSearch== "LUGAR"){
+      param = aux?.lugar.toUpperCase(); 
+    }else if(paramSearch== "FECHA"){
+      param = aux?.fechaInicio.toString().toUpperCase(); 
+    }else if(paramSearch== "CREADOR"){
+      param = aux?.creador.nombre.toUpperCase(); 
+    }
+    if (param.includes(search.toUpperCase())){
       list.push(
         <tr> 
           <td>{aux?.nombre}</td>
-          <td>{aux?.user}</td>
-          <td>{aux?.rol}</td>
-          <td>{aux?.correo}</td>
-          <td>{aux?.autorizado.toString()}</td>
+          <td>{aux?.getFechaInicio.toString()}</td>
+          <td>{aux?.lugar}</td>
+          <td>{aux?.creador.nombre}</td>
+          <td>{aux?.facultad}</td>
+          <td>{aux?.etiquetas}</td>
           <td className="iconosTabla">
             <button aria-label="ver">
               <i className="fa-solid fa-eye"></i>
@@ -60,13 +64,22 @@ const Eventos = () => {
     }
     auxn = auxn.next;
     index+=1;
-  }  */
+  }  
   
   return (
     <div className="md:w-96 w-2/4 rounded-3xl">
       <h1 className="titulo">Listado de eventos</h1>
       <div className="flex justify-center items-center flex-col">
         <div className="mb-3 flex flex-row justify-center items-center">
+          <label className='text-sm mr-2'>Buscar por:</label>
+        <select title="Seleccione una opción" name="rol" className="form-control mr-2" defaultValue='' onChange = {(e) =>{
+              setParamSearch(e.target.value);
+            }}>
+              <option disabled value=''></option>                                                 
+              <option value="NOMBRE"> nombre </option>
+              <option value="LUGAR"> lugar </option>
+              <option value="FECHA"> etiqueta </option>
+            </select>  
           <input 
           className = "mr-2" 
           id="usuario"
@@ -91,6 +104,7 @@ const Eventos = () => {
                 <th className="th1 bg-azul">LUGAR</th>
                 <th className="th1 bg-azul">CREADOR</th>
                 <th className="th1 bg-azul">FACULTAD</th>
+                <th className="th1 bg-azul">ETIQUETAS</th>
                 <th className="bg-azul">
                   <span>Editar</span>
                 </th>

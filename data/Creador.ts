@@ -6,9 +6,9 @@ import { Notificacion } from "./Notificacion";
 import { Usuario } from "./Usuario";
 
 export class Creador extends Usuario {
-    private eventosCreados:LinkedRef<Evento>;
-    private  propuestasEventos:QueueRef<Evento>;
-    private dependenciaAdmin:string;
+    public eventosCreados:LinkedRef<Evento>;
+    public  propuestasEventos:QueueRef<Evento>;
+    public dependenciaAdmin:string;
 
     //Constructor
 

@@ -1,8 +1,11 @@
 
+
+
+
 export class Notificacion {
-    private id:string;
-    private fecha:Date;
-    private descripcion?:string;
+    public id:string;
+    public fecha:Date;
+    public descripcion?:string;
 
     //Constructor
 
