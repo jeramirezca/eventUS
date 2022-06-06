@@ -6,19 +6,19 @@ import { Notificacion } from "./Notificacion";
 import { Usuario } from "./Usuario";
 
 export class Creador extends Usuario {
-    private eventosCreados:LinkedRef<Evento>;
-    private  propuestasEventos:QueueRef<Evento>;
-    private dependenciaAdmin:string;
+    public eventosCreados:LinkedRef<Evento>;
+    public  propuestasEventos:QueueRef<Evento>;
+    public dependenciaAdmin:string;
 
     //Constructor
 
-    public constructor(id:string ,  nombre:string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
-        super(id, nombre, correo, contrasenia,estado);
+    public constructor(id:string ,  nombre:string,user: string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
+        super(id, nombre,user, correo, contrasenia,estado);
         //el super siempre se debe poner primero para evitar errores
         this.eventosCreados = new LinkedRef<Evento>();
         this.propuestasEventos = new QueueRef<Evento>();
         this.dependenciaAdmin = dep;                 
-  
+        this.rol = "CREADOR"
     }
 
     //Getters y Setters
@@ -49,7 +49,7 @@ export class Creador extends Usuario {
 
     //Metodos
 
-    public crearEvento(id:number , nombre:string, fechaInicio:string, fechaFinal:string,lugar:string, descripcion:string,
+    public crearEvento(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
         creador:Creador, facultad:string):boolean {
         let  creado:boolean = false;
         if(id != null && nombre !=null && fechaInicio !=null && fechaFinal!=null && descripcion != null &&facultad !=null){
@@ -61,7 +61,7 @@ export class Creador extends Usuario {
 
     }
 
-    public editarEvento(fechaNuevaIn:string, fechaNuevaFin:string, nuevoLugar:string, e:Evento):Evento {
+    public editarEvento(fechaNuevaIn:Date, fechaNuevaFin:Date, nuevoLugar:string, e:Evento):Evento {
         e.setFechaFinal(fechaNuevaFin);
         e.setFechaInicio(fechaNuevaIn);
         e.setLugar(nuevoLugar);

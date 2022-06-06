@@ -2,9 +2,9 @@ import { NodeUS } from "./NodeUS";
 
 export class LinkedRef<T> {
 	
-		private first: NodeUS<T> | null;
-		private latest: NodeUS<T> | null;
-		private count : number;
+		public first: NodeUS<T> | null;
+		public latest: NodeUS<T> | null;
+		public count : number;
 		
 		constructor(){
 			this.first = null;
@@ -20,7 +20,7 @@ export class LinkedRef<T> {
 			return this.count;
 		}
 		
-		private getNode (index : number) : NodeUS<T> | null {
+		public getNode (index : number) : NodeUS<T> | null {
 			if (this.empty() || index < 0 || index >= this.size()) {
 				return null;
 			}else if(index == 0) {
@@ -122,9 +122,9 @@ export class LinkedRef<T> {
 		}
 		
 		public toString() : string {
-			let list : string = "[";
+			let list : string = "{";
 			if (this.empty()) {
-				list +="]";
+				list +="}";
 			} else {
 				let aux : NodeUS<T> | null  = this.first;
 				while(aux?.getNext() != null) {
@@ -244,4 +244,11 @@ export class LinkedRef<T> {
 				return aux!.getElement();
 			}
 		}
+
+		public fromJson(json: any){
+			this.first = json.first;
+			this.latest = json.latest;
+			this.count = json.count;
+		  }
+
 }
