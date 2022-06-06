@@ -77,7 +77,7 @@ const Navbar = () => {
                     )}
 
                     {user.rol == "CREADOR" ? (
-                      <Link href="/">
+                      <Link href="/creador/perfilCreador">
                         <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                           <i className="fa-solid fa-bookmark pr-1"></i>
                           Creados
