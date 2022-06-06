@@ -86,11 +86,12 @@ export class BinarySearchTree<T> {
                     root.height = this.getHeight(root)
                 }
             }
-            return root
-        }
-        if (!this.root) {
+            return root;
+        }else {
             throw new Error("Árbol vacío. Imposible eliminar.");
+            return null;
         }
+
         this.root = this.remove(data, this.root)
     }
 
