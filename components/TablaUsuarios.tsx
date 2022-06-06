@@ -18,7 +18,9 @@ const TablaUsuarios = () => {
 
   const eliminarUsuario=(index:any)=>{
     var index2 = parseInt(index);
-    //setListaUsuarios(listaUsuarios.remove(index2));
+    var list2 = listaUsuarios;
+    list2.remove(index2);
+    setListaUsuarios(list2);
     console.log("eliminado");
     console.log(listaUsuarios);
   }

@@ -1,18 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ToastContainer } from 'react-toastify';
 import { useUser } from '../contexts/user';
 
 const Perfil = () => {
-    const {user, setUser} = useUser();
+
+  const {user, setUser} = useUser();
+  const [edit, setEdit] = useState(false);
+  const [nombre, setNombre] = useState(user.nombre);
+  const [usuario, setUsuario] = useState(user.user);
+  const [correo, setCorreo] = useState(user.correo);
 
   return (
     <div className="md:w-96 w-2/4 bg-azul-light rounded-3xl">
       <div className="form">
         <h1 className="">Perfil</h1>
         <div className="">
-          <label className="">Nombre</label>
+          {edit?(
+            <>
+            <label className="">Nombre</label>
           <input
-            id="nombre"
+            value = {nombre}
+            onChange = {(e) =>{
+              setNombre(e.target.value);
+            }} 
+            type="text"
+            placeholder= {nombre}
+            className=""
+          />        
+          <label className="">Usuario</label>
+          <input
+            value = {usuario}
+            onChange = {(e) =>{
+              setUsuario(e.target.value);
+            }} 
+            type="text"
+            placeholder= {usuario}
+            className=""
+          />     
+          <label className="">Correo</label>
+          <input
+            value = {correo}
+            onChange = {(e) =>{
+              setCorreo(e.target.value);
+            }} 
+            type="text"
+            placeholder= {correo}
+            className=""
+          />   
+            </>
+          ):(
+            <>
+            <label className="">Nombre</label>
+          <input
             value = {user.nombre}
             /* onChange = {(e) =>{
               setUser1(e.target.value);
@@ -24,7 +63,6 @@ const Perfil = () => {
           />        
           <label className="">Usuario</label>
           <input
-            id="usuario"
             value = {user.user}
             /* onChange = {(e) =>{
               setUser1(e.target.value);
@@ -36,7 +74,6 @@ const Perfil = () => {
           />     
           <label className="">Correo</label>
           <input
-            id="correo"
             value = {user.correo}
             /* onChange = {(e) =>{
               setUser1(e.target.value);
@@ -46,9 +83,11 @@ const Perfil = () => {
             className=""
             disabled
           />   
+            </>
+          )}
+          
           <label className="">Rol</label>
           <input
-            id="rol"
             value = {user.rol}
             /* onChange = {(e) =>{
               setUser1(e.target.value);
@@ -59,7 +98,7 @@ const Perfil = () => {
             disabled
           />                  
         </div>
-        <button className="bg-azul mt-6 mb-2" /* onClick={() => autent(user1,password)} */> 
+        <button className="bg-azul mt-6 mb-2"  onClick={() => setEdit(true)} > 
           Editar
         </button>
       </div>
