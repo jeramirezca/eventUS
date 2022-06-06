@@ -35,7 +35,7 @@ const Login = () => {
   const autent = (user: String, contrasena: String) =>{
     var aux = listaUsuarios.first;
     while (aux != null){
-      if (aux.data?.nombre == user){
+      if (aux.data?.user == user){
         if(aux.data?.contrasena == contrasena){
           console.log("autorizado");
           setUser(aux.data);
