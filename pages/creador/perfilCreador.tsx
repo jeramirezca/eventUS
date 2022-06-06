@@ -17,7 +17,7 @@ const perfil = () => {
 
   let mar = new Estudiante("1234","marx","marx","marx@hotmail","marx","holi");
   let creador_prueba = new Creador("29292","juan carlos","unu123","ajaja@gmail.com","12345",true,"ingenieria");
-  let ev_prueba = new Evento("2929jsj","juernes","2022","2023","lugar","este es un evento de prueba, descripcion xd",creador_prueba,"ingenieria",mar);
+  let ev_prueba = new Evento("2929jsj","juernes",new Date(2022),new Date(2023),"lugar","este es un evento de prueba, descripcion xd",creador_prueba,"ingenieria",mar);
   return (
     <>
       <Head>
