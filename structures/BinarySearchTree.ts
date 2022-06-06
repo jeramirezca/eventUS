@@ -3,38 +3,44 @@ export class node<T> {
     right: node<T>|null
     left: node<T>|null
     height: number
+    posicion:number
 
-    constructor(data:T) {
+    constructor(data:T, posicion:number) {
         this.data = data
         this.right = null
         this.left = null
         this.height = 0
+        this.posicion=posicion
+
     }
 }
 
 export class BinarySearchTree<T> {
     root: node<T>|null
-
+    listaEventos:Array<T>;
     constructor() {
         this.root = null
+        this.listaEventos= new Array<T>();
     }
 
-    protected insert2 = (data: T, root: node<T>|null): node<T> | null => {
+    protected insert2 = (data: T, root: node<T>|null,posicion:number): node<T> | null => {
         if (!root) {
-            return new node<T>(data)
+            return new node<T>(data,posicion)
         }
-        if (data > root.data!) {
-            root.right = this.insert2(data, root.right)
+        if (data> root.data!) {
+            root.right = this.insert2(data, root.right,posicion)
         }
         else if (data < root.data!) {
-            root.left = this.insert2(data, root.left)
+            root.left = this.insert2(data, root.left,posicion)
         }
         root.height = this.getHeight(root)
         return root
     }
 
-    insert = (data: T): void => {
-        this.root = this.insert2(data, this.root)
+    insert = (data: T, posicion:number): void => {
+        this.listaEventos.push(data);
+        
+        this.root = this.insert2(data, this.root, posicion)
     }
 
     findMin = (ref?: node<T>|null): T | null => {
@@ -95,7 +101,7 @@ export class BinarySearchTree<T> {
         this.root = this.remove(data, this.root)
     }
 
-    search = (data: T, root?: node<T>): node<T> => {
+    search = (data: T, root?: node<T>): number => {
         if (!root) {
             if (!this.root) {
                 throw new Error("Árbol vacío.");
@@ -103,7 +109,7 @@ export class BinarySearchTree<T> {
             return this.search(data, this.root)
         }
         if (data == root.data) {
-            return root
+            return root.posicion
         }
         else if (data > root.data! && root.right) {
             return this.search(data, root.right)

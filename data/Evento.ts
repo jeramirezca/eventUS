@@ -3,7 +3,7 @@ import { Estudiante } from "./Estudiante";
 import { Usuario } from "./Usuario";
 
 export class Evento {
-    private id:string;
+    private id:number;
     private nombre:string;
     private fechaInicio:string; //Date
     private fechaFinal:string; //Date
@@ -18,7 +18,7 @@ export class Evento {
 
 	//Constructor
 
-    constructor(id:string , nombre:string, fechaInicio:string, fechaFinal:string,lugar:string, descripcion:string,
+    constructor(id:number , nombre:string, fechaInicio:string, fechaFinal:string,lugar:string, descripcion:string,
 			creador:Creador, facultad:string, proponente:Estudiante, aforo?:number, etiquetas?:string[]) {
 		
 		this.id = id;
@@ -49,10 +49,10 @@ export class Evento {
 		this.proponente = proponente;
 	}
     
-	public getId():string{
+	public getId():number{
 		return this.id;
 	}
-	public setId(id:string):void {
+	public setId(id:number):void {
 		this.id = id;
 	}
 	public getNombre():string {

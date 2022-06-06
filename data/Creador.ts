@@ -49,7 +49,7 @@ export class Creador extends Usuario {
 
     //Metodos
 
-    public crearEvento(id:string , nombre:string, fechaInicio:string, fechaFinal:string,lugar:string, descripcion:string,
+    public crearEvento(id:number , nombre:string, fechaInicio:string, fechaFinal:string,lugar:string, descripcion:string,
         creador:Creador, facultad:string):boolean {
         let  creado:boolean = false;
         if(id != null && nombre !=null && fechaInicio !=null && fechaFinal!=null && descripcion != null &&facultad !=null){
