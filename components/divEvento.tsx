@@ -1,10 +1,10 @@
 import React from 'react'
 import Link from 'next/link';
 import { Evento } from '../data/Evento';
-
+type E ={E:Evento};
 let abierto = false;
-const espacio_desc = document.getElementById('deOc');
-const DivEvento = (E:Evento) => {
+
+const DivEvento = ({E}:E) => {
   return (
     <>
     <div className='mostrarEvento'>
@@ -21,7 +21,7 @@ const DivEvento = (E:Evento) => {
 }
 
 function mostrarDescripcion():void{
-    
+    const espacio_desc = document.getElementById('deOc');
     if(abierto==false) {
         espacio_desc!.style.display = "block";
         abierto = true;

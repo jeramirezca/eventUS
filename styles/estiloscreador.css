@@ -65,16 +65,59 @@
     border-radius: 1%;
     border: 1px black solid;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     flex-direction: row;
 }
 
+.mostrarEvento>button {
+    margin-left: 4%;
+}
+
+.mostrarEvento :nth-child(4) {
+    background-color: red;
+}
+
+.mostrarEvento :nth-child(3) {
+    background-color: green;
+}
+
 .descripcionOculta {
+    margin: auto;
+    display: none;
+    background-color: rgb(201, 249, 179);
+    width: fit-content;
+    height: fit-content;
+    z-index: 2;
+    left: 50%;
+    top: 40%;
+    position: fixed;
+    border-radius: 3px;
+    border: 3px dotted gray;
+}
+
+.descripcionOculta>p {
+    padding: 2%;
+}
+
+.descripcionOculta2>p {
+    padding: 2%;
+}
+
+.descripcionOculta2 {
+    margin: auto;
     display: none;
     width: fit-content;
     height: fit-content;
     z-index: 2;
-    position: relative;
+    left: 60%;
+    background-color: rgb(237, 249, 179);
+    top: 60%;
+    position: fixed;
+    position: block;
     border-radius: 3px;
     border: 1px dotted gray;
+}
+
+.mostrarEvento>p {
+    padding: 2%;
 }
