@@ -49,7 +49,7 @@ export class Creador extends Usuario {
 
     //Metodos
 
-    public crearEvento(id:string , nombre:string, fechaInicio:string, fechaFinal:string,lugar:string, descripcion:string,
+    public crearEvento(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
         creador:Creador, facultad:string):boolean {
         let  creado:boolean = false;
         if(id != null && nombre !=null && fechaInicio !=null && fechaFinal!=null && descripcion != null &&facultad !=null){
@@ -61,7 +61,7 @@ export class Creador extends Usuario {
 
     }
 
-    public editarEvento(fechaNuevaIn:string, fechaNuevaFin:string, nuevoLugar:string, e:Evento):Evento {
+    public editarEvento(fechaNuevaIn:Date, fechaNuevaFin:Date, nuevoLugar:string, e:Evento):Evento {
         e.setFechaFinal(fechaNuevaFin);
         e.setFechaInicio(fechaNuevaIn);
         e.setLugar(nuevoLugar);

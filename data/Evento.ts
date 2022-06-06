@@ -61,18 +61,18 @@ export class Evento {
 	public setNombre(nombre:string):void {
 		this.nombre = nombre;
 	}
-	/* public getFechaInicio():string {
+	 public getFechaInicio():Date {
 		return this.fechaInicio;
 	}
-	public setFechaInicio(fechaInicio:string):void {
+	public setFechaInicio(fechaInicio:Date):void {
 		this.fechaInicio = fechaInicio;
 	}
-	public getFechaFinal():string {
+	public getFechaFinal():Date {
 		return this.fechaFinal;
 	}
-	public setFechaFinal(fechaFinal:string):void {
+	public setFechaFinal(fechaFinal:Date):void {
 		this.fechaFinal = fechaFinal;
-	} */
+	} 
 	public getLugar(): String  {
 		return this.lugar;
 	}
