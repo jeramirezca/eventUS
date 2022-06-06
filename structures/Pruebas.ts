@@ -2,6 +2,7 @@ import { Usuario } from "../data/Usuario";
 import { LinkedRef } from "./LinkedRef";
 import { Administrador } from '../data/Administrador';
 import { Estudiante } from '../data/Estudiante';
+import { Evento} from "../data/Evento";
 
 export const pruebas = () =>{
     let juan = new Usuario("123","juan", "juan","juanito@hotmail","juan",true)
@@ -10,7 +11,7 @@ export const pruebas = () =>{
     let yen = new Administrador("12345","anton2","anton2","anton@hotmail","anton",false)
     let yy = new Administrador("12345","anton3","anton3","anton@hotmail","anton",false)
     let jd = new Administrador("12345","anton4","anton4","anton@hotmail","anton",false)
-
+    
 
     let ListaUsuarios = new LinkedRef<Usuario>;
     ListaUsuarios.addLatest(juan);
