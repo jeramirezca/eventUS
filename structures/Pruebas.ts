@@ -15,7 +15,7 @@ export const pruebas = () =>{
     let creador_prueba = new Creador("29292","juan carlos","unu123","ajaja@gmail.com","12345",true,"ingenieria");
     let ev_prueba = new Evento("2929jsj","evento de prueba",new Date(2022),new Date(2023),"lugar","este es un evento de prueba, descripcion xd",creador_prueba,"ingenieria",mar);
     
-
+   
     let ListaUsuarios = new LinkedRef<Usuario>;
     ListaUsuarios.addLatest(juan);
     ListaUsuarios.addLatest(mar);

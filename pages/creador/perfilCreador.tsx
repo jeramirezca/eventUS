@@ -10,14 +10,39 @@ import { pruebas } from '../../structures/Pruebas';
 import { Estudiante } from '../../data/Estudiante';
 import { Creador } from '../../data/Creador';
 import { Usuario } from '../../data/Usuario';
+import { useUser } from '../../contexts/user';
+import { LinkedRef } from '../../structures/LinkedRef';
+import { QueueRef } from '../../structures/QueueRef';
 
 
 
 const perfil = () => {
 
-  let mar = new Estudiante("1234","marx","marx","marx@hotmail","marx","holi");
-  let creador_prueba = new Creador("29292","juan carlos","unu123","ajaja@gmail.com","12345",true,"ingenieria");
-  let ev_prueba = new Evento("2929jsj","juernes",new Date(2022),new Date(2023),"lugar","este es un evento de prueba, descripcion xd",creador_prueba,"ingenieria",mar);
+  const {user, setUser} = useUser();
+  let _user = user as Creador;
+  let listaDelCreador:LinkedRef<Evento> = _user.getEventosCreados();
+  let colaDelCreador:QueueRef<Evento> = _user.getPropuestasEventos();
+  colaDelCreador as QueueRef<Evento>;
+  //convertir a a array
+  function convertirArray(l:LinkedRef<Evento>):Evento[]{
+      let e:Evento[] = [];
+      for(let i=0; i<l.size();i++){
+        e.push(l.get(i) as Evento);
+      }
+      return e;
+    
+  }
+
+  function obtenerCola(q:QueueRef<Evento>){
+    for(let j=0; j<colaDelCreador.size();j++){
+      const e :Evento = colaDelCreador.dequeue() as Evento;
+      <DivPropuesta E={e}></DivPropuesta>             
+    }
+  }
+
+
+  let eventosArray = convertirArray(listaDelCreador); 
+  
   return (
     <>
       <Head>
@@ -31,12 +56,10 @@ const perfil = () => {
                 <div className='cajaIzquierda'>
                   Ultimos eventos creados
                 <br></br>
-                <DivEvento E={ev_prueba}></DivEvento>
-                <DivEvento E={ev_prueba}></DivEvento>
-                <DivEvento E={ev_prueba}></DivEvento>
-                <DivEvento E={ev_prueba}></DivEvento>
-                <DivEvento E={ev_prueba}></DivEvento>
-                <DivEvento E={ev_prueba}></DivEvento>
+                  {
+                    eventosArray.map((e:Evento) => (<DivEvento E={e}></DivEvento>))
+                   //y que dios me perdone por lo que voy a hacer 
+                  }
                 </div>
                 <div className='cajaIzquierda'>
                   <button>Crear un evento</button>
@@ -66,13 +89,10 @@ const perfil = () => {
                 <br></br>
                 <p>Los siguientes eventos han sido propuestos por algun estudiante, por favor revisalas:</p>
                 <br></br>
-                <DivPropuesta E={ev_prueba}></DivPropuesta>
-                <DivPropuesta E={ev_prueba}></DivPropuesta>
-                <DivPropuesta E={ev_prueba}></DivPropuesta>
-                <DivPropuesta E={ev_prueba}></DivPropuesta>
-                <DivPropuesta E={ev_prueba}></DivPropuesta>
-                <DivPropuesta E={ev_prueba}></DivPropuesta>
-                <DivPropuesta E={ev_prueba}></DivPropuesta>
+                
+                 obtenerCola()
+                
+         
               </section>
 
             </PerfilCrea>
