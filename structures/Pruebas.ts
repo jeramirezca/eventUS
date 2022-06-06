@@ -23,6 +23,7 @@ export const pruebas = () =>{
     ListaUsuarios.addLatest(yen);
     ListaUsuarios.addLatest(yy);
     ListaUsuarios.addLatest(jd);
+    ListaUsuarios.addLatest(creador_prueba);
     //ListaUsuarios.remove(1);
     return ListaUsuarios;
 }
