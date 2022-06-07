@@ -48,7 +48,7 @@ const Eventos = () => {
       list.push(
         <tr> 
           <td>{aux?.nombre}</td>
-          <td>{aux?.getFechaInicio.toString()}</td>
+          <td>"{index+2}/08/2022"</td>
           <td>{aux?.lugar}</td>
           <td>{aux?.creador.nombre}</td>
           <td>{aux?.facultad}</td>
