@@ -1,6 +1,7 @@
 import React, { FormEventHandler, useEffect, useState } from 'react'
 import Link from 'next/link';
 import { useListEvents } from '../contexts/events';
+import { useArbol } from '../contexts/arbols';
 
 type Profile={
   nombre:string;
@@ -8,6 +9,7 @@ type Profile={
 }
 
 const Eventos = () => {
+  const {arbol, setArbol} = useArbol();
   const {listaEventos, setListaEventos} = useListEvents();
   const [searchNombre, setSearchNombre] = useState("");
   const [paramSearch, setParamSearch] = useState("");
@@ -28,8 +30,8 @@ const Eventos = () => {
   var list = [];
   let index = 0;
 
-  while(index < listaEventos.length()){
-    var aux = auxn.data;
+  while(index < listaEventos.length){
+     var aux = listaEventos[index];
     let param = search.toUpperCase(); 
     if(paramSearch== "NOMBRE"){
       param = aux?.nombre.toUpperCase(); 
@@ -37,18 +39,20 @@ const Eventos = () => {
       param = aux?.lugar.toUpperCase(); 
     }else if(paramSearch== "FECHA"){
       param = aux?.fechaInicio.toString().toUpperCase(); 
-    }else if(paramSearch== "CREADOR"){
+    }else if(paramSearch== "FACULTAD"){
+      param = aux?.facultad.toUpperCase(); 
+    } else if(paramSearch== "CREADOR"){
       param = aux?.creador.nombre.toUpperCase(); 
-    }
+    } 
     if (param.includes(search.toUpperCase())){
       list.push(
         <tr> 
           <td>{aux?.nombre}</td>
-          <td>{aux?.getFechaInicio.toString()}</td>
+          <td>"{index+2}/08/2022"</td>
           <td>{aux?.lugar}</td>
           <td>{aux?.creador.nombre}</td>
           <td>{aux?.facultad}</td>
-          <td>{aux?.etiquetas}</td>
+          <td>{aux?.etiquetas.toString()}</td>
           <td className="iconosTabla">
             <button aria-label="ver">
               <i className="fa-solid fa-eye"></i>
@@ -56,13 +60,12 @@ const Eventos = () => {
           </td>
           <td className="iconosTabla">
             <button aria-label="guardar" id={index.toString()} onClick={()=>{console.log("guardado")}}>
-              <i className="fa-solid fa-trash-can"></i>
+              <i className="fa-solid fa-bookmark"></i>
             </button>
           </td>
         </tr>
       );
     }
-    auxn = auxn.next;
     index+=1;
   }  
   
@@ -79,6 +82,7 @@ const Eventos = () => {
               <option value="NOMBRE"> nombre </option>
               <option value="LUGAR"> lugar </option>
               <option value="FECHA"> etiqueta </option>
+              <option value="FACULTAD"> facultad </option>
             </select>  
           <input 
           className = "mr-2" 
@@ -106,15 +110,15 @@ const Eventos = () => {
                 <th className="th1 bg-azul">FACULTAD</th>
                 <th className="th1 bg-azul">ETIQUETAS</th>
                 <th className="bg-azul">
-                  <span>Editar</span>
+                  <span>Ver</span>
                 </th>
                 <th className="bg-azul h-l">
-                  <span>Eliminar</span>
+                  <span>Guardar</span>
                 </th>
               </tr>
             </thead>
             <tbody>          
-                {/* {list} */}
+                {list} 
             </tbody>
           </table>
         </div>

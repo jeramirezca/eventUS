@@ -16,12 +16,14 @@ import { pruebas } from '../structures/Pruebas'
 import { Usuario } from '../data/Usuario';
 import { ListEventsContext } from '../contexts/events'
 import { pruebasEventos } from '../structures/PruebasEventos'
+import { pruebasArbol } from '../structures/PruebasEventos';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
   
   const [listaUsuarios, setListaUsuarios] = useState(pruebas());
   const [listaEventos, setListaEventos] = useState(pruebasEventos());
+  const [arbol,setArbol] = useState(pruebasArbol());
   const [user, setUser] = useState(new Usuario("","","","","",false));
   const [auth, setAuth] = useState(false);
 
