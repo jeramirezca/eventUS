@@ -2,6 +2,7 @@
 exports.__esModule = true;
 exports.Notificacion = void 0;
 var Notificacion = /** @class */ (function () {
+    //public toJSON : string;
     //Constructor
     function Notificacion(i, f, d) {
         this.fromJSON = function (json) {
@@ -16,7 +17,7 @@ var Notificacion = /** @class */ (function () {
         else {
             this.descripcion = "este evento no tiene descripcion";
         }
-        this.toJSON = JSON.stringify(this);
+        //this.toJSON = JSON.stringify(this);
     }
     Notificacion.prototype.getId = function () {
         return this.id;

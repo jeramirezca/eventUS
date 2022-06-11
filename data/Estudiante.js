@@ -21,6 +21,7 @@ var QueueRef_1 = require("../structures/QueueRef");
 var Usuario_1 = require("./Usuario");
 var Estudiante = /** @class */ (function (_super) {
     __extends(Estudiante, _super);
+    //public toJSON : string;
     // CONSTRUCTORES
     function Estudiante(id, nombre, user, correo, contrasena, programaEstudio) {
         var _this = _super.call(this, id, nombre, user, correo, contrasena, true) || this;
@@ -38,9 +39,54 @@ var Estudiante = /** @class */ (function (_super) {
         _this.notificacionesPendientes = new QueueRef_1.QueueRef();
         _this.programaEstudio = programaEstudio;
         _this.rol = "ESTUDIANTE";
-        _this.toJSON = JSON.stringify(_this);
         return _this;
+        //this.toJSON = JSON.stringify(this);
     }
+    Estudiante.prototype.toJSON = function () {
+        var _a, _b;
+        var auxNotificaiones = this.getNotificacionesPendientes();
+        var notPendientes = "[";
+        var i = 0;
+        for (i; i < auxNotificaiones.size(); i++) {
+            notPendientes += JSON.stringify(auxNotificaiones.first());
+            notPendientes += ',';
+            auxNotificaiones.enqueue(auxNotificaiones.first());
+            auxNotificaiones.dequeue();
+        }
+        notPendientes += ']';
+        var auxEventGuardados = this.getEventosGuardados();
+        var eventosGuardados = "[";
+        var j = 0;
+        for (j; j < auxEventGuardados.size(); i++) {
+            eventosGuardados += (_a = auxEventGuardados.getFirst()) === null || _a === void 0 ? void 0 : _a.toJSON();
+            eventosGuardados += ',';
+            auxEventGuardados.addLatest(auxEventGuardados.getFirst());
+            auxEventGuardados.removeFirst();
+        }
+        eventosGuardados += ']';
+        var auxEventPendientes = this.getEventosPropuestos();
+        var eventPendientes = "[";
+        var k = 0;
+        for (k; k < auxEventPendientes.size(); i++) {
+            eventPendientes += (_b = auxEventPendientes.getFirst()) === null || _b === void 0 ? void 0 : _b.toJSON();
+            eventPendientes += ',';
+            auxEventPendientes.addLatest(auxEventGuardados.getFirst());
+            auxEventPendientes.removeFirst();
+        }
+        eventPendientes += ']';
+        var estudiante = '{' +
+            '"rol":"' + this.rol + '",' +
+            '"id":"' + this.getId() + '",' +
+            '"nombre":"' + this.getNombre() + '",' +
+            '"correo":"' + this.getCorreo() + '",' +
+            '"autorizado":' + this.getAutorizado() + ',' +
+            '"programaEstudio":"' + this.getProgramaEstudio() + '",' +
+            /*'"notificacionesPendientes":'+ notPendientes +',' +
+            '"eventosGuardados":'+ eventosGuardados +',' +
+            '"eventosPendientes":'+ eventPendientes +*/
+            '}';
+        return estudiante;
+    };
     //GETTERS AND SETTERS
     Estudiante.prototype.getNotificacionesPendientes = function () {
         return this.notificacionesPendientes;

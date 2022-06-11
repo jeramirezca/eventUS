@@ -5,6 +5,7 @@ var Creador_1 = require("../data/Creador");
 var Estudiante_1 = require("../data/Estudiante");
 var Evento_1 = require("../data/Evento");
 var Administrador_1 = require("../data/Administrador");
+var Notificacion_1 = require("../data/Notificacion");
 /*import fsPromises from 'fs/promises';
 import path from 'path';
 
@@ -28,13 +29,28 @@ var CargarDatos = /** @class */ (function () {
         var evento3 = new Evento_1.Evento("Ev03", "Evento 3", new Date("2019-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), 3, ["et1", "et2", "et3", "et4", "et5"]);
         var evento4 = new Evento_1.Evento("Ev04", "Evento 4", new Date("2020-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), 3, ["et1", "et2", "et3", "et4", "et5"]);
         var evento5 = new Evento_1.Evento("Ev05", "Evento 5", new Date("2021-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), 3, ["et1", "et2", "et3", "et4", "et5"]);
-        /*let listaAux : LinkedRef<Evento> = user1.getEventosGuardados();
+        var listaAux = user1.getEventosGuardados();
         listaAux.addLatest(evento1);
-        listaAux.addLatest(evento2);
-        listaAux.addLatest(evento3);
-        user1.setEventosGuardados(listaAux);*/
+        //listaAux.addLatest(evento2);
+        //listaAux.addLatest(evento3);
+        //user1.setEventosGuardados(listaAux);
+        var listaAux2 = user1.getEventosPropuestos();
+        listaAux2.addLatest(evento2);
+        listaAux2.addLatest(evento1);
+        //user1.setEventosPropuestos(listaAux2);
+        var cola = user1.getNotificacionesPendientes();
+        var not = new Notificacion_1.Notificacion("01", new Date(1234), "descripcion de notificaicon 1");
+        var not2 = new Notificacion_1.Notificacion("02", new Date(1234), "descripcion de notificaicon 2");
+        var not3 = new Notificacion_1.Notificacion("03", new Date(1234), "descripcion de notificaicon 3");
+        var not4 = new Notificacion_1.Notificacion("04", new Date(1234), "descripcion de notificaicon 4");
+        cola.enqueue(not);
+        cola.enqueue(not4);
+        cola.enqueue(not2);
+        cola.enqueue(not3);
+        //user1.setNotificacionesPendientes(cola);
         //userCrea1.setEventosCreados(userCrea1.getEventosCreados()!.addLatest(evento1)!);
-        console.log(JSON.stringify(user1));
+        //console.log(JSON.stringify(user1));
+        console.log(user1.toJSON());
         console.log("*******************************************");
         //console.log(user1.toJSON());
         /*console.log("BIenvenido")

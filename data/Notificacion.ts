@@ -2,7 +2,7 @@ export class Notificacion {
     private id:string;
     public fecha:Date;
     private descripcion?:string;
-	public toJSON : string;
+	//public toJSON : string;
     
     //Constructor
 
@@ -14,7 +14,7 @@ export class Notificacion {
         }else{
             this.descripcion="este evento no tiene descripcion";
         }
-        this.toJSON = JSON.stringify(this);
+        //this.toJSON = JSON.stringify(this);
     }
     public getId():string{
         return this.id;

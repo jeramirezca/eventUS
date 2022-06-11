@@ -2,6 +2,7 @@
 exports.__esModule = true;
 exports.Evento = void 0;
 var Evento = /** @class */ (function () {
+    //public toJSON : string;
     //Constructor
     function Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion, idCreador, facultad, idProponente, aforo, etiquetas) {
         this.fromJSON = function (json) {
@@ -25,8 +26,25 @@ var Evento = /** @class */ (function () {
         else {
             this.etiquetas = new Array();
         }
-        this.toJSON = JSON.stringify(this);
+        //this.toJSON = JSON.stringify(this);
     }
+    Evento.prototype.toJSON = function () {
+        var evento = '{' +
+            '"id":"' + this.getId() + '",' +
+            '"nombre":"' + this.getNombre() + '",' +
+            '"fechaInicio":"' + this.getFechaInicio().toString() + '",' +
+            '"fechaFinal":"' + this.getFechaFinal().toString() + '",' +
+            '"lugar":' + this.getLugar() + ',' +
+            '"descripcion":"' + this.getDescripcion() + '",' +
+            '"facultad":"' + this.getFacultad() + '",' +
+            '"idCreador":"' + this.getCreador() + '",' +
+            '"idProponente":"' + this.getProponente() + '",' +
+            '"estado":' + this.getEstado() + ',' +
+            '"aforo":' + this.getAforo() + ',' +
+            '"etiquetas":' + this.getEtiquetas() +
+            '}';
+        return evento;
+    };
     //Setters y getters
     Evento.prototype.getProponente = function () {
         return this.idProponente;

@@ -16,7 +16,7 @@ export class Evento {
     public aforo?:number;
     public etiquetas: string[];
 
-	public toJSON : string;
+	//public toJSON : string;
 	
 	//Constructor
 
@@ -39,8 +39,27 @@ export class Evento {
         }else{
             this.etiquetas=new Array();
         }
-        this.toJSON = JSON.stringify(this);
+        //this.toJSON = JSON.stringify(this);
 	}
+
+	public toJSON(): string{
+		let evento = '{'+
+		'"id":"'+ this.getId() +'",'+
+		'"nombre":"'+ this.getNombre() +'",'+
+		'"fechaInicio":"'+ this.getFechaInicio().toString() +'",'+
+		'"fechaFinal":"'+ this.getFechaFinal().toString() +'",'+
+		'"lugar":'+ this.getLugar() +',' +
+		'"descripcion":"'+ this.getDescripcion() +'",' +
+		'"facultad":"'+ this.getFacultad() +'",' +
+		'"idCreador":"'+ this.getCreador() +'",' +
+		'"idProponente":"'+ this.getProponente() +'",' +
+		'"estado":'+ this.getEstado() +',' +
+		'"aforo":'+ this.getAforo() +',' +
+		'"etiquetas":'+ this.getEtiquetas() +
+		'}' ;
+		return evento;
+	}
+
 	//Setters y getters
 
 	public  getProponente():string {

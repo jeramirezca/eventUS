@@ -9,7 +9,7 @@ export class Estudiante extends Usuario{
     private eventosGuardados:LinkedRef<Evento>;
     private eventosPropuestos:LinkedRef<Evento>;
     private notificacionesPendientes:QueueRef<Notificacion>;
-	public toJSON : string;
+	//public toJSON : string;
 
     // CONSTRUCTORES
     
@@ -21,9 +21,56 @@ export class Estudiante extends Usuario{
         this.notificacionesPendientes=new QueueRef<Notificacion>();
         this.programaEstudio=programaEstudio;
         this.rol = "ESTUDIANTE"
-        this.toJSON = JSON.stringify(this);
+        //this.toJSON = JSON.stringify(this);
     }
 
+    public toJSON (): string {
+        let auxNotificaiones : QueueRef<Notificacion> = this.getNotificacionesPendientes();
+        let notPendientes : string = "[";
+        let i: number = 0;
+        for ( i ; i < auxNotificaiones.size(); i++) {
+            notPendientes += JSON.stringify(auxNotificaiones.first())
+            notPendientes += ',';
+            auxNotificaiones.enqueue(auxNotificaiones.first()!);
+            auxNotificaiones.dequeue();
+        }
+        notPendientes += ']';
+
+        let auxEventGuardados : LinkedRef<Evento> = this.getEventosGuardados();
+        let eventosGuardados : string = "[";
+        let j: number = 0;
+        for ( j ; j < auxEventGuardados.size(); i++) {
+            eventosGuardados += auxEventGuardados.getFirst()?.toJSON() ;
+            eventosGuardados += ',';
+            auxEventGuardados.addLatest(auxEventGuardados.getFirst()!);
+            auxEventGuardados.removeFirst();
+        }
+        eventosGuardados += ']';
+        
+        let auxEventPendientes : LinkedRef<Evento> = this.getEventosPropuestos();
+        let eventPendientes : string = "[";
+        let k: number = 0;
+        for ( k ; k < auxEventPendientes.size(); i++) {
+            eventPendientes += auxEventPendientes.getFirst()?.toJSON() ; 
+            eventPendientes += ',';
+            auxEventPendientes.addLatest(auxEventGuardados.getFirst()!);
+            auxEventPendientes.removeFirst();
+        }
+        eventPendientes += ']';
+        
+        let estudiante = '{'+
+        '"rol":"'+ this.rol +'",'+
+        '"id":"'+ this.getId() +'",'+
+        '"nombre":"'+ this.getNombre() +'",'+
+        '"correo":"'+ this.getCorreo() +'",'+
+        '"autorizado":'+ this.getAutorizado() +',' +
+        '"programaEstudio":"'+ this.getProgramaEstudio() +'",' +
+        /*'"notificacionesPendientes":'+ notPendientes +',' +
+        '"eventosGuardados":'+ eventosGuardados +',' +
+        '"eventosPendientes":'+ eventPendientes +*/
+        '}' ;
+        return estudiante;
+    }
     //GETTERS AND SETTERS
     
     public  getNotificacionesPendientes():QueueRef<Notificacion> {
