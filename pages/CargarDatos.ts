@@ -33,11 +33,11 @@ export class CargarDatos {
         let evento4 : Evento = new Evento("Ev04","Evento 4",new Date("2020-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),3,["et1","et2","et3","et4","et5"]);
         let evento5 : Evento = new Evento("Ev05","Evento 5",new Date("2021-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),3,["et1","et2","et3","et4","et5"]);
         
-        let listaAux : LinkedRef<Evento> = user1.getEventosGuardados();
+        /*let listaAux : LinkedRef<Evento> = user1.getEventosGuardados();
         listaAux.addLatest(evento1);
         listaAux.addLatest(evento2);
         listaAux.addLatest(evento3);
-        user1.setEventosGuardados(listaAux);
+        user1.setEventosGuardados(listaAux);*/
         //userCrea1.setEventosCreados(userCrea1.getEventosCreados()!.addLatest(evento1)!);
     console.log(JSON.stringify(user1));
     console.log("*******************************************");  

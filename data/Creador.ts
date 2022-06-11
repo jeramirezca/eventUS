@@ -20,10 +20,6 @@ export class Creador extends Usuario {
         this.dependenciaAdmin = dep;                 
         this.rol = "CREADOR"
     }
-    
-    public toJSON():string{
-        return JSON.stringify(this);
-    }
 
     //Getters y Setters
     
@@ -126,7 +122,7 @@ export class Creador extends Usuario {
        /*let user:Usuario = rechazado.getProponente();
        user.getNotificaciones().push(new Notificacion(user.getId(), rechazado.getFechaInicio(), "tu evento fue rechazado: ' "+ rechazado.getNombre()+" '"));
        */
-
+      
         //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
 
     }

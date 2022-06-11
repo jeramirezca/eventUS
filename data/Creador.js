@@ -32,9 +32,6 @@ var Creador = /** @class */ (function (_super) {
         _this.rol = "CREADOR";
         return _this;
     }
-    Creador.prototype.toJSON = function () {
-        return JSON.stringify(this);
-    };
     //Getters y Setters
     Creador.prototype.getEventosCreados = function () {
         return this.eventosCreados;

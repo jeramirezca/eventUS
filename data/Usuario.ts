@@ -33,12 +33,9 @@ export class Usuario{
         this.contrasena = contrasena;
         this.autorizado = autorizado;
         this.notificaciones = new StackRef<Notificacion>();
+        this.rol = "";
     }
 
-    public toJSON():string{
-        return JSON.stringify(this);
-    }
-    
     // getters and setters
     public getId():string {
         return this.id;

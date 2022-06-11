@@ -18,11 +18,11 @@ export class Administrador extends Usuario {
         this.usuariosVerificar=new QueueRef<Usuario>();
         this.usuariosRegistrados=new LinkedRef<Usuario>();
     }
-
+/*
     public toJSON():string{
         return JSON.stringify(this);
     }
-    
+    */
     //Getters y Setters
 
     public static  getUsuariosVerificar():QueueRef<Usuario>{

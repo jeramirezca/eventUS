@@ -38,11 +38,9 @@ var Estudiante = /** @class */ (function (_super) {
         _this.notificacionesPendientes = new QueueRef_1.QueueRef();
         _this.programaEstudio = programaEstudio;
         _this.rol = "ESTUDIANTE";
+        _this.toJSON = JSON.stringify(_this);
         return _this;
     }
-    /*public toJSON():string{
-        return JSON.stringify(this);
-    }*/
     //GETTERS AND SETTERS
     Estudiante.prototype.getNotificacionesPendientes = function () {
         return this.notificacionesPendientes;
