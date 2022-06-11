@@ -18,20 +18,20 @@ export async function getStaticProps() {
   }
 }*/
 export class CargarDatos {
-    static admin1 : Administrador = new Administrador("01","Administrador principal", "correo@unal.edu.co","admin123",true);
+    static admin1 : Administrador = new Administrador("01","Administrador principal", "correo@unal.edu.co","ADMINISTRADOR","admin123",true);
 
     constructor (){
-        let user1 : Estudiante = new Estudiante ("E01","Yenifer Mora","ymoras@unal.edu.co","Yenifer123","Ingenieria de Sistemas");
-        let user2 : Estudiante = new Estudiante ("E02","Laura Mora","lmoras@unal.edu.co","Laura123","Ingenieria de Sistemas");
+        let user1 : Estudiante = new Estudiante ("E01","Yenifer Mora","ymoras@unal.edu.co","ESTUDIANTE","Yenifer123","Ingenieria de Sistemas");
+        let user2 : Estudiante = new Estudiante ("E02","Laura Mora","lmoras@unal.edu.co","ESTUDIANTE","Laura123","Ingenieria de Sistemas");
         
-        let userCrea1 : Creador = new Creador("C01","creador prog. Sistemas","sistemas@unal.edu.co","creador123",true,"Sistemas");
-        let userCrea2 : Creador = new Creador("C02","creador prog. Sistemas","sistemas@unal.edu.co","creador123",true,"Sistemas");
+        let userCrea1 : Creador = new Creador("C01","creador prog. Sistemas","sistemas@unal.edu.co","CREADOR","creador123",true,"Sistemas");
+        let userCrea2 : Creador = new Creador("C02","creador prog. Sistemas","sistemas@unal.edu.co","CREADOR","creador123",true,"Sistemas");
         
-        let evento1 : Evento = new Evento("Ev01","Evento 1","1234","2345","Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
-        let evento2 : Evento = new Evento("Ev02","Evento 2","1234","2345","Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
-        let evento3 : Evento = new Evento("Ev03","Evento 3","1234","2345","Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
-        let evento4 : Evento = new Evento("Ev04","Evento 4","1234","2345","Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
-        let evento5 : Evento = new Evento("Ev05","Evento 5","1234","2345","Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
+        let evento1 : Evento = new Evento("Ev01","Evento 1",new Date("2017-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
+        let evento2 : Evento = new Evento("Ev02","Evento 2",new Date("2018-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
+        let evento3 : Evento = new Evento("Ev03","Evento 3",new Date("2019-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
+        let evento4 : Evento = new Evento("Ev04","Evento 4",new Date("2020-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
+        let evento5 : Evento = new Evento("Ev05","Evento 5",new Date("2021-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1,"Ingenieria",user1,3,["et1","et2","et3","et4","et5"]);
         
         let listaAux : LinkedRef<Evento> = user1.getEventosGuardados();
         listaAux.addLatest(evento1);
