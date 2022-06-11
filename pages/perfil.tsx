@@ -1,17 +1,18 @@
 import React from 'react'
 import Layout from "../layout/Layout";
 import Head from 'next/head'
+import Perfil from '../components/Perfil';
 
 const perfil = () => {
   return (
     <>
       <Head>
-        <title>Registro</title>
+        <title>Perfil</title>
       </Head>
 
       <main>
         <Layout>
-            perfil
+            <Perfil></Perfil>
         </Layout>
       </main>
       

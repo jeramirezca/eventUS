@@ -14,13 +14,14 @@ export class Estudiante extends Usuario{
     // CONSTRUCTORES
     
 
-    public constructor (id:string , nombre:string , correo:string , contrasena:string,programaEstudio:string |""){
-        super(id, nombre,correo,contrasena,true);
+    public constructor (id:string , nombre:string , user:string, correo:string , contrasena:string,programaEstudio:string |""){
+        super(id, nombre,user,correo,contrasena,true);
         this.eventosGuardados= new LinkedRef<Evento>();
         this.eventosPropuestos= new LinkedRef<Evento>();
         this.notificacionesPendientes=new QueueRef<Notificacion>();
         this.programaEstudio=programaEstudio;
         this.toJSON = JSON.stringify(this);
+        this.rol = "ESTUDIANTE"
     }
 
     //GETTERS AND SETTERS
@@ -83,7 +84,7 @@ export class Estudiante extends Usuario{
 
     public fromJSON = function (json: string) : Estudiante{
         let obj = JSON.parse (json);
-        let estudianteAux = new Estudiante (obj.id , obj.nombre, obj.correo, obj.contrasena, obj.programaEstudio);
+        let estudianteAux = new Estudiante (obj.id , obj.nombre, obj.rol, obj.correo, obj.contrasena, obj.programaEstudio);
         let  eventosGuardados:LinkedRef<Evento> = new LinkedRef<Evento>();
         /*for (let i = 0; i < eventosGuardados.size() ; i++) {
             obj.eventosGuardados;

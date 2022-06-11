@@ -7,12 +7,13 @@ import { Usuario } from "./Usuario";
 export class Administrador extends Usuario {
     public static usuariosVerificar:QueueRef<Usuario>;
     public static  usuariosRegistrados:LinkedRef<Usuario>;
-    
         //Constructor
 
-    public constructor(id:string , nombre:string , correo:string , contrasena:string ,autorizado:boolean) {
-        super(id, nombre, correo, contrasena, autorizado);
+    public constructor(id:string , nombre:string , user:string ,correo:string , contrasena:string ,autorizado:boolean) {
+        super(id, nombre,user, correo, contrasena, autorizado);
+        this.rol = "ADMINISTRADOR";
     }
+
     public static inicializar(){
         this.usuariosVerificar=new QueueRef<Usuario>();
         this.usuariosRegistrados=new LinkedRef<Usuario>();

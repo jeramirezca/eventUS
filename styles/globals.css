@@ -10,7 +10,7 @@ html,
 *{
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: Comfortaa,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, ;
 }
 
@@ -19,14 +19,19 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: Comfortaa,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+}
+
+h1{
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
 }
 
 button{
   direction: flex;
   color: whitesmoke;
-  background-color: #26648b;
+  background-color: #006092;
   align-items: center;
   justify-content: center;
   align-content: center;
@@ -51,3 +56,4 @@ button:hover{
   .alturaContent{
     height: 100hw;
   }
+  
