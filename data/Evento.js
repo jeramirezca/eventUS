@@ -3,7 +3,7 @@ exports.__esModule = true;
 exports.Evento = void 0;
 var Evento = /** @class */ (function () {
     //Constructor
-    function Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion, creador, facultad, proponente, aforo, etiquetas) {
+    function Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion, idCreador, facultad, idProponente, aforo, etiquetas) {
         this.fromJSON = function (json) {
             var obj = JSON.parse(json);
             return new Evento(obj.id, obj.nombre, obj.fechaInicio, obj.fechaFinal, obj.lugar, obj.descripcion, obj.creador, obj.facultad, obj.proponente, obj.aforo, obj.etiquetas);
@@ -15,8 +15,8 @@ var Evento = /** @class */ (function () {
         this.lugar = lugar;
         this.facultad = facultad;
         this.descripcion = descripcion;
-        this.creador = creador;
-        this.proponente = proponente;
+        this.idCreador = idCreador;
+        this.idProponente = idProponente;
         this.estado = undefined;
         this.aforo = aforo;
         if (etiquetas != undefined) {
@@ -29,10 +29,10 @@ var Evento = /** @class */ (function () {
     }
     //Setters y getters
     Evento.prototype.getProponente = function () {
-        return this.proponente;
+        return this.idProponente;
     };
     Evento.prototype.setProponente = function (proponente) {
-        this.proponente = proponente;
+        this.idProponente = proponente;
     };
     Evento.prototype.getId = function () {
         return this.id;
@@ -71,10 +71,10 @@ var Evento = /** @class */ (function () {
         this.descripcion = descripcion;
     };
     Evento.prototype.getCreador = function () {
-        return this.creador;
+        return this.idCreador;
     };
     Evento.prototype.setCreador = function (creador) {
-        this.creador = creador;
+        this.idCreador = creador;
     };
     Evento.prototype.getEstado = function () {
         return this.estado;
@@ -124,7 +124,7 @@ var Evento = /** @class */ (function () {
         var cadena = "";
         cadena += "Nombre: " + this.getNombre() + "\n" + "Fi " + this.fechaInicio + " Ff " + this.fechaFinal;
         cadena += "\n" + "Lugar " + this.getLugar() + "\n" + "Descripcion: " + this.getDescripcion() + "\n";
-        cadena += "Propone: " + this.creador.getDependenciaAdmin();
+        cadena += "Propone: " + this.getId();
         return cadena;
     };
     return Evento;

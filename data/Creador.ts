@@ -20,6 +20,10 @@ export class Creador extends Usuario {
         this.dependenciaAdmin = dep;                 
         this.rol = "CREADOR"
     }
+    
+    public toJSON():string{
+        return JSON.stringify(this);
+    }
 
     //Getters y Setters
     
@@ -50,10 +54,10 @@ export class Creador extends Usuario {
     //Metodos
 
     public crearEvento(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
-        creador:Creador, facultad:string):boolean {
+        creador:Creador, facultad:string, idProponente: string):boolean {
         let  creado:boolean = false;
         if(id != null && nombre !=null && fechaInicio !=null && fechaFinal!=null && descripcion != null &&facultad !=null){
-            this.eventosCreados.addLatest(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this, facultad,creador as unknown as Estudiante));
+            this.eventosCreados.addLatest(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this.getId(), facultad, idProponente));
             //lo comento para evitar errores por no tener usuario
             creado = true;
         }
@@ -98,9 +102,13 @@ export class Creador extends Usuario {
            */
         
         //mandar una notificacion al estudiante de que su evento fue aceptado
-        let user:Usuario= aceptado.getProponente();
+        /*let user: string = aceptado.getProponente();
+
         user.getNotificaciones().push(new Notificacion(user.getId(), aceptado.getFechaInicio(), "tu evento fue aceptado: ' "+aceptado.getNombre()+" '"));
-        return aceptado;
+        */ 
+       
+        //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
+       return aceptado;
     }
 
     public rechazarEvento():void{
@@ -115,8 +123,12 @@ export class Creador extends Usuario {
        */
        //Pendiente implementar que al estudiante se le muestre una notificacion 
 
-       let user:Usuario = rechazado.getProponente();
+       /*let user:Usuario = rechazado.getProponente();
        user.getNotificaciones().push(new Notificacion(user.getId(), rechazado.getFechaInicio(), "tu evento fue rechazado: ' "+ rechazado.getNombre()+" '"));
+       */
+
+        //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
+
     }
 
     public  crearEtiquetas(e:string, ev:Evento):void{

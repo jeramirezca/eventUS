@@ -40,6 +40,8 @@ export class CargarDatos {
         user1.setEventosGuardados(listaAux);
         //userCrea1.setEventosCreados(userCrea1.getEventosCreados()!.addLatest(evento1)!);
     console.log(JSON.stringify(user1));
+    console.log("*******************************************");  
+    //console.log(user1.toJSON());
     /*console.log("BIenvenido")    
     console.log(this.generarDatos());
     console.log(this.cargarDatos(this.generarDatos()));

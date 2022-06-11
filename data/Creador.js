@@ -19,7 +19,6 @@ exports.Creador = void 0;
 var LinkedRef_1 = require("../structures/LinkedRef");
 var QueueRef_1 = require("../structures/QueueRef");
 var Evento_1 = require("./Evento");
-var Notificacion_1 = require("./Notificacion");
 var Usuario_1 = require("./Usuario");
 var Creador = /** @class */ (function (_super) {
     __extends(Creador, _super);
@@ -33,6 +32,9 @@ var Creador = /** @class */ (function (_super) {
         _this.rol = "CREADOR";
         return _this;
     }
+    Creador.prototype.toJSON = function () {
+        return JSON.stringify(this);
+    };
     //Getters y Setters
     Creador.prototype.getEventosCreados = function () {
         return this.eventosCreados;
@@ -53,10 +55,10 @@ var Creador = /** @class */ (function (_super) {
         this.eventosCreados = eventosCreados;
     };
     //Metodos
-    Creador.prototype.crearEvento = function (id, nombre, fechaInicio, fechaFinal, lugar, descripcion, creador, facultad) {
+    Creador.prototype.crearEvento = function (id, nombre, fechaInicio, fechaFinal, lugar, descripcion, creador, facultad, idProponente) {
         var creado = false;
         if (id != null && nombre != null && fechaInicio != null && fechaFinal != null && descripcion != null && facultad != null) {
-            this.eventosCreados.addLatest(new Evento_1.Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion, this, facultad, creador));
+            this.eventosCreados.addLatest(new Evento_1.Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion, this.getId(), facultad, idProponente));
             //lo comento para evitar errores por no tener usuario
             creado = true;
         }
@@ -94,8 +96,11 @@ var Creador = /** @class */ (function (_super) {
         }
            */
         //mandar una notificacion al estudiante de que su evento fue aceptado
-        var user = aceptado.getProponente();
-        user.getNotificaciones().push(new Notificacion_1.Notificacion(user.getId(), aceptado.getFechaInicio(), "tu evento fue aceptado: ' " + aceptado.getNombre() + " '"));
+        /*let user: string = aceptado.getProponente();
+
+        user.getNotificaciones().push(new Notificacion(user.getId(), aceptado.getFechaInicio(), "tu evento fue aceptado: ' "+aceptado.getNombre()+" '"));
+        */
+        //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
         return aceptado;
     };
     Creador.prototype.rechazarEvento = function () {
@@ -108,8 +113,10 @@ var Creador = /** @class */ (function (_super) {
        }
        */
         //Pendiente implementar que al estudiante se le muestre una notificacion 
-        var user = rechazado.getProponente();
-        user.getNotificaciones().push(new Notificacion_1.Notificacion(user.getId(), rechazado.getFechaInicio(), "tu evento fue rechazado: ' " + rechazado.getNombre() + " '"));
+        /*let user:Usuario = rechazado.getProponente();
+        user.getNotificaciones().push(new Notificacion(user.getId(), rechazado.getFechaInicio(), "tu evento fue rechazado: ' "+ rechazado.getNombre()+" '"));
+        */
+        //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
     };
     Creador.prototype.crearEtiquetas = function (e, ev) {
         //volvemos minuscula para no tener problemas con mayusculas

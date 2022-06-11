@@ -17,8 +17,6 @@ var Usuario = /** @class */ (function () {
         this.contrasena = contrasena;
         this.autorizado = autorizado;
         this.notificaciones = new StackRef_1.StackRef();
-        this.rol = "";
-        this.toJSON = JSON.stringify(this);
     }
     // contructor
     Usuario.prototype.fromJson = function (json) {
@@ -29,6 +27,9 @@ var Usuario = /** @class */ (function () {
         this.contrasena = json.contrasena;
         this.autorizado = json.autorizado;
         this.notificaciones = json.notificaciones;
+    };
+    Usuario.prototype.toJSON = function () {
+        return JSON.stringify(this);
     };
     // getters and setters
     Usuario.prototype.getId = function () {

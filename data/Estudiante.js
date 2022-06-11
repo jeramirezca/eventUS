@@ -37,10 +37,12 @@ var Estudiante = /** @class */ (function (_super) {
         _this.eventosPropuestos = new LinkedRef_1.LinkedRef();
         _this.notificacionesPendientes = new QueueRef_1.QueueRef();
         _this.programaEstudio = programaEstudio;
-        _this.toJSON = JSON.stringify(_this);
         _this.rol = "ESTUDIANTE";
         return _this;
     }
+    /*public toJSON():string{
+        return JSON.stringify(this);
+    }*/
     //GETTERS AND SETTERS
     Estudiante.prototype.getNotificacionesPendientes = function () {
         return this.notificacionesPendientes;

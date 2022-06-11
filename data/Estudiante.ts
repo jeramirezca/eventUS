@@ -9,7 +9,6 @@ export class Estudiante extends Usuario{
     private eventosGuardados:LinkedRef<Evento>;
     private eventosPropuestos:LinkedRef<Evento>;
     private notificacionesPendientes:QueueRef<Notificacion>;
-	public toJSON : string;
 
     // CONSTRUCTORES
     
@@ -20,9 +19,12 @@ export class Estudiante extends Usuario{
         this.eventosPropuestos= new LinkedRef<Evento>();
         this.notificacionesPendientes=new QueueRef<Notificacion>();
         this.programaEstudio=programaEstudio;
-        this.toJSON = JSON.stringify(this);
         this.rol = "ESTUDIANTE"
     }
+
+    /*public toJSON():string{
+        return JSON.stringify(this);
+    }*/
 
     //GETTERS AND SETTERS
 

@@ -33,6 +33,9 @@ var Administrador = /** @class */ (function (_super) {
         this.usuariosVerificar = new QueueRef_1.QueueRef();
         this.usuariosRegistrados = new LinkedRef_1.LinkedRef();
     };
+    Administrador.prototype.toJSON = function () {
+        return JSON.stringify(this);
+    };
     //Getters y Setters
     Administrador.getUsuariosVerificar = function () {
         return this.usuariosVerificar;

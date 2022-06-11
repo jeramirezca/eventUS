@@ -11,7 +11,6 @@ export class Usuario{
     private contrasena:string;
     private notificaciones:StackRef<Notificacion> ;
     private autorizado:boolean;
-	public toJSON : string;
     public rol: string = "INDEFINIDO";
 
     // contructor
@@ -34,10 +33,12 @@ export class Usuario{
         this.contrasena = contrasena;
         this.autorizado = autorizado;
         this.notificaciones = new StackRef<Notificacion>();
-        this.rol = "";
-        this.toJSON = JSON.stringify(this);
     }
 
+    public toJSON():string{
+        return JSON.stringify(this);
+    }
+    
     // getters and setters
     public getId():string {
         return this.id;
