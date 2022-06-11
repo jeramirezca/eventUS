@@ -71,7 +71,7 @@ export class Estudiante extends Usuario{
     }
 
     public sugerirEvento( e:Evento, c:Creador):void {
-        e.setProponente(this);
+        e.setProponente(this.getId());
             this.eventosPropuestos.addLatest(e);
             c.getPropuestasEventos().enqueue(e);
            

@@ -2,14 +2,12 @@
 exports.__esModule = true;
 exports.LinkedRef = void 0;
 var NodeUS_1 = require("./NodeUS");
-
 var LinkedRef = /** @class */ (function () {
     function LinkedRef() {
         this.first = null;
         this.latest = null;
         this.count = 0;
     }
-    
     LinkedRef.prototype.empty = function () {
         return this.count == 0;
     };
@@ -31,27 +29,25 @@ var LinkedRef = /** @class */ (function () {
             var i = 0;
             while (i < index) {
                 i++;
-                sought = sought.next;
+                sought = sought.getNext();
             }
             return sought;
         }
     };
     LinkedRef.prototype.get = function (index) {
         var a = null;
-
         if (this.empty() || index < 0 || index >= this.size()) {
         }
         else if (index == 0) {
-            a = this.first.data;
+            a = this.first.getElement();
         }
         else if (index == this.size() - 1) {
-            a = this.latest.data;
+            a = this.latest.getElement();
         }
         else {
-            var sought = this.first;
-            if (sought.next !== null) {
-                var sought = this.next;
-                a = sought.data;
+            if (this.getNode(index) !== null) {
+                var sought = this.getNode(index);
+                a = sought.getElement();
             }
         }
         return a;
@@ -61,7 +57,7 @@ var LinkedRef = /** @class */ (function () {
             return null;
         }
         else {
-            return this.first.data;
+            return this.first.getElement();
         }
     };
     LinkedRef.prototype.getLatest = function () {
@@ -69,7 +65,7 @@ var LinkedRef = /** @class */ (function () {
             return null;
         }
         else {
-            return this.latest.data;
+            return this.latest.getElement();
         }
     };
     LinkedRef.prototype.addFirst = function (element) {
@@ -84,7 +80,7 @@ var LinkedRef = /** @class */ (function () {
             this.first = aux;
         }
         this.count++;
-        return this.first.data;
+        return this.first.getElement();
     };
     LinkedRef.prototype.addLatest = function (element) {
         if (this.empty()) {
@@ -96,7 +92,7 @@ var LinkedRef = /** @class */ (function () {
             this.latest = aux;
         }
         this.count++;
-        return this.latest.data;
+        return this.latest.getElement();
     };
     LinkedRef.prototype.add = function (element, index) {
         if (index == 0) {
@@ -114,13 +110,13 @@ var LinkedRef = /** @class */ (function () {
             var aux = new NodeUS_1.NodeUS(element, current); //getNode(index+1)
             prev.setNext(aux);
             this.count++;
-            return this.getNode(index).data;
+            return this.getNode(index).getElement();
         }
     };
     LinkedRef.prototype.toString = function () {
-        var list = "[";
+        var list = "{";
         if (this.empty()) {
-            list += "]";
+            list += "}";
         }
         else {
             var aux = this.first;
@@ -128,7 +124,7 @@ var LinkedRef = /** @class */ (function () {
                 list = "\n" + list + (aux === null || aux === void 0 ? void 0 : aux.getData()) + ",";
                 aux = aux.getNext();
             }
-            list = list + aux.data + "]";
+            list = list + aux.getData() + "]";
         }
         return list;
     };
@@ -139,10 +135,10 @@ var LinkedRef = /** @class */ (function () {
         else {
             var aux = this.first;
             while (aux != null) {
-                if (element == aux.data) {
+                if (element == aux.getElement()) {
                     return true;
                 }
-                aux = aux.next;
+                aux = aux.getNext();
             }
             return false;
         }
@@ -155,11 +151,11 @@ var LinkedRef = /** @class */ (function () {
             var aux = this.first;
             var position = 0;
             while (aux != null) {
-                if (element == aux.data) {
+                if (element == aux.getElement()) {
                     return position;
                 }
                 position++;
-                aux = aux.next;
+                aux = aux.getNext();
             }
             return -1;
         }
@@ -169,8 +165,8 @@ var LinkedRef = /** @class */ (function () {
             return null;
         }
         else {
-            var element = this.first.data;
-            var aux = this.first.next;
+            var element = this.first.getElement();
+            var aux = this.first.getNext();
             this.first = null;
             this.first = aux;
             if (this.size() == 1) {
@@ -185,7 +181,7 @@ var LinkedRef = /** @class */ (function () {
             return null;
         }
         else {
-            var element = this.latest.data;
+            var element = this.latest.getElement();
             var aux = this.getNode(this.size() - 2);
             if (aux == null) {
                 this.latest = null;
@@ -218,8 +214,8 @@ var LinkedRef = /** @class */ (function () {
         else {
             var prev = this.getNode(index - 1);
             var current = this.getNode(index);
-            var next = current.next;
-            var element = current.data;
+            var next = current.getNext();
+            var element = current.getElement();
             current = null;
             prev.setNext(next);
             this.count--;
@@ -233,16 +229,14 @@ var LinkedRef = /** @class */ (function () {
         else {
             var aux = this.getNode(index);
             aux.setElement(element);
-            return aux.data;
+            return aux.getElement();
         }
     };
-
     LinkedRef.prototype.fromJson = function (json) {
         this.first = json.first;
         this.latest = json.latest;
         this.count = json.count;
     };
-
     return LinkedRef;
 }());
 exports.LinkedRef = LinkedRef;

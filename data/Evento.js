@@ -122,7 +122,7 @@ var Evento = /** @class */ (function () {
     };
     Evento.prototype.toString = function () {
         var cadena = "";
-        cadena += "Nombre: " + this.getNombre() + "\n" + "Fi " + this.getFechaInicio() + " Ff " + this.getFechaFinal();
+        cadena += "Nombre: " + this.getNombre() + "\n" + "Fi " + this.fechaInicio + " Ff " + this.fechaFinal;
         cadena += "\n" + "Lugar " + this.getLugar() + "\n" + "Descripcion: " + this.getDescripcion() + "\n";
         cadena += "Propone: " + this.creador.getDependenciaAdmin();
         return cadena;

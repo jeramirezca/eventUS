@@ -22,11 +22,11 @@ var Usuario_1 = require("./Usuario");
 var Estudiante = /** @class */ (function (_super) {
     __extends(Estudiante, _super);
     // CONSTRUCTORES
-    function Estudiante(id, nombre, correo, contrasena, programaEstudio) {
-        var _this = _super.call(this, id, nombre, correo, contrasena, true) || this;
+    function Estudiante(id, nombre, user, correo, contrasena, programaEstudio) {
+        var _this = _super.call(this, id, nombre, user, correo, contrasena, true) || this;
         _this.fromJSON = function (json) {
             var obj = JSON.parse(json);
-            var estudianteAux = new Estudiante(obj.id, obj.nombre, obj.correo, obj.contrasena, obj.programaEstudio);
+            var estudianteAux = new Estudiante(obj.id, obj.nombre, obj.rol, obj.correo, obj.contrasena, obj.programaEstudio);
             var eventosGuardados = new LinkedRef_1.LinkedRef();
             /*for (let i = 0; i < eventosGuardados.size() ; i++) {
                 obj.eventosGuardados;
@@ -38,6 +38,7 @@ var Estudiante = /** @class */ (function (_super) {
         _this.notificacionesPendientes = new QueueRef_1.QueueRef();
         _this.programaEstudio = programaEstudio;
         _this.toJSON = JSON.stringify(_this);
+        _this.rol = "ESTUDIANTE";
         return _this;
     }
     //GETTERS AND SETTERS
@@ -78,7 +79,7 @@ var Estudiante = /** @class */ (function (_super) {
         }
     };
     Estudiante.prototype.sugerirEvento = function (e, c) {
-        e.setProponente(this);
+        e.setProponente(this.getId());
         this.eventosPropuestos.addLatest(e);
         c.getPropuestasEventos().enqueue(e);
         // pendiente poder enviar ese evento al creador para que lo pueda autorizar

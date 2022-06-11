@@ -10,8 +10,8 @@ export class Evento {
     public lugar:string;
     public descripcion:string;
 	public facultad:string;
-    public creador:Creador;
-	public proponente:Estudiante;
+    public idCreador:string;
+	public idProponente:string;
     public estado?:boolean; //Aprobado o negado.
     public aforo?:number;
     public etiquetas: string[];
@@ -21,7 +21,7 @@ export class Evento {
 	//Constructor
 
     constructor(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
-			creador:Creador, facultad:string, proponente:Estudiante, aforo?:number, etiquetas?:string[]) {
+			idCreador:string, facultad:string, idProponente:string, aforo?:number, etiquetas?:string[]) {
 		
 		this.id = id;
 		this.nombre = nombre;
@@ -30,8 +30,8 @@ export class Evento {
 		this.lugar = lugar;
         this.facultad=facultad
 		this.descripcion = descripcion;
-		this.creador = creador;
-		this.proponente=proponente;
+		this.idCreador = idCreador;
+		this.idProponente= idProponente;
         this.estado=undefined;
         this.aforo=aforo;
         if(etiquetas!=undefined){
@@ -43,12 +43,12 @@ export class Evento {
 	}
 	//Setters y getters
 
-	public  getProponente():Usuario {
-		return this.proponente;
+	public  getProponente():string {
+		return this.idProponente;
 	}
 
-	public setProponente(proponente:Estudiante):void {
-		this.proponente = proponente;
+	public setProponente(proponente:string):void {
+		this.idProponente = proponente;
 	}
     
 	public getId():string{
@@ -87,11 +87,11 @@ export class Evento {
 	public setDescripcion(descripcion:string):void {
 		this.descripcion = descripcion;
 	}
-	public getCreador():Usuario {
-		return this.creador;
+	public getCreador():string {
+		return this.idCreador;
 	}
-	public setCreador(creador:Creador):void {
-		this.creador = creador;
+	public setCreador(creador:string):void {
+		this.idCreador = creador;
 	}
 	public getEstado():boolean|undefined {
 		return this.estado;
@@ -154,7 +154,7 @@ export class Evento {
 		let cadena:string = "";
 		cadena+= "Nombre: "+ this.getNombre()+"\n"+"Fi "+this.fechaInicio+" Ff "+this.fechaFinal;
 		cadena+= "\n"+"Lugar "+this.getLugar()+ "\n"+"Descripcion: "+this.getDescripcion()+ "\n";
-		cadena+="Propone: " + this.creador.getDependenciaAdmin();
+		cadena+="Propone: " + this.getId();
 		return cadena;
 	}
 

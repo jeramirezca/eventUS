@@ -24,12 +24,13 @@ var Usuario_1 = require("./Usuario");
 var Creador = /** @class */ (function (_super) {
     __extends(Creador, _super);
     //Constructor
-    function Creador(id, nombre, correo, contrasenia, estado, dep) {
-        var _this = _super.call(this, id, nombre, correo, contrasenia, estado) || this;
+    function Creador(id, nombre, user, correo, contrasenia, estado, dep) {
+        var _this = _super.call(this, id, nombre, user, correo, contrasenia, estado) || this;
         //el super siempre se debe poner primero para evitar errores
         _this.eventosCreados = new LinkedRef_1.LinkedRef();
         _this.propuestasEventos = new QueueRef_1.QueueRef();
         _this.dependenciaAdmin = dep;
+        _this.rol = "CREADOR";
         return _this;
     }
     //Getters y Setters

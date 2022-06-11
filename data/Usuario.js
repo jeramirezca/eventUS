@@ -3,21 +3,33 @@ exports.__esModule = true;
 exports.Usuario = void 0;
 var StackRef_1 = require("../structures/StackRef");
 var Usuario = /** @class */ (function () {
-    // contructor
-    function Usuario(id, nombre, correo, contrasena, autorizado) {
+    function Usuario(id, nombre, rol, correo, contrasena, autorizado) {
+        this.rol = "INDEFINIDO";
         // metodos
         this.fromJSON = function (json) {
             var obj = JSON.parse(json);
-            return new Usuario(obj.id, obj.nombre, obj.correo, obj.contrasena, obj.autorizado);
+            return new Usuario(obj.id, obj.nombre, obj.rol, obj.correo, obj.contrasena, obj.autorizado);
         };
         this.id = id;
         this.nombre = nombre;
+        this.rol = rol;
         this.correo = correo;
         this.contrasena = contrasena;
         this.autorizado = autorizado;
         this.notificaciones = new StackRef_1.StackRef();
+        this.rol = "";
         this.toJSON = JSON.stringify(this);
     }
+    // contructor
+    Usuario.prototype.fromJson = function (json) {
+        this.id = json.id;
+        this.nombre = json.nombre;
+        this.rol = json.rol;
+        this.correo = json.correo;
+        this.contrasena = json.contrasena;
+        this.autorizado = json.autorizado;
+        this.notificaciones = json.notificaciones;
+    };
     // getters and setters
     Usuario.prototype.getId = function () {
         return this.id;
@@ -68,7 +80,7 @@ var Usuario = /** @class */ (function () {
         // busca atraves de los eventos que se encuentren contenidos en una lista
     };
     Usuario.prototype.toString = function () {
-        return "[ Usuario: " + this.id + ",  Nombre: " + this.nombre + "  Correo: " + this.correo + "]";
+        return "[ Usuario:" + this.id + ", Nombre: " + this.nombre + "  Correo: " + this.correo + "]";
     };
     return Usuario;
 }());

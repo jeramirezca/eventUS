@@ -24,8 +24,10 @@ var Usuario_1 = require("./Usuario");
 var Administrador = /** @class */ (function (_super) {
     __extends(Administrador, _super);
     //Constructor
-    function Administrador(id, nombre, correo, contrasena, autorizado) {
-        return _super.call(this, id, nombre, correo, contrasena, autorizado) || this;
+    function Administrador(id, nombre, user, correo, contrasena, autorizado) {
+        var _this = _super.call(this, id, nombre, user, correo, contrasena, autorizado) || this;
+        _this.rol = "ADMINISTRADOR";
+        return _this;
     }
     Administrador.inicializar = function () {
         this.usuariosVerificar = new QueueRef_1.QueueRef();
