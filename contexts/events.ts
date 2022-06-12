@@ -3,11 +3,11 @@ import { LinkedRef } from "../structures/LinkedRef";
 import { Evento } from '../data/Evento';
 
 export type GlobalList = {
-  listaEventos: LinkedRef<Evento>
-  setListaEventos:(c: LinkedRef<Evento>) => void
+  listaEventos:Array<Evento>
+  setListaEventos:(c: Array<Evento>) => void
 }
 export const ListEventsContext = createContext<GlobalList>({
-    listaEventos: new LinkedRef, // set a default value
+    listaEventos: new Array(), // set a default value
     setListaEventos: () => {},
 })
 
