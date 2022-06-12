@@ -8,6 +8,7 @@ import Inicio from '../components/Inicio'
 import Layout from '../layout/Layout';
 
 const Home: NextPage = () => {
+
   return (
     <>
       <Head>

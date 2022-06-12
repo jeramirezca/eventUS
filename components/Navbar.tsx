@@ -2,9 +2,13 @@ import React, {useState} from 'react'
 import {Transition} from '@headlessui/react';
 //import {Link} from "react-scroll"; 
 import Link from 'next/link';
-import pageEstu from "../pages/estudiante/pageEstu";
+import { useAuth } from '../contexts/auth';
+import { useUser } from '../contexts/user';
 
 const Navbar = () => {
+
+  const {auth, setAuth} = useAuth();
+  const {user, setUser} = useUser();
 
     /* Inicializamos la pestaña como falsa porque estará cerrada y cambiara a lo largo del programa */
   const[isOpen, setIsOpen] = useState(false);
@@ -35,7 +39,7 @@ const Navbar = () => {
                   </div>
                 </Link>
 
-                {authToken ? (
+                {auth ? (
                   <>
                     <Link href="/perfil">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
@@ -43,28 +47,49 @@ const Navbar = () => {
                         Perfil
                       </div>
                     </Link>
+
                     <Link href="/eventos">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                         <i className="fa-solid fa-calendar-days pr-1"></i>
                         Eventos
                       </div>
                     </Link>
+                    {user.rol == "ADMINISTRADOR" ? (
+                      <Link href="/admin/usuarios">
+                        <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
+                          <i className="fa-solid fa-users pr-1"></i>
+                          Usuarios
+                        </div>
+                      </Link>
+                    ) : (
+                      <></>
+                    )}
+                    {user.rol == "ESTUDIANTE" ? (
+                      <Link href="/">
+                        <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
+                          <i className="fa-solid fa-bookmark pr-1"></i>
+                          Guardados
+                        </div>
+                      </Link>
+                    ) : (
+                      <></>
+                    )}
 
-                    <Link href="/admin/usuarios">
-                      <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
-                        <i className="fa-solid fa-users pr-1"></i>
-                        Usuarios
-                      </div>
-                    </Link>
+                    {user.rol == "CREADOR" ? (
+                      <Link href="/creador/perfilCreador">
+                        <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
+                          <i className="fa-solid fa-bookmark pr-1"></i>
+                          Creados
+                        </div>
+                      </Link>
+                    ) : (
+                      <></>
+                    )}
                     <Link href="/">
-                      <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
-                        <i className="fa-solid fa-bookmark pr-1"></i>
-                        Guardados
-                      </div>
-                    </Link>
-
-                    <Link href="/">
-                      <div className="cursor-pointer bg-azul text-blanco hover:bg-negro px-3 py-2 rounded-md text-lg font-medium">
+                      <div
+                        className="cursor-pointer bg-azul text-blanco hover:bg-negro px-3 py-2 rounded-md text-lg font-medium"
+                        onClick={() => setAuth(false)}
+                      >
                         <i className="fa-solid fa-right-from-bracket pr-1"></i>
                         Logout
                       </div>
@@ -146,7 +171,7 @@ const Navbar = () => {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        {(ref) => (
+        {(ref: any) => (
           <div className="md:hidden" id="mobile-menu">
             <div
               ref={ref}

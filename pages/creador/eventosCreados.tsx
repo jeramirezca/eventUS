@@ -1,8 +1,16 @@
 import React from 'react'
+import Head from 'next/head'
 
 const eventosCreados = () => {
   return (
-    <div>eventosCreados</div>
+    <>
+     <Head><title>Eventos creados C</title></Head>
+    <main>
+      <h1>Informacion del usuario</h1>
+    </main>    
+    </>
+ 
+    
   )
 }
 

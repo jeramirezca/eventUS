@@ -1,7 +1,7 @@
 export class NodeUS <T> {
 
-    private data: T | null;
-    private next: NodeUS <T> | null;
+    public data: T | null;
+    public next: NodeUS <T> | null;
     
     constructor(element:T | null, next:NodeUS <T> | null) 
     {

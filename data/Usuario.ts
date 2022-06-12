@@ -4,22 +4,38 @@ import { StackRef } from "../structures/StackRef";
 import { Notificacion } from "./Notificacion";
 
 export class Usuario{
-    private id: string;
-    private nombre:string
-    private correo:string;
-    private contrasena:string;
-    private notificaciones:StackRef<Notificacion> ;
-    private autorizado:boolean;
+
+    public id: string;
+    public nombre:string;
+    public usuario:string;
+    public correo:string;
+    public contrasena:string;
+    public notificaciones:StackRef<Notificacion> ;
+    public autorizado:boolean;
+    public rol: "ADMINISTRADOR"|"ESTUDIANTE"|"CREADOR"|""= "";
 
     // contructor
 
-    public constructor(id:string , nombre:string , correo:string , contrasena:string ,autorizado:boolean) {
+    public fromJson(json:any) {
+        this.id = json.id;
+        this.nombre = json.nombre;
+        this.rol = json.rol;
+        this.correo = json.correo;
+        this.contrasena = json.contrasena;
+        this.autorizado = json.autorizado;
+        this.notificaciones = json.notificaciones;
+    }
+
+    public constructor(id:string , nombre:string , usuario:string, correo:string , contrasena:string ,autorizado:boolean) {
         this.id = id;
         this.nombre = nombre;
+        this.usuario = usuario;
+        this.rol = "";
         this.correo = correo;
         this.contrasena = contrasena;
         this.autorizado = autorizado;
         this.notificaciones = new StackRef<Notificacion>();
+        this.rol = "";
     }
 
     // getters and setters
@@ -39,6 +55,14 @@ export class Usuario{
         this.nombre = nombre;
     }
 
+    public getUsuario():string {
+        return this.usuario;
+    }
+
+    public setUsuario( usuario:string) : void{
+        this.id = usuario;
+    }
+    
     public getCorreo():string {
         return this.correo;
     }
@@ -73,6 +97,11 @@ export class Usuario{
 
     // metodos
 
+	public fromJSON = function (json: string) : Usuario{
+        var obj = JSON.parse (json);
+        return new Usuario (obj.id , obj.nombre, obj.rol,  obj.correo, obj.contrasena, obj.autorizado);
+    };
+
     public  eliminarNotificacion():void {
         if(this.notificaciones.empty()){
             console.log("No hay notificaciones por eliminar");
@@ -81,14 +110,14 @@ export class Usuario{
         }
     }
 
-    private  buscarEvento() :void{
+    public  buscarEvento() :void{
         // podria recibir una Linkedref de eventos, junto a un evento a buscar
         // busca atraves de los eventos que se encuentren contenidos en una lista
     }
 
        
     public toString():string {
-        return "[ Usuario: " + this.id + ",  Nombre: " + this.nombre + "  Correo: " + this.correo +"]";
+        return "[ Usuario:" + this.id + ", Nombre: " + this.nombre + "  Correo: " + this.correo +"]";
     }
 
 
