@@ -41,17 +41,17 @@ const Eventos = () => {
       param = aux?.fechaInicio.toString().toUpperCase(); 
     }else if(paramSearch== "FACULTAD"){
       param = aux?.facultad.toUpperCase(); 
-    } else if(paramSearch== "CREADOR"){
-      param = aux?.creador.nombre.toUpperCase(); 
-    } 
+    } /* else if(paramSearch== "CREADOR"){
+      param = aux?.idCreador.nombre.toUpperCase(); 
+    }  */
     if (param.includes(search.toUpperCase())){
       list.push(
         <tr> 
           <td>{aux?.nombre}</td>
           <td>"{index+2}/08/2022"</td>
           <td>{aux?.lugar}</td>
-          <td>{aux?.creador.nombre}</td>
-          <td>{aux?.facultad}</td>
+{/*           <td>{aux?.creador.nombre}</td>
+ */}          <td>{aux?.facultad}</td>
           <td>{aux?.etiquetas.toString()}</td>
           <td className="iconosTabla">
             <button aria-label="ver">

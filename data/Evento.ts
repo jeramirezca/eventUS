@@ -10,16 +10,18 @@ export class Evento {
     public lugar:string;
     public descripcion:string;
 	public facultad:string;
-    public creador:Creador;
-	public proponente:Estudiante;
+    public idCreador:string;
+	public idProponente:string;
     public estado?:boolean; //Aprobado o negado.
     public aforo?:number;
     public etiquetas: string[];
 
+	//public toJSON : string;
+	
 	//Constructor
 
     constructor(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
-			creador:Creador, facultad:string, proponente:Estudiante, aforo?:number, etiquetas?:string[]) {
+			idCreador:string, facultad:string, idProponente:string, aforo?:number, etiquetas?:string[]) {
 		
 		this.id = id;
 		this.nombre = nombre;
@@ -28,25 +30,53 @@ export class Evento {
 		this.lugar = lugar;
         this.facultad=facultad
 		this.descripcion = descripcion;
-		this.creador = creador;
-		this.proponente=proponente;
-        this.estado=undefined;
+		this.idCreador = idCreador;
+		this.idProponente= idProponente;
+        this.estado= false;
         this.aforo=aforo;
         if(etiquetas!=undefined){
             this.etiquetas=etiquetas;
         }else{
             this.etiquetas=new Array();
         }
-        
+        //this.toJSON = JSON.stringify(this);
 	}
+
+	public toJSON(): string{
+		let etiq : string = "[";
+		let i: number = 0;
+		for ( i ; i<this.etiquetas.length-1; i++){
+			etiq += '"'+this.etiquetas[i] +'"'
+			etiq += ','
+		}				
+		etiq += '"'+this.etiquetas[this.etiquetas.length-1]+'"'
+		etiq += ']'
+
+		let evento = '{'+
+		'"id":"'+ this.getId() +'",'+
+		'"nombre":"'+ this.getNombre() +'",'+
+		'"fechaInicio":"'+ this.getFechaInicio().toString() +'",'+
+		'"fechaFinal":"'+ this.getFechaFinal().toString() +'",'+
+		'"lugar":"'+ this.getLugar() +'",' +
+		'"descripcion":"'+ this.getDescripcion() +'",' +
+		'"facultad":"'+ this.getFacultad() +'",' +
+		'"idCreador":"'+ this.getCreador() +'",' +
+		'"idProponente":"'+ this.getProponente() +'",' +
+		'"estado":'+ this.getEstado() +',' +
+		'"aforo":'+ this.getAforo() +',' +
+		'"etiquetas":'+etiq+
+		'}' ;
+		return evento;
+	}
+
 	//Setters y getters
 
-	public  getProponente():Usuario {
-		return this.proponente;
+	public  getProponente():string {
+		return this.idProponente;
 	}
 
-	public setProponente(proponente:Estudiante):void {
-		this.proponente = proponente;
+	public setProponente(proponente:string):void {
+		this.idProponente = proponente;
 	}
     
 	public getId():string{
@@ -85,11 +115,11 @@ export class Evento {
 	public setDescripcion(descripcion:string):void {
 		this.descripcion = descripcion;
 	}
-	public getCreador():Usuario {
-		return this.creador;
+	public getCreador():string {
+		return this.idCreador;
 	}
-	public setCreador(creador:Creador):void {
-		this.creador = creador;
+	public setCreador(creador:string):void {
+		this.idCreador = creador;
 	}
 	public getEstado():boolean|undefined {
 		return this.estado;
@@ -142,13 +172,17 @@ export class Evento {
 		return this.facultad;
 	}
 
-	
+	public fromJSON = function (json: string) : Evento{
+        var obj = JSON.parse (json);
+        return new Evento (obj.id , obj.nombre, obj.fechaInicio, obj.fechaFinal,obj.lugar, obj.descripcion,
+			obj.creador, obj.facultad, obj.proponente, obj.aforo, obj.etiquetas);
+    };
 
 	public  toString():string{
 		let cadena:string = "";
 		cadena+= "Nombre: "+ this.getNombre()+"\n"+"Fi "+this.fechaInicio+" Ff "+this.fechaFinal;
 		cadena+= "\n"+"Lugar "+this.getLugar()+ "\n"+"Descripcion: "+this.getDescripcion()+ "\n";
-		cadena+="Propone: " + this.creador.getDependenciaAdmin;
+		cadena+="Propone: " + this.getId();
 		return cadena;
 	}
 

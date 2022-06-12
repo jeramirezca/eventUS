@@ -4,31 +4,33 @@ import { StackRef } from "../structures/StackRef";
 import { Notificacion } from "./Notificacion";
 
 export class Usuario{
+
     public id: string;
     public nombre:string;
-    public user:string;
+    public usuario:string;
     public correo:string;
     public contrasena:string;
     public notificaciones:StackRef<Notificacion> ;
     public autorizado:boolean;
-    public rol: string = "INDEFINIDO";
+    public rol: "ADMINISTRADOR"|"ESTUDIANTE"|"CREADOR"|""= "";
 
     // contructor
 
     public fromJson(json:any) {
         this.id = json.id;
         this.nombre = json.nombre;
-        this.user = json.user;
+        this.rol = json.rol;
         this.correo = json.correo;
         this.contrasena = json.contrasena;
         this.autorizado = json.autorizado;
         this.notificaciones = json.notificaciones;
     }
 
-    public constructor(id:string , nombre:string , user:string, correo:string , contrasena:string ,autorizado:boolean) {
+    public constructor(id:string , nombre:string , usuario:string, correo:string , contrasena:string ,autorizado:boolean) {
         this.id = id;
         this.nombre = nombre;
-        this.user = user;
+        this.usuario = usuario;
+        this.rol = "";
         this.correo = correo;
         this.contrasena = contrasena;
         this.autorizado = autorizado;
@@ -53,6 +55,14 @@ export class Usuario{
         this.nombre = nombre;
     }
 
+    public getUsuario():string {
+        return this.usuario;
+    }
+
+    public setUsuario( usuario:string) : void{
+        this.id = usuario;
+    }
+    
     public getCorreo():string {
         return this.correo;
     }
@@ -86,6 +96,11 @@ export class Usuario{
     }
 
     // metodos
+
+	public fromJSON = function (json: string) : Usuario{
+        var obj = JSON.parse (json);
+        return new Usuario (obj.id , obj.nombre, obj.rol,  obj.correo, obj.contrasena, obj.autorizado);
+    };
 
     public  eliminarNotificacion():void {
         if(this.notificaciones.empty()){

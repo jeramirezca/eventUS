@@ -1,12 +1,9 @@
-
-
-
-
 export class Notificacion {
     public id:string;
     public fecha:Date;
     public descripcion?:string;
-
+	//public toJSON : string;
+    
     //Constructor
 
     public constructor(i:string,  f:Date, d?:string){
@@ -17,7 +14,7 @@ export class Notificacion {
         }else{
             this.descripcion="este evento no tiene descripcion";
         }
-        
+        //this.toJSON = JSON.stringify(this);
     }
     public getId():string{
         return this.id;
@@ -38,6 +35,10 @@ export class Notificacion {
         this.descripcion=description;
     }
 
+	public fromJSON = function (json: string) : Notificacion{
+        var obj = JSON.parse (json);
+        return new Notificacion (obj.id , obj.fecha, obj.descripcion);
+    };
 
     
     public toString():string{

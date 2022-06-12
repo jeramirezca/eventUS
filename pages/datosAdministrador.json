@@ -1,0 +1,7 @@
+{   "id":"01",
+    "nombre":"Administrador principal",
+    "correo":"correo@unal.edu.co",
+    "contrasena":"admin123",
+    "autorizado":true,
+    "notificaciones":{"topStack":null,"count":0}
+}

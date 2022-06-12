@@ -21,6 +21,48 @@ export class Creador extends Usuario {
         this.rol = "CREADOR"
     }
 
+    public toJSON (): string {
+        let auxPropEventos : QueueRef<Evento> = this.getPropuestasEventos();
+        let eventosPropuestos : string = "[";
+        let i: number = 0;
+        for ( i ; i < auxPropEventos.size(); i++) {
+            eventosPropuestos += auxPropEventos.first()?.toJSON() ; 
+            if (i != auxPropEventos.size()-1){
+                eventosPropuestos += ',';
+            }
+            auxPropEventos.enqueue(auxPropEventos.first()!);
+            auxPropEventos.dequeue();
+        }
+        eventosPropuestos += ']';
+        
+        let auxEventCreados : LinkedRef<Evento> = this.getEventosCreados();
+        let eventosCreados : string = "[";
+        let k: number = 0;
+        for ( k ; k < auxEventCreados.size(); k++) {
+            eventosCreados += auxEventCreados.getFirst()?.toJSON() ; 
+            //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
+            if (k != auxEventCreados.size()-1){
+                eventosCreados += ',';
+            }
+            auxEventCreados.addLatest(auxEventCreados.getFirst()!);
+            auxEventCreados.removeFirst();
+        }
+        eventosCreados += ']';
+        
+        let creador = '{'+
+        '"rol":"ESTUDIANTE",'+
+        '"id":"'+ this.getId() +'",'+
+        '"nombre":"'+ this.getNombre() +'",'+
+        '"usuario":"'+ this.getUsuario() +'",'+
+        '"correo":"'+ this.getCorreo() +'",'+
+        '"contrasena":"'+ this.getContrasena() +'",'+
+        '"autorizado":'+ this.getAutorizado() +',' +
+        '"dependenciaAdmin":"'+ this.getDependenciaAdmin() +'",' +
+        '"eventosCreados":'+ eventosCreados +',' +
+        '"propuestasEvento":'+ eventosPropuestos +
+        '}' ;
+        return creador;
+    }
     //Getters y Setters
     
     get  getEventosCreados():LinkedRef<Evento> {
@@ -50,10 +92,10 @@ export class Creador extends Usuario {
     //Metodos
 
     public crearEvento(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
-        creador:Creador, facultad:string):boolean {
+        creador:Creador, facultad:string, idProponente: string):boolean {
         let  creado:boolean = false;
         if(id != null && nombre !=null && fechaInicio !=null && fechaFinal!=null && descripcion != null &&facultad !=null){
-            this.eventosCreados.addLatest(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this, facultad,creador as unknown as Estudiante));
+            this.eventosCreados.addLatest(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this.getId(), facultad, idProponente));
             //lo comento para evitar errores por no tener usuario
             creado = true;
         }
@@ -102,9 +144,13 @@ export class Creador extends Usuario {
            */
         
         //mandar una notificacion al estudiante de que su evento fue aceptado
-        let user:Usuario= aceptado.getProponente();
+        /*let user: string = aceptado.getProponente();
+
         user.getNotificaciones().push(new Notificacion(user.getId(), aceptado.getFechaInicio(), "tu evento fue aceptado: ' "+aceptado.getNombre()+" '"));
-        return aceptado;
+        */ 
+       
+        //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
+       return aceptado;
     }
 
     public rechazarEvento():void{
@@ -119,8 +165,12 @@ export class Creador extends Usuario {
        */
        //Pendiente implementar que al estudiante se le muestre una notificacion 
 
-       let user:Usuario = rechazado.getProponente();
+       /*let user:Usuario = rechazado.getProponente();
        user.getNotificaciones().push(new Notificacion(user.getId(), rechazado.getFechaInicio(), "tu evento fue rechazado: ' "+ rechazado.getNombre()+" '"));
+       */
+      
+        //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
+
     }
 
     public  crearEtiquetas(e:string, ev:Evento):void{
