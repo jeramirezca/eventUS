@@ -7,18 +7,7 @@ import { parse } from "path";
 import { LinkedRef } from "../structures/LinkedRef";
 import { QueueRef } from "../structures/QueueRef";
 import { Notificacion } from "../data/Notificacion";
-/*import fsPromises from 'fs/promises';
-import path from 'path';
 
-export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'datosAdministrados.json');
-  const jsonData = await fsPromises.readFile(filePath);
-  const objectData = JSON.parse(jsonData.toString());
-
-  return {
-    props: objectData
-  }
-}*/
 export class CargarDatos {
     static admin1 : Administrador = new Administrador("01","Administrador principal", "correo@unal.edu.co","ADMINISTRADOR","admin123",true);
 
@@ -127,23 +116,8 @@ export class CargarDatos {
         Administrador.estudiantesRegistrados.addFirst(user5);
         Administrador.estudiantesRegistrados.addFirst(user6);
         Administrador.estudiantesRegistrados.addFirst(user7);
-        //userCrea1.setEventosCreados(userCrea1.getEventosCreados()!.addLatest(evento1)!);
-    //console.log(JSON.stringify(user1));
+    
     console.log(admin.toJSON());
-    console.log("*******************************************");  
-    //console.log(user1.toJSON());
-    /*console.log("BIenvenido")    
-    console.log(this.generarDatos());
-    console.log(this.cargarDatos(this.generarDatos()));
-    let admin2 = this.cargarDatos(this.generarDatos());
-    console.log(typeof(admin2));
-    console.log("--------------------------------------------------");
-    let evtojson = evento1.toJSON;
-    console.log(typeof(evtojson));
-    let eventoP : Evento = evento1.fromJSON(evtojson);
-    console.log(typeof(evento1));
-    console.log(typeof(eventoP));*/
-    //console.log(this.cargarDatosAJson());
     }
     public cargarDatos(pruebaY : string) : JSON  {
         let pruebaW = JSON.parse(pruebaY);
@@ -153,15 +127,6 @@ export class CargarDatos {
         var pruebaX  = JSON.stringify(CargarDatos.admin1);
         return pruebaX ;
     }
-    /*public cargarDatosAJson() : JSON {
-        var pruebaX: JSON = require("c:/Users/yenim/OneDrive/Documentos/UNAL/Estructuras de Datos/Proyecto/eventUS/data/datosAdministrador.json");
-        return pruebaX ;
-    }*/
-    /*let eventoAux Evento = function (json: string) : Evento{
-        var obj = JSON.parse (json);
-        return new Evento (obj.id , obj.nombre, obj.fechaInicio, obj.fechaFinal,obj.lugar, obj.descripcion,
-			obj.creador, obj.facultad, obj.proponente, obj.aforo, obj.etiquetas) );
-    };*/
     
 }
   
