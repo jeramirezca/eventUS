@@ -18,7 +18,7 @@ import { QueueRef } from '../../structures/QueueRef';
   //convertir a a array
   function convertirArray(l:LinkedRef<Evento>):Evento[]{
       let e:Evento[] = [];
-
+      //let d:LinkedRef<Evento> = new LinkedRef();
       let tamanio:number = l.size();
       for(let i=0; i<tamanio;i++){
         e.push(l.get(i) as Evento);
@@ -39,26 +39,30 @@ import { QueueRef } from '../../structures/QueueRef';
 
 const perfil = () => {
 
-  /*
-  Queda pendiente arreglar esto, que reciba el usuario global
+  
+  //Queda pendiente arreglar esto, que reciba el usuario global
   const {user, setUser} = useUser();
-  const [usuario, setUsuario] = useState(user);
-  var _user = usuario as Creador;
-  let listaDelCreador:LinkedRef<Evento> = new LinkedRef<Evento>;
-  listaDelCreador = _user.eventosCreados;
+  //const [usuario, setUsuario] = useState(user);
+  var _user = user as Creador;
+  let listaDelCreador:Array<Evento> = [];
+  //listaDelCreador = _user.eventosCreados;
   let colaDelCreador:QueueRef<Evento> = new QueueRef<Evento>;
   colaDelCreador = _user.getPropuestasEventos;
   colaDelCreador as QueueRef<Evento>;
-  listaDelCreador as LinkedRef<Evento>;
-  let eventosArray = convertirArray(listaDelCreador); 
-  */
+
+ 
+  
   let mar = new Estudiante("1234","marx","marx","marx@hotmail","marx","holi")
   let creador_prueba = new Creador("29292","juan carlos","unu123","ajaja@gmail.com","12345",true,"ingenieria");
   let ev_prueba = new Evento("2929","evento de prueba",new Date(2022),new Date(2023),"lugar","este es un evento de prueba, descripcion xd",creador_prueba,"ingenieria",mar);
   let ev_prueba2 = new Evento("2930","evento de prueba 2",new Date(2022),new Date(2023),"lugar","esta es una descripcion medianamente larga",creador_prueba,"ingenieria",mar);
   let ev_prueba3 = new Evento("2931","evento de prueba 3",new Date(2022),new Date(2023),"lugar","esta descripcion es corta",creador_prueba,"ingenieria",mar);
   let ev_prueba4 = new Evento("2932","evento de prueba 4 ",new Date(2022),new Date(2023),"lugar","un evento de verdad debe tener descripcion xd",creador_prueba,"ingenieria",mar);
-  
+  listaDelCreador.push(ev_prueba);
+  listaDelCreador.push(ev_prueba2);
+  listaDelCreador.push(ev_prueba3);
+  listaDelCreador.push(ev_prueba4);
+  let eventosArray = listaDelCreador ;
   return (
     <>
       <Head>
@@ -73,12 +77,12 @@ const perfil = () => {
                   Ultimos eventos creados
                 <br></br>
                   
-                   {/* eventosArray.map((e:Evento) => (<DivEvento E={e}></DivEvento>)) */}
+                    {eventosArray.map((e:Evento) => (<DivEvento E={e}></DivEvento>))}
                   {/* //y que dios me perdone por lo que voy a hacer */}
-                   <DivEvento E={ev_prueba}></DivEvento>
+    {               /*<DivEvento E={ev_prueba}></DivEvento>
                    <DivEvento E={ev_prueba2}></DivEvento>
                    <DivEvento E={ev_prueba3}></DivEvento>
-                   <DivEvento E={ev_prueba4}></DivEvento>
+  <DivEvento E={ev_prueba4}></DivEvento> */}
                   
                 </div>
                 <div className='cajaIzquierda'>
@@ -110,8 +114,17 @@ const perfil = () => {
                 <p>Los siguientes eventos han sido propuestos por algun estudiante, por favor revisalas:</p>
                 <br></br>
                 
-                { /* obtenerCola()*/}
-                <DivPropuesta E={ev_prueba}></DivPropuesta>
+                { /* obtenerCola()
+                - Pendiente: convertir la cola a un arreglo de una forma u otra
+                - que los botones de aprovar y denegar realmente hagan lo mismo en el objeto creador
+                */}
+          
+            
+                  {eventosArray.map((c:Evento)=> (<DivPropuesta E={c}></DivPropuesta>))}
+                
+        
+                  
+               
                 
          
               </section>

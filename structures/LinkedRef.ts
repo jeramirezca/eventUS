@@ -49,7 +49,7 @@ export class LinkedRef<T> {
 			}else if(index == this.size()-1) {
 				a = this.latest!.getElement();
 			}else {
-				if(this.getNode(index) !== null){
+				if(this.getNode(index) != null){
 					let sought : NodeUS<T> | null = this.getNode(index);
 					a =  sought!.getElement();
 				}
