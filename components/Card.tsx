@@ -1,6 +1,8 @@
 import React from 'react'
-
-const Card = ({information}) => {
+type E= {
+    information:string;
+}
+const Card = ({information}:E) => {
     return (
         <div className="w-full sm:w-1/2 lg:w-1/5 py-5 rounded-3xl targeta">
             <div className='mx-1 bg-azul-light overflow-hidden'>
