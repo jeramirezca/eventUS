@@ -1,8 +1,9 @@
 import React from "react";
 import Layout from "../layout/Layout";
-import Eventos from "../components/Eventos";
+//import Eventos from "../components/Eventos";
 import Head from "next/head";
-
+import CargarDatos from "./CargarDatos"
+import GenerarDatos from "./GenerarDatos"
 
 const prueba = () => {
 
@@ -11,7 +12,7 @@ const prueba = () => {
       <Head>
         <title>Prueba Yenifer</title>
       </Head>
-      
+      <script type="text/typescript" src="GenerarDatos.ts"></script>
     </>
     
   );

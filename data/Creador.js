@@ -32,6 +32,47 @@ var Creador = /** @class */ (function (_super) {
         _this.rol = "CREADOR";
         return _this;
     }
+    Creador.prototype.toJSON = function () {
+        var _a, _b;
+        var auxPropEventos = this.getPropuestasEventos();
+        var eventosPropuestos = "[";
+        var i = 0;
+        for (i; i < auxPropEventos.size(); i++) {
+            eventosPropuestos += (_a = auxPropEventos.first()) === null || _a === void 0 ? void 0 : _a.toJSON();
+            if (i != auxPropEventos.size() - 1) {
+                eventosPropuestos += ',';
+            }
+            auxPropEventos.enqueue(auxPropEventos.first());
+            auxPropEventos.dequeue();
+        }
+        eventosPropuestos += ']';
+        var auxEventCreados = this.getEventosCreados();
+        var eventosCreados = "[";
+        var k = 0;
+        for (k; k < auxEventCreados.size(); k++) {
+            eventosCreados += (_b = auxEventCreados.getFirst()) === null || _b === void 0 ? void 0 : _b.toJSON();
+            //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
+            if (k != auxEventCreados.size() - 1) {
+                eventosCreados += ',';
+            }
+            auxEventCreados.addLatest(auxEventCreados.getFirst());
+            auxEventCreados.removeFirst();
+        }
+        eventosCreados += ']';
+        var creador = '{' +
+            '"rol":"ESTUDIANTE",' +
+            '"id":"' + this.getId() + '",' +
+            '"nombre":"' + this.getNombre() + '",' +
+            '"usuario":"' + this.getUsuario() + '",' +
+            '"correo":"' + this.getCorreo() + '",' +
+            '"contrasena":"' + this.getContrasena() + '",' +
+            '"autorizado":' + this.getAutorizado() + ',' +
+            '"dependenciaAdmin":"' + this.getDependenciaAdmin() + '",' +
+            '"eventosCreados":' + eventosCreados + ',' +
+            '"propuestasEvento":' + eventosPropuestos +
+            '}';
+        return creador;
+    };
     //Getters y Setters
     Creador.prototype.getEventosCreados = function () {
         return this.eventosCreados;

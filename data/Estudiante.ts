@@ -30,7 +30,9 @@ export class Estudiante extends Usuario{
         let i: number = 0;
         for ( i ; i < auxNotificaiones.size(); i++) {
             notPendientes += JSON.stringify(auxNotificaiones.first())
-            notPendientes += ',';
+            if (i != auxNotificaiones.size()-1){
+                notPendientes += ',';
+            }
             auxNotificaiones.enqueue(auxNotificaiones.first()!);
             auxNotificaiones.dequeue();
         }
@@ -39,9 +41,12 @@ export class Estudiante extends Usuario{
         let auxEventGuardados : LinkedRef<Evento> = this.getEventosGuardados();
         let eventosGuardados : string = "[";
         let j: number = 0;
-        for ( j ; j < auxEventGuardados.size(); i++) {
+        for ( j ; j < auxEventGuardados.size(); j++) {
             eventosGuardados += auxEventGuardados.getFirst()?.toJSON() ;
-            eventosGuardados += ',';
+            //eventosGuardados += JSON.stringify(auxEventGuardados.getFirst());
+            if (j != auxEventGuardados.size()-1){
+                eventosGuardados += ',';
+            }
             auxEventGuardados.addLatest(auxEventGuardados.getFirst()!);
             auxEventGuardados.removeFirst();
         }
@@ -50,24 +55,29 @@ export class Estudiante extends Usuario{
         let auxEventPendientes : LinkedRef<Evento> = this.getEventosPropuestos();
         let eventPendientes : string = "[";
         let k: number = 0;
-        for ( k ; k < auxEventPendientes.size(); i++) {
+        for ( k ; k < auxEventPendientes.size(); k++) {
             eventPendientes += auxEventPendientes.getFirst()?.toJSON() ; 
-            eventPendientes += ',';
-            auxEventPendientes.addLatest(auxEventGuardados.getFirst()!);
+            //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
+            if (k != auxEventPendientes.size()-1){
+                eventPendientes += ',';
+            }
+            auxEventPendientes.addLatest(auxEventPendientes.getFirst()!);
             auxEventPendientes.removeFirst();
         }
         eventPendientes += ']';
         
         let estudiante = '{'+
-        '"rol":"'+ this.rol +'",'+
+        '"rol":"ESTUDIANTE",'+
         '"id":"'+ this.getId() +'",'+
         '"nombre":"'+ this.getNombre() +'",'+
+        '"usuario":"'+ this.getUsuario() +'",'+
         '"correo":"'+ this.getCorreo() +'",'+
+        '"contrasena":"'+ this.getContrasena() +'",'+
         '"autorizado":'+ this.getAutorizado() +',' +
         '"programaEstudio":"'+ this.getProgramaEstudio() +'",' +
-        /*'"notificacionesPendientes":'+ notPendientes +',' +
+        '"notificacionesPendientes":'+ notPendientes +',' +
         '"eventosGuardados":'+ eventosGuardados +',' +
-        '"eventosPendientes":'+ eventPendientes +*/
+        '"eventosPendientes":'+ eventPendientes +
         '}' ;
         return estudiante;
     }

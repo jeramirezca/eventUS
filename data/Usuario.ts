@@ -6,12 +6,13 @@ import { Notificacion } from "./Notificacion";
 export class Usuario{
 
     private id: string;
-    private nombre:string
+    private nombre:string;
+    private usuario:string;
     private correo:string;
     private contrasena:string;
     private notificaciones:StackRef<Notificacion> ;
     private autorizado:boolean;
-    public rol: string = "INDEFINIDO";
+    public rol: "ADMINISTRADOR"|"ESTUDIANTE"|"CREADOR"|""= "";
 
     // contructor
 
@@ -25,10 +26,11 @@ export class Usuario{
         this.notificaciones = json.notificaciones;
     }
 
-    public constructor(id:string , nombre:string , rol:string, correo:string , contrasena:string ,autorizado:boolean) {
+    public constructor(id:string , nombre:string , usuario:string, correo:string , contrasena:string ,autorizado:boolean) {
         this.id = id;
         this.nombre = nombre;
-        this.rol = rol;
+        this.usuario = usuario;
+        this.rol = "";
         this.correo = correo;
         this.contrasena = contrasena;
         this.autorizado = autorizado;
@@ -53,6 +55,14 @@ export class Usuario{
         this.nombre = nombre;
     }
 
+    public getUsuario():string {
+        return this.usuario;
+    }
+
+    public setUsuario( usuario:string) : void{
+        this.id = usuario;
+    }
+    
     public getCorreo():string {
         return this.correo;
     }

@@ -21,6 +21,48 @@ export class Creador extends Usuario {
         this.rol = "CREADOR"
     }
 
+    public toJSON (): string {
+        let auxPropEventos : QueueRef<Evento> = this.getPropuestasEventos();
+        let eventosPropuestos : string = "[";
+        let i: number = 0;
+        for ( i ; i < auxPropEventos.size(); i++) {
+            eventosPropuestos += auxPropEventos.first()?.toJSON() ; 
+            if (i != auxPropEventos.size()-1){
+                eventosPropuestos += ',';
+            }
+            auxPropEventos.enqueue(auxPropEventos.first()!);
+            auxPropEventos.dequeue();
+        }
+        eventosPropuestos += ']';
+        
+        let auxEventCreados : LinkedRef<Evento> = this.getEventosCreados();
+        let eventosCreados : string = "[";
+        let k: number = 0;
+        for ( k ; k < auxEventCreados.size(); k++) {
+            eventosCreados += auxEventCreados.getFirst()?.toJSON() ; 
+            //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
+            if (k != auxEventCreados.size()-1){
+                eventosCreados += ',';
+            }
+            auxEventCreados.addLatest(auxEventCreados.getFirst()!);
+            auxEventCreados.removeFirst();
+        }
+        eventosCreados += ']';
+        
+        let creador = '{'+
+        '"rol":"ESTUDIANTE",'+
+        '"id":"'+ this.getId() +'",'+
+        '"nombre":"'+ this.getNombre() +'",'+
+        '"usuario":"'+ this.getUsuario() +'",'+
+        '"correo":"'+ this.getCorreo() +'",'+
+        '"contrasena":"'+ this.getContrasena() +'",'+
+        '"autorizado":'+ this.getAutorizado() +',' +
+        '"dependenciaAdmin":"'+ this.getDependenciaAdmin() +'",' +
+        '"eventosCreados":'+ eventosCreados +',' +
+        '"propuestasEvento":'+ eventosPropuestos +
+        '}' ;
+        return creador;
+    }
     //Getters y Setters
     
     public  getEventosCreados():LinkedRef<Evento> {

@@ -49,7 +49,9 @@ var Estudiante = /** @class */ (function (_super) {
         var i = 0;
         for (i; i < auxNotificaiones.size(); i++) {
             notPendientes += JSON.stringify(auxNotificaiones.first());
-            notPendientes += ',';
+            if (i != auxNotificaiones.size() - 1) {
+                notPendientes += ',';
+            }
             auxNotificaiones.enqueue(auxNotificaiones.first());
             auxNotificaiones.dequeue();
         }
@@ -57,9 +59,12 @@ var Estudiante = /** @class */ (function (_super) {
         var auxEventGuardados = this.getEventosGuardados();
         var eventosGuardados = "[";
         var j = 0;
-        for (j; j < auxEventGuardados.size(); i++) {
+        for (j; j < auxEventGuardados.size(); j++) {
             eventosGuardados += (_a = auxEventGuardados.getFirst()) === null || _a === void 0 ? void 0 : _a.toJSON();
-            eventosGuardados += ',';
+            //eventosGuardados += JSON.stringify(auxEventGuardados.getFirst());
+            if (j != auxEventGuardados.size() - 1) {
+                eventosGuardados += ',';
+            }
             auxEventGuardados.addLatest(auxEventGuardados.getFirst());
             auxEventGuardados.removeFirst();
         }
@@ -67,23 +72,28 @@ var Estudiante = /** @class */ (function (_super) {
         var auxEventPendientes = this.getEventosPropuestos();
         var eventPendientes = "[";
         var k = 0;
-        for (k; k < auxEventPendientes.size(); i++) {
+        for (k; k < auxEventPendientes.size(); k++) {
             eventPendientes += (_b = auxEventPendientes.getFirst()) === null || _b === void 0 ? void 0 : _b.toJSON();
-            eventPendientes += ',';
-            auxEventPendientes.addLatest(auxEventGuardados.getFirst());
+            //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
+            if (k != auxEventPendientes.size() - 1) {
+                eventPendientes += ',';
+            }
+            auxEventPendientes.addLatest(auxEventPendientes.getFirst());
             auxEventPendientes.removeFirst();
         }
         eventPendientes += ']';
         var estudiante = '{' +
-            '"rol":"' + this.rol + '",' +
+            '"rol":"ESTUDIANTE",' +
             '"id":"' + this.getId() + '",' +
             '"nombre":"' + this.getNombre() + '",' +
+            '"usuario":"' + this.getUsuario() + '",' +
             '"correo":"' + this.getCorreo() + '",' +
+            '"contrasena":"' + this.getContrasena() + '",' +
             '"autorizado":' + this.getAutorizado() + ',' +
             '"programaEstudio":"' + this.getProgramaEstudio() + '",' +
-            /*'"notificacionesPendientes":'+ notPendientes +',' +
-            '"eventosGuardados":'+ eventosGuardados +',' +
-            '"eventosPendientes":'+ eventPendientes +*/
+            '"notificacionesPendientes":' + notPendientes + ',' +
+            '"eventosGuardados":' + eventosGuardados + ',' +
+            '"eventosPendientes":' + eventPendientes +
             '}';
         return estudiante;
     };

@@ -18,7 +18,7 @@ var Evento = /** @class */ (function () {
         this.descripcion = descripcion;
         this.idCreador = idCreador;
         this.idProponente = idProponente;
-        this.estado = undefined;
+        this.estado = false;
         this.aforo = aforo;
         if (etiquetas != undefined) {
             this.etiquetas = etiquetas;
@@ -29,19 +29,27 @@ var Evento = /** @class */ (function () {
         //this.toJSON = JSON.stringify(this);
     }
     Evento.prototype.toJSON = function () {
+        var etiq = "[";
+        var i = 0;
+        for (i; i < this.etiquetas.length - 1; i++) {
+            etiq += '"' + this.etiquetas[i] + '"';
+            etiq += ',';
+        }
+        etiq += '"' + this.etiquetas[this.etiquetas.length - 1] + '"';
+        etiq += ']';
         var evento = '{' +
             '"id":"' + this.getId() + '",' +
             '"nombre":"' + this.getNombre() + '",' +
             '"fechaInicio":"' + this.getFechaInicio().toString() + '",' +
             '"fechaFinal":"' + this.getFechaFinal().toString() + '",' +
-            '"lugar":' + this.getLugar() + ',' +
+            '"lugar":"' + this.getLugar() + '",' +
             '"descripcion":"' + this.getDescripcion() + '",' +
             '"facultad":"' + this.getFacultad() + '",' +
             '"idCreador":"' + this.getCreador() + '",' +
             '"idProponente":"' + this.getProponente() + '",' +
             '"estado":' + this.getEstado() + ',' +
             '"aforo":' + this.getAforo() + ',' +
-            '"etiquetas":' + this.getEtiquetas() +
+            '"etiquetas":' + etiq +
             '}';
         return evento;
     };

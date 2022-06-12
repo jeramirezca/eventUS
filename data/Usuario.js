@@ -3,8 +3,8 @@ exports.__esModule = true;
 exports.Usuario = void 0;
 var StackRef_1 = require("../structures/StackRef");
 var Usuario = /** @class */ (function () {
-    function Usuario(id, nombre, rol, correo, contrasena, autorizado) {
-        this.rol = "INDEFINIDO";
+    function Usuario(id, nombre, usuario, correo, contrasena, autorizado) {
+        this.rol = "";
         // metodos
         this.fromJSON = function (json) {
             var obj = JSON.parse(json);
@@ -12,7 +12,8 @@ var Usuario = /** @class */ (function () {
         };
         this.id = id;
         this.nombre = nombre;
-        this.rol = rol;
+        this.usuario = usuario;
+        this.rol = "";
         this.correo = correo;
         this.contrasena = contrasena;
         this.autorizado = autorizado;
@@ -41,6 +42,12 @@ var Usuario = /** @class */ (function () {
     };
     Usuario.prototype.setNombre = function (nombre) {
         this.nombre = nombre;
+    };
+    Usuario.prototype.getUsuario = function () {
+        return this.usuario;
+    };
+    Usuario.prototype.setUsuario = function (usuario) {
+        this.id = usuario;
     };
     Usuario.prototype.getCorreo = function () {
         return this.correo;

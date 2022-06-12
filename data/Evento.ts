@@ -32,7 +32,7 @@ export class Evento {
 		this.descripcion = descripcion;
 		this.idCreador = idCreador;
 		this.idProponente= idProponente;
-        this.estado=undefined;
+        this.estado= false;
         this.aforo=aforo;
         if(etiquetas!=undefined){
             this.etiquetas=etiquetas;
@@ -43,19 +43,28 @@ export class Evento {
 	}
 
 	public toJSON(): string{
+		let etiq : string = "[";
+		let i: number = 0;
+		for ( i ; i<this.etiquetas.length-1; i++){
+			etiq += '"'+this.etiquetas[i] +'"'
+			etiq += ','
+		}				
+		etiq += '"'+this.etiquetas[this.etiquetas.length-1]+'"'
+		etiq += ']'
+
 		let evento = '{'+
 		'"id":"'+ this.getId() +'",'+
 		'"nombre":"'+ this.getNombre() +'",'+
 		'"fechaInicio":"'+ this.getFechaInicio().toString() +'",'+
 		'"fechaFinal":"'+ this.getFechaFinal().toString() +'",'+
-		'"lugar":'+ this.getLugar() +',' +
+		'"lugar":"'+ this.getLugar() +'",' +
 		'"descripcion":"'+ this.getDescripcion() +'",' +
 		'"facultad":"'+ this.getFacultad() +'",' +
 		'"idCreador":"'+ this.getCreador() +'",' +
 		'"idProponente":"'+ this.getProponente() +'",' +
 		'"estado":'+ this.getEstado() +',' +
 		'"aforo":'+ this.getAforo() +',' +
-		'"etiquetas":'+ this.getEtiquetas() +
+		'"etiquetas":'+etiq+
 		'}' ;
 		return evento;
 	}
