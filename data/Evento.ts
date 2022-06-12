@@ -148,7 +148,7 @@ export class Evento {
 		let cadena:string = "";
 		cadena+= "Nombre: "+ this.getNombre()+"\n"+"Fi "+this.fechaInicio+" Ff "+this.fechaFinal;
 		cadena+= "\n"+"Lugar "+this.getLugar()+ "\n"+"Descripcion: "+this.getDescripcion()+ "\n";
-		cadena+="Propone: " + this.creador.getDependenciaAdmin();
+		cadena+="Propone: " + this.creador.getDependenciaAdmin;
 		return cadena;
 	}
 

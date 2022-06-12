@@ -12,7 +12,7 @@ export class Creador extends Usuario {
 
     //Constructor
 
-    public constructor(id:string ,  nombre:string,user: string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
+    constructor(id:string ,  nombre:string,user: string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
         super(id, nombre,user, correo, contrasenia,estado);
         //el super siempre se debe poner primero para evitar errores
         this.eventosCreados = new LinkedRef<Evento>();
@@ -23,27 +23,27 @@ export class Creador extends Usuario {
 
     //Getters y Setters
     
-    public  getEventosCreados():LinkedRef<Evento> {
+    get  getEventosCreados():LinkedRef<Evento> {
         return this.eventosCreados;
     }
 
-    public  getDependenciaAdmin():string {
+    get  getDependenciaAdmin():string {
         return this.dependenciaAdmin;
     }
 
-    public setDependenciaAdmin(dependenciaAdmin:string):void {
+    public setDependenciaAdmin(dependenciaAdmin:string){
         this.dependenciaAdmin = dependenciaAdmin;
     }
 
-    public  getPropuestasEventos():QueueRef<Evento> {
+    get  getPropuestasEventos():QueueRef<Evento> {
         return this.propuestasEventos;
     }
 
-    public setPropuestasEventos(propuestasEventos:QueueRef<Evento> ):void{
+    public setPropuestasEventos(propuestasEventos:QueueRef<Evento> ){
         this.propuestasEventos = propuestasEventos;
     }
 
-    public  setEventosCreados(eventosCreados:LinkedRef<Evento> ):void{
+    public  setEventosCreados(eventosCreados:LinkedRef<Evento>){
         this.eventosCreados = eventosCreados;
     }
 
@@ -82,6 +82,10 @@ export class Creador extends Usuario {
             borrado = true;
         }
         return borrado;
+    }
+
+    public addEvento(e:Evento){
+        this.eventosCreados.addLatest(e);
     }
 
     public  aceptarEvento():Evento{
