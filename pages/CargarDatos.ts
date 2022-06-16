@@ -124,68 +124,13 @@ export class CargarDatos {
         Administrador.estudiantesRegistrados.unshift(user5);
         Administrador.estudiantesRegistrados.unshift(user6);
         Administrador.estudiantesRegistrados.unshift(user7);
-
-
-/*
-        console.log("****************************************")
-        console.log(JSON.stringify(userCrea1));
-        console.log("****************************************")
-        console.log(JSON.parse(JSON.stringify(userCrea1)));
-        console.log("****************************************")
-        let y = JSON.parse(JSON.parse(JSON.stringify(userCrea1)))
-        console.log(JSON.stringify(JSON.parse(JSON.stringify(y))));*/
-        /*let sAdmin : string = admin.toJSON();
-        let pAdmin = Administrador.fromJSON(sAdmin);*/
-       // let sCrea : string = JSON.stringify(userCrea1);
-       // let pCrea = Creador.fromJSON(sCrea);
-       // console.log(pCrea);
-        /*let pEvent : string = evento1.toJSON();
-        console.log(pEvent);
-        let pOEvent : Evento = Evento.fromJSON(pEvent);
-        pOEvent.descripcion = "Esta es una descripcion que prueba que funciona";
-        console.log(pOEvent);
-        console.log(pOEvent.toString());*/
-        /*
-        let sEsct = user1.toJSON();
-        console.log(sEsct);
-        let pEst : Estudiante = Estudiante.fromJSON(sEsct);
-        console.log(pEst);*/
-        /*
-        let not1 = new Notificacion("N01",new Date ("2022-6-16"),"Notificacion 1");
-        let sNot = JSON.stringify(not1);
-        console.log(sNot);
-        let pNot : Notificacion = Notificacion.fromJSON(sNot);
-        console.log(pNot);
-        console.log(pNot.toString());
-
-        let x = '[{"id":"01","fecha":"1970-01-01T00:00:01.234Z","descripcion":"descripcion de notificaicon 1"},{"id":"04","fecha":"1970-01-01T00:00:01.234Z","descripcion":"descripcion de notificaicon 4"},{"id":"02","fecha":"1970-01-01T00:00:01.234Z","descripcion":"descripcion de notificaicon 2"},{"id":"03","fecha":"1970-01-01T00:00:01.234Z","descripcion":"descripcion de notificaicon 3"}]';
-        let obj = JSON.parse(x);
-        console.log(obj);
-       // console.log(obj.length);
-        for( let d in obj){
-            let aux = obj[d];
-            let pNot : Notificacion = Notificacion.fromJSON(JSON.stringify(aux));
-            console.log(pNot.toString());
-        }*/
-/*
-        for (let i: number = 0; i < obj.length; i++){
-            console.log(Notificacion.fromJSON(obj[i]).toString());
-        }
-        let  auxNotificacionesPendientes:Array<Notificacion> = new Array<Notificacion>();
-        */
-        /*for (let i: number = 0; i < obj.length; i++){
-            console.log(Notificacion.fromJSON(obj[i]).toString());
-            auxNotificacionesPendientes.push(Notificacion.fromJSON(obj[i]));
-        }*/
-
-
     
     let datos : string = admin.toJSON()
     //console.log(datos);
     let admin2: Administrador = Administrador.fromJSON(datos);
     admin2.nombre = "Admin funcionando :)"
     console.log(admin2);
-
+    
     }
     /*public cargarDatos(pruebaY : string) : JSON  {
         let pruebaW = JSON.parse(pruebaY);
