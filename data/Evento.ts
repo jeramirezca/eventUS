@@ -21,7 +21,7 @@ export class Evento {
 	//Constructor
 
     constructor(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
-			idCreador:string, facultad:string, idProponente:string, aforo?:number, etiquetas?:string[]) {
+			idCreador:string, facultad:string, idProponente:string, estado: boolean ,aforo?:number, etiquetas?:string[]) {
 		
 		this.id = id;
 		this.nombre = nombre;
@@ -32,7 +32,7 @@ export class Evento {
 		this.descripcion = descripcion;
 		this.idCreador = idCreador;
 		this.idProponente= idProponente;
-        this.estado= false;
+        this.estado = estado;
         this.aforo=aforo;
         if(etiquetas!=undefined){
             this.etiquetas=etiquetas;
@@ -69,6 +69,12 @@ export class Evento {
 		return evento;
 	}
 
+	public static fromJSON = function (json: string) : Evento{
+        var obj = JSON.parse (json);
+        return new Evento (obj.id , obj.nombre, obj.fechaInicio, obj.fechaFinal, obj.lugar, obj.descripcion,
+			obj.creador, obj.facultad, obj.idProponente,  obj.estado, obj.aforo, obj.etiquetas);
+		};
+	
 	//Setters y getters
 
 	public  getProponente():string {
@@ -171,12 +177,6 @@ export class Evento {
 	public getFacultad():string{
 		return this.facultad;
 	}
-
-	public fromJSON = function (json: string) : Evento{
-        var obj = JSON.parse (json);
-        return new Evento (obj.id , obj.nombre, obj.fechaInicio, obj.fechaFinal,obj.lugar, obj.descripcion,
-			obj.creador, obj.facultad, obj.proponente, obj.aforo, obj.etiquetas);
-    };
 
 	public  toString():string{
 		let cadena:string = "";

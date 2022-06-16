@@ -22,7 +22,7 @@ export class Creador extends Usuario {
     }
 
     public toJSON (): string {
-        let auxPropEventos : QueueRef<Evento> = this.getPropuestasEventos();
+        let auxPropEventos : QueueRef<Evento> = this.propuestasEventos;
         let eventosPropuestos : string = "[";
         let i: number = 0;
         for ( i ; i < auxPropEventos.size(); i++) {
@@ -35,7 +35,7 @@ export class Creador extends Usuario {
         }
         eventosPropuestos += ']';
         
-        let auxEventCreados : LinkedRef<Evento> = this.getEventosCreados();
+        let auxEventCreados : LinkedRef<Evento> = this.eventosCreados;
         let eventosCreados : string = "[";
         let k: number = 0;
         for ( k ; k < auxEventCreados.size(); k++) {
@@ -57,7 +57,7 @@ export class Creador extends Usuario {
         '"correo":"'+ this.getCorreo() +'",'+
         '"contrasena":"'+ this.getContrasena() +'",'+
         '"autorizado":'+ this.getAutorizado() +',' +
-        '"dependenciaAdmin":"'+ this.getDependenciaAdmin() +'",' +
+        '"dependenciaAdmin":"'+ this.dependenciaAdmin +'",' +
         '"eventosCreados":'+ eventosCreados +',' +
         '"propuestasEvento":'+ eventosPropuestos +
         '}' ;
@@ -65,11 +65,11 @@ export class Creador extends Usuario {
     }
     //Getters y Setters
     
-    get  getEventosCreados():LinkedRef<Evento> {
+    public  getEventosCreados():LinkedRef<Evento> {
         return this.eventosCreados;
     }
 
-    get  getDependenciaAdmin():string {
+    public  getDependenciaAdmin():string {
         return this.dependenciaAdmin;
     }
 
@@ -77,7 +77,7 @@ export class Creador extends Usuario {
         this.dependenciaAdmin = dependenciaAdmin;
     }
 
-    get  getPropuestasEventos():QueueRef<Evento> {
+    public  getPropuestasEventos():QueueRef<Evento> {
         return this.propuestasEventos;
     }
 
@@ -95,7 +95,7 @@ export class Creador extends Usuario {
         creador:Creador, facultad:string, idProponente: string):boolean {
         let  creado:boolean = false;
         if(id != null && nombre !=null && fechaInicio !=null && fechaFinal!=null && descripcion != null &&facultad !=null){
-            this.eventosCreados.addLatest(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this.getId(), facultad, idProponente));
+            this.eventosCreados.addLatest(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this.getId(), facultad, idProponente,true));
             //lo comento para evitar errores por no tener usuario
             creado = true;
         }
