@@ -5,13 +5,13 @@ import { Notificacion } from "./Notificacion";
 
 export class Usuario{
 
-    private id: string;
-    private nombre:string;
-    private usuario:string;
-    private correo:string;
-    private contrasena:string;
-    private notificaciones:StackRef<Notificacion> ;
-    private autorizado:boolean;
+    public id: string;
+    public nombre:string;
+    public usuario:string;
+    public correo:string;
+    public contrasena:string;
+    public notificaciones:StackRef<Notificacion> ;
+    public autorizado:boolean;
     public rol: "ADMINISTRADOR"|"ESTUDIANTE"|"CREADOR"|""= "";
 
     // contructor

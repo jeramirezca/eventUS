@@ -5,9 +5,6 @@ import { useAuth } from '../contexts/auth';
 import { useUser } from '../contexts/user';
 
 
-
-  
-
 const Inicio = () => {
   
   const {auth, setAuth} = useAuth();

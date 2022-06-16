@@ -1,7 +1,7 @@
 export class Notificacion {
-    private id:string;
+    public id:string;
     public fecha:Date;
-    private descripcion?:string;
+    public descripcion?:string;
 	//public toJSON : string;
     
     //Constructor
