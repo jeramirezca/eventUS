@@ -5,10 +5,6 @@ var Notificacion = /** @class */ (function () {
     //public toJSON : string;
     //Constructor
     function Notificacion(i, f, d) {
-        this.fromJSON = function (json) {
-            var obj = JSON.parse(json);
-            return new Notificacion(obj.id, obj.fecha, obj.descripcion);
-        };
         this.id = i;
         this.fecha = f;
         if (d != undefined) {
@@ -41,6 +37,10 @@ var Notificacion = /** @class */ (function () {
         var c = "";
         c += "\n" + "ID: " + this.id + "\n" + "FECHA: " + this.fecha + "\n" + "DESCRIPCION " + this.descripcion;
         return c;
+    };
+    Notificacion.fromJSON = function (json) {
+        var obj = JSON.parse(json);
+        return new Notificacion(obj.id, obj.fecha, obj.descripcion);
     };
     return Notificacion;
 }());

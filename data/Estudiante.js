@@ -16,8 +16,8 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 exports.Estudiante = void 0;
-var LinkedRef_1 = require("../structures/LinkedRef");
-var QueueRef_1 = require("../structures/QueueRef");
+var Evento_1 = require("./Evento");
+var Notificacion_1 = require("./Notificacion");
 var Usuario_1 = require("./Usuario");
 var Estudiante = /** @class */ (function (_super) {
     __extends(Estudiante, _super);
@@ -25,61 +25,44 @@ var Estudiante = /** @class */ (function (_super) {
     // CONSTRUCTORES
     function Estudiante(id, nombre, user, correo, contrasena, programaEstudio) {
         var _this = _super.call(this, id, nombre, user, correo, contrasena, true) || this;
-        _this.fromJSON = function (json) {
-            var obj = JSON.parse(json);
-            var estudianteAux = new Estudiante(obj.id, obj.nombre, obj.rol, obj.correo, obj.contrasena, obj.programaEstudio);
-            var eventosGuardados = new LinkedRef_1.LinkedRef();
-            /*for (let i = 0; i < eventosGuardados.size() ; i++) {
-                obj.eventosGuardados;
-            }*/
-            return estudianteAux;
-        };
-        _this.eventosGuardados = new LinkedRef_1.LinkedRef();
-        _this.eventosPropuestos = new LinkedRef_1.LinkedRef();
-        _this.notificacionesPendientes = new QueueRef_1.QueueRef();
+        _this.eventosGuardados = new Array();
+        _this.eventosPropuestos = new Array();
+        _this.notificacionesPendientes = new Array();
         _this.programaEstudio = programaEstudio;
         _this.rol = "ESTUDIANTE";
         return _this;
         //this.toJSON = JSON.stringify(this);
     }
     Estudiante.prototype.toJSON = function () {
-        var _a, _b;
         var auxNotificaiones = this.getNotificacionesPendientes();
         var notPendientes = "[";
         var i = 0;
-        for (i; i < auxNotificaiones.size(); i++) {
-            notPendientes += JSON.stringify(auxNotificaiones.first());
-            if (i != auxNotificaiones.size() - 1) {
+        for (i; i < auxNotificaiones.length; i++) {
+            notPendientes += JSON.stringify(auxNotificaiones[i]);
+            if (i != auxNotificaiones.length - 1) {
                 notPendientes += ',';
             }
-            auxNotificaiones.enqueue(auxNotificaiones.first());
-            auxNotificaiones.dequeue();
         }
         notPendientes += ']';
         var auxEventGuardados = this.getEventosGuardados();
         var eventosGuardados = "[";
         var j = 0;
-        for (j; j < auxEventGuardados.size(); j++) {
-            eventosGuardados += (_a = auxEventGuardados.getFirst()) === null || _a === void 0 ? void 0 : _a.toJSON();
-            //eventosGuardados += JSON.stringify(auxEventGuardados.getFirst());
-            if (j != auxEventGuardados.size() - 1) {
+        for (j; j < auxEventGuardados.length; j++) {
+            eventosGuardados += auxEventGuardados[0].toJSON();
+            if (j != auxEventGuardados.length - 1) {
                 eventosGuardados += ',';
             }
-            auxEventGuardados.addLatest(auxEventGuardados.getFirst());
-            auxEventGuardados.removeFirst();
         }
         eventosGuardados += ']';
         var auxEventPendientes = this.getEventosPropuestos();
         var eventPendientes = "[";
         var k = 0;
-        for (k; k < auxEventPendientes.size(); k++) {
-            eventPendientes += (_b = auxEventPendientes.getFirst()) === null || _b === void 0 ? void 0 : _b.toJSON();
+        for (k; k < auxEventPendientes.length; k++) {
+            eventPendientes += auxEventPendientes[0].toJSON();
             //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
-            if (k != auxEventPendientes.size() - 1) {
+            if (k != auxEventPendientes.length - 1) {
                 eventPendientes += ',';
             }
-            auxEventPendientes.addLatest(auxEventPendientes.getFirst());
-            auxEventPendientes.removeFirst();
         }
         eventPendientes += ']';
         var estudiante = '{' +
@@ -136,12 +119,38 @@ var Estudiante = /** @class */ (function (_super) {
     };
     Estudiante.prototype.sugerirEvento = function (e, c) {
         e.setProponente(this.getId());
-        this.eventosPropuestos.addLatest(e);
-        c.getPropuestasEventos().enqueue(e);
+        this.eventosPropuestos.push(e);
+        c.getPropuestasEventos().unshift(e);
         // pendiente poder enviar ese evento al creador para que lo pueda autorizar
     };
     Estudiante.prototype.guardarEvento = function (nuevoEvento) {
-        this.eventosGuardados.addLatest(nuevoEvento);
+        this.eventosGuardados.push(nuevoEvento);
+    };
+    Estudiante.fromJSON = function (json) {
+        var obj = JSON.parse(json);
+        var estudianteAux = new Estudiante(obj.id, obj.nombre, obj.user, obj.correo, obj.contrasena, obj.programaEstudio);
+        var auxEventosGuardados = new Array();
+        for (var i = 0; i < obj.eventosGuardados.length; i++) {
+            var aux = obj.eventosGuardados[i];
+            var auxEvent = Evento_1.Evento.fromJSON(JSON.stringify(aux));
+            auxEventosGuardados.push(auxEvent);
+        }
+        var auxEventosPendientes = new Array();
+        for (var i = 0; i < obj.eventosPendientes.length; i++) {
+            var aux = obj.eventosPendientes[i];
+            var auxEvent = Evento_1.Evento.fromJSON(JSON.stringify(aux));
+            auxEventosPendientes.push(auxEvent);
+        }
+        var auxNotificacionesPendientes = new Array();
+        for (var i = 0; i < obj.notificacionesPendientes.length; i++) {
+            var aux = obj.notificacionesPendientes[i];
+            var auxNot = Notificacion_1.Notificacion.fromJSON(JSON.stringify(aux));
+            auxNotificacionesPendientes.push(auxNot);
+        }
+        estudianteAux.setNotificacionesPendientes(auxNotificacionesPendientes);
+        estudianteAux.setEventosPropuestos(auxEventosPendientes);
+        estudianteAux.setEventosGuardados(auxEventosGuardados);
+        return estudianteAux;
     };
     return Estudiante;
 }(Usuario_1.Usuario));

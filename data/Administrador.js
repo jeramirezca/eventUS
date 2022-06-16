@@ -16,8 +16,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 exports.Administrador = void 0;
-var LinkedRef_1 = require("../structures/LinkedRef");
-var QueueRef_1 = require("../structures/QueueRef");
 var Creador_1 = require("./Creador");
 var Estudiante_1 = require("./Estudiante");
 var Usuario_1 = require("./Usuario");
@@ -30,48 +28,40 @@ var Administrador = /** @class */ (function (_super) {
         return _this;
     }
     Administrador.inicializar = function () {
-        this.creadoresVerificar = new QueueRef_1.QueueRef();
-        this.estudiantesRegistrados = new LinkedRef_1.LinkedRef();
-        this.creadoresRegistrados = new LinkedRef_1.LinkedRef();
+        this.creadoresVerificar = new Array();
+        this.estudiantesRegistrados = new Array();
+        this.creadoresRegistrados = new Array();
     };
     Administrador.prototype.toJSON = function () {
-        var _a, _b, _c;
         var auxCreaVerificar = Administrador.creadoresVerificar;
         var creadoresVerificar = "[";
         var i = 0;
-        for (i; i < auxCreaVerificar.size(); i++) {
-            creadoresVerificar += (_a = auxCreaVerificar.first()) === null || _a === void 0 ? void 0 : _a.toJSON();
-            if (i != auxCreaVerificar.size() - 1) {
+        for (i; i < auxCreaVerificar.length; i++) {
+            creadoresVerificar += auxCreaVerificar[0].toJSON();
+            if (i != auxCreaVerificar.length - 1) {
                 creadoresVerificar += ',';
             }
-            auxCreaVerificar.enqueue(auxCreaVerificar.first());
-            auxCreaVerificar.dequeue();
         }
         creadoresVerificar += ']';
         var auxCreaRegistrados = Administrador.creadoresRegistrados;
         var creadoresRegistrados = "[";
         var j = 0;
-        for (j; j < auxCreaRegistrados.size(); j++) {
-            creadoresRegistrados += (_b = auxCreaRegistrados.getFirst()) === null || _b === void 0 ? void 0 : _b.toJSON();
+        for (j; j < auxCreaRegistrados.length; j++) {
+            creadoresRegistrados += auxCreaRegistrados[0].toJSON();
             //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
-            if (j != auxCreaRegistrados.size() - 1) {
+            if (j != auxCreaRegistrados.length - 1) {
                 creadoresRegistrados += ',';
             }
-            auxCreaRegistrados.addLatest(auxCreaRegistrados.getFirst());
-            auxCreaRegistrados.removeFirst();
         }
         creadoresRegistrados += ']';
         var auxEstRegistrados = Administrador.estudiantesRegistrados;
         var estudiantesRegistrados = "[";
         var k = 0;
-        for (k; k < auxEstRegistrados.size(); k++) {
-            estudiantesRegistrados += (_c = auxEstRegistrados.getFirst()) === null || _c === void 0 ? void 0 : _c.toJSON();
-            //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
-            if (k != auxEstRegistrados.size() - 1) {
+        for (k; k < auxEstRegistrados.length; k++) {
+            estudiantesRegistrados += auxEstRegistrados[0].toJSON();
+            if (k != auxEstRegistrados.length - 1) {
                 estudiantesRegistrados += ',';
             }
-            auxEstRegistrados.addLatest(auxEstRegistrados.getFirst());
-            auxEstRegistrados.removeFirst();
         }
         estudiantesRegistrados += ']';
         var administrador = '{' +
@@ -90,7 +80,7 @@ var Administrador = /** @class */ (function (_super) {
     };
     //Métodos
     Administrador.prototype.autorizarUsuario = function () {
-        var user = Administrador.creadoresVerificar.first();
+        var user = Administrador.creadoresVerificar[0];
         user.setAutorizado(true);
         // Proceso donde se autoriza (Trabaja sobre usuariosVerificar)
         /*
@@ -98,19 +88,19 @@ var Administrador = /** @class */ (function (_super) {
          * ser
          * casteado a creador.
          */
-        Administrador.creadoresRegistrados.addFirst(user);
-        Administrador.creadoresVerificar.dequeue(); // desencolar()
+        Administrador.creadoresRegistrados.unshift(user);
+        Administrador.creadoresVerificar.shift(); // desencolar()
     };
     Administrador.prototype.desautorizarUsuario = function () {
         // proceso donde se desautoriza (Trabaja sobre
-        var user = Administrador.creadoresVerificar.first();
+        var user = Administrador.creadoresVerificar[0];
         user.setAutorizado(false); // usuariosVerificar)
         /*
          * Cuando se desautorice un usuario, su estado va a cambiar a desautorizado y
          * debera ser
          * casteado a estudiante.
          */
-        Administrador.creadoresVerificar.dequeue(); // desencolar()
+        Administrador.creadoresVerificar.shift(); // desencolar()
     };
     //public editarUsuario(usuario:Usuario):boolean {      ¿Por qué el administrador editaria un usuario?
     // proceso donde se edita (Trabaja sobre usuariosRegistrados)
@@ -148,7 +138,7 @@ var Administrador = /** @class */ (function (_super) {
             return false;
         }
         else {
-            Administrador.estudiantesRegistrados.remove(index); // elimina al usuario
+            Administrador.estudiantesRegistrados.splice(index, 1); // elimina al usuario
             return true;
         }
     };
@@ -168,24 +158,47 @@ var Administrador = /** @class */ (function (_super) {
             return false;
         }
         else {
-            Administrador.estudiantesRegistrados.remove(index); // elimina al usuario
+            Administrador.estudiantesRegistrados.splice(index, 1); // elimina al usuario
             return true;
         }
     };
     Administrador.prototype.filtrarUsuarios = function (num) {
         if (num == 1) {
-            if (Administrador.estudiantesRegistrados.getFirst() instanceof Estudiante_1.Estudiante) {
-                console.log(Administrador.estudiantesRegistrados.getFirst() + "Estudiante");
+            if (Administrador.estudiantesRegistrados[0] instanceof Estudiante_1.Estudiante) {
+                console.log(Administrador.estudiantesRegistrados[0] + "Estudiante");
             }
         }
         else if (num == 2) {
-            if (Administrador.estudiantesRegistrados.getFirst() instanceof Creador_1.Creador) {
-                console.log(Administrador.estudiantesRegistrados.getFirst() + "Creador");
+            if (Administrador.estudiantesRegistrados[0] instanceof Creador_1.Creador) {
+                console.log(Administrador.estudiantesRegistrados[0] + "Creador");
             }
         }
         else {
             console.log("Tipo de usuario no identificado.");
         }
+    };
+    Administrador.fromJSON = function (json) {
+        var obj = JSON.parse(json);
+        var adminAux = new Administrador(obj.id, obj.nombre, obj.user, obj.correo, obj.contrasena, true);
+        for (var i = 0; i < obj.creadoresVerificar.length; i++) {
+            var aux = obj.creadoresVerificar[i];
+            var auxCrea = Creador_1.Creador.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(aux))));
+            console.log(auxCrea);
+            Administrador.creadoresVerificar.push(auxCrea);
+        }
+        for (var i = 0; i < obj.creadoresRegistrados.length; i++) {
+            var aux = obj.creadoresRegistrados[i];
+            var auxCrea = Creador_1.Creador.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(aux))));
+            console.log(auxCrea);
+            Administrador.creadoresRegistrados.push(auxCrea);
+        }
+        for (var i = 0; i < obj.estudiantesRegistrados.length; i++) {
+            var aux = obj.estudiantesRegistrados[i];
+            var auxEst = Estudiante_1.Estudiante.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(aux))));
+            console.log(auxEst);
+            Administrador.estudiantesRegistrados.push(auxEst);
+        }
+        return adminAux;
     };
     return Administrador;
 }(Usuario_1.Usuario));

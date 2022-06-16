@@ -5,6 +5,7 @@ var Creador_1 = require("../data/Creador");
 var Estudiante_1 = require("../data/Estudiante");
 var Evento_1 = require("../data/Evento");
 var Administrador_1 = require("../data/Administrador");
+var Notificacion_1 = require("../data/Notificacion");
 var CargarDatos = /** @class */ (function () {
     function CargarDatos() {
         var admin = new Administrador_1.Administrador("A01", "Administrador", "admin", "admin@unal.edu.co", "admin123", true);
@@ -34,30 +35,27 @@ var CargarDatos = /** @class */ (function () {
         console.log(eventoPrueba.getFechaFinal().getFullYear());
         console.log(eventoPrueba.getFechaFinal().getMonth());
         console.log(eventoPrueba.getFechaFinal().getDay());
-        /*
-        let auxEventProp : QueueRef<Evento> = new QueueRef<Evento>();
-        auxEventProp.enqueue(evento1);
-        auxEventProp.enqueue(evento2);
-        auxEventProp.enqueue(evento3);
+        var auxEventProp = new Array();
+        auxEventProp.push(evento1);
+        auxEventProp.push(evento2);
+        auxEventProp.push(evento3);
         userCrea1.setPropuestasEventos(auxEventProp);
         userCrea2.setPropuestasEventos(auxEventProp);
         userCrea3.setPropuestasEventos(auxEventProp);
         userCrea4.setPropuestasEventos(auxEventProp);
-
-        let auxEventCrea : LinkedRef<Evento> = new LinkedRef<Evento>();
-        auxEventCrea.addFirst(evento4);
-        auxEventCrea.addFirst(evento5);
-        auxEventCrea.addFirst(evento6);
-        auxEventCrea.addFirst(evento7);
+        var auxEventCrea = new Array();
+        auxEventCrea.unshift(evento4);
+        auxEventCrea.unshift(evento5);
+        auxEventCrea.unshift(evento6);
+        auxEventCrea.unshift(evento7);
         userCrea1.setEventosCreados(auxEventCrea);
         userCrea2.setEventosCreados(auxEventCrea);
         userCrea3.setEventosCreados(auxEventCrea);
         userCrea4.setEventosCreados(auxEventCrea);
-
-        let listaAux : LinkedRef<Evento> = user1.getEventosGuardados();
-        listaAux.addLatest(evento1);
-        listaAux.addLatest(evento2);
-        listaAux.addLatest(evento3);
+        var listaAux = user1.getEventosGuardados();
+        listaAux.push(evento1);
+        listaAux.push(evento2);
+        listaAux.push(evento3);
         user1.setEventosGuardados(listaAux);
         user2.setEventosGuardados(listaAux);
         user3.setEventosGuardados(listaAux);
@@ -65,10 +63,9 @@ var CargarDatos = /** @class */ (function () {
         user6.setEventosGuardados(listaAux);
         user7.setEventosGuardados(listaAux);
         user8.setEventosGuardados(listaAux);
-
-        let listaAux2 : LinkedRef<Evento> = user1.getEventosPropuestos();
-        listaAux2.addLatest(evento2);
-        listaAux2.addLatest(evento1);
+        var listaAux2 = user1.getEventosPropuestos();
+        listaAux2.push(evento2);
+        listaAux2.push(evento1);
         user1.setEventosPropuestos(listaAux2);
         user2.setEventosPropuestos(listaAux2);
         user3.setEventosPropuestos(listaAux2);
@@ -77,18 +74,15 @@ var CargarDatos = /** @class */ (function () {
         user6.setEventosPropuestos(listaAux2);
         user7.setEventosPropuestos(listaAux2);
         user8.setEventosPropuestos(listaAux2);
-
-
-        let cola: QueueRef<Notificacion> = user1.getNotificacionesPendientes();
-        let not: Notificacion = new Notificacion("01",new Date(1234),"descripcion de notificaicon 1")
-        let not2: Notificacion = new Notificacion("02",new Date(1234),"descripcion de notificaicon 2")
-        let not3: Notificacion = new Notificacion("03",new Date(1234),"descripcion de notificaicon 3")
-        let not4: Notificacion = new Notificacion("04",new Date(1234),"descripcion de notificaicon 4")
-        cola.enqueue(not);
-        cola.enqueue(not4);
-        cola.enqueue(not2);
-        cola.enqueue(not3);
-
+        var cola = user1.getNotificacionesPendientes();
+        var not = new Notificacion_1.Notificacion("01", new Date(1234), "descripcion de notificaicon 1");
+        var not2 = new Notificacion_1.Notificacion("02", new Date(1234), "descripcion de notificaicon 2");
+        var not3 = new Notificacion_1.Notificacion("03", new Date(1234), "descripcion de notificaicon 3");
+        var not4 = new Notificacion_1.Notificacion("04", new Date(1234), "descripcion de notificaicon 4");
+        cola.push(not);
+        cola.push(not4);
+        cola.push(not2);
+        cola.push(not3);
         user1.setNotificacionesPendientes(cola);
         user2.setNotificacionesPendientes(cola);
         user3.setNotificacionesPendientes(cola);
@@ -97,25 +91,76 @@ var CargarDatos = /** @class */ (function () {
         user6.setNotificacionesPendientes(cola);
         user7.setNotificacionesPendientes(cola);
         user8.setNotificacionesPendientes(cola);
+        Administrador_1.Administrador.creadoresVerificar.push(userCrea1);
+        Administrador_1.Administrador.creadoresVerificar.push(userCrea2);
+        Administrador_1.Administrador.creadoresVerificar.push(userCrea3);
+        Administrador_1.Administrador.creadoresRegistrados.unshift(userCrea1);
+        Administrador_1.Administrador.creadoresRegistrados.unshift(userCrea4);
+        Administrador_1.Administrador.creadoresRegistrados.unshift(userCrea3);
+        Administrador_1.Administrador.creadoresRegistrados.unshift(userCrea2);
+        Administrador_1.Administrador.estudiantesRegistrados.unshift(user1);
+        Administrador_1.Administrador.estudiantesRegistrados.unshift(user2);
+        Administrador_1.Administrador.estudiantesRegistrados.unshift(user3);
+        Administrador_1.Administrador.estudiantesRegistrados.unshift(user4);
+        Administrador_1.Administrador.estudiantesRegistrados.unshift(user5);
+        Administrador_1.Administrador.estudiantesRegistrados.unshift(user6);
+        Administrador_1.Administrador.estudiantesRegistrados.unshift(user7);
+        /*
+                console.log("****************************************")
+                console.log(JSON.stringify(userCrea1));
+                console.log("****************************************")
+                console.log(JSON.parse(JSON.stringify(userCrea1)));
+                console.log("****************************************")
+                let y = JSON.parse(JSON.parse(JSON.stringify(userCrea1)))
+                console.log(JSON.stringify(JSON.parse(JSON.stringify(y))));*/
+        /*let sAdmin : string = admin.toJSON();
+        let pAdmin = Administrador.fromJSON(sAdmin);*/
+        // let sCrea : string = JSON.stringify(userCrea1);
+        // let pCrea = Creador.fromJSON(sCrea);
+        // console.log(pCrea);
+        /*let pEvent : string = evento1.toJSON();
+        console.log(pEvent);
+        let pOEvent : Evento = Evento.fromJSON(pEvent);
+        pOEvent.descripcion = "Esta es una descripcion que prueba que funciona";
+        console.log(pOEvent);
+        console.log(pOEvent.toString());*/
+        /*
+        let sEsct = user1.toJSON();
+        console.log(sEsct);
+        let pEst : Estudiante = Estudiante.fromJSON(sEsct);
+        console.log(pEst);*/
+        /*
+        let not1 = new Notificacion("N01",new Date ("2022-6-16"),"Notificacion 1");
+        let sNot = JSON.stringify(not1);
+        console.log(sNot);
+        let pNot : Notificacion = Notificacion.fromJSON(sNot);
+        console.log(pNot);
+        console.log(pNot.toString());
 
-        Administrador.creadoresVerificar.enqueue(userCrea1);
-        Administrador.creadoresVerificar.enqueue(userCrea2);
-        Administrador.creadoresVerificar.enqueue(userCrea3);
-
-        Administrador.creadoresRegistrados.addFirst(userCrea1);
-        Administrador.creadoresRegistrados.addFirst(userCrea4);
-        Administrador.creadoresRegistrados.addFirst(userCrea3);
-        Administrador.creadoresRegistrados.addFirst(userCrea2);
-
-        Administrador.estudiantesRegistrados.addFirst(user1);
-        Administrador.estudiantesRegistrados.addFirst(user2);
-        Administrador.estudiantesRegistrados.addFirst(user3);
-        Administrador.estudiantesRegistrados.addFirst(user4);
-        Administrador.estudiantesRegistrados.addFirst(user5);
-        Administrador.estudiantesRegistrados.addFirst(user6);
-        Administrador.estudiantesRegistrados.addFirst(user7);
-    
-    console.log(admin.toJSON());*/
+        let x = '[{"id":"01","fecha":"1970-01-01T00:00:01.234Z","descripcion":"descripcion de notificaicon 1"},{"id":"04","fecha":"1970-01-01T00:00:01.234Z","descripcion":"descripcion de notificaicon 4"},{"id":"02","fecha":"1970-01-01T00:00:01.234Z","descripcion":"descripcion de notificaicon 2"},{"id":"03","fecha":"1970-01-01T00:00:01.234Z","descripcion":"descripcion de notificaicon 3"}]';
+        let obj = JSON.parse(x);
+        console.log(obj);
+       // console.log(obj.length);
+        for( let d in obj){
+            let aux = obj[d];
+            let pNot : Notificacion = Notificacion.fromJSON(JSON.stringify(aux));
+            console.log(pNot.toString());
+        }*/
+        /*
+                for (let i: number = 0; i < obj.length; i++){
+                    console.log(Notificacion.fromJSON(obj[i]).toString());
+                }
+                let  auxNotificacionesPendientes:Array<Notificacion> = new Array<Notificacion>();
+                */
+        /*for (let i: number = 0; i < obj.length; i++){
+            console.log(Notificacion.fromJSON(obj[i]).toString());
+            auxNotificacionesPendientes.push(Notificacion.fromJSON(obj[i]));
+        }*/
+        var datos = admin.toJSON();
+        //console.log(datos);
+        var admin2 = Administrador_1.Administrador.fromJSON(datos);
+        admin2.nombre = "Admin funcionando :)";
+        console.log(admin2);
     }
     CargarDatos.admin1 = new Administrador_1.Administrador("01", "Administrador principal", "correo@unal.edu.co", "ADMINISTRADOR", "admin123", true);
     return CargarDatos;

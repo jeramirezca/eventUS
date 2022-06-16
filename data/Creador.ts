@@ -6,8 +6,8 @@ import { Notificacion } from "./Notificacion";
 import { Usuario } from "./Usuario";
 
 export class Creador extends Usuario {
-    public eventosCreados:LinkedRef<Evento>;
-    public  propuestasEventos:QueueRef<Evento>;
+    public eventosCreados:Array<Evento>;
+    public  propuestasEventos:Array<Evento>;
     public dependenciaAdmin:string;
 
     //Constructor
@@ -15,37 +15,53 @@ export class Creador extends Usuario {
     constructor(id:string ,  nombre:string,user: string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
         super(id, nombre,user, correo, contrasenia,estado);
         //el super siempre se debe poner primero para evitar errores
-        this.eventosCreados = new LinkedRef<Evento>();
-        this.propuestasEventos = new QueueRef<Evento>();
+        this.eventosCreados = new Array<Evento>();
+        this.propuestasEventos = new Array<Evento>();
         this.dependenciaAdmin = dep;                 
         this.rol = "CREADOR"
     }
+    public static fromJSON = function (json: string) : Creador{
+        let obj = JSON.parse (json);
+        let creadorAux = new Creador (obj.id , obj.nombre, obj.user, obj.correo, obj.contrasena,obj.autorizado, obj.dependenciaAdmin);
+        let  auxEventosCreados:Array<Evento> = new Array<Evento>();
+        for (let i: number = 0; i < obj.eventosCreados.length; i++){
+            let aux = obj.eventosCreados[i];
+            let auxEvent : Evento = Evento.fromJSON(JSON.stringify(aux));
+            auxEventosCreados.push(auxEvent);
+        }
+        let  auxPropuestasEventos:Array<Evento> = new Array<Evento>();
+        for (let i: number = 0; i < obj.propuestasEvento.length; i++){
+            let aux = obj.propuestasEvento[i];
+            let auxEvent : Evento = Evento.fromJSON(JSON.stringify(aux));
+            auxPropuestasEventos.push(auxEvent);
+        }
+        
+        creadorAux.setEventosCreados(auxEventosCreados);
+        creadorAux.setPropuestasEventos(auxPropuestasEventos);
+        return creadorAux;
+    };
 
     public toJSON (): string {
-        let auxPropEventos : QueueRef<Evento> = this.propuestasEventos;
+        let auxPropEventos : Array<Evento> = this.propuestasEventos;
         let eventosPropuestos : string = "[";
         let i: number = 0;
-        for ( i ; i < auxPropEventos.size(); i++) {
-            eventosPropuestos += auxPropEventos.first()?.toJSON() ; 
-            if (i != auxPropEventos.size()-1){
+        for ( i ; i < auxPropEventos.length; i++) {
+            eventosPropuestos += auxPropEventos[0].toJSON() ; 
+            if (i != auxPropEventos.length-1){
                 eventosPropuestos += ',';
             }
-            auxPropEventos.enqueue(auxPropEventos.first()!);
-            auxPropEventos.dequeue();
         }
         eventosPropuestos += ']';
         
-        let auxEventCreados : LinkedRef<Evento> = this.eventosCreados;
+        let auxEventCreados : Array<Evento> = this.eventosCreados;
         let eventosCreados : string = "[";
         let k: number = 0;
-        for ( k ; k < auxEventCreados.size(); k++) {
-            eventosCreados += auxEventCreados.getFirst()?.toJSON() ; 
-            //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
-            if (k != auxEventCreados.size()-1){
+        for ( k ; k < auxEventCreados.length; k++) {
+            eventosCreados += auxEventCreados[0].toJSON() ; 
+            
+            if (k != auxEventCreados.length-1){
                 eventosCreados += ',';
             }
-            auxEventCreados.addLatest(auxEventCreados.getFirst()!);
-            auxEventCreados.removeFirst();
         }
         eventosCreados += ']';
         
@@ -65,7 +81,7 @@ export class Creador extends Usuario {
     }
     //Getters y Setters
     
-    public  getEventosCreados():LinkedRef<Evento> {
+    public  getEventosCreados():Array<Evento> {
         return this.eventosCreados;
     }
 
@@ -77,15 +93,15 @@ export class Creador extends Usuario {
         this.dependenciaAdmin = dependenciaAdmin;
     }
 
-    public  getPropuestasEventos():QueueRef<Evento> {
+    public  getPropuestasEventos():Array<Evento> {
         return this.propuestasEventos;
     }
 
-    public setPropuestasEventos(propuestasEventos:QueueRef<Evento> ){
+    public setPropuestasEventos(propuestasEventos:Array<Evento> ){
         this.propuestasEventos = propuestasEventos;
     }
 
-    public  setEventosCreados(eventosCreados:LinkedRef<Evento>){
+    public  setEventosCreados(eventosCreados:Array<Evento>){
         this.eventosCreados = eventosCreados;
     }
 
@@ -95,7 +111,7 @@ export class Creador extends Usuario {
         creador:Creador, facultad:string, idProponente: string):boolean {
         let  creado:boolean = false;
         if(id != null && nombre !=null && fechaInicio !=null && fechaFinal!=null && descripcion != null &&facultad !=null){
-            this.eventosCreados.addLatest(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this.getId(), facultad, idProponente,true));
+            this.eventosCreados.push(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this.getId(), facultad, idProponente,true));
             //lo comento para evitar errores por no tener usuario
             creado = true;
         }
@@ -107,9 +123,9 @@ export class Creador extends Usuario {
         e.setFechaFinal(fechaNuevaFin);
         e.setFechaInicio(fechaNuevaIn);
         e.setLugar(nuevoLugar);
-        if(this.eventosCreados.exists(e)){
-            this.eventosCreados.remove(this.eventosCreados.indexOf(e));
-            this.eventosCreados.addLatest(e);
+        if(this.eventosCreados.includes(e)){
+            this.eventosCreados.splice((this.eventosCreados.indexOf(e)),1);
+            this.eventosCreados.push(e);
         } 
         return e;
         
@@ -118,22 +134,22 @@ export class Creador extends Usuario {
 
     public eliminarEvento( borrar:Evento):boolean{
         let borrado: boolean = false;
-        if(this.eventosCreados.exists(borrar)){
+        if(this.eventosCreados.includes(borrar)){
             let a:number = this.eventosCreados.indexOf(borrar);
-            this.eventosCreados.remove(a);
+            this.eventosCreados.splice(a,1);
             borrado = true;
         }
         return borrado;
     }
 
     public addEvento(e:Evento){
-        this.eventosCreados.addLatest(e);
+        this.eventosCreados.push(e);
     }
 
     public  aceptarEvento():Evento{
         //aniade el evento a eventos creados y lo saca de eventos propuestos si existe
-        let aceptado:Evento= this.propuestasEventos.dequeue()as unknown as Evento;
-        this.eventosCreados.addLatest(aceptado);
+        let aceptado:Evento= this.propuestasEventos.shift()as unknown as Evento;
+        this.eventosCreados.push(aceptado);
         
         /*
         esto lo usabamos cuando eventos propuestos era una lista
@@ -155,7 +171,7 @@ export class Creador extends Usuario {
 
     public rechazarEvento():void{
         //si el elemento existe en las propuestas eliminarlo
-        let rechazado:Evento= this.propuestasEventos.dequeue()as unknown as Evento;
+        let rechazado:Evento= this.propuestasEventos.shift()as unknown as Evento;
         
         /*
        if(propuestasEventos.exists(aceptar)){

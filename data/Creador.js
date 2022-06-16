@@ -16,8 +16,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 exports.Creador = void 0;
-var LinkedRef_1 = require("../structures/LinkedRef");
-var QueueRef_1 = require("../structures/QueueRef");
 var Evento_1 = require("./Evento");
 var Usuario_1 = require("./Usuario");
 var Creador = /** @class */ (function (_super) {
@@ -26,37 +24,31 @@ var Creador = /** @class */ (function (_super) {
     function Creador(id, nombre, user, correo, contrasenia, estado, dep) {
         var _this = _super.call(this, id, nombre, user, correo, contrasenia, estado) || this;
         //el super siempre se debe poner primero para evitar errores
-        _this.eventosCreados = new LinkedRef_1.LinkedRef();
-        _this.propuestasEventos = new QueueRef_1.QueueRef();
+        _this.eventosCreados = new Array();
+        _this.propuestasEventos = new Array();
         _this.dependenciaAdmin = dep;
         _this.rol = "CREADOR";
         return _this;
     }
     Creador.prototype.toJSON = function () {
-        var _a, _b;
         var auxPropEventos = this.propuestasEventos;
         var eventosPropuestos = "[";
         var i = 0;
-        for (i; i < auxPropEventos.size(); i++) {
-            eventosPropuestos += (_a = auxPropEventos.first()) === null || _a === void 0 ? void 0 : _a.toJSON();
-            if (i != auxPropEventos.size() - 1) {
+        for (i; i < auxPropEventos.length; i++) {
+            eventosPropuestos += auxPropEventos[0].toJSON();
+            if (i != auxPropEventos.length - 1) {
                 eventosPropuestos += ',';
             }
-            auxPropEventos.enqueue(auxPropEventos.first());
-            auxPropEventos.dequeue();
         }
         eventosPropuestos += ']';
         var auxEventCreados = this.eventosCreados;
         var eventosCreados = "[";
         var k = 0;
-        for (k; k < auxEventCreados.size(); k++) {
-            eventosCreados += (_b = auxEventCreados.getFirst()) === null || _b === void 0 ? void 0 : _b.toJSON();
-            //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
-            if (k != auxEventCreados.size() - 1) {
+        for (k; k < auxEventCreados.length; k++) {
+            eventosCreados += auxEventCreados[0].toJSON();
+            if (k != auxEventCreados.length - 1) {
                 eventosCreados += ',';
             }
-            auxEventCreados.addLatest(auxEventCreados.getFirst());
-            auxEventCreados.removeFirst();
         }
         eventosCreados += ']';
         var creador = '{' +
@@ -96,7 +88,7 @@ var Creador = /** @class */ (function (_super) {
     Creador.prototype.crearEvento = function (id, nombre, fechaInicio, fechaFinal, lugar, descripcion, creador, facultad, idProponente) {
         var creado = false;
         if (id != null && nombre != null && fechaInicio != null && fechaFinal != null && descripcion != null && facultad != null) {
-            this.eventosCreados.addLatest(new Evento_1.Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion, this.getId(), facultad, idProponente, true));
+            this.eventosCreados.push(new Evento_1.Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion, this.getId(), facultad, idProponente, true));
             //lo comento para evitar errores por no tener usuario
             creado = true;
         }
@@ -106,29 +98,29 @@ var Creador = /** @class */ (function (_super) {
         e.setFechaFinal(fechaNuevaFin);
         e.setFechaInicio(fechaNuevaIn);
         e.setLugar(nuevoLugar);
-        if (this.eventosCreados.exists(e)) {
-            this.eventosCreados.remove(this.eventosCreados.indexOf(e));
-            this.eventosCreados.addLatest(e);
+        if (this.eventosCreados.includes(e)) {
+            this.eventosCreados.splice((this.eventosCreados.indexOf(e)), 1);
+            this.eventosCreados.push(e);
         }
         return e;
         //por defecto solo se pueden cambiar las fechas del evento, lugar y etiquetas
     };
     Creador.prototype.eliminarEvento = function (borrar) {
         var borrado = false;
-        if (this.eventosCreados.exists(borrar)) {
+        if (this.eventosCreados.includes(borrar)) {
             var a = this.eventosCreados.indexOf(borrar);
-            this.eventosCreados.remove(a);
+            this.eventosCreados.splice(a, 1);
             borrado = true;
         }
         return borrado;
     };
     Creador.prototype.addEvento = function (e) {
-        this.eventosCreados.addLatest(e);
+        this.eventosCreados.push(e);
     };
     Creador.prototype.aceptarEvento = function () {
         //aniade el evento a eventos creados y lo saca de eventos propuestos si existe
-        var aceptado = this.propuestasEventos.dequeue();
-        this.eventosCreados.addLatest(aceptado);
+        var aceptado = this.propuestasEventos.shift();
+        this.eventosCreados.push(aceptado);
         /*
         esto lo usabamos cuando eventos propuestos era una lista
         if(propuestasEventos.exists(aceptar)){
@@ -146,7 +138,7 @@ var Creador = /** @class */ (function (_super) {
     };
     Creador.prototype.rechazarEvento = function () {
         //si el elemento existe en las propuestas eliminarlo
-        var rechazado = this.propuestasEventos.dequeue();
+        var rechazado = this.propuestasEventos.shift();
         /*
        if(propuestasEventos.exists(aceptar)){
         int a = propuestasEventos.indexOf(aceptar);
@@ -183,6 +175,25 @@ var Creador = /** @class */ (function (_super) {
                 console.log("etiqueta no valida, intente de nuevo");
                 break;
         }
+    };
+    Creador.fromJSON = function (json) {
+        var obj = JSON.parse(json);
+        var creadorAux = new Creador(obj.id, obj.nombre, obj.user, obj.correo, obj.contrasena, obj.autorizado, obj.dependenciaAdmin);
+        var auxEventosCreados = new Array();
+        for (var i = 0; i < obj.eventosCreados.length; i++) {
+            var aux = obj.eventosCreados[i];
+            var auxEvent = Evento_1.Evento.fromJSON(JSON.stringify(aux));
+            auxEventosCreados.push(auxEvent);
+        }
+        var auxPropuestasEventos = new Array();
+        for (var i = 0; i < obj.propuestasEvento.length; i++) {
+            var aux = obj.propuestasEvento[i];
+            var auxEvent = Evento_1.Evento.fromJSON(JSON.stringify(aux));
+            auxPropuestasEventos.push(auxEvent);
+        }
+        creadorAux.setEventosCreados(auxEventosCreados);
+        creadorAux.setPropuestasEventos(auxPropuestasEventos);
+        return creadorAux;
     };
     return Creador;
 }(Usuario_1.Usuario));

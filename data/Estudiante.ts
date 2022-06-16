@@ -6,9 +6,9 @@ import { Notificacion } from "./Notificacion";
 import { Usuario } from "./Usuario";
 export class Estudiante extends Usuario{
     public programaEstudio:string;
-    public eventosGuardados:LinkedRef<Evento>;
-    public eventosPropuestos:LinkedRef<Evento>;
-    public notificacionesPendientes:QueueRef<Notificacion>;
+    public eventosGuardados:Array<Evento>;
+    public eventosPropuestos:Array<Evento>;
+    public notificacionesPendientes:Array<Notificacion>;
 	//public toJSON : string;
 
     // CONSTRUCTORES
@@ -16,53 +16,74 @@ export class Estudiante extends Usuario{
 
     public constructor (id:string , nombre:string , user:string, correo:string , contrasena:string,programaEstudio:string |""){
         super(id, nombre,user,correo,contrasena,true);
-        this.eventosGuardados= new LinkedRef<Evento>();
-        this.eventosPropuestos= new LinkedRef<Evento>();
-        this.notificacionesPendientes=new QueueRef<Notificacion>();
+        this.eventosGuardados= new Array<Evento>();
+        this.eventosPropuestos= new Array<Evento>();
+        this.notificacionesPendientes=new Array<Notificacion>();
         this.programaEstudio=programaEstudio;
         this.rol = "ESTUDIANTE"
         //this.toJSON = JSON.stringify(this);
     }
+    public static fromJSON = function (json: string) : Estudiante{
+        let obj = JSON.parse (json);
+        let estudianteAux = new Estudiante (obj.id , obj.nombre, obj.user, obj.correo, obj.contrasena, obj.programaEstudio);
+        let  auxEventosGuardados:Array<Evento> = new Array<Evento>();
+        for (let i: number = 0; i < obj.eventosGuardados.length; i++){
+            let aux =  obj.eventosGuardados[i];
+            let auxEvent : Evento = Evento.fromJSON(JSON.stringify(aux));
+            auxEventosGuardados.push(auxEvent);
+        }
+        let  auxEventosPendientes:Array<Evento> = new Array<Evento>();
+        for (let i: number = 0; i < obj.eventosPendientes.length; i++){
+            let aux = obj.eventosPendientes[i];
+            let auxEvent : Evento = Evento.fromJSON(JSON.stringify(aux));
+            auxEventosPendientes.push(auxEvent);
+        }
+        let  auxNotificacionesPendientes:Array<Notificacion> = new Array<Notificacion>();
+        for (let i: number = 0; i < obj.notificacionesPendientes.length; i++){
+            let aux = obj.notificacionesPendientes[i];
+            let auxNot : Notificacion = Notificacion.fromJSON(JSON.stringify(aux));
+            auxNotificacionesPendientes.push(auxNot);
+        }
+        
+        estudianteAux.setNotificacionesPendientes(auxNotificacionesPendientes);
+        estudianteAux.setEventosPropuestos(auxEventosPendientes);
+        estudianteAux.setEventosGuardados(auxEventosGuardados);
+        return estudianteAux;
+    };
 
     public toJSON (): string {
-        let auxNotificaiones : QueueRef<Notificacion> = this.getNotificacionesPendientes();
+        let auxNotificaiones : Array<Notificacion> = this.getNotificacionesPendientes();
         let notPendientes : string = "[";
         let i: number = 0;
-        for ( i ; i < auxNotificaiones.size(); i++) {
-            notPendientes += JSON.stringify(auxNotificaiones.first())
-            if (i != auxNotificaiones.size()-1){
+        for ( i ; i < auxNotificaiones.length; i++) {
+            notPendientes += JSON.stringify(auxNotificaiones[i])
+            if (i != auxNotificaiones.length-1){
                 notPendientes += ',';
             }
-            auxNotificaiones.enqueue(auxNotificaiones.first()!);
-            auxNotificaiones.dequeue();
         }
         notPendientes += ']';
 
-        let auxEventGuardados : LinkedRef<Evento> = this.getEventosGuardados();
+        
+        let auxEventGuardados : Array<Evento> = this.getEventosGuardados();
         let eventosGuardados : string = "[";
         let j: number = 0;
-        for ( j ; j < auxEventGuardados.size(); j++) {
-            eventosGuardados += auxEventGuardados.getFirst()?.toJSON() ;
-            //eventosGuardados += JSON.stringify(auxEventGuardados.getFirst());
-            if (j != auxEventGuardados.size()-1){
+        for ( j ; j < auxEventGuardados.length; j++) {
+            eventosGuardados += auxEventGuardados[0].toJSON() ;
+            if (j != auxEventGuardados.length-1){
                 eventosGuardados += ',';
             }
-            auxEventGuardados.addLatest(auxEventGuardados.getFirst()!);
-            auxEventGuardados.removeFirst();
         }
         eventosGuardados += ']';
         
-        let auxEventPendientes : LinkedRef<Evento> = this.getEventosPropuestos();
+        let auxEventPendientes : Array<Evento> = this.getEventosPropuestos();
         let eventPendientes : string = "[";
         let k: number = 0;
-        for ( k ; k < auxEventPendientes.size(); k++) {
-            eventPendientes += auxEventPendientes.getFirst()?.toJSON() ; 
+        for ( k ; k < auxEventPendientes.length; k++) {
+            eventPendientes += auxEventPendientes[0].toJSON() ; 
             //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
-            if (k != auxEventPendientes.size()-1){
+            if (k != auxEventPendientes.length-1){
                 eventPendientes += ',';
             }
-            auxEventPendientes.addLatest(auxEventPendientes.getFirst()!);
-            auxEventPendientes.removeFirst();
         }
         eventPendientes += ']';
         
@@ -81,29 +102,31 @@ export class Estudiante extends Usuario{
         '}' ;
         return estudiante;
     }
+
+
     //GETTERS AND SETTERS
     
-    public  getNotificacionesPendientes():QueueRef<Notificacion> {
+    public  getNotificacionesPendientes():Array<Notificacion> {
         return this.notificacionesPendientes;
     }
 
-    public  setNotificacionesPendientes( notificacionesPendientes:QueueRef<Notificacion>):void {
+    public  setNotificacionesPendientes( notificacionesPendientes:Array<Notificacion>):void {
         this.notificacionesPendientes = notificacionesPendientes;
     }
 
-    public  getEventosGuardados():LinkedRef<Evento> {
+    public  getEventosGuardados():Array<Evento> {
         return this.eventosGuardados;
     }
 
-    public  setEventosGuardados( eventosGuardados:LinkedRef<Evento>):void {
+    public  setEventosGuardados( eventosGuardados:Array<Evento>):void {
         this.eventosGuardados = eventosGuardados;
     }
 
-    public  getEventosPropuestos():LinkedRef<Evento> {
+    public  getEventosPropuestos():Array<Evento> {
         return this.eventosPropuestos;
     }
 
-    public  setEventosPropuestos(eventosPropuestos:LinkedRef<Evento>):void {
+    public  setEventosPropuestos(eventosPropuestos:Array<Evento>):void {
         this.eventosPropuestos = eventosPropuestos;
     }
 
@@ -129,24 +152,14 @@ export class Estudiante extends Usuario{
 
     public sugerirEvento( e:Evento, c:Creador):void {
         e.setProponente(this.getId());
-            this.eventosPropuestos.addLatest(e);
-            c.getPropuestasEventos().enqueue(e);
+            this.eventosPropuestos.push(e);
+            c.getPropuestasEventos().unshift(e);
            
             // pendiente poder enviar ese evento al creador para que lo pueda autorizar
         }
       
     public guardarEvento(nuevoEvento:Evento):void{
-        this.eventosGuardados.addLatest(nuevoEvento);
+        this.eventosGuardados.push(nuevoEvento);
     }
-
-    public fromJSON = function (json: string) : Estudiante{
-        let obj = JSON.parse (json);
-        let estudianteAux = new Estudiante (obj.id , obj.nombre, obj.rol, obj.correo, obj.contrasena, obj.programaEstudio);
-        let  eventosGuardados:LinkedRef<Evento> = new LinkedRef<Evento>();
-        /*for (let i = 0; i < eventosGuardados.size() ; i++) {
-            obj.eventosGuardados;
-        }*/
-        return estudianteAux;
-    };
     
 }
