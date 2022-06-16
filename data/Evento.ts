@@ -55,8 +55,8 @@ export class Evento {
 		let evento = '{'+
 		'"id":"'+ this.getId() +'",'+
 		'"nombre":"'+ this.getNombre() +'",'+
-		'"fechaInicio":"'+ this.getFechaInicio().toString() +'",'+
-		'"fechaFinal":"'+ this.getFechaFinal().toString() +'",'+
+		'"fechaInicio":"'+ this.getFechaInicio().getFullYear()+'-' +(this.getFechaInicio().getMonth()+1) +'-'+this.getFechaInicio().getDate()+'",'+
+		'"fechaFinal":"'+ this.getFechaFinal().getFullYear()+'-' +(this.getFechaFinal().getMonth()+1)+'-'+this.getFechaFinal().getDate()+'",'+
 		'"lugar":"'+ this.getLugar() +'",' +
 		'"descripcion":"'+ this.getDescripcion() +'",' +
 		'"facultad":"'+ this.getFacultad() +'",' +
@@ -71,7 +71,7 @@ export class Evento {
 
 	public static fromJSON = function (json: string) : Evento{
         var obj = JSON.parse (json);
-        return new Evento (obj.id , obj.nombre, obj.fechaInicio, obj.fechaFinal, obj.lugar, obj.descripcion,
+        return new Evento (obj.id , obj.nombre, new Date(obj.fechaInicio), new Date(obj.fechaFinal), obj.lugar, obj.descripcion,
 			obj.creador, obj.facultad, obj.idProponente,  obj.estado, obj.aforo, obj.etiquetas);
 		};
 	

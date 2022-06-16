@@ -20,17 +20,20 @@ var CargarDatos = /** @class */ (function () {
         var userCrea2 = new Creador_1.Creador("C02", "creador prog. Sistemas", "sistemas@unal.edu.co", "CREADOR", "creador123", true, "Sistemas");
         var userCrea3 = new Creador_1.Creador("C03", "creador prog. Sistemas", "sistemas@unal.edu.co", "CREADOR", "creador123", true, "Sistemas");
         var userCrea4 = new Creador_1.Creador("C04", "creador prog. Sistemas", "sistemas@unal.edu.co", "CREADOR", "creador123", true, "Sistemas");
-        var evento1 = new Evento_1.Evento("Ev01", "Evento 1", new Date("2017-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
-        var evento2 = new Evento_1.Evento("Ev02", "Evento 2", new Date("2018-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
-        var evento3 = new Evento_1.Evento("Ev03", "Evento 3", new Date("2019-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
-        var evento4 = new Evento_1.Evento("Ev04", "Evento 4", new Date("2020-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
-        var evento5 = new Evento_1.Evento("Ev05", "Evento 5", new Date("2021-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
-        var evento6 = new Evento_1.Evento("Ev06", "Evento 6", new Date("2021-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
-        var evento7 = new Evento_1.Evento("Ev07", "Evento 7", new Date("2021-01-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
+        var evento1 = new Evento_1.Evento("Ev01", "Evento 1", new Date("2017-4-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
+        var evento2 = new Evento_1.Evento("Ev02", "Evento 2", new Date("2018-5-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
+        var evento3 = new Evento_1.Evento("Ev03", "Evento 3", new Date("2019-6-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
+        var evento4 = new Evento_1.Evento("Ev04", "Evento 4", new Date("2020-7-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
+        var evento5 = new Evento_1.Evento("Ev05", "Evento 5", new Date("2021-8-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
+        var evento6 = new Evento_1.Evento("Ev06", "Evento 6", new Date("2021-9-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
+        var evento7 = new Evento_1.Evento("Ev07", "Evento 7", new Date("2021-10-26"), new Date("2017-01-26"), "Unal", "descripcion", userCrea1.getId(), "Ingenieria", user1.getId(), false, 3, ["et1", "et2", "et3", "et4", "et5"]);
         var eventString = evento1.toJSON();
         var eventoPrueba = Evento_1.Evento.fromJSON(eventString);
         console.log(eventString);
         console.log(eventoPrueba.toString());
+        console.log(eventoPrueba.getFechaFinal().getFullYear());
+        console.log(eventoPrueba.getFechaFinal().getMonth());
+        console.log(eventoPrueba.getFechaFinal().getDay());
         /*
         let auxEventProp : QueueRef<Evento> = new QueueRef<Evento>();
         auxEventProp.enqueue(evento1);
