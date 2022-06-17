@@ -35,7 +35,7 @@ export class Notificacion {
         this.descripcion=description;
     }
 
-	public fromJSON = function (json: string) : Notificacion{
+	public static fromJSON = function (json: string) : Notificacion{
         var obj = JSON.parse (json);
         return new Notificacion (obj.id , obj.fecha, obj.descripcion);
     };

@@ -42,48 +42,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19:00:00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19:00:00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19:00:00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19:00:00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -102,8 +62,28 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -124,28 +104,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -164,8 +124,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -185,8 +145,8 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "E06",
-            "nombre": "Estudiante6",
+            "id": "E07",
+            "nombre": "Estudiante7",
             "usuario": "lmoras@unal.edu.co",
             "correo": "ESTUDIANTE",
             "contrasena": "Laura123",
@@ -195,51 +155,31 @@
             "notificacionesPendientes": [
                 {
                     "id": "01",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 1"
                 },
                 {
                     "id": "04",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 4"
                 },
                 {
                     "id": "02",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 2"
                 },
                 {
                     "id": "03",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 3"
                 }
             ],
             "eventosGuardados": [
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -258,8 +198,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -276,10 +216,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -298,10 +238,10 @@
             ],
             "eventosPendientes": [
                 {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev02",
+                    "nombre": "Evento 2",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -320,28 +260,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -361,8 +281,8 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "E05",
-            "nombre": "Estudiante5",
+            "id": "E07",
+            "nombre": "Estudiante7",
             "usuario": "lmoras@unal.edu.co",
             "correo": "ESTUDIANTE",
             "contrasena": "Laura123",
@@ -371,31 +291,31 @@
             "notificacionesPendientes": [
                 {
                     "id": "01",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 1"
                 },
                 {
                     "id": "04",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 4"
                 },
                 {
                     "id": "02",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 2"
                 },
                 {
                     "id": "03",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 3"
                 }
             ],
             "eventosGuardados": [
                 {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -414,8 +334,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -432,30 +352,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -476,28 +376,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -516,8 +396,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -537,8 +417,8 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "E04",
-            "nombre": "Estudiante4",
+            "id": "E07",
+            "nombre": "Estudiante7",
             "usuario": "lmoras@unal.edu.co",
             "correo": "ESTUDIANTE",
             "contrasena": "Laura123",
@@ -547,32 +427,93 @@
             "notificacionesPendientes": [
                 {
                     "id": "01",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 1"
                 },
                 {
                     "id": "04",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 4"
                 },
                 {
                     "id": "02",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 2"
                 },
                 {
                     "id": "03",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 3"
                 }
             ],
-            "eventosGuardados": [],
-            "eventosPendientes": [
+            "eventosGuardados": [
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                }
+            ],
+            "eventosPendientes": [
+                {
+                    "id": "Ev02",
+                    "nombre": "Evento 2",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -591,28 +532,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -632,8 +553,8 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "E03",
-            "nombre": "Estudiante3",
+            "id": "E07",
+            "nombre": "Estudiante7",
             "usuario": "lmoras@unal.edu.co",
             "correo": "ESTUDIANTE",
             "contrasena": "Laura123",
@@ -642,22 +563,22 @@
             "notificacionesPendientes": [
                 {
                     "id": "01",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 1"
                 },
                 {
                     "id": "04",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 4"
                 },
                 {
                     "id": "02",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 2"
                 },
                 {
                     "id": "03",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 3"
                 }
             ],
@@ -665,48 +586,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -725,8 +606,28 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -747,28 +648,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -787,8 +668,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -808,8 +689,8 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "E02",
-            "nombre": "Laura Mora",
+            "id": "E07",
+            "nombre": "Estudiante7",
             "usuario": "lmoras@unal.edu.co",
             "correo": "ESTUDIANTE",
             "contrasena": "Laura123",
@@ -818,51 +699,31 @@
             "notificacionesPendientes": [
                 {
                     "id": "01",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 1"
                 },
                 {
                     "id": "04",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 4"
                 },
                 {
                     "id": "02",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 2"
                 },
                 {
                     "id": "03",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 3"
                 }
             ],
             "eventosGuardados": [
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -881,8 +742,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -899,10 +760,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -921,10 +782,10 @@
             ],
             "eventosPendientes": [
                 {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev02",
+                    "nombre": "Evento 2",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -943,28 +804,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -984,41 +825,41 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "E01",
-            "nombre": "Yenifer Mora",
-            "usuario": "ymoras@unal.edu.co",
+            "id": "E07",
+            "nombre": "Estudiante7",
+            "usuario": "lmoras@unal.edu.co",
             "correo": "ESTUDIANTE",
-            "contrasena": "Yenifer123",
+            "contrasena": "Laura123",
             "autorizado": true,
             "programaEstudio": "Ingenieria de Sistemas",
             "notificacionesPendientes": [
                 {
                     "id": "01",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 1"
                 },
                 {
                     "id": "04",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 4"
                 },
                 {
                     "id": "02",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 2"
                 },
                 {
                     "id": "03",
-                    "fecha": "1970-01-01T00: 00: 01.234Z",
+                    "fecha": "1970-01-01T00:00:01.234Z",
                     "descripcion": "descripcion de notificaicon 3"
                 }
             ],
             "eventosGuardados": [
                 {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1037,8 +878,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1055,30 +896,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1099,28 +920,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1139,8 +940,8 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2018-5-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1173,8 +974,8 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1191,10 +992,10 @@
                     ]
                 },
                 {
-                    "id": "Ev06",
-                    "nombre": "Evento 6",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1211,10 +1012,10 @@
                     ]
                 },
                 {
-                    "id": "Ev05",
-                    "nombre": "Evento 5",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1231,10 +1032,10 @@
                     ]
                 },
                 {
-                    "id": "Ev04",
-                    "nombre": "Evento 4",
-                    "fechaInicio": "Sat Jan 25 2020 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1255,8 +1056,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1273,10 +1074,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1293,10 +1094,10 @@
                     ]
                 },
                 {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1316,7 +1117,7 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "C03",
+            "id": "C02",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
             "correo": "CREADOR",
@@ -1327,8 +1128,8 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1345,10 +1146,10 @@
                     ]
                 },
                 {
-                    "id": "Ev06",
-                    "nombre": "Evento 6",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1365,10 +1166,10 @@
                     ]
                 },
                 {
-                    "id": "Ev05",
-                    "nombre": "Evento 5",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1385,10 +1186,10 @@
                     ]
                 },
                 {
-                    "id": "Ev04",
-                    "nombre": "Evento 4",
-                    "fechaInicio": "Sat Jan 25 2020 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1409,8 +1210,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1427,10 +1228,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1447,10 +1248,10 @@
                     ]
                 },
                 {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1470,7 +1271,7 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "C04",
+            "id": "C02",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
             "correo": "CREADOR",
@@ -1481,8 +1282,8 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1499,10 +1300,10 @@
                     ]
                 },
                 {
-                    "id": "Ev06",
-                    "nombre": "Evento 6",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1519,10 +1320,10 @@
                     ]
                 },
                 {
-                    "id": "Ev05",
-                    "nombre": "Evento 5",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1539,10 +1340,10 @@
                     ]
                 },
                 {
-                    "id": "Ev04",
-                    "nombre": "Evento 4",
-                    "fechaInicio": "Sat Jan 25 2020 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1563,8 +1364,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1581,10 +1382,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1601,10 +1402,10 @@
                     ]
                 },
                 {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1624,7 +1425,7 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "C01",
+            "id": "C02",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
             "correo": "CREADOR",
@@ -1635,8 +1436,8 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1653,10 +1454,10 @@
                     ]
                 },
                 {
-                    "id": "Ev06",
-                    "nombre": "Evento 6",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1673,10 +1474,10 @@
                     ]
                 },
                 {
-                    "id": "Ev05",
-                    "nombre": "Evento 5",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1693,10 +1494,10 @@
                     ]
                 },
                 {
-                    "id": "Ev04",
-                    "nombre": "Evento 4",
-                    "fechaInicio": "Sat Jan 25 2020 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1717,8 +1518,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1735,10 +1536,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1755,10 +1556,10 @@
                     ]
                 },
                 {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1791,8 +1592,8 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1809,10 +1610,10 @@
                     ]
                 },
                 {
-                    "id": "Ev06",
-                    "nombre": "Evento 6",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1829,10 +1630,10 @@
                     ]
                 },
                 {
-                    "id": "Ev05",
-                    "nombre": "Evento 5",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1849,10 +1650,10 @@
                     ]
                 },
                 {
-                    "id": "Ev04",
-                    "nombre": "Evento 4",
-                    "fechaInicio": "Sat Jan 25 2020 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1873,8 +1674,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1891,10 +1692,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1911,10 +1712,10 @@
                     ]
                 },
                 {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1934,7 +1735,7 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "C02",
+            "id": "C01",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
             "correo": "CREADOR",
@@ -1945,8 +1746,8 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1963,10 +1764,10 @@
                     ]
                 },
                 {
-                    "id": "Ev06",
-                    "nombre": "Evento 6",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1983,10 +1784,10 @@
                     ]
                 },
                 {
-                    "id": "Ev05",
-                    "nombre": "Evento 5",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2003,10 +1804,10 @@
                     ]
                 },
                 {
-                    "id": "Ev04",
-                    "nombre": "Evento 4",
-                    "fechaInicio": "Sat Jan 25 2020 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2027,8 +1828,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2045,10 +1846,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2065,10 +1866,10 @@
                     ]
                 },
                 {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2088,7 +1889,7 @@
         },
         {
             "rol": "ESTUDIANTE",
-            "id": "C03",
+            "id": "C01",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
             "correo": "CREADOR",
@@ -2099,8 +1900,8 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2117,10 +1918,10 @@
                     ]
                 },
                 {
-                    "id": "Ev06",
-                    "nombre": "Evento 6",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2137,10 +1938,10 @@
                     ]
                 },
                 {
-                    "id": "Ev05",
-                    "nombre": "Evento 5",
-                    "fechaInicio": "Mon Jan 25 2021 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2157,10 +1958,10 @@
                     ]
                 },
                 {
-                    "id": "Ev04",
-                    "nombre": "Evento 4",
-                    "fechaInicio": "Sat Jan 25 2020 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev07",
+                    "nombre": "Evento 7",
+                    "fechaInicio": "2021-10-25",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2181,8 +1982,8 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2199,10 +2000,10 @@
                     ]
                 },
                 {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "Thu Jan 25 2018 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2219,10 +2020,10 @@
                     ]
                 },
                 {
-                    "id": "Ev03",
-                    "nombre": "Evento 3",
-                    "fechaInicio": "Fri Jan 25 2019 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
-                    "fechaFinal": "Wed Jan 25 2017 19: 00: 00 GMT-0500 (hora estándar de Colombia)",
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fechaInicio": "2017-4-26",
+                    "fechaFinal": "2017-1-25",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",

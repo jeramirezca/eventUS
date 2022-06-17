@@ -43,16 +43,17 @@ export class LinkedRef<T> {
 		public get(index : number) : T | null {
 			let a : T | null = null;
 			if (this.empty() || index < 0 || index >= this.size()) {
-				
+				return null;
 			}else if(index == 0) {
 				a = this.first!.getElement();
 			}else if(index == this.size()-1) {
 				a = this.latest!.getElement();
 			}else {
-				if(this.getNode(index) != null){
+				a = this.getNode(index)!.getElement();
+				/*if(this.getNode(index) !== null){
 					let sought : NodeUS<T> | null = this.getNode(index);
 					a =  sought!.getElement();
-				}
+				}*/
 				
 			}
 			return a;

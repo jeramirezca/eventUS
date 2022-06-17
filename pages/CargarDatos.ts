@@ -28,38 +28,46 @@ export class CargarDatos {
         let userCrea3 : Creador = new Creador("C03","creador prog. Sistemas","sistemas@unal.edu.co","CREADOR","creador123",true,"Sistemas");
         let userCrea4 : Creador = new Creador("C04","creador prog. Sistemas","sistemas@unal.edu.co","CREADOR","creador123",true,"Sistemas");
         
-        let evento1 : Evento = new Evento("Ev01","Evento 1",new Date("2017-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),3,["et1","et2","et3","et4","et5"]);
-        let evento2 : Evento = new Evento("Ev02","Evento 2",new Date("2018-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),3,["et1","et2","et3","et4","et5"]);
-        let evento3 : Evento = new Evento("Ev03","Evento 3",new Date("2019-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),3,["et1","et2","et3","et4","et5"]);
-        let evento4 : Evento = new Evento("Ev04","Evento 4",new Date("2020-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),3,["et1","et2","et3","et4","et5"]);
-        let evento5 : Evento = new Evento("Ev05","Evento 5",new Date("2021-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),3,["et1","et2","et3","et4","et5"]);
-        let evento6 : Evento = new Evento("Ev06","Evento 6",new Date("2021-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),3,["et1","et2","et3","et4","et5"]);
-        let evento7 : Evento = new Evento("Ev07","Evento 7",new Date("2021-01-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),3,["et1","et2","et3","et4","et5"]);
+        let evento1 : Evento = new Evento("Ev01","Evento 1",new Date("2017-4-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
+        let evento2 : Evento = new Evento("Ev02","Evento 2",new Date("2018-5-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
+        let evento3 : Evento = new Evento("Ev03","Evento 3",new Date("2019-6-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
+        let evento4 : Evento = new Evento("Ev04","Evento 4",new Date("2020-7-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
+        let evento5 : Evento = new Evento("Ev05","Evento 5",new Date("2021-8-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
+        let evento6 : Evento = new Evento("Ev06","Evento 6",new Date("2021-9-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
+        let evento7 : Evento = new Evento("Ev07","Evento 7",new Date("2021-10-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
+    
+        let eventString: string = evento1.toJSON();
+        let eventoPrueba : Evento = Evento.fromJSON(eventString);
+        console.log(eventString);
+        console.log(eventoPrueba.toString());
+        console.log(eventoPrueba.getFechaFinal().getFullYear());
+        console.log(eventoPrueba.getFechaFinal().getMonth());
+        console.log(eventoPrueba.getFechaFinal().getDay());
+
         
-        
-        let auxEventProp : QueueRef<Evento> = new QueueRef<Evento>();
-        auxEventProp.enqueue(evento1);
-        auxEventProp.enqueue(evento2);
-        auxEventProp.enqueue(evento3);
+        let auxEventProp : Array<Evento> = new Array<Evento>();
+        auxEventProp.push(evento1);
+        auxEventProp.push(evento2);
+        auxEventProp.push(evento3);
         userCrea1.setPropuestasEventos(auxEventProp);
         userCrea2.setPropuestasEventos(auxEventProp);
         userCrea3.setPropuestasEventos(auxEventProp);
         userCrea4.setPropuestasEventos(auxEventProp);
 
-        let auxEventCrea : LinkedRef<Evento> = new LinkedRef<Evento>();
-        auxEventCrea.addFirst(evento4);
-        auxEventCrea.addFirst(evento5);
-        auxEventCrea.addFirst(evento6);
-        auxEventCrea.addFirst(evento7);
+        let auxEventCrea : Array<Evento> = new Array<Evento>();
+        auxEventCrea.unshift(evento4);
+        auxEventCrea.unshift(evento5);
+        auxEventCrea.unshift(evento6);
+        auxEventCrea.unshift(evento7);
         userCrea1.setEventosCreados(auxEventCrea);
         userCrea2.setEventosCreados(auxEventCrea);
         userCrea3.setEventosCreados(auxEventCrea);
         userCrea4.setEventosCreados(auxEventCrea);
 
-        let listaAux : LinkedRef<Evento> = user1.getEventosGuardados();
-        listaAux.addLatest(evento1);
-        listaAux.addLatest(evento2);
-        listaAux.addLatest(evento3);
+        let listaAux : Array<Evento> = user1.getEventosGuardados();
+        listaAux.push(evento1);
+        listaAux.push(evento2);
+        listaAux.push(evento3);
         user1.setEventosGuardados(listaAux);
         user2.setEventosGuardados(listaAux);
         user3.setEventosGuardados(listaAux);
@@ -68,9 +76,9 @@ export class CargarDatos {
         user7.setEventosGuardados(listaAux);
         user8.setEventosGuardados(listaAux);
 
-        let listaAux2 : LinkedRef<Evento> = user1.getEventosPropuestos();
-        listaAux2.addLatest(evento2);
-        listaAux2.addLatest(evento1);
+        let listaAux2 : Array<Evento> = user1.getEventosPropuestos();
+        listaAux2.push(evento2);
+        listaAux2.push(evento1);
         user1.setEventosPropuestos(listaAux2);
         user2.setEventosPropuestos(listaAux2);
         user3.setEventosPropuestos(listaAux2);
@@ -81,15 +89,15 @@ export class CargarDatos {
         user8.setEventosPropuestos(listaAux2);
 
 
-        let cola: QueueRef<Notificacion> = user1.getNotificacionesPendientes();
+        let cola: Array<Notificacion> = user1.getNotificacionesPendientes();
         let not: Notificacion = new Notificacion("01",new Date(1234),"descripcion de notificaicon 1")
         let not2: Notificacion = new Notificacion("02",new Date(1234),"descripcion de notificaicon 2")
         let not3: Notificacion = new Notificacion("03",new Date(1234),"descripcion de notificaicon 3")
         let not4: Notificacion = new Notificacion("04",new Date(1234),"descripcion de notificaicon 4")
-        cola.enqueue(not);
-        cola.enqueue(not4);
-        cola.enqueue(not2);
-        cola.enqueue(not3);
+        cola.push(not);
+        cola.push(not4);
+        cola.push(not2);
+        cola.push(not3);
 
         user1.setNotificacionesPendientes(cola);
         user2.setNotificacionesPendientes(cola);
@@ -100,26 +108,31 @@ export class CargarDatos {
         user7.setNotificacionesPendientes(cola);
         user8.setNotificacionesPendientes(cola);
 
-        Administrador.creadoresVerificar.enqueue(userCrea1);
-        Administrador.creadoresVerificar.enqueue(userCrea2);
-        Administrador.creadoresVerificar.enqueue(userCrea3);
+        Administrador.creadoresVerificar.push(userCrea1);
+        Administrador.creadoresVerificar.push(userCrea2);
+        Administrador.creadoresVerificar.push(userCrea3);
 
-        Administrador.creadoresRegistrados.addFirst(userCrea1);
-        Administrador.creadoresRegistrados.addFirst(userCrea4);
-        Administrador.creadoresRegistrados.addFirst(userCrea3);
-        Administrador.creadoresRegistrados.addFirst(userCrea2);
+        Administrador.creadoresRegistrados.unshift(userCrea1);
+        Administrador.creadoresRegistrados.unshift(userCrea4);
+        Administrador.creadoresRegistrados.unshift(userCrea3);
+        Administrador.creadoresRegistrados.unshift(userCrea2);
 
-        Administrador.estudiantesRegistrados.addFirst(user1);
-        Administrador.estudiantesRegistrados.addFirst(user2);
-        Administrador.estudiantesRegistrados.addFirst(user3);
-        Administrador.estudiantesRegistrados.addFirst(user4);
-        Administrador.estudiantesRegistrados.addFirst(user5);
-        Administrador.estudiantesRegistrados.addFirst(user6);
-        Administrador.estudiantesRegistrados.addFirst(user7);
+        Administrador.estudiantesRegistrados.unshift(user1);
+        Administrador.estudiantesRegistrados.unshift(user2);
+        Administrador.estudiantesRegistrados.unshift(user3);
+        Administrador.estudiantesRegistrados.unshift(user4);
+        Administrador.estudiantesRegistrados.unshift(user5);
+        Administrador.estudiantesRegistrados.unshift(user6);
+        Administrador.estudiantesRegistrados.unshift(user7);
     
-    console.log(admin.toJSON());
+    let datos : string = admin.toJSON()
+    //console.log(datos);
+    let admin2: Administrador = Administrador.fromJSON(datos);
+    admin2.nombre = "Admin funcionando :)"
+    console.log(admin2);
+    
     }
-    public cargarDatos(pruebaY : string) : JSON  {
+    /*public cargarDatos(pruebaY : string) : JSON  {
         let pruebaW = JSON.parse(pruebaY);
         return pruebaW;
     }
@@ -127,7 +140,7 @@ export class CargarDatos {
         var pruebaX  = JSON.stringify(CargarDatos.admin1);
         return pruebaX ;
     }
-    
+    */
 }
   
 var prueba : CargarDatos = new CargarDatos();
