@@ -13,5 +13,4 @@ function guardarDatos(datos : string) {
     fs.writeFileSync('../data/datosAdministrador.json', datos);
 }
 
-//guardarDatos(cargarDatos());
 export {}

@@ -21,7 +21,7 @@ export class Estudiante extends Usuario{
         this.notificacionesPendientes=new Array<Notificacion>();
         this.programaEstudio=programaEstudio;
         this.rol = "ESTUDIANTE"
-        //this.toJSON = JSON.stringify(this);
+        
     }
     public static fromJSON = function (json: string) : Estudiante{
         let obj = JSON.parse (json);
