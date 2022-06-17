@@ -1,10 +1,10 @@
-export class Heap<T> {
-    arr: T[]
-    size: 0
+import { arrayBuffer } from "stream/consumers";
 
-    constructor() {
-        this.arr = []
-        this.size = 0
+export class Heap<T> {
+    arr: Array<T>;
+
+    constructor(arreglo:Array<T>) {
+        this.arr = [];
     }
 
     private swap = (indexA: number, indexB: number): void => {
@@ -38,10 +38,10 @@ export class Heap<T> {
         let maxi: number = index
         let li: number = this.leftChild(index)
         let ri: number = this.rightChild(index)
-        if (li < this.size && this.arr[li] > this.arr[maxi]) {
+        if (li < this.arr.length && this.arr[li] > this.arr[maxi]) {
             maxi = li
         }
-        if (ri < this.size && this.arr[ri] > this.arr[maxi]) {
+        if (ri < this.arr.length && this.arr[ri] > this.arr[maxi]) {
             maxi = ri
         }
         if (maxi != index) {
@@ -50,31 +50,31 @@ export class Heap<T> {
         }
     }
 
-    insert = (item: T): void => {
+    public insert = (item: T): void => {
         this.arr.push(item)
-        this.siftUp(this.size)
-        this.size += 1
+        this.siftUp(this.arr.length)
+        this.arr.length += 1
     }
 
-    extractMax = (): T => {
+    public extractMax = (): T => {
         if (this.arr.length == 0) {
             throw new Error("Cola de prioridad vacía.");
         }
         let result: T = this.arr[0]
-        this.size -= 1
-        this.swap(0, this.size)
+        this.arr.length -= 1
+        this.swap(0, this.arr.length)
         this.siftDown(0)
         return result
     }
 
-    getMax = (): T => {
+    public getMax = (): T => {
         if (this.arr.length == 0) {
             throw new Error("Cola de prioridad vacía.");
         }
         return this.arr[0]
     }
 
-    changePriority = (index: number, newPriority: T): void => {
+    public changePriority = (index: number, newPriority: T): void => {
         let oldPriority: T = this.arr[index]
         this.arr[index] = newPriority
         if (newPriority > oldPriority) {
@@ -85,14 +85,14 @@ export class Heap<T> {
         }
     }
 
-    remove = (index: number): void => {
+    public remove = (index: number): void => {
         this.arr[index] = this.getMax()
         this.siftUp(index)
         this.extractMax()
     }
 
-    search = (item: T): number => {
-        for (let i = 0; i < this.size; i++) {
+    public search = (item: T): number => {
+        for (let i = 0; i < this.arr.length; i++) {
             if (this.arr[i] == item) {
                 return i
             }
@@ -102,7 +102,7 @@ export class Heap<T> {
 
     public toString = (): string => {
         let heapStr: string = "["
-        for (let i = 0; i < this.size; i++) {
+        for (let i = 0; i < this.arr.length; i++) {
             heapStr += (i > 0)? `, ${this.arr[i]}`: `${this.arr[i]}`
         }
         return heapStr + "]"

@@ -2,6 +2,7 @@ import { LinkedRef } from "../structures/LinkedRef";
 import { QueueRef } from "../structures/QueueRef";
 import { StackRef } from "../structures/StackRef";
 import { Notificacion } from "./Notificacion";
+import { Stack } from "../structures/Stack";
 
 export class Usuario{
 
@@ -10,7 +11,7 @@ export class Usuario{
     public usuario:string;
     public correo:string;
     public contrasena:string;
-    public notificaciones:StackRef<Notificacion> ;
+    public notificaciones:Stack<Notificacion>;
     public autorizado:boolean;
     public rol: "ADMINISTRADOR"|"ESTUDIANTE"|"CREADOR"|""= "";
 
@@ -34,7 +35,7 @@ export class Usuario{
         this.correo = correo;
         this.contrasena = contrasena;
         this.autorizado = autorizado;
-        this.notificaciones = new StackRef<Notificacion>();
+        this.notificaciones = new Stack<Notificacion>();
         this.rol = "";
     }
 
@@ -79,11 +80,11 @@ export class Usuario{
         this.contrasena = contrasena;
     }
 
-    public  getNotificaciones():StackRef<Notificacion> {
+    public  getNotificaciones():Stack<Notificacion> {
         return this.notificaciones;
     }
 
-    public  setNotificaciones(notificaciones:StackRef<Notificacion> ) :void{
+    public  setNotificaciones(notificaciones:Stack<Notificacion> ) :void{
         this.notificaciones = notificaciones;
     }
 
@@ -103,7 +104,7 @@ export class Usuario{
     };
 
     public  eliminarNotificacion():void {
-        if(this.notificaciones.empty()){
+        if(this.notificaciones.size() == 0){
             console.log("No hay notificaciones por eliminar");
         }else{
             this.notificaciones.pop();

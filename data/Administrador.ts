@@ -6,9 +6,9 @@ import { Estudiante } from "./Estudiante";
 import { Usuario } from "./Usuario";
 
 export class Administrador extends Usuario {
-    public static  creadoresVerificar:QueueRef<Creador>;
-    public static  estudiantesRegistrados:LinkedRef<Estudiante>;
-    public static  creadoresRegistrados:LinkedRef<Creador>;
+    public static  creadoresVerificar: Array<Creador>;
+    public static  estudiantesRegistrados: Array<Estudiante>;
+    public static  creadoresRegistrados: Array<Creador>;
 
         //Constructor
 
@@ -18,17 +18,17 @@ export class Administrador extends Usuario {
     }
 
     public static inicializar(){
-        this.creadoresVerificar=new QueueRef<Creador>();
-        this.estudiantesRegistrados=new LinkedRef<Estudiante>();
-        this.creadoresRegistrados=new LinkedRef<Creador>();
+        this.creadoresVerificar=new Array<Creador>();
+        this.estudiantesRegistrados=new Array<Estudiante>();
+        this.creadoresRegistrados=new Array<Creador>();
     }
     public toJSON (): string {
-        let auxCreaVerificar : QueueRef<Creador> = Administrador.creadoresVerificar;
+        let auxCreaVerificar : Array<Creador> = Administrador.creadoresVerificar;
         let creadoresVerificar : string = "[";
         let i: number = 0;
-        for ( i ; i < auxCreaVerificar.size(); i++) {
+        for ( i ; i < auxCreaVerificar.length; i++) {
             creadoresVerificar += auxCreaVerificar.first()?.toJSON() ;
-            if (i != auxCreaVerificar.size()-1){
+            if (i != auxCreaVerificar.length-1){
                 creadoresVerificar += ',';
             }
             auxCreaVerificar.enqueue(auxCreaVerificar.first()!);
@@ -39,10 +39,10 @@ export class Administrador extends Usuario {
         let auxCreaRegistrados : LinkedRef<Creador> = Administrador.creadoresRegistrados;
         let creadoresRegistrados : string = "[";
         let j: number = 0;
-        for ( j ; j < auxCreaRegistrados.size(); j++) {
+        for ( j ; j < auxCreaRegistrados.length; j++) {
             creadoresRegistrados += auxCreaRegistrados.getFirst()?.toJSON() ; 
             //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
-            if (j != auxCreaRegistrados.size()-1){
+            if (j != auxCreaRegistrados.length-1){
                 creadoresRegistrados += ',';
             }
             auxCreaRegistrados.addLatest(auxCreaRegistrados.getFirst()!);
@@ -53,10 +53,10 @@ export class Administrador extends Usuario {
         let auxEstRegistrados : LinkedRef<Estudiante> = Administrador.estudiantesRegistrados;
         let estudiantesRegistrados : string = "[";
         let k: number = 0;
-        for ( k ; k < auxEstRegistrados.size(); k++) {
+        for ( k ; k < auxEstRegistrados.length; k++) {
             estudiantesRegistrados += auxEstRegistrados.getFirst()?.toJSON() ; 
             //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
-            if (k != auxEstRegistrados.size()-1){
+            if (k != auxEstRegistrados.length-1){
                 estudiantesRegistrados += ',';
             }
             auxEstRegistrados.addLatest(auxEstRegistrados.getFirst()!);

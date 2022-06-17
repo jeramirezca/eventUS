@@ -1,7 +1,7 @@
 import React, { FormEventHandler, useEffect, useState } from 'react'
 import Link from 'next/link';
 import { useListEvents } from '../contexts/events';
-import { useArbol } from '../contexts/arbols';
+import { useArbol } from '../contexts/arbolAVL';
 
 type Profile={
   nombre:string;
