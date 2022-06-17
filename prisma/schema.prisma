@@ -18,5 +18,5 @@ model Post {
 
 model Informacion {
   id      String    @id @default(auto()) @map("_id") @db.ObjectId
-  info    String
+  info    Json
 }
