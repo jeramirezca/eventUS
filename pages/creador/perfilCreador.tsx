@@ -96,7 +96,7 @@ const perfil = () => {
                 <strong>Buscar eventos</strong>
                 <input id='eventoAbuscar' placeholder='Ingresa el nombre del evento'/>
               
-                <button>Buscar</button>
+                <button><Link href='../eventos'>Buscar</Link></button>
                 </div>
                 <div className='cajaDerecha'>
                 <strong>¿Cómo usar la interfaz?</strong>
