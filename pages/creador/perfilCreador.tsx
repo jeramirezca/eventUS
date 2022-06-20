@@ -13,6 +13,7 @@ import { Usuario } from '../../data/Usuario';
 import { useUser } from '../../contexts/user';
 import { LinkedRef } from '../../structures/LinkedRef';
 import { QueueRef } from '../../structures/QueueRef';
+import Link from 'next/link';
 
 
   //convertir a a array
@@ -87,7 +88,7 @@ const perfil = () => {
                   
                 </div>
                 <div className='cajaIzquierda'>
-                  <button>Crear un evento</button>
+                  <button><Link href='../estudiante/crearEvento'>Crear un evento</Link></button>
                 </div>
               </section>
               <section className='flexVert'>
