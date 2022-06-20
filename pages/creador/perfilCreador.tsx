@@ -33,6 +33,7 @@ import { QueueRef } from '../../structures/QueueRef';
       <DivPropuesta E={e}></DivPropuesta>             
     }
   }
+  
 
 
   
@@ -45,23 +46,23 @@ const perfil = () => {
   //const [usuario, setUsuario] = useState(user);
   var _user = user as Creador;
   let listaDelCreador:Array<Evento> = [];
-  //listaDelCreador = _user.eventosCreados;
-  let colaDelCreador:QueueRef<Evento> = new QueueRef<Evento>;
-  colaDelCreador = _user.getPropuestasEventos;
-  colaDelCreador as QueueRef<Evento>;
+  listaDelCreador = _user.eventosCreados;
+  let colaDelCreador:Array<Evento> = [];
+  colaDelCreador = _user.propuestasEventos;
+  colaDelCreador as Evento[];
 
  
   
   let mar = new Estudiante("1234","marx","marx","marx@hotmail","marx","holi")
   let creador_prueba = new Creador("29292","juan carlos","unu123","ajaja@gmail.com","12345",true,"ingenieria");
-  let ev_prueba = new Evento("2929","evento de prueba",new Date(2022),new Date(2023),"lugar","este es un evento de prueba, descripcion xd",creador_prueba,"ingenieria",mar);
-  let ev_prueba2 = new Evento("2930","evento de prueba 2",new Date(2022),new Date(2023),"lugar","esta es una descripcion medianamente larga",creador_prueba,"ingenieria",mar);
-  let ev_prueba3 = new Evento("2931","evento de prueba 3",new Date(2022),new Date(2023),"lugar","esta descripcion es corta",creador_prueba,"ingenieria",mar);
-  let ev_prueba4 = new Evento("2932","evento de prueba 4 ",new Date(2022),new Date(2023),"lugar","un evento de verdad debe tener descripcion xd",creador_prueba,"ingenieria",mar);
-  listaDelCreador.push(ev_prueba);
-  listaDelCreador.push(ev_prueba2);
-  listaDelCreador.push(ev_prueba3);
-  listaDelCreador.push(ev_prueba4);
+  //let ev_prueba = new Evento("2929","evento de prueba",new Date(2022),new Date(2023),"lugar","este es un evento de prueba, descripcion xd",creador_prueba,"ingenieria",mar);
+  //let ev_prueba2 = new Evento("2930","evento de prueba 2",new Date(2022),new Date(2023),"lugar","esta es una descripcion medianamente larga",creador_prueba,"ingenieria",mar);
+  //let ev_prueba3 = new Evento("2931","evento de prueba 3",new Date(2022),new Date(2023),"lugar","esta descripcion es corta",creador_prueba,"ingenieria",mar);
+  //let ev_prueba4 = new Evento("2932","evento de prueba 4 ",new Date(2022),new Date(2023),"lugar","un evento de verdad debe tener descripcion xd",creador_prueba,"ingenieria",mar);
+  //listaDelCreador.push(ev_prueba);
+  //listaDelCreador.push(ev_prueba2);
+  //listaDelCreador.push(ev_prueba3);
+  //listaDelCreador.push(ev_prueba4);
   let eventosArray = listaDelCreador ;
   return (
     <>
@@ -77,7 +78,7 @@ const perfil = () => {
                   Ultimos eventos creados
                 <br></br>
                   
-                    {eventosArray.map((e:Evento) => (<DivEvento E={e}></DivEvento>))}
+                    {eventosArray != undefined ? eventosArray.map((e:Evento) => (<DivEvento E={e}></DivEvento>)): <div></div>}
                   {/* //y que dios me perdone por lo que voy a hacer */}
     {               /*<DivEvento E={ev_prueba}></DivEvento>
                    <DivEvento E={ev_prueba2}></DivEvento>
@@ -120,7 +121,10 @@ const perfil = () => {
                 */}
           
             
-                  {eventosArray.map((c:Evento)=> (<DivPropuesta E={c}></DivPropuesta>))}
+                  {
+                   colaDelCreador != undefined ? colaDelCreador.map((c:Evento)=> (<DivPropuesta E={c}></DivPropuesta>)) : <div></div>
+                   //si es undefines retornamos un div vacio
+                  }
                 
         
                   
