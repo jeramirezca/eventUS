@@ -10,7 +10,6 @@ import { UserContext } from '../contexts/user'
 import { AuthContext } from '../contexts/auth'
 import { AdminContext } from '../contexts/admin';
 import { useUser } from '../contexts/user'
-//import { Usuario } from '../classes/Usuario'
 import { LinkedRef } from '../structures/LinkedRef'
 import { Usuario } from '../data/Usuario';
 import { PrismaClient } from '@prisma/client';
@@ -25,10 +24,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [admin, setAdmin] = useState(new Administrador("","","","","",false));
   const [guardar, setGuardar] = useState(false);
   const [evento, setEvento] = useState(new Evento("","",new Date(),"","","","","","","",false,));
-
-  /* useEffect(() => {
-    console.log("admin actualizado")
-  }, [guardar, setGuardar]); */
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

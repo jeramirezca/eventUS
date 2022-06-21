@@ -21,10 +21,11 @@ const Navbar = () => {
           <div className="flex items items-center mx-10 justify-between w-full ">
             <div className="flex justify-center items-center flex-shrink-0">
               <img
-                src="https://i.ibb.co/D5bR2rQ/logo.png"
+                src="https://i.ibb.co/8K5XSC6/LOG.png"
                 alt="logo"
                 className="w-9 mt-2 mr-2"
               />
+             
               <h1 className="text-2xl font-semibold">
                 event<span className="text-azul font-extrabold">US</span>
               </h1>

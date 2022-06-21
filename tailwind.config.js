@@ -15,7 +15,7 @@ module.exports = {
         dark: '#82efea',
       },
       'azul': {
-        light: '#cce8ff',
+        light: '#a5def1dc',
         light2: '#86c8fd8c',
         DEFAULT: '#006092',
         dark: '#82efea',
