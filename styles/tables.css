@@ -39,6 +39,16 @@ tbody{
 .h-l{
     border-radius: 0px 15px 0px 0px;
 }
+/* .trb{
+  border: #333;
+}
+
+.trb td{
+  background-color: cadetblue;
+  border-radius: 20px;
+  padding: 10px;
+  border: none;
+} */
 
 @media screen and (max-width: 600px){
 

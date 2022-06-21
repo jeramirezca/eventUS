@@ -3,7 +3,9 @@ import Layout from "../layout/Layout";
 import Eventos from "../components/Eventos";
 import Head from "next/head";
 
+
 const eventos = () => {
+
   return (
     <>
       <Head>

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import Link from 'next/link'; 
-import { useListUsers } from '../contexts/listUsers';
 import { LinkedRef } from '../structures/LinkedRef';
 import { Usuario } from '../data/Usuario';
 import { useAuth } from '../contexts/auth';
@@ -8,58 +7,53 @@ import { useUser } from '../contexts/user';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import router from 'next/router';
+import { Administrador } from '../data/Administrador';
+import { useAdmin } from '../contexts/admin';
+import { useGuardar } from '../contexts/guardar';
 
 
-const Login = () => {
-
-  const {listaUsuarios, setListaUsuarios} = useListUsers();
+const Login = ({datos}:any) => {
+  const {admin, setAdmin} = useAdmin();
+  useEffect(() => {
+    console.log("datos origin")
+    //console.log(datos.admin)
+    var admin2 : Administrador = Administrador.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(datos.admin))));
+    //console.log("admin json")
+    //console.log(JSON.parse(admin2.toJSON()));
+    setAdmin(admin2);
+    console.log("creadores"+admin.creadoresRegistrados.length)
+    console.log("Estudiantes"+admin.estudiantesRegistrados.length)
+  }, []);
+  
   const {auth, setAuth} = useAuth();
   const {user, setUser} = useUser();
+  const {guardar, setGuardar} = useGuardar();
   const [user1, setUser1] = useState("");
   const [password, setPassword] = useState("");
 
- /*  useEffect(() => {
-    var jstt = JSON.stringify(listaUsuarios);
-    //console.log("info json",jstt); 
-    let lista = new LinkedRef<Usuario>;
-    var json = JSON.parse(jstt);
-    lista.fromJson(json);
-    console.log("info2", lista.toString()) 
-    autent("anton","anton"); 
-  },[]);*/
 
-  useEffect(() => {
-    console.log("info", listaUsuarios) ;
-  },[]);
-
-  const autent = (user: String, contrasena: String) =>{
-    var aux = listaUsuarios.first;
-    while (aux != null){
-      if (aux.data?.user == user){
-        if(aux.data?.contrasena == contrasena){
-          console.log("autorizado");
-          setUser(aux.data);
+  const autent = (user: string, contrasena: string) =>{
+    var autenticado = admin.autenticacion(user,contrasena);
+    if (autenticado.nombre == ""){
+        toast.error('Usuario o contraseña incorrecta', {
+        position: "bottom-center",
+        autoClose: 3009,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }else{
+      setUser(autenticado);
           setAuth(true);
+          setGuardar(guardar!);
           return router.push("/");
-        }
-      }else{
-        aux = aux.next;
-      }
     }
-    toast.error('Usuario o contraseña incorrecta', {
-      position: "bottom-center",
-      autoClose: 3009,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      });
-    return console.log("No autorizado");
   }
+    
 
   return (
-    
     <div className="md:w-96 w-2/4 bg-azul-light rounded-3xl">
       <div className="form">
         <h1 className="">Inicio de Sesión</h1>
@@ -117,19 +111,4 @@ const Login = () => {
   );
 }
 
-/* const autent = (user: String, contrasena: String) =>{
-  const {listaUsuarios, setListaUsuarios} = useListUsers();
-  var aux = listaUsuarios.first;
-  while (aux != null){
-    if (aux.data?.nombre == user){
-      if(aux.data?.contrasena == contrasena){
-        console.log("autorizado");
-      }
-    }else{
-      aux = aux.next;
-    }
-  }
-  console.log("No autorizado");
-}
- */
 export default Login

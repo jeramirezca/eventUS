@@ -1,32 +1,69 @@
+import router from 'next/router';
 import React, { useState } from 'react'
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import { useAdmin } from '../contexts/admin';
 import { useUser } from '../contexts/user';
 
 const Perfil = () => {
 
+  async function guardarAdmin() {
+    console.log(admin.toJSON());
+    const response = await fetch("/api/datos", {
+      method: "PATCH",
+      body: admin.toJSON(),
+    });
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return await response.json();
+  }
+
+  const { admin, setAdmin } = useAdmin();
   const {user, setUser} = useUser();
   const [edit, setEdit] = useState(false);
   const [nombre, setNombre] = useState(user.nombre);
-  const [usuario, setUsuario] = useState(user.user);
+  const [usuario, setUsuario] = useState(user.usuario);
   const [correo, setCorreo] = useState(user.correo);
 
-  const editarUser = () =>{
+  const editarUser = async () =>{
+
     var usuario2 = user;
-    if(nombre != user.nombre){
+
+     if(nombre != user.nombre){
       usuario2.nombre = nombre;
     }
-    if(usuario != user.user){
-      usuario2.user = usuario;
+    if(usuario != user.usuario){
+      usuario2.usuario = usuario;
     }
     if(correo != user.correo){
       usuario2.correo = correo;
-    }
+    } 
     setUser(usuario2);
-    setEdit(false)
+    setEdit(false);
+
+    if (user.rol == "ESTUDIANTE"){
+      admin.modificarEstudiante(user.id, nombre, usuario, correo);
+    }else{
+      admin.modificarCreador(user.id, nombre, usuario, correo);
+    }
+    try {
+      await guardarAdmin();
+      toast.success("Usuario editado con exito", {
+        position: "bottom-center",
+        autoClose: 3009,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
-
+    <>
     <div className="md:w-96 w-2/4 bg-azul-light rounded-3xl">
       <div className="form">
         <h1 className="">Perfil</h1>
@@ -79,12 +116,12 @@ const Perfil = () => {
               />
               <label className="">Usuario</label>
               <input
-                value={user.user}
+                value={user.usuario}
                 /* onChange = {(e) =>{
               setUser1(e.target.value);
             }} */
                 type="text"
-                placeholder={user.user}
+                placeholder={user.usuario}
                 className=""
                 disabled
               />
@@ -102,7 +139,7 @@ const Perfil = () => {
             </>
           )}
 
-          <label className="">Rol</label>
+        <label className="">Rol</label>
           <input
             value={user.rol}
             /* onChange = {(e) =>{
@@ -137,7 +174,9 @@ const Perfil = () => {
           </button>
         )}
       </div>
-      <ToastContainer
+      
+    </div>
+    <ToastContainer
         position="bottom-center"
         autoClose={3009}
         hideProgressBar={false}
@@ -148,7 +187,7 @@ const Perfil = () => {
         draggable
         pauseOnHover
       />
-    </div>
+      </>
   );
 }
 

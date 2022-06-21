@@ -3,8 +3,20 @@ import Link from "next/link";
 import Layout from "../layout/Layout";
 import FormRegistro from "../components/FormRegistro";
 import Head from 'next/head'
+import { Usuario } from '../data/Usuario';
+import { PrismaClient } from "@prisma/client";
 
-const registro = () => {
+const prisma = new PrismaClient();
+
+export async function getServerSideProps() {
+  const datos = await prisma.post.findFirst();
+  return {
+    props: { datos }, 
+  }
+} 
+
+const registro = ({datos}:any) => {
+
   return (
     <>
       <Head>
@@ -13,7 +25,7 @@ const registro = () => {
 
       <main>
         <Layout>
-        <FormRegistro />
+        <FormRegistro datos = {datos}/>
       </Layout>
       </main>
       

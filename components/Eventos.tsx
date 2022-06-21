@@ -1,7 +1,11 @@
 import React, { FormEventHandler, useEffect, useState } from 'react'
 import Link from 'next/link';
-import { useListEvents } from '../contexts/events';
 import { useArbol } from '../contexts/arbols';
+import { useAdmin } from '../contexts/admin';
+import { Evento } from '../data/Evento';
+import { useEvento } from '../contexts/evento';
+import router from 'next/router';
+import { useUser } from '../contexts/user';
 
 type Profile={
   nombre:string;
@@ -9,8 +13,13 @@ type Profile={
 }
 
 const Eventos = () => {
+
+  const { evento, setEvento } = useEvento();
+  const { admin, setAdmin } = useAdmin();
   const {arbol, setArbol} = useArbol();
-  const {listaEventos, setListaEventos} = useListEvents();
+  const {user, setUser} = useUser();
+  const [listaEventos, setListaEventos] = useState(admin.getListaEventos());
+  const [listaFiltrada, setListaFiltrada] = useState(admin.getListaEventos());
   const [searchNombre, setSearchNombre] = useState("");
   const [paramSearch, setParamSearch] = useState("");
   const [buscando, setBuscando] = useState(false);
@@ -18,19 +27,38 @@ const Eventos = () => {
   const[facultad, setFacultad]=useState("")
   const [search, setSearch] = useState("");
 
+  async function guardarAdmin() {
+    console.log(admin.toJSON());
+    const response = await fetch("/api/datos", {
+      method: "PATCH",
+      body: admin.toJSON(),
+    });
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return await response.json();
+  }
+
    useEffect(() => {
     console.log(search);
     console.log(paramSearch);
   },[search]);
 
-  const getButtonId = (e:any) => {
-    console.log(e.currentTarget.id);
+  const verEvento = (ev:Evento) =>{
+    setEvento(ev);
+    router.push("/infoEvento");
   }
   
+  const guardarEvento = (ev:Evento) =>{
+    setEvento(ev);
+    admin.guardarEventoEstudiante(ev,user.id);
+    router.push("/infoEvento");
+  }
+
   var list = [];
   let index = 0;
 
-  while(index < listaEventos.length){
+  /* while(index < listaEventos.length){
      var aux = listaEventos[index];
     let param = search.toUpperCase(); 
     if(paramSearch== "NOMBRE"){
@@ -41,17 +69,14 @@ const Eventos = () => {
       param = aux?.fechaInicio.toString().toUpperCase(); 
     }else if(paramSearch== "FACULTAD"){
       param = aux?.facultad.toUpperCase(); 
-    } /* else if(paramSearch== "CREADOR"){
-      param = aux?.idCreador.nombre.toUpperCase(); 
-    }  */
+    } 
     if (param.includes(search.toUpperCase())){
       list.push(
         <tr> 
           <td>{aux?.nombre}</td>
           <td>"{index+2}/08/2022"</td>
           <td>{aux?.lugar}</td>
-{/*           <td>{aux?.creador.nombre}</td>
- */}          <td>{aux?.facultad}</td>
+         <td>{aux?.facultad}</td>
           <td>{aux?.etiquetas.toString()}</td>
           <td className="iconosTabla">
             <button aria-label="ver">
@@ -67,7 +92,7 @@ const Eventos = () => {
       );
     }
     index+=1;
-  }  
+  }   */
   
   return (
     <div className="md:w-96 w-2/4 rounded-3xl">
@@ -102,7 +127,7 @@ const Eventos = () => {
         <div className="table-body">
           <table className="">
             <thead>
-              <tr>
+              <tr >
                 <th className="h-r bg-azul">NOMBRE</th>
                 <th className="th1 bg-azul">FECHA</th>
                 <th className="th1 bg-azul">LUGAR</th>
@@ -112,13 +137,39 @@ const Eventos = () => {
                 <th className="bg-azul">
                   <span>Ver</span>
                 </th>
-                <th className="bg-azul h-l">
+                {user.rol == "ESTUDIANTE" ? (
+            <th className="bg-azul h-l">
                   <span>Guardar</span>
                 </th>
+          ):(<></>)}
+                
               </tr>
             </thead>
             <tbody>          
-                {list} 
+            {listaFiltrada.map((ev:Evento) => {
+                return (
+                  <tr className='trb'> 
+          <td>{ev.nombre}</td>
+          <td>{ev.fecha.getDate()+"/"+(ev.fecha.getMonth()+1)+"/"+ev.fecha.getFullYear()}</td>
+          <td>{ev.lugar}</td>
+          <td>{admin.buscarCreador(ev.idCreador).nombre}</td>
+          <td>{ev.facultad}</td>
+          <td>{ev.etiquetas.toString()}</td>
+          <td className="iconosTabla">
+            <button aria-label="ver" onClick={() => verEvento(ev)}>
+              <i className="fa-solid fa-eye"></i>
+            </button>
+          </td>
+          {user.rol == "ESTUDIANTE" ? (
+            <td className="iconosTabla">
+            <button aria-label="guardar" id={index.toString()} onClick={() => guardarEvento(ev)}>
+              <i className="fa-solid fa-bookmark"></i>
+            </button>
+          </td>
+          ):(<></>)}
+        </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

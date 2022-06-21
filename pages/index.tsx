@@ -6,8 +6,14 @@ import styles from '../styles/Home.module.css'
 import Navbar from '../components/Navbar'
 import Inicio from '../components/Inicio'
 import Layout from '../layout/Layout';
+import { PrismaClient } from '@prisma/client';
+import { useAdmin } from '../contexts/admin';
+import { Administrador } from '../data/Administrador';
+import { useState, useEffect } from "react";
+
 
 const Home: NextPage = () => {
+  
 
   return (
     <>
