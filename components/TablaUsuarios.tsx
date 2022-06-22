@@ -7,12 +7,15 @@ import { PrismaClient } from "@prisma/client";
 import { useAdmin } from "../contexts/admin";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import router from "next/router";
+import { Dialog, Tooltip } from '@material-ui/core';
 
 const TablaUsuarios = ({ datos }:any) => {
 
   const {admin, setAdmin} = useAdmin();
   const [listaUsuarios, setListaUsuarios] = useState(admin.getListaTotalUsuarios());
   const [listafiltrada, setListaFiltrada] = useState(admin.getListaTotalUsuarios());
+  const [openDialog, setOpenDialog] = useState(false);
   const [search, setSearch] = useState("");
   const [buscando, setBuscando] = useState(false);
 
@@ -67,6 +70,7 @@ const TablaUsuarios = ({ datos }:any) => {
 
   const eliminarUsuario = async (id: string, rol: string)=>{
     var adminAux = admin;
+    setOpenDialog(false);
     if (rol == "ESTUDIANTE"){
       adminAux.eliminarEstudiante(id);
     }else if (rol == "CREADOR"){
@@ -89,6 +93,7 @@ const TablaUsuarios = ({ datos }:any) => {
     } catch (err) {
       console.log(err);
     }
+    router.push("/admin/usuarios");
   }
 
   const autorizarCreador = async(id:string) =>{
@@ -109,6 +114,7 @@ const TablaUsuarios = ({ datos }:any) => {
     } catch (err) {
       console.log(err);
     }
+    return router.push("/admin/usuarios");
   }
 
   const filtrarLista =()=>{
@@ -172,9 +178,33 @@ const TablaUsuarios = ({ datos }:any) => {
                     <td>{u.correo}</td>
                     <td>{u.autorizado.toString()}</td>
                     <td className="iconosTabla">
-            <button aria-label="Eliminar" onClick={(e)=>{eliminarUsuario(u.id, u.rol)}}>
-              <i className="fa-solid fa-trash-can"></i>
-            </button>
+            
+            <Tooltip title='Eliminar venta' arrow>
+              <button aria-label="Eliminar" onClick={() => setOpenDialog(true)}/* onClick={(e)=>{eliminarUsuario(u.id, u.rol)}} */>
+                <i className="fa-solid fa-trash-can"></i>
+              </button>
+            </Tooltip>
+            <Dialog open={openDialog}>
+              <div className='p-8 flex flex-col text-xl'>
+                <h1 className='textoEliminar'>
+                  ¿Está seguro de querer eliminar este usuario?
+                </h1>
+                <div className='opcionesEliminar flex w-full items-center justify-center my-4'>
+                  <button
+                    onClick={(e)=>{eliminarUsuario(u.id, u.rol)}}
+                    className='hover:bg-red'
+                  >
+                    Eliminar
+                  </button>
+                  <button
+                    onClick={() => setOpenDialog(false)}
+                    className='hover:bg-green'
+                  >
+                    Cancelar
+                  </button>
+                </div>
+              </div>
+            </Dialog>
           </td>
                     {u.autorizado ? (<td></td>
           ):(<td className="iconosTabla">
@@ -186,76 +216,8 @@ const TablaUsuarios = ({ datos }:any) => {
         </tr>
                 );
               })}       
-            {/*    {list}
-             <tr>
-
-              <td>{venta.codigoVenta}</td>
-              <td>{venta.cliente}</td>
-              <td>{venta.idCliente}</td>
-              <td>${venta.totalVenta}</td>
-              <td>{venta.fechaVenta}</td>
-              <td>{venta.estado}</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>cod1</td>
-                <td>1</td>
-                <td>5000</td>
-                <td>5000</td>
-                <td className="iconosTabla">
-                  <button>
-                    <i className="fa-solid fa-eye"></i>
-                  </button>
-                </td>
-                <td className="iconosTabla">
-                  <button>
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>
-                </td>
-                <td className="iconosTabla">
-                  <button>
-                    <i className="fa-solid fa-trash-can"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>cod1</td>
-                <td>1</td>
-                <td>5000</td>
-                <td>5000</td>
-                <td>
-                  <button>Ver</button>
-                </td>
-                <td>
-                  <button>Editar</button>
-                </td>
-                <td>
-                  <button>Eliminar</button>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>cod1</td>
-                <td>1</td>
-                <td>5000</td>
-                <td>5000</td>
-                <td>
-                  <button>Ver</button>
-                </td>
-                <td>
-                  <button>Editar</button>
-                </td>
-                <td>
-                  <button>Eliminar</button>
-                </td>
-              </tr> */}
             </tbody>
           </table>
-        </div>
-        <div className="separate-button mt-3">
-          <button className="mr-10"> Guardar</button>
-          <button>Cancelar</button>
         </div>
       </div>
       

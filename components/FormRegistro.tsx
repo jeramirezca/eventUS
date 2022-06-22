@@ -79,7 +79,7 @@ const FormRegistro = ({ datos }: any) => {
     setAdmin(adminAux);
     try {
       await guardarAdmin();
-      toast("Usuario creado con exito", {
+      toast.success("Usuario creado con exito", {
         position: "bottom-center",
         autoClose: 3009,
         hideProgressBar: false,
@@ -91,7 +91,7 @@ const FormRegistro = ({ datos }: any) => {
     } catch (err) {
       console.log(err);
     }
-    return router.push("/");
+    return router.push("/login");
   };
 
   return (
@@ -187,7 +187,7 @@ const FormRegistro = ({ datos }: any) => {
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
-              type="text"
+              type="password"
               placeholder="Ingrese su contraseña"
               className=""
             />

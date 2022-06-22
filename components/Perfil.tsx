@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
 import { useAdmin } from '../contexts/admin';
 import { useUser } from '../contexts/user';
+import { useAuth } from '../contexts/auth';
 
 const Perfil = () => {
 
@@ -20,6 +21,7 @@ const Perfil = () => {
 
   const { admin, setAdmin } = useAdmin();
   const {user, setUser} = useUser();
+  const {auth, setAuth} = useAuth();
   const [edit, setEdit] = useState(false);
   const [nombre, setNombre] = useState(user.nombre);
   const [usuario, setUsuario] = useState(user.usuario);
@@ -169,9 +171,16 @@ const Perfil = () => {
             </button>
           </>
         ) : (
+          <>
           <button className="bg-azul mt-6 mb-2" onClick={() => setEdit(true)}>
             Editar
           </button>
+          <button className="bg-azul mt-6 mb-2" onClick={() => {setAuth(false);
+             router.push("/");}}>
+          Logout
+        </button>
+          </>
+          
         )}
       </div>
       

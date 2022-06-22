@@ -6,11 +6,8 @@ import { Evento } from '../data/Evento';
 import { useEvento } from '../contexts/evento';
 import router from 'next/router';
 import { useUser } from '../contexts/user';
+import { Creador } from '../data/Creador';
 
-type Profile={
-  nombre:string;
-  facultad:string;
-}
 
 const Eventos = () => {
 
@@ -55,7 +52,42 @@ const Eventos = () => {
     router.push("/infoEvento");
   }
 
-  var list = [];
+  const filtrarLista =()=>{
+    var listaAux = new Array<Evento>;
+    for(var i =0; i< listaEventos.length;i++){
+      if(paramSearch== ""){
+          if (listaEventos[i].nombre.toUpperCase().includes(search.toUpperCase())||listaEventos[i].nombre.toUpperCase().includes(search.toUpperCase())||listaEventos[i].facultad.toString().toUpperCase().includes(search.toUpperCase())||listaEventos[i].etiquetas.includes(search.toUpperCase())){
+            listaAux.push(listaEventos[i]);
+        }
+      }
+      else if(paramSearch== "NOMBRE"){
+        if (listaEventos[i].nombre.toUpperCase().includes(search.toUpperCase())){
+          listaAux.push(listaEventos[i])
+        }
+      }else if(paramSearch== "LUGAR"){
+        if (listaEventos[i].lugar.toUpperCase().includes(search.toUpperCase())){
+          listaAux.push(listaEventos[i])
+        }
+      }else if(paramSearch== "FECHA"){
+        var fechacom = listaEventos[i].fecha.getFullYear()+"-"+(listaEventos[i].fecha.getMonth()+1)+"-"+listaEventos[i].fecha.getDate()
+        if (fechacom.includes(search)){
+          listaAux.push(listaEventos[i])
+        }
+      } else if(paramSearch== "FACULTAD"){
+        if (listaEventos[i].facultad.toUpperCase().includes(search.toUpperCase())){
+          listaAux.push(listaEventos[i])
+        }
+      } else if(paramSearch== "CREADOR"){
+        if(listaEventos[i].idCreador!=undefined){
+          if (listaEventos[i].idCreador.includes(search)){
+          listaAux.push(listaEventos[i])
+        }
+        }
+      } 
+    }
+    setListaFiltrada(listaAux);
+  }
+
   let index = 0;
 
   /* while(index < listaEventos.length){
@@ -105,11 +137,36 @@ const Eventos = () => {
             }}>
               <option disabled value=''></option>                                                 
               <option value="NOMBRE"> nombre </option>
+              <option value="FECHA"> fecha </option>
               <option value="LUGAR"> lugar </option>
-              <option value="FECHA"> etiqueta </option>
+              <option value="CREADOR"> creador </option>
+              <option value="ETIQUETA"> etiqueta </option>
               <option value="FACULTAD"> facultad </option>
             </select>  
-          <input 
+            { paramSearch == "FECHA" ?(<>
+              <input 
+          className = "mr-2" 
+          id="fecha"
+            value = {search}
+            onChange = {(e) =>{
+              setSearch(e.target.value);
+            }}
+            type="date"
+            placeholder="buscar"/>
+            </>): paramSearch == "CREADOR" ?(<select title="Seleccione una opción" name="creadores"  placeholder ="Seleccione el creador" className=""
+            onChange = {(e) =>{
+              console.log(e.target.value)
+              setSearch(e.target.value);
+            }}
+            >
+                {admin.creadoresRegistrados.map((c:Creador) => {
+                return (
+                        <option key={c.id} value={c.id}>{c.nombre}</option>
+                    );
+                })}
+            </select>
+              ):(<>
+              <input 
           className = "mr-2" 
           id="usuario"
             value = {search}
@@ -118,8 +175,11 @@ const Eventos = () => {
             }}
             type="text"
             placeholder="buscar"/>
+            </>)}
+          
+
           <button onClick={() => {
-            setBuscando(true);
+              filtrarLista();
             }} aria-label="Buscar">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -172,10 +232,6 @@ const Eventos = () => {
               })}
             </tbody>
           </table>
-        </div>
-        <div className="separate-button mt-3">
-          <button className="mr-10"> Guardar</button>
-          <button>Cancelar</button>
         </div>
       </div>
     </div>

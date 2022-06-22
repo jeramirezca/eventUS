@@ -16,10 +16,7 @@ const Login = ({datos}:any) => {
   const {admin, setAdmin} = useAdmin();
   useEffect(() => {
     console.log("datos origin")
-    //console.log(datos.admin)
     var admin2 : Administrador = Administrador.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(datos.admin))));
-    //console.log("admin json")
-    //console.log(JSON.parse(admin2.toJSON()));
     setAdmin(admin2);
     console.log("creadores"+admin.creadoresRegistrados.length)
     console.log("Estudiantes"+admin.estudiantesRegistrados.length)
@@ -35,6 +32,17 @@ const Login = ({datos}:any) => {
   const autent = (user: string, contrasena: string) =>{
     var autenticado = admin.autenticacion(user,contrasena);
     if (autenticado.nombre == ""){
+      if (admin.creadorNoAutorizado(user)){
+        toast.error('Creador no autorizado por el momento', {
+          position: "bottom-center",
+          autoClose: 3009,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }else{
         toast.error('Usuario o contraseña incorrecta', {
         position: "bottom-center",
         autoClose: 3009,
@@ -44,6 +52,8 @@ const Login = ({datos}:any) => {
         draggable: true,
         progress: undefined,
         });
+      }
+        
     }else{
       setUser(autenticado);
           setAuth(true);

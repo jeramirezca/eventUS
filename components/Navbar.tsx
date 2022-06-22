@@ -42,12 +42,19 @@ const Navbar = () => {
 
                 {auth ? (
                   <>
+                  <Link href="/notificaciones">
+                      <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
+                        <i className="fa-solid fa-bell pr-1"></i>
+                      </div>
+                    </Link>
                     <Link href="/perfil">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                         <i className="fa-solid fa-user pr-1"></i>
                         Perfil
                       </div>
                     </Link>
+
+                    
 
                     <Link href="/eventos">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">

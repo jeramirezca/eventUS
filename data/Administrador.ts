@@ -209,8 +209,6 @@ export class Administrador extends Usuario {
     }
     public autenticacion(usuario: string, clave: string): Usuario {
         var listaUsuarios = this.getListaUsuarios();
-    
-        console.log(listaUsuarios);
         if (usuario == this.usuario && clave == this.contrasena) {
             return this;
         }
@@ -221,6 +219,15 @@ export class Administrador extends Usuario {
         }
         return new Usuario("", "", "", "", "", false);
 
+    }
+
+    public creadorNoAutorizado(usuario: string): boolean {
+        for(var i=0; i<this.creadoresVerificar.length; ++i) { 
+            if (usuario == this.creadoresVerificar[i].usuario) {
+                return true;
+            }
+        }
+        return false
     }
 
     public getListaEventos(): Array<Evento> {
