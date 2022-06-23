@@ -1,23 +1,25 @@
-import FormRegistro from "../../components/FormRegistro"
-import Head from 'next/head'
-import Layout from "../../layout/Layout"
-import Navbar from "../../components/Navbar"
+import React from 'react'
 
-const crearEventos = () => {
-    return (
-        <div>
+import Head from "next/head";
+import Navbar from '../../components/Navbar';
+import Layout from '../../layout/Layout';
+import FormCreacionE from "../../components/FormCreacionE"
+
+const crearEvento = () => {
+  return (
+    <div>
             <Head>
-                <title>Mypage</title>
+                <title>Crear evento</title>
             </Head>
             <main>
                 <Navbar></Navbar>
                 <Layout>
-                    
+                    <FormCreacionE></FormCreacionE> 
                 </Layout>
             </main>
             
         </div>
-        
-    )
+  )
 }
-export default crearEventos 
+
+export default crearEvento

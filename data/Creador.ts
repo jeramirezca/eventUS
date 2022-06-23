@@ -12,8 +12,8 @@ export class Creador extends Usuario {
 
     //Constructor
 
-    constructor(id:string ,  nombre:string,user: string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
-        super(id, nombre,user, correo, contrasenia,estado);
+    constructor(id:string ,  nombre:string,usuario: string, correo:string,  contrasenia:string,  estado:boolean, dep:string){
+        super(id, nombre,usuario, correo, contrasenia,estado);
         //el super siempre se debe poner primero para evitar errores
         this.eventosCreados = new Array<Evento>();
         this.propuestasEventos = new Array<Evento>();
@@ -22,7 +22,7 @@ export class Creador extends Usuario {
     }
     public static fromJSON = function (json: string) : Creador{
         let obj = JSON.parse (json);
-        let creadorAux = new Creador (obj.id , obj.nombre, obj.user, obj.correo, obj.contrasena,obj.autorizado, obj.dependenciaAdmin);
+        let creadorAux = new Creador (obj.id , obj.nombre, obj.usuario, obj.correo, obj.contrasena,obj.autorizado, obj.dependenciaAdmin);
         let  auxEventosCreados:Array<Evento> = new Array<Evento>();
         for (let i: number = 0; i < obj.eventosCreados.length; i++){
             let aux = obj.eventosCreados[i];
@@ -107,11 +107,11 @@ export class Creador extends Usuario {
 
     //Metodos
 
-    public crearEvento(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
+    public crearEvento(id:string , nombre:string, fecha:Date, horaInicio:string, horaFin:string,lugar:string, descripcion:string,
         creador:Creador, facultad:string, idProponente: string):boolean {
         let  creado:boolean = false;
-        if(id != null && nombre !=null && fechaInicio !=null && fechaFinal!=null && descripcion != null &&facultad !=null){
-            this.eventosCreados.push(new Evento(id, nombre, fechaInicio, fechaFinal, lugar, descripcion,this.getId(), facultad, idProponente,true));
+        if(id != null && nombre !=null && fecha !=null && horaInicio!=null && descripcion != null &&facultad !=null){
+            this.eventosCreados.push(new Evento(id, nombre, fecha,horaInicio,horaFin, lugar, descripcion,this.getId(), facultad, idProponente,true));
             //lo comento para evitar errores por no tener usuario
             creado = true;
         }
@@ -119,9 +119,10 @@ export class Creador extends Usuario {
 
     }
 
-    public editarEvento(fechaNuevaIn:Date, fechaNuevaFin:Date, nuevoLugar:string, e:Evento):Evento {
-        e.setFechaFinal(fechaNuevaFin);
-        e.setFechaInicio(fechaNuevaIn);
+    public editarEvento(fechaNueva:Date, horaNuevaInicio:string,horaNuevaFin:string, nuevoLugar:string, e:Evento):Evento {
+        e.setFecha(fechaNueva);
+        e.setHoraInicio(horaNuevaInicio);
+        e.setHoraFin(horaNuevaFin);
         e.setLugar(nuevoLugar);
         if(this.eventosCreados.includes(e)){
             this.eventosCreados.splice((this.eventosCreados.indexOf(e)),1);
@@ -160,9 +161,9 @@ export class Creador extends Usuario {
            */
         
         //mandar una notificacion al estudiante de que su evento fue aceptado
-        /*let user: string = aceptado.getProponente();
+        /*let usuario: string = aceptado.getProponente();
 
-        user.getNotificaciones().push(new Notificacion(user.getId(), aceptado.getFechaInicio(), "tu evento fue aceptado: ' "+aceptado.getNombre()+" '"));
+        usuario.getNotificaciones().push(new Notificacion(usuario.getId(), aceptado.getFechaInicio(), "tu evento fue aceptado: ' "+aceptado.getNombre()+" '"));
         */ 
        
         //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
@@ -181,8 +182,8 @@ export class Creador extends Usuario {
        */
        //Pendiente implementar que al estudiante se le muestre una notificacion 
 
-       /*let user:Usuario = rechazado.getProponente();
-       user.getNotificaciones().push(new Notificacion(user.getId(), rechazado.getFechaInicio(), "tu evento fue rechazado: ' "+ rechazado.getNombre()+" '"));
+       /*let usuario:Usuario = rechazado.getProponente();
+       usuario.getNotificaciones().push(new Notificacion(usuario.getId(), rechazado.getFechaInicio(), "tu evento fue rechazado: ' "+ rechazado.getNombre()+" '"));
        */
       
         //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.

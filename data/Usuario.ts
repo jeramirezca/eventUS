@@ -10,7 +10,7 @@ export class Usuario{
     public usuario:string;
     public correo:string;
     public contrasena:string;
-    public notificaciones:StackRef<Notificacion> ;
+    public notificaciones:Array<Notificacion> ;
     public autorizado:boolean;
     public rol: "ADMINISTRADOR"|"ESTUDIANTE"|"CREADOR"|""= "";
 
@@ -34,7 +34,7 @@ export class Usuario{
         this.correo = correo;
         this.contrasena = contrasena;
         this.autorizado = autorizado;
-        this.notificaciones = new StackRef<Notificacion>();
+        this.notificaciones = new Array<Notificacion>();
         this.rol = "";
     }
 
@@ -79,11 +79,11 @@ export class Usuario{
         this.contrasena = contrasena;
     }
 
-    public  getNotificaciones():StackRef<Notificacion> {
+    public  getNotificaciones():Array<Notificacion> {
         return this.notificaciones;
     }
 
-    public  setNotificaciones(notificaciones:StackRef<Notificacion> ) :void{
+    public  setNotificaciones(notificaciones:Array<Notificacion> ) :void{
         this.notificaciones = notificaciones;
     }
 
@@ -103,7 +103,7 @@ export class Usuario{
     };
 
     public  eliminarNotificacion():void {
-        if(this.notificaciones.empty()){
+        if(this.notificaciones.length==0){
             console.log("No hay notificaciones por eliminar");
         }else{
             this.notificaciones.pop();

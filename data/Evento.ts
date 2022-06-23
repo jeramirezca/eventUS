@@ -5,8 +5,10 @@ import { Usuario } from "./Usuario";
 export class Evento {
     public id:string;
     public nombre:string;
-    public fechaInicio:Date; //Date
-    public fechaFinal:Date; //Date
+    public fecha:Date;
+/* 	public HoraInicio: String; //Date */
+    public horaInicio: string;
+	public horaFin: string; //Date
     public lugar:string;
     public descripcion:string;
 	public facultad:string;
@@ -20,15 +22,15 @@ export class Evento {
 	
 	//Constructor
 
-    constructor(id:string , nombre:string, fechaInicio:Date, fechaFinal:Date,lugar:string, descripcion:string,
+    constructor(id:string , nombre:string, fecha:Date, horaInicio: string, horaFin: string,lugar:string, descripcion:string,
 			idCreador:string, facultad:string, idProponente:string, estado: boolean ,aforo?:number, etiquetas?:string[]) {
-		
 		this.id = id;
 		this.nombre = nombre;
-		this.fechaInicio = fechaInicio;
-		this.fechaFinal = fechaFinal;
+		this.fecha = fecha;
+		this.horaInicio = horaInicio;
+		this.horaFin = horaFin;
 		this.lugar = lugar;
-        this.facultad=facultad
+        this.facultad = facultad
 		this.descripcion = descripcion;
 		this.idCreador = idCreador;
 		this.idProponente= idProponente;
@@ -55,8 +57,9 @@ export class Evento {
 		let evento = '{'+
 		'"id":"'+ this.getId() +'",'+
 		'"nombre":"'+ this.getNombre() +'",'+
-		'"fechaInicio":"'+ this.getFechaInicio().getFullYear()+'-' +(this.getFechaInicio().getMonth()+1) +'-'+this.getFechaInicio().getDate()+'",'+
-		'"fechaFinal":"'+ this.getFechaFinal().getFullYear()+'-' +(this.getFechaFinal().getMonth()+1)+'-'+this.getFechaFinal().getDate()+'",'+
+		'"fecha":"'+ this.getFecha().getFullYear()+'-' +(this.getFecha().getMonth()+1) +'-'+this.getFecha().getDate()+'",'+
+		'"horaInicio":"'+ this.getHoraInicio() +'",'+
+		'"horaFin":"'+ this.getHoraFin() +'",'+
 		'"lugar":"'+ this.getLugar() +'",' +
 		'"descripcion":"'+ this.getDescripcion() +'",' +
 		'"facultad":"'+ this.getFacultad() +'",' +
@@ -71,7 +74,7 @@ export class Evento {
 
 	public static fromJSON = function (json: string) : Evento{
         var obj = JSON.parse (json);
-        return new Evento (obj.id , obj.nombre, new Date(obj.fechaInicio), new Date(obj.fechaFinal), obj.lugar, obj.descripcion,
+        return new Evento (obj.id , obj.nombre, new Date(obj.fecha), obj.horaInicio,obj.horaFin, obj.lugar, obj.descripcion,
 			obj.creador, obj.facultad, obj.idProponente,  obj.estado, obj.aforo, obj.etiquetas);
 		};
 	
@@ -97,17 +100,23 @@ export class Evento {
 	public setNombre(nombre:string):void {
 		this.nombre = nombre;
 	}
-	public getFechaInicio():Date {
-		return this.fechaInicio;
+	public getFecha():Date {
+		return this.fecha;
 	}
-	public setFechaInicio(fechaInicio:Date):void {
-		this.fechaInicio = fechaInicio;
+	public setFecha(fecha:Date):void {
+		this.fecha = fecha;
 	}
-	public getFechaFinal():Date {
-		return this.fechaFinal;
+	public getHoraInicio():string {
+		return this.horaInicio;
 	}
-	public setFechaFinal(fechaFinal:Date):void {
-		this.fechaFinal = fechaFinal;
+	public setHoraInicio(horaInicio:string):void {
+		this.horaInicio = horaInicio;
+	} 
+	public getHoraFin():string {
+		return this.horaFin;
+	}
+	public setHoraFin(horaFin:string):void {
+		this.horaFin = horaFin;
 	} 
 	public getLugar(): String  {
 		return this.lugar;
@@ -176,14 +185,6 @@ export class Evento {
 
 	public getFacultad():string{
 		return this.facultad;
-	}
-
-	public  toString():string{
-		let cadena:string = "";
-		cadena+= "Nombre: "+ this.getNombre()+"\n"+"Fi "+this.fechaInicio+" Ff "+this.fechaFinal;
-		cadena+= "\n"+"Lugar "+this.getLugar()+ "\n"+"Descripcion: "+this.getDescripcion()+ "\n";
-		cadena+="Propone: " + this.getId();
-		return cadena;
 	}
 
 }

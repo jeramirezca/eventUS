@@ -9,13 +9,10 @@ export class Estudiante extends Usuario{
     public eventosGuardados:Array<Evento>;
     public eventosPropuestos:Array<Evento>;
     public notificacionesPendientes:Array<Notificacion>;
-	//public toJSON : string;
-
-    // CONSTRUCTORES
     
 
-    public constructor (id:string , nombre:string , user:string, correo:string , contrasena:string,programaEstudio:string |""){
-        super(id, nombre,user,correo,contrasena,true);
+    public constructor (id:string , nombre:string , usuario:string, correo:string , contrasena:string, programaEstudio:string |""){
+        super(id, nombre,usuario,correo,contrasena,true);
         this.eventosGuardados= new Array<Evento>();
         this.eventosPropuestos= new Array<Evento>();
         this.notificacionesPendientes=new Array<Notificacion>();
@@ -25,7 +22,7 @@ export class Estudiante extends Usuario{
     }
     public static fromJSON = function (json: string) : Estudiante{
         let obj = JSON.parse (json);
-        let estudianteAux = new Estudiante (obj.id , obj.nombre, obj.user, obj.correo, obj.contrasena, obj.programaEstudio);
+        let estudianteAux = new Estudiante (obj.id , obj.nombre, obj.usuario, obj.correo, obj.contrasena, obj.programaEstudio);
         let  auxEventosGuardados:Array<Evento> = new Array<Evento>();
         for (let i: number = 0; i < obj.eventosGuardados.length; i++){
             let aux =  obj.eventosGuardados[i];

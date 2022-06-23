@@ -15,7 +15,7 @@ module.exports = {
         dark: '#82efea',
       },
       'azul': {
-        light: '#cce8ff',
+        light: '#a5def1dc',
         light2: '#86c8fd8c',
         DEFAULT: '#006092',
         dark: '#82efea',
@@ -32,6 +32,8 @@ module.exports = {
         dark: '#0e7490',
       },
       'purple': '#3f3cbb',
+      'red': '#de0000',
+      'green': '#00b500',
     },
     extend: {},
   },

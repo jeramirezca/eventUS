@@ -2,14 +2,14 @@ import { Creador } from "../data/Creador";
 import { Estudiante } from "../data/Estudiante";
 import { Usuario } from "../data/Usuario";
 import { Evento} from "../data/Evento";
-import { Administrador } from "../data/Administrador";
+import { Administrador as admin, Administrador } from "../data/Administrador";
 import { parse } from "path";
 import { LinkedRef } from "../structures/LinkedRef";
 import { QueueRef } from "../structures/QueueRef";
 import { Notificacion } from "../data/Notificacion";
 
 export class CargarDatos {
-    static admin1 : Administrador = new Administrador("01","Administrador principal", "correo@unal.edu.co","ADMINISTRADOR","admin123",true);
+    static admin1 : admin = new admin("01","Administrador principal", "correo@unal.edu.co","ADMINISTRADOR","admin123",true);
 
     constructor (){
         let admin: Administrador = new Administrador("A01","Administrador","admin","admin@unal.edu.co","admin123",true);
@@ -28,23 +28,22 @@ export class CargarDatos {
         let userCrea3 : Creador = new Creador("C03","creador prog. Sistemas","sistemas@unal.edu.co","CREADOR","creador123",true,"Sistemas");
         let userCrea4 : Creador = new Creador("C04","creador prog. Sistemas","sistemas@unal.edu.co","CREADOR","creador123",true,"Sistemas");
         
-        let evento1 : Evento = new Evento("Ev01","Evento 1",new Date("2017-4-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
-        let evento2 : Evento = new Evento("Ev02","Evento 2",new Date("2018-5-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
-        let evento3 : Evento = new Evento("Ev03","Evento 3",new Date("2019-6-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
-        let evento4 : Evento = new Evento("Ev04","Evento 4",new Date("2020-7-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
-        let evento5 : Evento = new Evento("Ev05","Evento 5",new Date("2021-8-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
-        let evento6 : Evento = new Evento("Ev06","Evento 6",new Date("2021-9-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
-        let evento7 : Evento = new Evento("Ev07","Evento 7",new Date("2021-10-26"),new Date("2017-01-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),false, 3,["et1","et2","et3","et4","et5"]);
+        let evento1 : Evento = new Evento("Ev01","Evento 1",new Date("2017-4-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),"08:00","16",false, 3,["et1","et2","et3","et4","et5"]);
+        let evento2 : Evento = new Evento("Ev02","Evento 2",new Date("2018-5-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),"08:00","16",false, 3,["et1","et2","et3","et4","et5"]);
+        let evento3 : Evento = new Evento("Ev03","Evento 3",new Date("2019-6-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),"08:00","16",false, 3,["et1","et2","et3","et4","et5"]);
+        let evento4 : Evento = new Evento("Ev04","Evento 4",new Date("2020-7-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),"08:00","16",false, 3,["et1","et2","et3","et4","et5"]);
+        let evento5 : Evento = new Evento("Ev05","Evento 5",new Date("2021-8-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),"08:00","16",false, 3,["et1","et2","et3","et4","et5"]);
+        let evento6 : Evento = new Evento("Ev06","Evento 6",new Date("2021-9-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),"08:00","16",false, 3,["et1","et2","et3","et4","et5"]);
+        let evento7 : Evento = new Evento("Ev07","Evento 7",new Date("2021-10-26"),"Unal","descripcion",userCrea1.getId(),"Ingenieria",user1.getId(),"08:00","16",false, 3,["et1","et2","et3","et4","et5"]);
     
         let eventString: string = evento1.toJSON();
         let eventoPrueba : Evento = Evento.fromJSON(eventString);
         console.log(eventString);
         console.log(eventoPrueba.toString());
-        console.log(eventoPrueba.getFechaFinal().getFullYear());
-        console.log(eventoPrueba.getFechaFinal().getMonth());
-        console.log(eventoPrueba.getFechaFinal().getDay());
+        console.log(eventoPrueba.getFecha().getFullYear());
+        console.log(eventoPrueba.getFecha().getMonth());
+        console.log(eventoPrueba.getFecha().getDay());
 
-        
         let auxEventProp : Array<Evento> = new Array<Evento>();
         auxEventProp.push(evento1);
         auxEventProp.push(evento2);
@@ -108,22 +107,22 @@ export class CargarDatos {
         user7.setNotificacionesPendientes(cola);
         user8.setNotificacionesPendientes(cola);
 
-        Administrador.creadoresVerificar.push(userCrea1);
-        Administrador.creadoresVerificar.push(userCrea2);
-        Administrador.creadoresVerificar.push(userCrea3);
+        admin.creadoresVerificar.push(userCrea1);
+        admin.creadoresVerificar.push(userCrea2);
+        admin.creadoresVerificar.push(userCrea3);
 
-        Administrador.creadoresRegistrados.unshift(userCrea1);
-        Administrador.creadoresRegistrados.unshift(userCrea4);
-        Administrador.creadoresRegistrados.unshift(userCrea3);
-        Administrador.creadoresRegistrados.unshift(userCrea2);
+        admin.creadoresRegistrados.unshift(userCrea1);
+        admin.creadoresRegistrados.unshift(userCrea4);
+        admin.creadoresRegistrados.unshift(userCrea3);
+        admin.creadoresRegistrados.unshift(userCrea2);
 
-        Administrador.estudiantesRegistrados.unshift(user1);
-        Administrador.estudiantesRegistrados.unshift(user2);
-        Administrador.estudiantesRegistrados.unshift(user3);
-        Administrador.estudiantesRegistrados.unshift(user4);
-        Administrador.estudiantesRegistrados.unshift(user5);
-        Administrador.estudiantesRegistrados.unshift(user6);
-        Administrador.estudiantesRegistrados.unshift(user7);
+        admin.estudiantesRegistrados.unshift(user1);
+        admin.estudiantesRegistrados.unshift(user2);
+        admin.estudiantesRegistrados.unshift(user3);
+        admin.estudiantesRegistrados.unshift(user4);
+        admin.estudiantesRegistrados.unshift(user5);
+        admin.estudiantesRegistrados.unshift(user6);
+        admin.estudiantesRegistrados.unshift(user7);
     
     let datos : string = admin.toJSON()
     //console.log(datos);

@@ -6,64 +6,69 @@ import InfoEvento from '../../components/InfoEvento';
 import DivEvento from '../../components/divEvento';
 import { Evento } from '../../data/Evento';
 import DivPropuesta from '../../components/divPropuesta';
-import { pruebas } from '../../structures/Pruebas';
 import { Estudiante } from '../../data/Estudiante';
 import { Creador } from '../../data/Creador';
 import { Usuario } from '../../data/Usuario';
 import { useUser } from '../../contexts/user';
-import { LinkedRef } from '../../structures/LinkedRef';
-import { QueueRef } from '../../structures/QueueRef';
+import { useAdmin } from '../../contexts/admin';
+import { useAuth } from '../../contexts/auth';
+import router from 'next/router';
+import { Dialog, Tooltip } from '@material-ui/core';
+import { toast } from 'react-toastify';
 
 
-  //convertir a a array
-  function convertirArray(l:LinkedRef<Evento>):Evento[]{
-      let e:Evento[] = [];
-      //let d:LinkedRef<Evento> = new LinkedRef();
-      let tamanio:number = l.size();
-      for(let i=0; i<tamanio;i++){
-        e.push(l.get(i) as Evento);
-      }
-      return e;
-    
-  }
+const perfilCreador = () => {
 
-  function obtenerCola(q:QueueRef<Evento>){
-    for(let j=0; j<q.size();j++){
-      const e :Evento = q.dequeue() as Evento;
-      <DivPropuesta E={e}></DivPropuesta>             
+    async function guardarAdmin() {
+        console.log(admin.toJSON());
+        const response = await fetch("/api/datos", {
+          method: "PATCH",
+          body: admin.toJSON(),
+        });
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return await response.json();
     }
-  }
+
+    const {user, setUser} = useUser();
+    const {auth, setAuth} = useAuth();
+    const {admin, setAdmin} = useAdmin();
+    const [eventosCreados, setEventosCreados] = useState(admin.buscarCreador(user.id)? (admin.buscarCreador(user.id).eventosCreados):(new Array<Evento>) );
+    const [eventosPropuestos, setEventosPropuestos] = useState(admin.buscarCreador(user.id)? (admin.buscarCreador(user.id).propuestasEventos):(new Array<Evento>));
+    const [openDialog, setOpenDialog] = useState(false);
 
 
-  
+    const eliminarEvento = async (id: string, rol: string)=>{
+        //creas una copia del admin
+        var adminAux = admin;
+        //Aquí haces las operaciones que quieras con el admin, digamosn en este caso quitarlle al creador registrado el evento
 
-const perfil = () => {
+        //vuelves a guardar el admin
+        setAdmin(adminAux);
+        //Actualizas los eventos de la pagina
+        setEventosCreados(admin.buscarCreador(user.id).eventosCreados);
+        //mandas la info a la base de datos para cambiar
+        try {
+          await guardarAdmin();
+          toast.success("Usuario eliminado con exito", {
+            position: "bottom-center",
+            autoClose: 3009,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } catch (err) {
+          console.log(err);
+        }
+        //recargas página para ver actulizado
+        router.push("/creador/perfilCreador");
+      }
 
-  
-  //Queda pendiente arreglar esto, que reciba el usuario global
-  const {user, setUser} = useUser();
-  //const [usuario, setUsuario] = useState(user);
-  var _user = user as Creador;
-  let listaDelCreador:Array<Evento> = [];
-  //listaDelCreador = _user.eventosCreados;
-  let colaDelCreador:QueueRef<Evento> = new QueueRef<Evento>;
-  colaDelCreador = _user.getPropuestasEventos;
-  colaDelCreador as QueueRef<Evento>;
-
- 
-  
-  let mar = new Estudiante("1234","marx","marx","marx@hotmail","marx","holi")
-  let creador_prueba = new Creador("29292","juan carlos","unu123","ajaja@gmail.com","12345",true,"ingenieria");
-  let ev_prueba = new Evento("2929","evento de prueba",new Date(2022),new Date(2023),"lugar","este es un evento de prueba, descripcion xd",creador_prueba,"ingenieria",mar);
-  let ev_prueba2 = new Evento("2930","evento de prueba 2",new Date(2022),new Date(2023),"lugar","esta es una descripcion medianamente larga",creador_prueba,"ingenieria",mar);
-  let ev_prueba3 = new Evento("2931","evento de prueba 3",new Date(2022),new Date(2023),"lugar","esta descripcion es corta",creador_prueba,"ingenieria",mar);
-  let ev_prueba4 = new Evento("2932","evento de prueba 4 ",new Date(2022),new Date(2023),"lugar","un evento de verdad debe tener descripcion xd",creador_prueba,"ingenieria",mar);
-  listaDelCreador.push(ev_prueba);
-  listaDelCreador.push(ev_prueba2);
-  listaDelCreador.push(ev_prueba3);
-  listaDelCreador.push(ev_prueba4);
-  let eventosArray = listaDelCreador ;
   return (
+
     <>
       <Head>
         <title>Bienvenido creador(a)</title>
@@ -75,18 +80,11 @@ const perfil = () => {
               <section className='flexVert'>
                 <div className='cajaIzquierda'>
                   Ultimos eventos creados
-                <br></br>
-                  
-                    {eventosArray.map((e:Evento) => (<DivEvento E={e}></DivEvento>))}
-                  {/* //y que dios me perdone por lo que voy a hacer */}
-    {               /*<DivEvento E={ev_prueba}></DivEvento>
-                   <DivEvento E={ev_prueba2}></DivEvento>
-                   <DivEvento E={ev_prueba3}></DivEvento>
-  <DivEvento E={ev_prueba4}></DivEvento> */}
-                  
+                <br></br>       
+                    {eventosCreados.map((e:Evento) => (<DivEvento E={e}></DivEvento>))}
                 </div>
                 <div className='cajaIzquierda'>
-                  <button>Crear un evento</button>
+                  <button onClick={() => router.push("/creador/crearEvento")}>Crear un evento</button>
                 </div>
               </section>
               <section className='flexVert'>
@@ -112,21 +110,8 @@ const perfil = () => {
                 <h1><strong>Propuestas de eventos</strong></h1>
                 <br></br>
                 <p>Los siguientes eventos han sido propuestos por algun estudiante, por favor revisalas:</p>
-                <br></br>
-                
-                { /* obtenerCola()
-                - Pendiente: convertir la cola a un arreglo de una forma u otra
-                - que los botones de aprovar y denegar realmente hagan lo mismo en el objeto creador
-                */}
-          
-            
-                  {eventosArray.map((c:Evento)=> (<DivPropuesta E={c}></DivPropuesta>))}
-                
-        
-                  
-               
-                
-         
+                <br></br>       
+                  {eventosPropuestos.map((c:Evento)=> (<DivPropuesta E={c}></DivPropuesta>))}
               </section>
 
             </PerfilCrea>
@@ -137,4 +122,4 @@ const perfil = () => {
   )
 }
 
-export default perfil
+export default perfilCreador

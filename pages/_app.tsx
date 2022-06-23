@@ -5,38 +5,37 @@ import '../styles/tables.css'
 import '../styles/estiloscreador.css';
 
 import type { AppProps } from 'next/app'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { UserContext } from '../contexts/user'
 import { AuthContext } from '../contexts/auth'
-import { ListUsersContext } from '../contexts/listUsers'
+import { AdminContext } from '../contexts/admin';
 import { useUser } from '../contexts/user'
-//import { Usuario } from '../classes/Usuario'
 import { LinkedRef } from '../structures/LinkedRef'
-import { pruebas } from '../structures/Pruebas'
 import { Usuario } from '../data/Usuario';
-import { ListEventsContext } from '../contexts/events'
-import { pruebasEventos } from '../structures/PruebasEventos'
-import { pruebasArbol } from '../structures/PruebasEventos';
-
+import { PrismaClient } from '@prisma/client';
+import { Administrador } from '../data/Administrador';
+import { GuardarContext } from '../contexts/guardar';
+import { Evento } from '../data/Evento';
+import { EventoContext } from '../contexts/evento';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  
-  const [listaUsuarios, setListaUsuarios] = useState(pruebas());
-  const [listaEventos, setListaEventos] = useState(pruebasEventos());
-  const [arbol,setArbol] = useState(pruebasArbol());
   const [user, setUser] = useState(new Usuario("","","","","",false));
   const [auth, setAuth] = useState(false);
-
+  const [admin, setAdmin] = useState(new Administrador("","","","","",false));
+  const [guardar, setGuardar] = useState(false);
+  const [evento, setEvento] = useState(new Evento("","",new Date(),"","","","","","","",false,));
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <ListUsersContext.Provider value={{ listaUsuarios, setListaUsuarios }}>
-        <ListEventsContext.Provider value={{ listaEventos, setListaEventos }}>
           <AuthContext.Provider value={{ auth, setAuth }}>
+            <AdminContext.Provider value={{ admin,setAdmin }}>
+              <GuardarContext.Provider value={{ guardar,setGuardar }}>
+                <EventoContext.Provider value={{ evento,setEvento}}>
             <Component {...pageProps} />
+            </EventoContext.Provider>
+            </GuardarContext.Provider>
+            </AdminContext.Provider>
           </AuthContext.Provider>
-        </ListEventsContext.Provider>
-      </ListUsersContext.Provider>
     </UserContext.Provider>
   );
     
