@@ -3,14 +3,13 @@ import '../styles/prueba.css'
 import '../styles/forms.css'
 import '../styles/tables.css'
 import '../styles/estiloscreador.css';
+import '../styles/estilosNotificacion.css';
 
 import type { AppProps } from 'next/app'
 import { useEffect, useState } from 'react'
 import { UserContext } from '../contexts/user'
 import { AuthContext } from '../contexts/auth'
 import { AdminContext } from '../contexts/admin';
-import { useUser } from '../contexts/user'
-import { LinkedRef } from '../structures/LinkedRef'
 import { Usuario } from '../data/Usuario';
 import { PrismaClient } from '@prisma/client';
 import { Administrador } from '../data/Administrador';
