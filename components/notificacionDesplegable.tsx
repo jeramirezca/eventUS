@@ -14,6 +14,8 @@ type N ={N:Notificacion};
 const Desplegable =  ({N}:N) =>{
   const {user,setUser} = useUser();
   const {admin, setAdmin } = useAdmin();
+  const divTexto = useRef<HTMLDivElement>(null);
+  
   function borrarNotificacion(){
     let admiAux:Administrador = admin;
 
@@ -55,8 +57,6 @@ const Desplegable =  ({N}:N) =>{
     } catch (err) {
       console.log(err);
     }
-    //recargas página para ver actulizado
-    router.push("/notificaciones");
     
     
   }
@@ -84,7 +84,7 @@ const Desplegable =  ({N}:N) =>{
     return await response.json();
 }
 
-  const divTexto = useRef<HTMLDivElement>(null);
+
     return(
         <div ref={divTexto}>
         

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Layout from "../../layout/Layout";
 import Head from 'next/head'
 import PerfilCrea from '../../components/perfCreador';
@@ -31,7 +31,7 @@ const perfilCreador = () => {
         }
         return await response.json();
     }
-
+    const inputTexto = useRef<HTMLInputElement>(null);
     const {user, setUser} = useUser();
     const {auth, setAuth} = useAuth();
     const {admin, setAdmin} = useAdmin();
@@ -70,7 +70,37 @@ const perfilCreador = () => {
 
 
       function mostrarEvento(){
-        alert("xd");
+        if(inputTexto.current != null){
+          let id:string = inputTexto.current.value;
+          let mostrar:Evento|null = null;
+            let crea_tmp:Creador = user as Creador;
+              crea_tmp.eventosCreados.map((e:Evento) => {
+                if(e.id == id){
+                    mostrar = e;
+                }
+              }
+              );
+            
+              if(mostrar == null){
+                toast.error('El evento no existe o lo escribiste mal', {
+                  position: "bottom-center",
+                  autoClose: 3009,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  });
+              }
+              else{
+                //mostramos el evento en un div
+                <DivEvento E={mostrar}></DivEvento>
+              }
+          
+          
+         
+          
+        }
       }
 
   return (
@@ -96,7 +126,7 @@ const perfilCreador = () => {
               <section className='flexVert'>
               <div className='cajaDerecha'>
                 <strong>Buscar eventos</strong>
-                <input id='eventoAbuscar' placeholder='Ingresa el nombre del evento'/>
+                <input ref={inputTexto} placeholder='Ingresa el nombre del evento'/>
               
                 <button onClick={mostrarEvento}>Buscar</button>
                 </div>
