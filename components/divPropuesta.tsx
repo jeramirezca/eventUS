@@ -1,11 +1,17 @@
 import React, { useRef } from 'react'
 import Link from 'next/link';
 import { Evento } from '../data/Evento';
+import { useUser } from '../contexts/user';
+import { useAdmin } from '../contexts/admin';
+import { Creador } from '../data/Creador';
+import { Administrador } from '../data/Administrador';
 type E ={E:Evento};
 let abierto = false;
 
+
 const DivPropuesta = ({E}:E) => {
-    
+    const {user,setUser} = useUser();
+    const {admin,setAdmin} = useAdmin();    
     const deOc = useRef<HTMLDivElement>(null); 
     const descrip = useRef<HTMLParagraphElement>(null); 
     const EventoDiv = useRef<HTMLDivElement>(null);
@@ -38,8 +44,29 @@ const DivPropuesta = ({E}:E) => {
     
            }
        }
+
+       async function guardarAdmin() {
+        console.log(admin.toJSON());
+        const response = await fetch("/api/datos", {
+          method: "PATCH",
+          body: admin.toJSON(),
+        });
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return await response.json();
+    }
     
     const aprovarPropuesta = () =>{
+        let creador_tmp = user as Creador;
+        let proponente:string = creador_tmp.aceptarEvento(E);
+        let admiAux:Administrador = admin;
+        admiAux.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento fue aprobado!");
+        //salvamos los datos
+        setAdmin(admiAux);
+        guardarAdmin();
+        
+        //buscamos al proponente para mandarle la notificacion
         if(EventoDiv.current !== null){
             EventoDiv.current.style.display = "none";
         }
@@ -48,7 +75,14 @@ const DivPropuesta = ({E}:E) => {
     }
     
     const denegarPropuesta = () =>{
-
+        let creador_tmp = user as Creador;
+        let proponente:string = creador_tmp.rechazarEvento(E);
+        let admiAux:Administrador = admin;
+        admiAux.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento no fue aprobado!");
+        //salvamos los datos
+        setAdmin(admiAux);
+        guardarAdmin();
+        
         if(EventoDiv.current !== null){
             EventoDiv.current.style.display = "none";
         }

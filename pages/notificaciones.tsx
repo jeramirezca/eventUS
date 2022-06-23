@@ -21,7 +21,7 @@ const {auth, setAuth} = useAuth();
 const {admin, setAdmin} = useAdmin();
   
   let usuario:Usuario = user;
-  let notificaciones:Notificacion[] = [new Notificacion("jajaj",new Date(),"ugu"), new Notificacion("salaberga", new Date(),"jijij")];
+  let notificaciones:Notificacion[] = [];
 
   if(user != undefined){
     if(usuario instanceof Administrador){
@@ -58,6 +58,7 @@ const {admin, setAdmin} = useAdmin();
           {notificaciones.map((n:Notificacion) => (n != null ? <Desplegable N={n}></Desplegable>: " "))}
           </>
         </div>
+        <br></br>
         </div>
          
       </Layout>

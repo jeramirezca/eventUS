@@ -112,7 +112,7 @@ export class Usuario{
 
     }
 
-    //por si las moscas
+    //por si las moscas?
     public agregarNotificaciones(d:string, f:Date, des?:string){
         let n:Notificacion;
        if (des != undefined) n = new Notificacion(d,f,des);
