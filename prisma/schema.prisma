@@ -12,11 +12,5 @@ datasource db {
 
 model Post {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  title    String
-  body     String
-}
-
-model Usuario {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  users    String
+  admin    Json
 }

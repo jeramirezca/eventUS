@@ -30,9 +30,9 @@ const Inicio = () => {
     </>
     ):(
     <>
-      <div className="md:block flex justify-center items-center flex-col pt-40 text-center m-6">
+      <div className="md:block flex justify-center items-center flex-col pt-40 text-center m-3 pl-12">
       <img
-        src="https://i.ibb.co/D5bR2rQ/logo.png"
+        src="https://i.ibb.co/8K5XSC6/LOG.png"
         alt="prueba"
         className="w-80 imgr"
       />

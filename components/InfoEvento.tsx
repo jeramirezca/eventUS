@@ -1,6 +1,9 @@
 import React from 'react'
+import { useEvento } from '../contexts/evento';
 
 const InfoEvento = () => {
+
+  const { evento, setEvento } = useEvento();
   return (
     <div className='md:w-96 w-2/4 bg-azul-light rounded-3xl'>
           <form className="">

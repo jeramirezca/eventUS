@@ -42,8 +42,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -62,8 +63,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -82,8 +84,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -104,8 +107,9 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -124,8 +128,291 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                }
+            ]
+        },
+        {
+            "rol": "ESTUDIANTE",
+            "id": "E07",
+            "nombre": "Estudiante7",
+            "usuario": "lmoras2@unal.edu.co",
+            "correo": "ESTUDIANTE",
+            "contrasena": "Laura123",
+            "autorizado": true,
+            "programaEstudio": "Ingenieria de Sistemas",
+            "notificacionesPendientes": [
+                {
+                    "id": "01",
+                    "fecha": "1970-01-01T00:00:01.234Z",
+                    "descripcion": "descripcion de notificaicon 1"
+                },
+                {
+                    "id": "04",
+                    "fecha": "1970-01-01T00:00:01.234Z",
+                    "descripcion": "descripcion de notificaicon 4"
+                },
+                {
+                    "id": "02",
+                    "fecha": "1970-01-01T00:00:01.234Z",
+                    "descripcion": "descripcion de notificaicon 2"
+                },
+                {
+                    "id": "03",
+                    "fecha": "1970-01-01T00:00:01.234Z",
+                    "descripcion": "descripcion de notificaicon 3"
+                }
+            ],
+            "eventosGuardados": [
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                }
+            ],
+            "eventosPendientes": [
+                {
+                    "id": "Ev02",
+                    "nombre": "Evento 2",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev02",
+                    "nombre": "Evento 2",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                }
+            ]
+        },
+        {
+            "rol": "ESTUDIANTE",
+            "id": "E07",
+            "nombre": "Estudiante7",
+            "usuario": "lmoras3@unal.edu.co",
+            "correo": "ESTUDIANTE",
+            "contrasena": "Laura1234",
+            "autorizado": true,
+            "programaEstudio": "Ingenieria de Sistemas",
+            "notificacionesPendientes": [
+                {
+                    "id": "01",
+                    "fecha": "1970-01-01T00:00:01.234Z",
+                    "descripcion": "descripcion de notificaicon 1"
+                },
+                {
+                    "id": "04",
+                    "fecha": "1970-01-01T00:00:01.234Z",
+                    "descripcion": "descripcion de notificaicon 4"
+                },
+                {
+                    "id": "02",
+                    "fecha": "1970-01-01T00:00:01.234Z",
+                    "descripcion": "descripcion de notificaicon 2"
+                },
+                {
+                    "id": "03",
+                    "fecha": "1970-01-01T00:00:01.234Z",
+                    "descripcion": "descripcion de notificaicon 3"
+                }
+            ],
+            "eventosGuardados": [
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev01",
+                    "nombre": "Evento 1",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                }
+            ],
+            "eventosPendientes": [
+                {
+                    "id": "Ev02",
+                    "nombre": "Evento 2",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
+                    "lugar": "Unal",
+                    "descripcion": "descripcion",
+                    "facultad": "Ingenieria",
+                    "idCreador": "C01",
+                    "idProponente": "E01",
+                    "estado": false,
+                    "aforo": 3,
+                    "etiquetas": [
+                        "et1",
+                        "et2",
+                        "et3",
+                        "et4",
+                        "et5"
+                    ]
+                },
+                {
+                    "id": "Ev02",
+                    "nombre": "Evento 2",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -178,8 +465,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -198,8 +486,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -218,8 +507,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -240,8 +530,9 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -260,8 +551,9 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -314,8 +606,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -334,8 +627,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -354,8 +648,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -376,8 +671,9 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -396,8 +692,9 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -450,8 +747,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -470,8 +768,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -490,8 +789,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -512,8 +812,9 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -532,8 +833,9 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -586,8 +888,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -606,8 +909,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -626,8 +930,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -648,8 +953,9 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -668,280 +974,9 @@
                 {
                     "id": "Ev02",
                     "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                }
-            ]
-        },
-        {
-            "rol": "ESTUDIANTE",
-            "id": "E07",
-            "nombre": "Estudiante7",
-            "usuario": "lmoras@unal.edu.co",
-            "correo": "ESTUDIANTE",
-            "contrasena": "Laura123",
-            "autorizado": true,
-            "programaEstudio": "Ingenieria de Sistemas",
-            "notificacionesPendientes": [
-                {
-                    "id": "01",
-                    "fecha": "1970-01-01T00:00:01.234Z",
-                    "descripcion": "descripcion de notificaicon 1"
-                },
-                {
-                    "id": "04",
-                    "fecha": "1970-01-01T00:00:01.234Z",
-                    "descripcion": "descripcion de notificaicon 4"
-                },
-                {
-                    "id": "02",
-                    "fecha": "1970-01-01T00:00:01.234Z",
-                    "descripcion": "descripcion de notificaicon 2"
-                },
-                {
-                    "id": "03",
-                    "fecha": "1970-01-01T00:00:01.234Z",
-                    "descripcion": "descripcion de notificaicon 3"
-                }
-            ],
-            "eventosGuardados": [
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                }
-            ],
-            "eventosPendientes": [
-                {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                }
-            ]
-        },
-        {
-            "rol": "ESTUDIANTE",
-            "id": "E07",
-            "nombre": "Estudiante7",
-            "usuario": "lmoras@unal.edu.co",
-            "correo": "ESTUDIANTE",
-            "contrasena": "Laura123",
-            "autorizado": true,
-            "programaEstudio": "Ingenieria de Sistemas",
-            "notificacionesPendientes": [
-                {
-                    "id": "01",
-                    "fecha": "1970-01-01T00:00:01.234Z",
-                    "descripcion": "descripcion de notificaicon 1"
-                },
-                {
-                    "id": "04",
-                    "fecha": "1970-01-01T00:00:01.234Z",
-                    "descripcion": "descripcion de notificaicon 4"
-                },
-                {
-                    "id": "02",
-                    "fecha": "1970-01-01T00:00:01.234Z",
-                    "descripcion": "descripcion de notificaicon 2"
-                },
-                {
-                    "id": "03",
-                    "fecha": "1970-01-01T00:00:01.234Z",
-                    "descripcion": "descripcion de notificaicon 3"
-                }
-            ],
-            "eventosGuardados": [
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev01",
-                    "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                }
-            ],
-            "eventosPendientes": [
-                {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
-                    "lugar": "Unal",
-                    "descripcion": "descripcion",
-                    "facultad": "Ingenieria",
-                    "idCreador": "C01",
-                    "idProponente": "E01",
-                    "estado": false,
-                    "aforo": 3,
-                    "etiquetas": [
-                        "et1",
-                        "et2",
-                        "et3",
-                        "et4",
-                        "et5"
-                    ]
-                },
-                {
-                    "id": "Ev02",
-                    "nombre": "Evento 2",
-                    "fechaInicio": "2018-5-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2018-5-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -974,8 +1009,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -994,8 +1030,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1014,8 +1051,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1034,8 +1072,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1056,8 +1095,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1076,8 +1116,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1096,8 +1137,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1128,8 +1170,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1148,8 +1191,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1168,8 +1212,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1188,8 +1233,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1210,8 +1256,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1230,8 +1277,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1250,8 +1298,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1282,8 +1331,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1302,8 +1352,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1322,8 +1373,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1342,8 +1394,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1364,8 +1417,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1384,8 +1438,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1404,8 +1459,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1436,8 +1492,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1456,8 +1513,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1476,8 +1534,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1496,8 +1555,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1518,8 +1578,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1538,8 +1599,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1558,8 +1620,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1592,8 +1655,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1612,8 +1676,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1632,8 +1697,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1652,8 +1718,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1674,8 +1741,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1694,8 +1762,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1714,8 +1783,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1746,8 +1816,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1766,8 +1837,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1786,8 +1858,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1806,8 +1879,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1828,8 +1902,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1848,8 +1923,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1868,8 +1944,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1900,8 +1977,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1920,8 +1998,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1940,8 +2019,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1960,8 +2040,9 @@
                 {
                     "id": "Ev07",
                     "nombre": "Evento 7",
-                    "fechaInicio": "2021-10-25",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2021-10-25",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -1982,8 +2063,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2002,8 +2084,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",
@@ -2022,8 +2105,9 @@
                 {
                     "id": "Ev01",
                     "nombre": "Evento 1",
-                    "fechaInicio": "2017-4-26",
-                    "fechaFinal": "2017-1-25",
+                    "fecha": "2017-4-26",
+                    "horaInicio": "10:30",
+                    "horaFin": "11:00",
                     "lugar": "Unal",
                     "descripcion": "descripcion",
                     "facultad": "Ingenieria",

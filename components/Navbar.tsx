@@ -23,10 +23,11 @@ const Navbar = () => {
           
             <div className="flex justify-center items-center flex-shrink-0">                
               <img
-                src="https://i.ibb.co/D5bR2rQ/logo.png"
+                src="https://i.ibb.co/8K5XSC6/LOG.png"
                 alt="logo"
                 className="w-9 mt-2 mr-2"
               />
+             
               <h1 className="text-2xl font-semibold">
                 event<span className="text-azul font-extrabold">US</span>
               </h1>
@@ -45,13 +46,19 @@ const Navbar = () => {
 
                 {auth ? (
                   <>
-                  
+                  <Link href="/notificaciones">
+                      <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
+                        <i className="fa-solid fa-bell pr-1"></i>
+                      </div>
+                    </Link>
                     <Link href="/perfil">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                         <i className="fa-solid fa-user pr-1"></i>
                         Perfil
                       </div>
                     </Link>
+
+                    
 
                     <Link href="/eventos">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
