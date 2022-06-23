@@ -127,9 +127,15 @@ export class CargarDatos {
     
     let datos : string = admin.toJSON()
     //console.log(datos);
-    let admin2: Administrador = Administrador.fromJSON(datos);
-    admin2.nombre = "Admin funcionando :)"
-    console.log(admin2);
+    //let admin2: Administrador = Administrador.fromJSON(datos);
+    //admin2.nombre = "Admin funcionando :)"
+    //console.log(JSON.stringify(admin));
+    //console.log(JSON.parse(JSON.stringify(admin)))
+    console.log(JSON.stringify(admin))
+    console.log("*************************************************")
+    console.log(JSON.parse(JSON.stringify(admin)))
+    console.log("*************************************************")
+    console.log(JSON.parse(JSON.parse(JSON.stringify(admin))))
     
     }
     /*public cargarDatos(pruebaY : string) : JSON  {

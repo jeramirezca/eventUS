@@ -5,6 +5,7 @@ const fs = require('fs');
 function cargarDatos(): string{
     let datos = require('../data/datosAdministrador.json');
     var admin : Administrador = Administrador.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(datos))));
+    console.log(admin)
     return admin.toJSON();
 }
 
@@ -13,4 +14,5 @@ function guardarDatos(datos : string) {
     fs.writeFileSync('../data/datosAdministrador.json', datos);
 }
 
+cargarDatos()
 export {}
