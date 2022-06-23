@@ -108,6 +108,18 @@ export class Usuario{
         }else{
             this.notificaciones.pop();
         }
+
+
+    }
+
+    //por si las moscas
+    public agregarNotificaciones(d:string, f:Date, des?:string){
+        let n:Notificacion;
+       if (des != undefined) n = new Notificacion(d,f,des);
+       else n = new Notificacion(d,f);
+
+       this.notificaciones.push(n);
+
     }
 
     public  buscarEvento() :void{
