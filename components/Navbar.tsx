@@ -33,20 +33,11 @@ const Navbar = () => {
               </h1>
             </div>
             {
-                /**
-                 * ESTO HAY QUE QUITARLO DE AQUI
-                 * 
-                 * 
-                 */
+                
+                 
 
               }
-            <Link href="/notificaciones">
-                      <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
-                        <i className="fa-solid fa-bell pr-1"></i>
-                      
-                      </div>
-
-                    </Link>
+           
             {/* Para las pantallas pequeñas no se mostrarán los iconos */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
@@ -61,7 +52,7 @@ const Navbar = () => {
 
                 {auth ? (
                   <>
-                    
+                        
                      
                        <Link href="/notificaciones">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
