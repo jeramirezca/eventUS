@@ -21,7 +21,7 @@ const {auth, setAuth} = useAuth();
 const {admin, setAdmin} = useAdmin();
   
   let usuario:Usuario = user;
-  let notificaciones:Notificacion[] = [];
+  let notificaciones:Notificacion[] = [new Notificacion("xd", new Date(),"xdd")];
 
   if(user != undefined){
     if(usuario instanceof Administrador){

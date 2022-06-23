@@ -1,4 +1,6 @@
+import router from 'next/router';
 import React, { useRef } from 'react'
+import { toast } from 'react-toastify';
 import { useAdmin } from '../contexts/admin';
 import { useUser } from '../contexts/user';
 import { Administrador } from '../data/Administrador';
@@ -38,7 +40,23 @@ const Desplegable =  ({N}:N) =>{
     }
     //salvamos la info
     setAdmin(admiAux);
-    guardarAdmin();
+    
+    try {
+        guardarAdmin();
+      toast.success("Notificacion borrada", {
+        position: "bottom-center",
+        autoClose: 3009,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    //recargas página para ver actulizado
+    router.push("/notificaciones");
     
     
   }

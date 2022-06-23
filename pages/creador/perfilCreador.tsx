@@ -68,6 +68,11 @@ const perfilCreador = () => {
         router.push("/creador/perfilCreador");
       }
 
+
+      function mostrarEvento(){
+        alert("xd");
+      }
+
   return (
 
     <>
@@ -93,7 +98,7 @@ const perfilCreador = () => {
                 <strong>Buscar eventos</strong>
                 <input id='eventoAbuscar' placeholder='Ingresa el nombre del evento'/>
               
-                <button><Link href='../eventos'>Buscar</Link></button>
+                <button onClick={mostrarEvento}>Buscar</button>
                 </div>
                 <div className='cajaDerecha'>
                 <strong>¿Cómo usar la interfaz?</strong>
