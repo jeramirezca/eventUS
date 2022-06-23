@@ -21,7 +21,7 @@ const {auth, setAuth} = useAuth();
 const {admin, setAdmin} = useAdmin();
   
   let usuario:Usuario = user;
-  let notificaciones:Notificacion[] = [];
+  let notificaciones:Notificacion[] = [new Notificacion("jajaj",new Date(),"ugu"), new Notificacion("salaberga", new Date(),"jijij")];
 
   if(user != undefined){
     if(usuario instanceof Administrador){
@@ -44,17 +44,20 @@ const {admin, setAdmin} = useAdmin();
   return (
     <>
       <Head>
-      
-        <title>Notificaciones, tienes {notificaciones.length} sin leer</title>
+      <title>Notificaciones, tienes {notificaciones.length} sin leer</title>
+        
         
       </Head>
       <Layout>
-        <Notificaciones />
+       
+        <div className='cajaDerecha'>
+          <br></br>
+        <h2><strong>Tus Notificaciones: </strong> {notificaciones.length != 0 ? " tienes  varias sin leer": "no hay nada nuevo por aqui"}</h2>
         <div>
           <>
-          {notificaciones.map((N:Notificacion) => {<Desplegable N={N}></Desplegable>})}
-          <Desplegable N={new Notificacion("xd", new Date())}></Desplegable>
+          {notificaciones.map((n:Notificacion) => (n != null ? <Desplegable N={n}></Desplegable>: " "))}
           </>
+        </div>
         </div>
          
       </Layout>

@@ -14,7 +14,7 @@ const Desplegable =  ({N}:N) =>{
   const {admin, setAdmin } = useAdmin();
   function borrarNotificacion(){
     let admiAux:Administrador = admin;
-    alert("boton pulsado")
+
     if(divTexto.current != null){
       divTexto.current.style.display = "none";
     }
