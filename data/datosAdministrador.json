@@ -997,7 +997,7 @@
     ],
     "creadoresRegistrados": [
         {
-            "rol": "ESTUDIANTE",
+            "rol": "CREADOR",
             "id": "C02",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
@@ -1158,7 +1158,7 @@
             ]
         },
         {
-            "rol": "ESTUDIANTE",
+            "rol": "CREADOR",
             "id": "C02",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
@@ -1319,7 +1319,7 @@
             ]
         },
         {
-            "rol": "ESTUDIANTE",
+            "rol": "CREADOR",
             "id": "C02",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
@@ -1480,7 +1480,7 @@
             ]
         },
         {
-            "rol": "ESTUDIANTE",
+            "rol": "CREADOR",
             "id": "C02",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
@@ -1643,7 +1643,7 @@
     ],
     "creadoresVerificar": [
         {
-            "rol": "ESTUDIANTE",
+            "rol": "CREADOR",
             "id": "C01",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
@@ -1804,7 +1804,7 @@
             ]
         },
         {
-            "rol": "ESTUDIANTE",
+            "rol": "CREADOR",
             "id": "C01",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",
@@ -1965,7 +1965,7 @@
             ]
         },
         {
-            "rol": "ESTUDIANTE",
+            "rol": "CREADOR",
             "id": "C01",
             "nombre": "creador prog. Sistemas",
             "usuario": "sistemas@unal.edu.co",

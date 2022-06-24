@@ -18,6 +18,7 @@ const Login = ({datos}:any) => {
 
   useEffect(() => {
     var admin2 : Administrador = Administrador.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(datos.admin))));
+    setAdmin(admin2);
   }, []);
   
   const {auth, setAuth} = useAuth();

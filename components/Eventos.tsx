@@ -36,6 +36,18 @@ const Eventos = () => {
     return await response.json();
   }
 
+  useEffect(() => {
+    if (user.rol == "ESTUDIANTE"){
+      var estudiante = admin.buscarEstudiante(user.id);
+      var listaAux = estudiante.getEventosSugeridos(listaFiltrada);
+      setListaFiltrada(listaAux);
+    }else if(user.rol == "CREADOR"){
+      var creador = admin.buscarCreador(user.id);
+      var listaAux = creador.getEventosSugeridos(listaFiltrada);
+      setListaFiltrada(listaAux);
+    }
+  },[]);
+
    useEffect(() => {
     console.log(search);
     console.log(paramSearch);

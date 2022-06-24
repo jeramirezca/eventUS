@@ -134,6 +134,8 @@ export class CargarDatos {
 
     let datos : string = admin.toJSON()
 
+    console.log(datos)
+
     }
 
 }
