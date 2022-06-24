@@ -4,6 +4,8 @@ import { Creador } from "./Creador";
 import { Evento } from "./Evento";
 import { Notificacion } from "./Notificacion";
 import { Usuario } from "./Usuario";
+import { MinHeap } from "../structures/MinHeap";
+
 export class Estudiante extends Usuario{
     public programaEstudio:string;
     public eventosGuardados:Array<Evento>;
@@ -159,4 +161,16 @@ export class Estudiante extends Usuario{
         this.eventosGuardados.push(nuevoEvento);
     }
     
+    public getEventosSugeridos(eventos : Array<Evento>) : Array<Evento> {
+        let heap : MinHeap = new MinHeap(this.programaEstudio);
+        for (let i = 0; i < eventos.length; i++) {
+            eventos[i].getPriority(this.programaEstudio);
+            heap.insert(eventos[i]);
+        }
+        let eventosSugeridos : Array<Evento> = new Array<Evento>();
+        for (let j = 0 ; j < eventos.length; j++) {
+            eventosSugeridos.push(heap.extractMin())
+        }
+        return eventosSugeridos;
+    }
 }

@@ -26,7 +26,7 @@ export class Administrador extends Usuario {
         //console.log( adminAux);
 
         if (obj.creadoresVerificar != undefined) {
-            let auxListaCreadores = new Array<Creador>;
+            let auxListaCreadores = new Array<Creador>();
             for (let i: number = 0; i < obj.creadoresVerificar.length; i++) {
                 let aux = obj.creadoresVerificar[i];
                 let auxCrea: Creador = Creador.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(aux))));
@@ -41,7 +41,7 @@ export class Administrador extends Usuario {
         }
 
         if (obj.creadoresRegistrados != undefined) {
-            let auxListaRegistrados = new Array<Creador>;
+            let auxListaRegistrados = new Array<Creador>();
             for (let i: number = 0; i < obj.creadoresRegistrados.length; i++) {
 
                 let aux = obj.creadoresRegistrados[i];
@@ -54,7 +54,7 @@ export class Administrador extends Usuario {
         }
 
         if (obj.estudiantesRegistrados != undefined) {
-            let auxListaEstudiantes = new Array<Estudiante>;
+            let auxListaEstudiantes = new Array<Estudiante>();
             for (let i: number = 0; i < obj.estudiantesRegistrados.length; i++) {
                 let aux = obj.estudiantesRegistrados[i];
                 let auxEst: Estudiante = Estudiante.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(aux))));
@@ -185,7 +185,7 @@ export class Administrador extends Usuario {
         }
     }
     public getListaUsuarios(): Array<Usuario> {
-        var listaUsuarios = new Array<Usuario>;
+        var listaUsuarios = new Array<Usuario>();
         for(var i=0; i<this.estudiantesRegistrados.length; ++i) { 
             listaUsuarios.push(this.estudiantesRegistrados[i]);
         }
@@ -195,7 +195,7 @@ export class Administrador extends Usuario {
         return listaUsuarios;
     }
     public getListaTotalUsuarios(): Array<Usuario> {
-        var listaUsuarios = new Array<Usuario>;
+        var listaUsuarios = new Array<Usuario>();
         for(var i=0; i<this.estudiantesRegistrados.length; ++i) { 
             listaUsuarios.push(this.estudiantesRegistrados[i]);
         }
@@ -231,14 +231,13 @@ export class Administrador extends Usuario {
     }
 
     public getListaEventos(): Array<Evento> {
-        var listaEventos = new Array<Evento>;
+        var listaEventos = new Array<Evento>();
         for(var i=0; i<this.creadoresRegistrados.length; ++i) { 
             var eventosCreador = this.creadoresRegistrados[i].eventosCreados;
             for(var j=0; j< eventosCreador.length; ++j) { 
                 listaEventos.push(eventosCreador[j]);
             }
         }
-        console.log(listaEventos);
         return listaEventos;
     }
 
