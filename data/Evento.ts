@@ -17,7 +17,7 @@ export class Evento {
     public estado?:boolean; //Aprobado o negado.
     public aforo?:number;
     public etiquetas: string[];
-
+	private priority : number ;
 	//public toJSON : string;
 	
 	//Constructor
@@ -41,7 +41,7 @@ export class Evento {
         }else{
             this.etiquetas=new Array();
         }
-        //this.toJSON = JSON.stringify(this);
+		this.priority = 0;
 	}
 
 	public toJSON(): string{
@@ -79,6 +79,34 @@ export class Evento {
 		};
 	
 	//Setters y getters
+	public getPriority(facultad : string) : number{
+		let aux : string = '';
+		if (facultad == this.facultad){
+			aux += '0';
+		}else {
+			if (facultad == 'Bienestar'){
+				aux += '1';
+			} else {
+				aux += '2'
+			}
+		}
+		aux += this.fecha.getFullYear().toString();
+		if (this.fecha.getMonth().toString().length == 1){
+			aux += '0';
+			aux += this.fecha.getMonth().toString();
+		}else{
+			aux += this.fecha.getMonth().toString();
+		}
+
+		if (this.fecha.getDate().toString().length == 1){
+			aux += '0';
+			aux += this.fecha.getDate().toString();
+		}else{
+			aux += this.fecha.getDate().toString();
+		}
+		this.priority = parseInt(aux);
+		return this.priority;
+	}
 
 	public  getProponente():string {
 		return this.idProponente;

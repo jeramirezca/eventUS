@@ -3,6 +3,7 @@ export class MinHeap {
     arr: Array<Evento>
     size: 0
     facultad : string;
+    
     constructor(facultad: string) {
         this.arr = []
         this.size = 0
