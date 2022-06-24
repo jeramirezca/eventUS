@@ -238,7 +238,6 @@ export class Administrador extends Usuario {
                 listaEventos.push(eventosCreador[j]);
             }
         }
-        console.log(listaEventos);
         return listaEventos;
     }
 

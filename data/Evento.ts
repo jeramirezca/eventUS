@@ -84,7 +84,7 @@ export class Evento {
 		if (facultad == this.facultad){
 			aux += '0';
 		}else {
-			if (facultad == 'Bienestar'){
+			if (facultad == 'BIENESTAR'){
 				aux += '1';
 			} else {
 				aux += '2'

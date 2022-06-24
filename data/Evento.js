@@ -54,7 +54,6 @@ var Evento = /** @class */ (function () {
     //Setters y getters
     Evento.prototype.getPriority = function (facultad) {
         var aux = '';
-        console.log(facultad + "  " + this.facultad);
         if (facultad == this.facultad) {
             aux += '0';
         }

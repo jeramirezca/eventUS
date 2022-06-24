@@ -125,10 +125,11 @@ export class CargarDatos {
         admin.estudiantesRegistrados.unshift(user6);
         admin.estudiantesRegistrados.unshift(user7);
     
+        let totalEventos : Array<Evento> = admin.getListaEventos()
         console.log("Usuario 1");
-        console.log(user1.getEventosSugeridos(admin.getListaEventos()));
+        console.log(user1.getEventosSugeridos(totalEventos));
         console.log("Usuario 2");
-        console.log(user2.getEventosSugeridos(admin.getListaEventos()));
+        console.log(user2.getEventosSugeridos(totalEventos));
         console.log();
 
     let datos : string = admin.toJSON()
