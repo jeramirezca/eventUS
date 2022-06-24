@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {Transition} from '@headlessui/react';
 //import {Link} from "react-scroll"; 
 import Link from 'next/link';
+import Desplegable from './notificacionDesplegable';
 import { useAuth } from '../contexts/auth';
 import { useUser } from '../contexts/user';
 
@@ -19,7 +20,8 @@ const Navbar = () => {
       <div className="w-full">
         <div className="flex items-center h-20 w-full">
           <div className="flex items items-center mx-10 justify-between w-full ">
-            <div className="flex justify-center items-center flex-shrink-0">
+          
+            <div className="flex justify-center items-center flex-shrink-0">                
               <img
                 src="https://i.ibb.co/8K5XSC6/LOG.png"
                 alt="logo"
@@ -32,15 +34,18 @@ const Navbar = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
+              
                 <Link href="/">
                   <div className="cursor-pointer text-azul font-semibold px-3 py-2 text-xl hover:text-negro">
                     <i className="fas fa-home pr-1" />
                     Inicio
                   </div>
                 </Link>
+               
 
                 {auth ? (
                   <>
+                  <Desplegable></Desplegable>
                   <Link href="/notificaciones">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                         <i className="fa-solid fa-bell pr-1"></i>

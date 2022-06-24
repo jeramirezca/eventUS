@@ -7,10 +7,11 @@ import { useEvento } from '../contexts/evento';
 import router from 'next/router';
 import { useUser } from '../contexts/user';
 import { Creador } from '../data/Creador';
+import { useAuth } from '../contexts/auth';
 
 
 const Eventos = () => {
-
+  const {auth,setAuth} =useAuth();
   const { evento, setEvento } = useEvento();
   const { admin, setAdmin } = useAdmin();
   const {arbol, setArbol} = useArbol();
@@ -40,10 +41,12 @@ const Eventos = () => {
     if (user.rol == "ESTUDIANTE"){
       var estudiante = admin.buscarEstudiante(user.id);
       var listaAux = estudiante.getEventosSugeridos(listaFiltrada);
+      setListaEventos(listaAux);
       setListaFiltrada(listaAux);
     }else if(user.rol == "CREADOR"){
       var creador = admin.buscarCreador(user.id);
       var listaAux = creador.getEventosSugeridos(listaFiltrada);
+      setListaEventos(listaAux);
       setListaFiltrada(listaAux);
     }
   },[]);

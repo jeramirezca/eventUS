@@ -47,7 +47,7 @@ export class Creador extends Usuario {
         let eventosPropuestos : string = "[";
         let i: number = 0;
         for ( i ; i < auxPropEventos.length; i++) {
-            eventosPropuestos += auxPropEventos[0].toJSON() ; 
+            eventosPropuestos += auxPropEventos[i].toJSON() ; 
             if (i != auxPropEventos.length-1){
                 eventosPropuestos += ',';
             }
@@ -58,7 +58,7 @@ export class Creador extends Usuario {
         let eventosCreados : string = "[";
         let k: number = 0;
         for ( k ; k < auxEventCreados.length; k++) {
-            eventosCreados += auxEventCreados[0].toJSON() ; 
+            eventosCreados += auxEventCreados[k].toJSON() ; 
             
             if (k != auxEventCreados.length-1){
                 eventosCreados += ',';
