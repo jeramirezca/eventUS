@@ -13,13 +13,11 @@ import { useGuardar } from '../contexts/guardar';
 
 
 const Login = ({datos}:any) => {
+
   const {admin, setAdmin} = useAdmin();
+
   useEffect(() => {
-    console.log("datos origin")
     var admin2 : Administrador = Administrador.fromJSON(JSON.stringify(JSON.parse(JSON.stringify(datos.admin))));
-    setAdmin(admin2);
-    console.log("creadores"+admin.creadoresRegistrados.length)
-    console.log("Estudiantes"+admin.estudiantesRegistrados.length)
   }, []);
   
   const {auth, setAuth} = useAuth();

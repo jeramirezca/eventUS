@@ -176,8 +176,6 @@ const Eventos = () => {
             type="text"
             placeholder="buscar"/>
             </>)}
-          
-
           <button onClick={() => {
               filtrarLista();
             }} aria-label="Buscar">

@@ -30,7 +30,6 @@ const Navbar = () => {
                 event<span className="text-azul font-extrabold">US</span>
               </h1>
             </div>
-            {/* Para las pantallas pequeñas no se mostrarán los iconos */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <Link href="/">
@@ -53,9 +52,6 @@ const Navbar = () => {
                         Perfil
                       </div>
                     </Link>
-
-                    
-
                     <Link href="/eventos">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                         <i className="fa-solid fa-calendar-days pr-1"></i>
@@ -63,12 +59,14 @@ const Navbar = () => {
                       </div>
                     </Link>
                     {user.rol == "ADMINISTRADOR" ? (
+                      <>
                       <Link href="/admin/usuarios">
                         <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                           <i className="fa-solid fa-users pr-1"></i>
                           Usuarios
                         </div>
                       </Link>
+                      </>
                     ) : (
                       <></>
                     )}

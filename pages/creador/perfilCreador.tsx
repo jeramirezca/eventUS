@@ -32,9 +32,8 @@ const perfilCreador = () => {
     }
 
     const {user, setUser} = useUser();
-    const {auth, setAuth} = useAuth();
     const {admin, setAdmin} = useAdmin();
-    const [eventosCreados, setEventosCreados] = useState(admin.buscarCreador(user.id)? (admin.buscarCreador(user.id).eventosCreados):(new Array<Evento>) );
+    const [eventosCreados, setEventosCreados] = useState(admin.buscarCreador(user.id)? (admin.buscarCreador(user.id).eventosCreados):(new Array<Evento>));
     const [eventosPropuestos, setEventosPropuestos] = useState(admin.buscarCreador(user.id)? (admin.buscarCreador(user.id).propuestasEventos):(new Array<Evento>));
     const [openDialog, setOpenDialog] = useState(false);
 

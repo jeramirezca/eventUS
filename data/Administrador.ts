@@ -293,6 +293,5 @@ export class Administrador extends Usuario {
     
     public guardarEventoEstudiante(ev: Evento,id: string){
         let estudiante = this.buscarEstudiante(id);
-
     }
 }

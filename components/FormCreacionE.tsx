@@ -5,20 +5,21 @@ import { Creador } from '../data/Creador';
 
 
 const FormCreacionE = () => {
-  
-    const { admin, setAdmin } = useAdmin();
 
-    async function guardarAdmin() {
-        console.log(admin.toJSON());
-        const response = await fetch("/api/datos", {
-          method: "PATCH",
-          body: admin.toJSON(),
-        });
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return await response.json();
+
+  const {admin, setAdmin} = useAdmin();  
+
+  async function guardarAdmin() {
+      console.log(admin.toJSON());
+      const response = await fetch("/api/datos", {
+        method: "PATCH",
+        body: admin.toJSON(),
+      });
+      if (!response.ok) {
+        throw new Error(response.statusText);
       }
+      return await response.json();
+  }
     
   return (
     <div className='md:w-200 w-2/4 bg-azul-light rounded-3xl'>

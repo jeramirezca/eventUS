@@ -20,7 +20,6 @@ const TablaUsuarios = ({ datos }:any) => {
   const [buscando, setBuscando] = useState(false);
 
   async function guardarAdmin() {
-    console.log(admin.toJSON());
     const response = await fetch("/api/datos", {
       method: "PATCH",
       body: admin.toJSON(),
