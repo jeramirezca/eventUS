@@ -13,8 +13,9 @@ import { useUser } from '../../contexts/user';
 import { useAdmin } from '../../contexts/admin';
 import { useAuth } from '../../contexts/auth';
 import router from 'next/router';
-import { Dialog, Tooltip } from '@material-ui/core';
+import Link from 'next/link';
 import { toast } from 'react-toastify';
+
 
 
 const perfilCreador = () => {
@@ -92,7 +93,7 @@ const perfilCreador = () => {
                 <strong>Buscar eventos</strong>
                 <input id='eventoAbuscar' placeholder='Ingresa el nombre del evento'/>
               
-                <button>Buscar</button>
+                <button><Link href='../eventos'>Buscar</Link></button>
                 </div>
                 <div className='cajaDerecha'>
                 <strong>¿Cómo usar la interfaz?</strong>
