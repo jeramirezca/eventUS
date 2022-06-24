@@ -1,14 +1,20 @@
-export class MinHeap<T> {
-    arr: T[]
+import { Evento } from "../data/Evento";
+export class MinHeap {
+    arr: Array<Evento>
     size: 0
-
-    constructor() {
+    facultad : string;
+    constructor(facultad: string) {
         this.arr = []
         this.size = 0
+        this.facultad = facultad;
+    }
+
+    public getArray () : Array<Evento> {
+        return this.arr;
     }
 
     private swap = (indexA: number, indexB: number): void => {
-        let temp: T = this.arr[indexA]
+        let temp: Evento = this.arr[indexA]
         this.arr[indexA] = this.arr[indexB]
         this.arr[indexB] = temp
     }
@@ -26,8 +32,9 @@ export class MinHeap<T> {
     }
 
     private siftUp = (index: number): void => {
+          
         let parent: number = this.parent(index)
-        while (this.arr[index] < this.arr[parent]) {
+        while (this.arr[index].getPriority(this.facultad) < this.arr[parent].getPriority(this.facultad)) {
             this.swap(index, parent)
             index = parent
             parent = this.parent(index)
@@ -38,10 +45,10 @@ export class MinHeap<T> {
         let mini: number = index
         let li: number = this.leftChild(index)
         let ri: number = this.rightChild(index)
-        if (li < this.size && this.arr[li] < this.arr[mini]) {
+        if (li < this.size && this.arr[li].getPriority(this.facultad) < this.arr[mini].getPriority(this.facultad)) {
             mini = li
         }
-        if (ri < this.size && this.arr[ri] < this.arr[mini]) {
+        if (ri < this.size && this.arr[ri].getPriority(this.facultad) < this.arr[mini].getPriority(this.facultad)) {
             mini = ri
         }
         if (mini != index) {
@@ -50,32 +57,32 @@ export class MinHeap<T> {
         }
     }
 
-    insert = (item: T): void => {
+    insert = (item: Evento): void => {
         this.arr.push(item)
         this.siftUp(this.size)
         this.size += 1
     }
 
-    extractMin = (): T => {
+    extractMin = (): Evento => {
         if (this.arr.length == 0) {
             throw new Error("Cola de prioridad vacía.");
         }
-        let result: T = this.arr[0]
+        let result: Evento = this.arr[0]
         this.size -= 1
         this.swap(0, this.size)
         this.siftDown(0)
         return result
     }
 
-    getMin = (): T => {
+    getMin = (): Evento => {
         if (this.arr.length == 0) {
             throw new Error("Cola de prioridad vacía.");
         }
         return this.arr[0]
     }
 
-    changePriority = (index: number, newPriority: T): void => {
-        let oldPriority: T = this.arr[index]
+    changePriority = (index: number, newPriority: Evento): void => {
+        let oldPriority: Evento = this.arr[index]
         this.arr[index] = newPriority
         if (newPriority < oldPriority) {
             this.siftUp(index)
@@ -91,7 +98,7 @@ export class MinHeap<T> {
         this.extractMin()
     }
 
-    search = (item: T): number => {
+    search = (item: Evento): number => {
         for (let i = 0; i < this.size; i++) {
             if (this.arr[i] == item) {
                 return i
