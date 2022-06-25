@@ -241,6 +241,23 @@ export class Administrador extends Usuario {
         return listaEventos;
     }
 
+    public getListaEventosFiltrados(): Array<Evento> {
+        var listaEventos = new Array<Evento>;
+        listaEventos = this.getListaEventos();
+        var eventosAux = new Array<Evento>;
+        var hoy = new Date(Date.now());
+        for(var i=0; i<listaEventos.length; ++i) { 
+            if ( listaEventos[i].fecha.getFullYear() > hoy.getFullYear()){
+                eventosAux.push(listaEventos[i]);
+            }else if(listaEventos[i].fecha.getFullYear() == hoy.getFullYear() && listaEventos[i].fecha.getMonth()+1 > hoy.getMonth()+1){
+                eventosAux.push(listaEventos[i]);
+            }else if(listaEventos[i].fecha.getFullYear() == hoy.getFullYear() == listaEventos[i].fecha.getMonth()+1 > hoy.getMonth()+1 && listaEventos[i].fecha.getDate() > hoy.getDate()){
+                eventosAux.push(listaEventos[i]);
+            }
+        }
+        return eventosAux;
+    }
+
     public agregarEstudiante(estudiante: Estudiante){
         this.estudiantesRegistrados.push(estudiante);
     }

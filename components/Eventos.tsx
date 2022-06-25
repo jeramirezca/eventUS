@@ -16,8 +16,8 @@ const Eventos = () => {
   const { admin, setAdmin } = useAdmin();
   const {arbol, setArbol} = useArbol();
   const {user, setUser} = useUser();
-  const [listaEventos, setListaEventos] = useState(admin.getListaEventos());
-  const [listaFiltrada, setListaFiltrada] = useState(admin.getListaEventos());
+  const [listaEventos, setListaEventos] = useState(admin.getListaEventosFiltrados());
+  const [listaFiltrada, setListaFiltrada] = useState(admin.getListaEventosFiltrados());
   const [searchNombre, setSearchNombre] = useState("");
   const [paramSearch, setParamSearch] = useState("");
   const [buscando, setBuscando] = useState(false);
@@ -38,7 +38,7 @@ const Eventos = () => {
   }
 
   useEffect(() => {
-    if (user.rol == "ESTUDIANTE"){
+    if (user.rol == "ESTUDIANTE"){      
       var estudiante = admin.buscarEstudiante(user.id);
       var listaAux = estudiante.getEventosSugeridos(listaFiltrada);
       setListaEventos(listaAux);
