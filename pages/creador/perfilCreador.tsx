@@ -82,6 +82,7 @@ const perfilCreador = () => {
               );
             
               if(mostrar == null){
+                /*
                 toast.error('El evento no existe o lo escribiste mal', {
                   position: "bottom-center",
                   autoClose: 2000,
@@ -91,6 +92,9 @@ const perfilCreador = () => {
                   draggable: true,
                   progress: undefined,
                   });
+
+                  */
+                 alert("el evento no existe o lo escribiste mal");
               }
               else{
                 //mostramos el evento en un div
