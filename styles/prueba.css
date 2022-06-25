@@ -99,3 +99,17 @@
     justify-content: center;
     align-items: center;
 }
+.propuestos{
+    background-color: #a5def1dc;
+    width: 520px;
+    max-width: 1200px;
+    height: 200px;
+    display:ruby;
+    flex-wrap: flex;
+    justify-content: center;
+    margin: 10px;; 
+    border-radius: 20px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    
+}

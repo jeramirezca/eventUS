@@ -12,8 +12,107 @@ const FormCreacionE = () => {
 
     const { admin, setAdmin } = useAdmin();
     const {user, setUser} = useUser();
+    const [listaGuardados, setListaGuardados] = useState(admin.buscarEstudiante(user.id).getEventosGuardados());
+    const [listaPropuestos, setListaPropuestos]=useState(admin.buscarEstudiante(user.id).getEventosPropuestos());
+    const [listaEventosCreados, setListaEventosCreados]=useState(admin.buscarCreador(user.id).getEventosCreados());
+    
+    interface initial{
+      
+        nombreEvento:string,
+        fecha:string,
+        horaInicio:string,
+        horaFin:string,
+        lugar:string,
+        creadores:string,
+        facultad:string,
+        descripcion:string
+    }
+    const guardarInfo = async (values:initial) =>{
+      var adminAux = admin;
+      let evento:Evento;
+      if(user.rol=="CREADOR"){
+          let fecha:Date=new Date(values.fecha);
+          evento= new Evento("edsnfjs", values.nombreEvento, fecha, values.horaInicio, values.horaFin,values.lugar, values.descripcion,user.id, values.facultad,user.id,false)
+          let listaEventosCreadosAux=listaEventosCreados;
+          listaEventosCreadosAux.push(evento);
+          setListaEventosCreados(listaEventosCreadosAux);
+          adminAux.buscarCreador(user.id).eventosCreados=listaEventosCreados;
+          setAdmin(adminAux);
 
-    var adminAux = admin;
+          try {
+            await guardarAdmin();
+            toast.success("Evento Creador", {
+              position: "bottom-center",
+              autoClose: 3009,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } catch (err) {
+            console.log(err);
+          }
+          //alert(JSON.stringify(values));
+          //alert(JSON.stringify(adminAux.buscarEstudiante(user.id).getEventosPropuestos().map))
+
+        }
+        if (user.rol=="ESTUDIANTE"){
+          let fecha:Date=new Date(values.fecha);
+          evento= new Evento("edsnfjs", values.nombreEvento, fecha, values.horaInicio, values.horaFin,values.lugar, values.descripcion,(adminAux.buscarCreador(values.creadores).id), values.facultad,user.id,undefined)
+
+          var listaPropuestosAux=listaPropuestos;
+          
+          adminAux.guardarEventosPropuestos(evento,user.id);
+          setAdmin(adminAux);
+          try {
+            await guardarAdmin();
+            toast.success("Evento Creador", {
+              position: "bottom-center",
+              autoClose: 3009,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } catch (err) {
+            console.log(err);
+          }
+          
+          let listaPropuestasEventos=adminAux.buscarCreador(values.creadores).propuestasEventos;
+          listaPropuestasEventos.push(evento);
+          
+
+          adminAux.buscarCreador(values.creadores).propuestasEventos=listaPropuestasEventos;
+          setAdmin(adminAux);
+          try {
+            await guardarAdmin();
+            toast.success("Evento Creador", {
+              position: "bottom-center",
+              autoClose: 3009,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } catch (err) {
+            console.log(err);
+          }
+          //guardarAdmin();
+          
+          /*alert(JSON.stringify(adminAux.buscarEstudiante(user.id).getEventosPropuestos().map((e:Evento)=>{
+            return(
+              e.getNombre()
+            )
+          })))*/
+        }
+      
+      
+  
+    }
+
     
     async function guardarAdmin() {
         console.log(admin.toJSON());
@@ -41,63 +140,9 @@ const FormCreacionE = () => {
         descripcion:""
       }}
       onSubmit={async (values)=>{
-        let evento:Evento;
-      if(user.rol=="CREADOR"){
-          let fecha:Date=new Date(values.fecha);
-          evento= new Evento("edsnfjs", values.nombreEvento, fecha, values.horaInicio, values.horaFin,values.lugar, values.descripcion,user.id, values.facultad,user.id,false)
-          adminAux.buscarCreador(user.id).eventosCreados.push(evento);
-          setAdmin(adminAux);
 
-          try {
-            await guardarAdmin();
-            toast.success("Evento Creador", {
-              position: "bottom-center",
-              autoClose: 3009,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-          } catch (err) {
-            console.log(err);
-          }
-          //alert(JSON.stringify(values));
-          //alert(JSON.stringify(adminAux.buscarEstudiante(user.id).getEventosPropuestos().map))
-
-        }
-        if (user.rol=="ESTUDIANTE"){
-          let creadorAux:Creador;
-          let fecha:Date=new Date(values.fecha);
-          let fecha2:Date;
-          fecha2=new Date("2021-05-23")
-          evento= new Evento("edsnfjs", values.nombreEvento, fecha2, values.horaInicio, values.horaFin,values.lugar, values.descripcion,(adminAux.buscarCreador(values.creadores).id), values.facultad,user.id,false)
-          adminAux.buscarEstudiante(user.id).eventosPropuestos.push(evento);
-          
-          //se tiene que mandar la info a el creador pa que lo acepte o lo rechace
-          adminAux.buscarCreador("C02").propuestasEventos.push(evento);
-          setAdmin(adminAux);
-
-          try {
-            await guardarAdmin();
-            toast.success("Evento Creador", {
-              position: "bottom-center",
-              autoClose: 3009,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-          } catch (err) {
-            console.log(err);
-          }
-          /*alert(JSON.stringify(adminAux.buscarEstudiante(user.id).getEventosPropuestos().map((e:Evento)=>{
-            return(
-              e.getNombre()
-            )
-          })))*/
-        }
+        guardarInfo(values)
+        
         //alert(JSON.stringify(values));
     
       }}
@@ -181,7 +226,7 @@ const FormCreacionE = () => {
             >
                 {admin.creadoresRegistrados.map((c:Creador) => {
                 return (
-                        <option key={c.id} value={c.id}>{c.nombre}</option>
+                        <option key={c.correo} value={c.id}>{c.nombre}</option>
                     );
                 })}
             </select>

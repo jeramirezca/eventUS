@@ -10,6 +10,7 @@ const Guardado = () => {
     const { admin, setAdmin } = useAdmin();
     const {user, setUser} = useUser();
     const [listaGuardados, setListaGuardados] = useState(admin.buscarEstudiante(user.id).getEventosGuardados());
+    const [listaPropuestos, setListaPropuestos]=useState(admin.buscarEstudiante(user.id).eventosPropuestos);
     
 
     var adminAux = admin;
@@ -17,7 +18,6 @@ const Guardado = () => {
         var listaAux=listaGuardados;
         listaAux.splice(listaAux.indexOf(e),1);
         setListaGuardados(listaAux);
-
         try {
             await guardarAdmin();
             toast.success("Evento Eliminado", {
@@ -48,7 +48,7 @@ const Guardado = () => {
     
     return (
        <div>
-        <div className=" rounded-3xl grid grid-cols-1 md:grid-cols-2  gap-x-12 flex space-x-14 > * + *">
+        <div className=" rounded-3xl grid grid-cols-1 md:grid-cols-2  gap-x-12 flex space-x-14 > * + * ">
           
           <div className=''>
               <h1 className="titulo font-semibold">
@@ -62,6 +62,129 @@ const Guardado = () => {
                   <Card information={"Jueves"}/>
                   <Card information={"Viernes"}/>
               </div>
+                <div>
+                    <h1 className='titulo'>Eventos Propuestos</h1>
+                </div>
+                <div className='propuestos'>
+                {listaPropuestos ? (
+                    <>
+                    {listaPropuestos.map((e:Evento)=>{
+                    let indice:number=listaPropuestos.indexOf(e);
+                    if(indice%2==0){
+                        return(
+                        
+                        <div className='bg-azul rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
+                            <div>
+                                <h1 className="text-2xl font-semibold">{e.nombre}</h1>
+                                <h1 className=''> 
+                                    <span className='font-semibold text-xl'>Fecha:</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
+                                </h1>
+
+                                <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
+                                <h1><span className='font-semibold text-xl'>Creador Encargado </span>{adminAux.buscarCreador(e.idCreador).nombre}</h1>
+                            </div>
+                            <div className='justify-center'>
+                                <h1 className='font-semibold'>Estado</h1>
+                                {e.estado==undefined ?(
+                                    <>
+                                        <div 
+                                        className="cursor-pointer bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-7"
+                                       
+                                    >En espera
+                                    </div>
+                                    </>
+                                ): (
+                                    <></>
+                                )}
+                                {e.estado==true ?(
+                                    <>
+                                        <div 
+                                        className="cursor-pointer bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-7"
+                                    >Aprobado
+                                    </div>
+                                    </>
+                                ): (
+                                    <></>
+                                )}
+                                {e.estado==true ?(
+                                    <>
+                                        <div 
+                                        className="cursor-pointer bg-red-light text-blanco py-1 rounded-md text-lg font-medium my-7"
+                                    >Denegado
+                                    </div>
+                                    </>
+                                ): (
+                                    <></>
+                                )}
+
+
+                                
+                            </div>
+                            
+                        </div>
+                    )
+                    }else{
+                        return(
+                            <div className='bg-azul-light rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
+                            <div>
+                                <h1 className="text-2xl font-semibold">{e.nombre}</h1>
+                                <h1 className=''> 
+                                    <span className='font-semibold text-xl'>Fecha:</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
+                                </h1>
+
+                                <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
+                                <h1><span className='font-semibold text-xl'>Creador Encargado </span>{adminAux.buscarCreador(e.idCreador).nombre}</h1>
+                            </div>
+                            <div className='justify-center'>
+                                <h1 className='font-semibold'>Estado</h1>
+                                {e.estado==undefined ?(
+                                    <>
+                                        <div 
+                                        className="cursor-pointer bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-7"
+                                    >En espera
+                                    </div>
+                                    </>
+                                ): (
+                                    <></>
+                                )}
+                                {e.estado==true ?(
+                                    <>
+                                        <div 
+                                        className="cursor-pointer bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-7"
+                                    >Aprobado
+                                    </div>
+                                    </>
+                                ): (
+                                    <></>
+                                )}
+                                {e.estado==true ?(
+                                    <>
+                                        <div 
+                                        className="cursor-pointer bg-red-light text-blanco py-1 rounded-md text-lg font-medium my-7"
+                                    >Denegado
+                                    </div>
+                                    </>
+                                ): (
+                                    <></>
+                                )}
+
+
+                                
+                            </div>
+                            
+                        </div>
+                        )
+                        
+                    }
+                   
+                })}</>
+
+                ): (
+                    <></>
+                  )
+                }
+
+                </div>
               
 
           </div>
@@ -88,6 +211,7 @@ const Guardado = () => {
                                 </h1>
 
                                 <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
+                                <h1><span className='font-semibold text-xl'>Lugar </span>{e.lugar}</h1>
                             </div>
                             <div className='justify-center'>
                                 <Link href="">
@@ -112,6 +236,7 @@ const Guardado = () => {
                                     </h1>
 
                                     <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
+                                    <h1><span className='font-semibold text-xl'>Lugar </span>{e.lugar}</h1>
                                 </div>
                                 <div className='justify-center'>
                                     <Link href="">
@@ -141,12 +266,9 @@ const Guardado = () => {
                 
             </div>
                 
-                
-                    
-
-              
 
           </div>
+         
         
 
       </div>
