@@ -165,7 +165,7 @@ const FormCreacionE = () => {
             {/*<input id="fechaI" type="date" placeholder ="Ingrese su usuario" className=""/>*/}
 
             <input name="fecha" type="date" placeholder ="Ingrese la fecha incial" className=""
-            value={values.fecha as unknown as Date}
+            value={values.fecha}
             onChange={handleChange}
             />
           </div>
