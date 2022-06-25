@@ -108,7 +108,7 @@ const Guardado = () => {
                                 <div>
                                     <h1 className="text-2xl font-semibold">{e.nombre}</h1>
                                     <h1 className=''> 
-                                        <span className='font-semibold text-xl'>Fecha:</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
+                                        <span className='font-semibold text-xl'>Fecha:a</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
                                     </h1>
 
                                     <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
