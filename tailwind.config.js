@@ -27,13 +27,18 @@ module.exports = {
         DEFAULT: '#424b4d',
         dark: '#82efea',
       },
+      'red': {
+        light: '#BD4444',
+        DEFAULT: 'de0000',
+        dark: '#82efea',
+      },
       'tahiti': {
         light: '#67e8f9',
         DEFAULT: '#06b6d4',
         dark: '#0e7490',
       },
       'purple': '#3f3cbb',
-      'red': '#de0000',
+      
       'green': '#00b500',
     },
     extend: {},

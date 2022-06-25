@@ -300,7 +300,9 @@ export class Administrador extends Usuario {
 
         let estudiante = this.buscarEstudiante(id);
         var listaEventos = new Array<Evento>;
-        listaEventos=estudiante.getEventosGuardados();
+        for(var i=0; i<estudiante.eventosGuardados.length; ++i) { 
+            listaEventos[i]=estudiante.eventosGuardados[i];
+        }
         return listaEventos;
         
 

@@ -47,7 +47,7 @@ const FormCreacionE = () => {
           adminAux.buscarCreador(user.id).eventosCreados.push(evento);
           setAdmin(adminAux);
           guardarAdmin();
-          alert(JSON.stringify(values));
+          //alert(JSON.stringify(values));
           //alert(JSON.stringify(adminAux.buscarEstudiante(user.id).getEventosPropuestos().map))
 
         }
@@ -152,7 +152,7 @@ const FormCreacionE = () => {
             >
                 {admin.creadoresRegistrados.map((c:Creador) => {
                 return (
-                        <option key={c.id} value={c.id}>cd.nombre</option>
+                        <option key={c.id} value={c.id}>{c.nombre}</option>
                     );
                 })}
             </select>
