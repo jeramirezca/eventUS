@@ -20,10 +20,16 @@ module.exports = {
         DEFAULT: '#006092',
         dark: '#82efea',
         dark2: '#116295c0',
+        light3:"#80E5FF",
       },
       'gris': {
         light: '#cce8ff',
         DEFAULT: '#424b4d',
+        dark: '#82efea',
+      },
+      'red': {
+        light: '#BD4444',
+        DEFAULT: 'de0000',
         dark: '#82efea',
       },
       'tahiti': {
@@ -32,7 +38,7 @@ module.exports = {
         dark: '#0e7490',
       },
       'purple': '#3f3cbb',
-      'red': '#de0000',
+      
       'green': '#00b500',
     },
     extend: {},

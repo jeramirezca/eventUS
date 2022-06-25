@@ -8,6 +8,7 @@ import router from 'next/router';
 import { useUser } from '../contexts/user';
 import { Creador } from '../data/Creador';
 import { useAuth } from '../contexts/auth';
+import { toast } from 'react-toastify';
 
 
 const Eventos = () => {
@@ -64,7 +65,18 @@ const Eventos = () => {
   const guardarEvento = (ev:Evento) =>{
     setEvento(ev);
     admin.guardarEventoEstudiante(ev,user.id);
-    router.push("/infoEvento");
+    toast.success("Guardado", {
+      position: "bottom-center",
+      autoClose: 3009,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    guardarAdmin();
+
+    //router.push("/infoEvento");
   }
 
   const filtrarLista =()=>{

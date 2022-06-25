@@ -69,30 +69,47 @@ const Navbar = () => {
                         <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                           <i className="fa-solid fa-users pr-1"></i>
                           Usuarios
-                        </div>
+                        </div>    
                       </Link>
                       </>
                     ) : (
                       <></>
                     )}
                     {user.rol == "ESTUDIANTE" ? (
-                      <Link href="/">
+                      <><Link href="/estudiante/eventosGuardados">
                         <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                           <i className="fa-solid fa-bookmark pr-1"></i>
                           Guardados
                         </div>
                       </Link>
+                      <Link href="/estudiante/crearEvento">
+                          <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
+                            <i className="fa-solid fa-bookmark pr-1"></i>
+                            Sugerir Eventos
+                          </div>
+                        </Link></>
+                      
+
                     ) : (
                       <></>
                     )}
 
                     {user.rol == "CREADOR" ? (
+                      <>
                       <Link href="/creador/perfilCreador">
                         <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                           <i className="fa-solid fa-bookmark pr-1"></i>
                           Creados
                         </div>
                       </Link>
+                      <Link href="/estudiante/crearEvento">
+                          <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
+                            <i className="fa-solid fa-bookmark pr-1"></i>
+                            Crear Eventos
+                          </div>
+                        </Link>
+                      </>
+                      
                     ) : (
                       <></>
                     )}

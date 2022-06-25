@@ -37,6 +37,21 @@
     
     
 }
+.eventos{
+    background-color: #a5def1dc;
+    width: 450px;
+    max-width: 1200px;
+    height: 500px;
+    display:ruby;
+    flex-wrap: flex;
+    justify-content: center;
+    margin: 10px;; 
+    border-radius: 20px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    
+}
+
 .targeta{
     width: 100px;
     height: 100px;

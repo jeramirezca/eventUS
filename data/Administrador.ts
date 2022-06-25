@@ -294,7 +294,7 @@ export class Administrador extends Usuario {
                 return this.creadoresRegistrados[k];
             }
         }
-        return this.creadoresRegistrados[0];
+        return new Creador("","","","","",true,"");
     }
 
     public buscarEstudiante(id:string): Estudiante{
@@ -304,10 +304,24 @@ export class Administrador extends Usuario {
                 return this.estudiantesRegistrados[k];
             }
         }
-        return this.estudiantesRegistrados[0];
+        return new Estudiante("","","","","","");
     }
     
     public guardarEventoEstudiante(ev: Evento,id: string){
-        let estudiante = this.buscarEstudiante(id);
+        
+        var estudiante = this.buscarEstudiante(id);
+        
+
     }
+   /*  public getListaEventosGuardados(id: string):Array<Evento>{
+
+        let estudiante = this.buscarEstudiante(id);
+        var listaEventos = new Array<Evento>;
+        for(var i=0; i<estudiante.eventosGuardados.length; ++i) { 
+            listaEventos[i]=estudiante.eventosGuardados[i];
+        }
+        return listaEventos;
+        
+
+    } */
 }
