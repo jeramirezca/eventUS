@@ -60,17 +60,19 @@ const DivPropuesta = ({E}:E) => {
     }
     
     const aprovarPropuesta = () =>{
+      var admiAux = admin;
         let creador_tmp = user as Creador;
         let proponente:string = creador_tmp.aceptarEvento(E);
         //let admiAux:Administrador = admin;
-        admin.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento fue aprobado!");
+        admiAux.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento fue aprobado!");
         //salvamos los datos
-        //setAdmin(admiAux);
+        setAdmin(admiAux);
+        setUser(creador_tmp);
         try {
             guardarAdmin();
           toast.success("El estudiante será informado", {
             position: "bottom-center",
-            autoClose: 3009,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -91,17 +93,19 @@ const DivPropuesta = ({E}:E) => {
     }
     
     const denegarPropuesta = () =>{
+      var admiAux = admin;
         let creador_tmp = user as Creador;
         let proponente:string = creador_tmp.rechazarEvento(E);
         //let admiAux:Administrador = admin;
-        admin.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento no fue aprobado!");
+        admiAux.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento no fue aprobado!");
         //salvamos los datos
-        //setAdmin(admiAux);
+        setUser(creador_tmp);
+        setAdmin(admiAux);
         try {
             guardarAdmin();
           toast.success("El estudiante será informado", {
             position: "bottom-center",
-            autoClose: 3009,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,

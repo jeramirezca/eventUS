@@ -249,9 +249,9 @@ export class Administrador extends Usuario {
         for(var i=0; i<listaEventos.length; ++i) { 
             if ( listaEventos[i].fecha.getFullYear() > hoy.getFullYear()){
                 eventosAux.push(listaEventos[i]);
-            }else if(listaEventos[i].fecha.getFullYear() == hoy.getFullYear() && listaEventos[i].fecha.getMonth()+1 > hoy.getMonth()+1){
+            }else if(listaEventos[i].fecha.getFullYear() == hoy.getFullYear() && listaEventos[i].fecha.getMonth() > hoy.getMonth()){
                 eventosAux.push(listaEventos[i]);
-            }else if(listaEventos[i].fecha.getFullYear() == hoy.getFullYear() == listaEventos[i].fecha.getMonth()+1 > hoy.getMonth()+1 && listaEventos[i].fecha.getDate() > hoy.getDate()){
+            }else if(listaEventos[i].fecha.getFullYear() == hoy.getFullYear() && listaEventos[i].fecha.getMonth()+1 == hoy.getMonth()+1 && listaEventos[i].fecha.getDate() > hoy.getDate()){
                 eventosAux.push(listaEventos[i]);
             }
         }

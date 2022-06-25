@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../layout/Layout'
 import Notificaciones from '../components/Notificaciones';
 import Desplegable from '../components/notificacionDesplegable';
@@ -19,46 +19,66 @@ const notificaciones = () => {
   const {user, setUser} = useUser();
 const {auth, setAuth} = useAuth();
 const {admin, setAdmin} = useAdmin();
+
   
   let usuario:Usuario = user;
-  let notificaciones:Notificacion[] = [new Notificacion("xd", new Date(),"xdd")];
+  let notificaciones:Notificacion[] = [];
+  const [contadorNotific,setNot] = useState(notificaciones.length);
 
   if(user != undefined){
     if(usuario instanceof Administrador){
-      notificaciones = admin.notificaciones;
+      notificaciones = user.notificaciones;
+    
+      
       //usar geters y seters es un problema grave, mejor acceder al atributo
+
   
     }
     else if(usuario instanceof Estudiante){
-        notificaciones = admin.buscarEstudiante(user.id).notificaciones;
+      //  notificaciones = admin.buscarEstudiante(user.id).notificaciones;
+      notificaciones = user.notificaciones;
+    
     }
   
     else if(usuario instanceof Creador){
       //suponemos que es creador
-      notificaciones = admin.buscarCreador(user.id).notificaciones;
+     // notificaciones = admin.buscarCreador(user.id).notificaciones;
+     notificaciones = user.notificaciones;
+    
   
     }
+    
   }
-  
+
+  const checkNumber = () => {
+   
+      setNot(notificaciones.length);
+    
+  }
+ 
  
   return (
     <>
       <Head>
-      <title>Notificaciones, tienes {notificaciones.length} sin leer</title>
+      <title>Notificaciones</title>
         
         
       </Head>
       <Layout>
        
         <div className='cajaDerecha'>
+          <>
           <br></br>
-        <h2><strong>Tus Notificaciones: </strong> {notificaciones.length != 0 ? " tienes  varias sin leer": "no hay nada nuevo por aqui"}</h2>
+        
+        <h2><strong>Tus Notificaciones: </strong>  {contadorNotific} sin leer  <button onClick={checkNumber}>actualizar</button> </h2>
         <div>
           <>
           {notificaciones.map((n:Notificacion) => (n != null ? <Desplegable N={n}></Desplegable>: " "))}
           </>
         </div>
         <br></br>
+          </>
+        
         </div>
          
       </Layout>

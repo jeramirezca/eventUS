@@ -10,6 +10,8 @@ import router from 'next/router';
 import { Administrador } from '../data/Administrador';
 import { useAdmin } from '../contexts/admin';
 import { useGuardar } from '../contexts/guardar';
+import { Creador } from '../data/Creador';
+import { Evento } from '../data/Evento';
 
 
 const Login = ({datos}:any) => {
@@ -59,6 +61,16 @@ const Login = ({datos}:any) => {
       setUser(autenticado);
           setAuth(true);
           setGuardar(guardar!);
+          /**
+           * Sección de pruebas: xdon si es molesto jaj
+           */
+          if(autenticado instanceof Creador){
+            autenticado.eventosCreados.push(new Evento("229-12","evento de prueba",new Date(),"2:00","3:00","cyt","descripcion de prueba, este evento trata de monas chinas",autenticado.id,"medicina"," ",true,29,["casual","indie"]));
+            autenticado.eventosCreados.push(new Evento("22-13","evento 2",new Date(),"2:00","3:00","cyt","descripcion de prueba, este evento trata de monas chinas",autenticado.id,"medicina"," ",true,29,["casual","indie"]));
+          }
+          {autenticado.agregarNotificaciones("Bienvenido a eventUS",new Date(),"Esperamos que disfrutes tu estadia")}
+          {console.log("notificaciones" + autenticado.notificaciones)}  
+          {console.log("se ejecuto una ves")}
           return router.push("/");
     }
   }
