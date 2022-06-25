@@ -35,6 +35,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
          const deletedAdmin = await prisma.post.delete({ 
             where: {
                 id: "62b0a8cbcbf4f8e2dd844c70",
+                
             },
          });
          res.status(200).json(deletedAdmin);

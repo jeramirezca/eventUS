@@ -39,6 +39,7 @@ const Eventos = () => {
   }
 
   useEffect(() => {
+    console.log(admin.getListaEventos())
     if (user.rol == "ESTUDIANTE"){      
       var estudiante = admin.buscarEstudiante(user.id);
       var listaAux = estudiante.getEventosSugeridos(listaFiltrada);
@@ -85,6 +86,7 @@ const Eventos = () => {
   }
 
   const filtrarLista =()=>{
+    
     var listaAux = new Array<Evento>;
     for(var i =0; i< listaEventos.length;i++){
       if(paramSearch== ""){
