@@ -67,7 +67,7 @@ export class Estudiante extends Usuario{
         let eventosGuardados : string = "[";
         let j: number = 0;
         for ( j ; j < auxEventGuardados.length; j++) {
-            eventosGuardados += auxEventGuardados[0].toJSON() ;
+            eventosGuardados += auxEventGuardados[j].toJSON() ;
             if (j != auxEventGuardados.length-1){
                 eventosGuardados += ',';
             }
@@ -78,7 +78,7 @@ export class Estudiante extends Usuario{
         let eventPendientes : string = "[";
         let k: number = 0;
         for ( k ; k < auxEventPendientes.length; k++) {
-            eventPendientes += auxEventPendientes[0].toJSON() ; 
+            eventPendientes += auxEventPendientes[k].toJSON() ; 
             //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
             if (k != auxEventPendientes.length-1){
                 eventPendientes += ',';
