@@ -67,7 +67,7 @@ export class Creador extends Usuario {
         eventosCreados += ']';
         
         let creador = '{'+
-        '"rol":"ESTUDIANTE",'+
+        '"rol":"CREADOR",'+
         '"id":"'+ this.getId() +'",'+
         '"nombre":"'+ this.getNombre() +'",'+
         '"usuario":"'+ this.getUsuario() +'",'+

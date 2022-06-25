@@ -245,7 +245,7 @@ const Eventos = () => {
           <td>{ev.nombre}</td>
           <td>{ev.fecha.getDate()+"/"+(ev.fecha.getMonth()+1)+"/"+ev.fecha.getFullYear()}</td>
           <td>{ev.lugar}</td>
-          <td>{admin.buscarCreador(ev.idCreador).nombre}</td>
+          <td>{ev.idCreador}</td>
           <td>{ev.facultad}</td>
           <td>{ev.etiquetas.toString()}</td>
           <td className="iconosTabla">

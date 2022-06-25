@@ -75,7 +75,7 @@ export class Evento {
 	public static fromJSON = function (json: string) : Evento{
         var obj = JSON.parse (json);
         return new Evento (obj.id , obj.nombre, new Date(obj.fecha), obj.horaInicio,obj.horaFin, obj.lugar, obj.descripcion,
-			obj.creador, obj.facultad, obj.idProponente,  obj.estado, obj.aforo, obj.etiquetas);
+			obj.idCreador, obj.facultad, obj.idProponente,  obj.estado, obj.aforo, obj.etiquetas);
 		};
 	
 	//Setters y getters
