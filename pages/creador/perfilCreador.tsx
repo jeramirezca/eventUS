@@ -42,11 +42,11 @@ const perfilCreador = () => {
 
     const eliminarEvento = async (id: string, rol: string)=>{
         //creas una copia del admin
-        var adminAux = admin;
+        //var adminAux = admin;
         //Aquí haces las operaciones que quieras con el admin, digamosn en este caso quitarlle al creador registrado el evento
 
         //vuelves a guardar el admin
-        setAdmin(adminAux);
+        //setAdmin(adminAux);
         //Actualizas los eventos de la pagina
         setEventosCreados(admin.buscarCreador(user.id).eventosCreados);
         //mandas la info a la base de datos para cambiar
@@ -54,7 +54,7 @@ const perfilCreador = () => {
           await guardarAdmin();
           toast.success("Usuario eliminado con exito", {
             position: "bottom-center",
-            autoClose: 3009,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -84,7 +84,7 @@ const perfilCreador = () => {
               if(mostrar == null){
                 toast.error('El evento no existe o lo escribiste mal', {
                   position: "bottom-center",
-                  autoClose: 3009,
+                  autoClose: 2000,
                   hideProgressBar: false,
                   closeOnClick: true,
                   pauseOnHover: true,

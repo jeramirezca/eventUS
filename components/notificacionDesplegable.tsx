@@ -17,7 +17,7 @@ const Desplegable =  ({N}:N) =>{
   const divTexto = useRef<HTMLDivElement>(null);
   
   function borrarNotificacion(){
-    let admiAux:Administrador = admin;
+
 
     if(divTexto.current != null){
       divTexto.current.style.display = "none";
@@ -25,29 +25,29 @@ const Desplegable =  ({N}:N) =>{
     //buscamos al usuario y le quitamos esa notificacion
     let actual:Usuario = user;
     if(actual instanceof Creador){
-      let arr:Notificacion[] = admiAux.buscarCreador(user.id).notificaciones;
+      let arr:Notificacion[] = admin.buscarCreador(user.id).notificaciones;
       arr = eliminarItem(arr,N);
-      admiAux.buscarCreador(user.id).notificaciones = arr;
+      admin.buscarCreador(user.id).notificaciones = arr;
     }
     if(actual instanceof Estudiante){
-      let arr:Notificacion[] = admiAux.buscarEstudiante(user.id).notificaciones;
+      let arr:Notificacion[] = admin.buscarEstudiante(user.id).notificaciones;
       arr = eliminarItem(arr,N);
-      admiAux.buscarEstudiante(user.id).notificaciones = arr;
+      admin.buscarEstudiante(user.id).notificaciones = arr;
     }
     else {
-      let arr:Notificacion[] = admiAux.notificaciones;
+      let arr:Notificacion[] = admin.notificaciones;
       arr = eliminarItem(arr,N);
-      admiAux.notificaciones = arr;
+      admin.notificaciones = arr;
       
     }
     //salvamos la info
-    setAdmin(admiAux);
+    //setAdmin(admiAux);
     
     try {
         guardarAdmin();
       toast.success("Notificacion borrada", {
         position: "bottom-center",
-        autoClose: 3009,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

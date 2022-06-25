@@ -62,10 +62,10 @@ const DivPropuesta = ({E}:E) => {
     const aprovarPropuesta = () =>{
         let creador_tmp = user as Creador;
         let proponente:string = creador_tmp.aceptarEvento(E);
-        let admiAux:Administrador = admin;
-        admiAux.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento fue aprobado!");
+        //let admiAux:Administrador = admin;
+        admin.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento fue aprobado!");
         //salvamos los datos
-        setAdmin(admiAux);
+        //setAdmin(admiAux);
         try {
             guardarAdmin();
           toast.success("El estudiante será informado", {
@@ -93,10 +93,10 @@ const DivPropuesta = ({E}:E) => {
     const denegarPropuesta = () =>{
         let creador_tmp = user as Creador;
         let proponente:string = creador_tmp.rechazarEvento(E);
-        let admiAux:Administrador = admin;
-        admiAux.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento no fue aprobado!");
+        //let admiAux:Administrador = admin;
+        admin.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento no fue aprobado!");
         //salvamos los datos
-        setAdmin(admiAux);
+        //setAdmin(admiAux);
         try {
             guardarAdmin();
           toast.success("El estudiante será informado", {
