@@ -311,7 +311,7 @@ export class Administrador extends Usuario {
     public guardarEventoEstudiante(ev: Evento,id: string){
         
         var estudiante = this.buscarEstudiante(id);
-        
+        estudiante.eventosGuardados.push(ev);
 
     }
    /*  public getListaEventosGuardados(id: string):Array<Evento>{

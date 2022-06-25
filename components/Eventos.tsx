@@ -62,19 +62,24 @@ const Eventos = () => {
     router.push("/infoEvento");
   }
   
-  const guardarEvento = (ev:Evento) =>{
-    setEvento(ev);
-    admin.guardarEventoEstudiante(ev,user.id);
-    toast.success("Guardado", {
-      position: "bottom-center",
-      autoClose: 3009,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-    guardarAdmin();
+  const guardarEvento = async (ev:Evento) =>{
+    var adminAux = admin;
+    adminAux.guardarEventoEstudiante(ev,user.id);
+    setAdmin(adminAux);
+    try {
+      await guardarAdmin();
+      toast.success("Evento guardado", {
+        position: "bottom-center",
+        autoClose: 3009,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } catch (err) {
+      console.log(err);
+    }
 
     //router.push("/infoEvento");
   }

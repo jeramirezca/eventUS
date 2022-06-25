@@ -113,7 +113,7 @@ const FormCreacionE = () => {
             >
                 {admin.creadoresRegistrados.map((c:Creador) => {
                 return (
-                        <option key={c.id} value={c.id}>cd.nombre</option>
+                        <option key={c.id} value={c.id}>{c.nombre}</option>
                     );
                 })}
             </select>

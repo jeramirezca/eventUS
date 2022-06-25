@@ -196,7 +196,7 @@ const Perfil = () => {
         draggable
         pauseOnHover
       />
-      </>
+    </>
   );
 }
 
