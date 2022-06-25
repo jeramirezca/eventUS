@@ -4,7 +4,7 @@ import { Evento } from '../data/Evento';
 import { useRef,  useLayoutEffect } from 'react';
 type E ={E:Evento};
 let abierto = false;
-const DivEvento = ({E}:E) => {
+const DivMod = ({E}:E) => {
     
 const deOc = useRef<HTMLDivElement>(null); 
 const tarjetaEvento = useRef<HTMLDivElement>(null);
@@ -42,6 +42,15 @@ const mostrarDescripcion = ()=>{
        }
    }
  
+const modEvento = () =>{
+
+}
+
+const borrarEvento = () =>{
+    //pendiente implementar
+}
+
+
   
     //usamos el state, y añadimos el set para modificar este.
   return (
@@ -49,6 +58,10 @@ const mostrarDescripcion = ()=>{
     <div className='mostrarEvento' ref={tarjetaEvento}>
         <p>{E.getNombre()} ID: {E.getId()}</p>
         <button className='botonInfo' onClick={mostrarDescripcion}>Detalles</button>
+        <button className='botonInfo' onClick={borrarEvento}>Borrar</button>
+        <button className='botonInfo' onClick={modEvento}>Modificar</button>
+
+
      
     </div>
     <div className='descripcionOculta' ref={deOc}>
@@ -64,4 +77,4 @@ const mostrarDescripcion = ()=>{
 
 
 
-export default DivEvento;
+export default DivMod;

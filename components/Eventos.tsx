@@ -60,6 +60,7 @@ const Eventos = () => {
 
   const verEvento = (ev:Evento) =>{
     setEvento(ev);
+    
     router.push("/infoEvento");
   }
   

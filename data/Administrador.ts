@@ -314,6 +314,10 @@ export class Administrador extends Usuario {
         estudiante.eventosGuardados.push(ev);
 
     }
+    public guardarEventosPropuestos(ev: Evento,id: string){
+        var estudiante = this.buscarEstudiante(id);
+        estudiante.eventosPropuestos.push(ev);
+    }
    /*  public getListaEventosGuardados(id: string):Array<Evento>{
 
         let estudiante = this.buscarEstudiante(id);

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Desplegable from './notificacionDesplegable';
 import { useAuth } from '../contexts/auth';
 import { useUser } from '../contexts/user';
+import { AdminContext } from '../contexts/admin';
 
 const Navbar = () => {
 
@@ -50,7 +51,7 @@ const Navbar = () => {
 
                 {auth ? (
                   <>
-                        
+                      
                        <Link href="/notificaciones">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                         <i className="fa-solid fa-bell pr-1"></i>
