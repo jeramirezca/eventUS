@@ -22,6 +22,19 @@
     padding: 2%;
 }
 
+.cajaBonita {
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: dotted;
+    width: 60%;
+    border-radius: 2px;
+    height: fit-content;
+    margin-bottom: 3%;
+    padding: 2%;
+}
+
 .cajaDerecha {
     border: dotted;
     width: 100%;
@@ -59,9 +72,18 @@
     align-items: flex-start;
 }
 
+.botonInfo {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    padding: 3%;
+}
+
 .mostrarEvento {
-    width: 100%;
-    height: inherit;
+    padding: 2%;
+    padding-right: 15%;
+    width: fit-content;
+    height: fit-content;
     border-radius: 1%;
     border: 1px black solid;
     display: flex;
@@ -88,6 +110,7 @@
     width: fit-content;
     height: fit-content;
     z-index: 2;
+    padding: 2%;
     left: 50%;
     top: 40%;
     position: fixed;

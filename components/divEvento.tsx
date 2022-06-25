@@ -48,7 +48,7 @@ const mostrarDescripcion = ()=>{
     <>
     <div className='mostrarEvento' ref={tarjetaEvento}>
         <p>{E.getNombre()} ID: {E.getId()}</p>
-        <button onClick={mostrarDescripcion}>Detalles</button>
+        <button className='botonInfo' onClick={mostrarDescripcion}>Detalles</button>
      
     </div>
     <div className='descripcionOculta' ref={deOc}>

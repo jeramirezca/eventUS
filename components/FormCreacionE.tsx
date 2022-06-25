@@ -28,7 +28,7 @@ const FormCreacionE = () => {
         descripcion:string
     }
     const guardarInfo = async (values:initial) =>{
-      var adminAux = admin;
+      //var adminAux = admin;
       let evento:Evento;
       if(user.rol=="CREADOR"){
           let fecha:Date=new Date(values.fecha);
@@ -36,8 +36,8 @@ const FormCreacionE = () => {
           let listaEventosCreadosAux=listaEventosCreados;
           listaEventosCreadosAux.push(evento);
           setListaEventosCreados(listaEventosCreadosAux);
-          adminAux.buscarCreador(user.id).eventosCreados=listaEventosCreados;
-          setAdmin(adminAux);
+          admin.buscarCreador(user.id).eventosCreados=listaEventosCreados;
+          //setAdmin(adminAux);
 
           try {
             await guardarAdmin();
@@ -59,12 +59,12 @@ const FormCreacionE = () => {
         }
         if (user.rol=="ESTUDIANTE"){
           let fecha:Date=new Date(values.fecha);
-          evento= new Evento("edsnfjs", values.nombreEvento, fecha, values.horaInicio, values.horaFin,values.lugar, values.descripcion,(adminAux.buscarCreador(values.creadores).id), values.facultad,user.id,undefined)
+          evento= new Evento("edsnfjs", values.nombreEvento, fecha, values.horaInicio, values.horaFin,values.lugar, values.descripcion,(admin.buscarCreador(values.creadores).id), values.facultad,user.id,undefined)
 
           var listaPropuestosAux=listaPropuestos;
           
-          adminAux.guardarEventosPropuestos(evento,user.id);
-          setAdmin(adminAux);
+          admin.guardarEventosPropuestos(evento,user.id);
+          //setAdmin(adminAux);
           try {
             await guardarAdmin();
             toast.success("Evento Creador", {
@@ -80,12 +80,12 @@ const FormCreacionE = () => {
             console.log(err);
           }
           
-          let listaPropuestasEventos=adminAux.buscarCreador(values.creadores).propuestasEventos;
+          let listaPropuestasEventos=admin.buscarCreador(values.creadores).propuestasEventos;
           listaPropuestasEventos.push(evento);
           
 
-          adminAux.buscarCreador(values.creadores).propuestasEventos=listaPropuestasEventos;
-          setAdmin(adminAux);
+          admin.buscarCreador(values.creadores).propuestasEventos=listaPropuestasEventos;
+          //setAdmin(adminAux);
           try {
             await guardarAdmin();
             toast.success("Evento Creador", {
