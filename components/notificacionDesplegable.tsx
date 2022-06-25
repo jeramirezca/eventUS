@@ -11,13 +11,14 @@ import { Usuario } from '../data/Usuario';
 
 
 type N ={N:Notificacion};
-const Desplegable =  ({N}:N) =>{
+const Desplegable =   ({N}:N) =>{
   const {user,setUser} = useUser();
   const {admin, setAdmin } = useAdmin();
   const divTexto = useRef<HTMLDivElement>(null);
   
-  function borrarNotificacion(){
-
+  async function borrarNotificacion(){
+    var admiAux = admin;
+    var user2 = user;
 
     if(divTexto.current != null){
       divTexto.current.style.display = "none";
@@ -25,26 +26,34 @@ const Desplegable =  ({N}:N) =>{
     //buscamos al usuario y le quitamos esa notificacion
     let actual:Usuario = user;
     if(actual instanceof Creador){
-      let arr:Notificacion[] = admin.buscarCreador(user.id).notificaciones;
+      let arr:Notificacion[] = admiAux.buscarCreador(user.id).notificaciones;
       arr = eliminarItem(arr,N);
-      admin.buscarCreador(user.id).notificaciones = arr;
+      admiAux.buscarCreador(user.id).notificaciones = arr;
+      user2.notificaciones = arr;
+      setUser(user2);
     }
     if(actual instanceof Estudiante){
-      let arr:Notificacion[] = admin.buscarEstudiante(user.id).notificaciones;
+      let arr:Notificacion[] = admiAux.buscarEstudiante(user.id).notificaciones;
       arr = eliminarItem(arr,N);
-      admin.buscarEstudiante(user.id).notificaciones = arr;
+      admiAux.buscarEstudiante(user.id).notificaciones = arr;
+      user2.notificaciones = arr;
+      setUser(user2);
     }
     else {
-      let arr:Notificacion[] = admin.notificaciones;
+      let arr:Notificacion[] = admiAux.notificaciones;
       arr = eliminarItem(arr,N);
-      admin.notificaciones = arr;
+      admiAux.notificaciones = arr;
+      
+      user2.notificaciones = arr;
+      setUser(user2);
       
     }
     //salvamos la info
-    //setAdmin(admiAux);
+    
+    setAdmin(admiAux);
     
     try {
-        guardarAdmin();
+       await guardarAdmin();
       toast.success("Notificacion borrada", {
         position: "bottom-center",
         autoClose: 2000,

@@ -21,21 +21,24 @@ const {auth, setAuth} = useAuth();
 const {admin, setAdmin} = useAdmin();
   
   let usuario:Usuario = user;
-  let notificaciones:Notificacion[] = [new Notificacion("xd", new Date(),"xdd")];
+  let notificaciones:Notificacion[] = [];
 
   if(user != undefined){
     if(usuario instanceof Administrador){
-      notificaciones = admin.notificaciones;
+      notificaciones = user.notificaciones;
       //usar geters y seters es un problema grave, mejor acceder al atributo
+
   
     }
     else if(usuario instanceof Estudiante){
-        notificaciones = admin.buscarEstudiante(user.id).notificaciones;
+      //  notificaciones = admin.buscarEstudiante(user.id).notificaciones;
+      notificaciones = user.notificaciones;
     }
   
     else if(usuario instanceof Creador){
       //suponemos que es creador
-      notificaciones = admin.buscarCreador(user.id).notificaciones;
+     // notificaciones = admin.buscarCreador(user.id).notificaciones;
+     notificaciones = user.notificaciones;
   
     }
   }

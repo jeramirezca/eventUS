@@ -19,6 +19,8 @@ import { toast } from 'react-toastify';
 
 
 const perfilCreador = () => {
+  const [listaBusqueda,setLista] = useState(undefined);
+  const EventoDiv = useRef<HTMLDivElement>(null);
 
     async function guardarAdmin() {
         console.log(admin.toJSON());
@@ -97,7 +99,11 @@ const perfilCreador = () => {
               }
               else{
                 //mostramos el evento en un div
-                <DivEvento E={mostrar}></DivEvento>
+                if(EventoDiv.current !=null){
+                //<DivEvento E={mostrar}></DivEvento>;
+
+                }
+                setLista(mostrar);
               }
           
           
@@ -129,18 +135,28 @@ const perfilCreador = () => {
               <section className='flexVert'>
               <div className='cajaDerecha'>
                 <strong>Buscar eventos</strong>
-                <input ref={inputTexto} placeholder='Ingresa el nombre del evento'/>
+                <input ref={inputTexto} placeholder='Ingresa el ID del evento'/>
               
                 <button onClick={mostrarEvento}>Buscar</button>
                 </div>
-                <div className='cajaDerecha'>
-                <strong>¿Cómo usar la interfaz?</strong>
+                <div  ref={EventoDiv}className='cajaDerecha'>
+                <strong>Resultados: </strong>
+                {
+                  <>
+                  {listaBusqueda != undefined ? <DivEvento E={listaBusqueda}></DivEvento>: <p>Aun no has buscado nada</p>}
+                  </>
+                }
+                <br></br>
+                {
+                  /*
                 <ul>
                   <li>En la parte de la izquierda puedes ver los ultimos eventos creados</li>
                   <li>Arriba puedes buscar eventos por su nombre</li>
                   <li>Abajo puedes aprovar o denegar propuestas</li>
                   <li></li>
                 </ul>
+                */
+                }
                 </div>
               </section>
             </PerfilCrea>
