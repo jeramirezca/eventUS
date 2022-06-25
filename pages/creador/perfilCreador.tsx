@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Layout from "../../layout/Layout";
 import Head from 'next/head'
 import PerfilCrea from '../../components/perfCreador';
@@ -31,7 +31,7 @@ const perfilCreador = () => {
         }
         return await response.json();
     }
-
+    const inputTexto = useRef<HTMLInputElement>(null);
     const {user, setUser} = useUser();
     const {admin, setAdmin} = useAdmin();
     const [eventosCreados, setEventosCreados] = useState(admin.buscarCreador(user.id)? (admin.buscarCreador(user.id).eventosCreados):(new Array<Evento>));
@@ -41,11 +41,11 @@ const perfilCreador = () => {
 
     const eliminarEvento = async (id: string, rol: string)=>{
         //creas una copia del admin
-        var adminAux = admin;
+        //var adminAux = admin;
         //Aquí haces las operaciones que quieras con el admin, digamosn en este caso quitarlle al creador registrado el evento
 
         //vuelves a guardar el admin
-        setAdmin(adminAux);
+        //setAdmin(adminAux);
         //Actualizas los eventos de la pagina
         setEventosCreados(admin.buscarCreador(user.id).eventosCreados);
         //mandas la info a la base de datos para cambiar
@@ -53,7 +53,7 @@ const perfilCreador = () => {
           await guardarAdmin();
           toast.success("Usuario eliminado con exito", {
             position: "bottom-center",
-            autoClose: 3009,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -65,6 +65,45 @@ const perfilCreador = () => {
         }
         //recargas página para ver actulizado
         router.push("/creador/perfilCreador");
+      }
+
+
+      function mostrarEvento(){
+        if(inputTexto.current != null){
+          let id:string = inputTexto.current.value;
+          let mostrar:Evento|null = null;
+            let crea_tmp:Creador = user as Creador;
+              crea_tmp.eventosCreados.map((e:Evento) => {
+                if(e.id == id){
+                    mostrar = e;
+                }
+              }
+              );
+            
+              if(mostrar == null){
+                /*
+                toast.error('El evento no existe o lo escribiste mal', {
+                  position: "bottom-center",
+                  autoClose: 2000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  });
+
+                  */
+                 alert("el evento no existe o lo escribiste mal");
+              }
+              else{
+                //mostramos el evento en un div
+                <DivEvento E={mostrar}></DivEvento>
+              }
+          
+          
+         
+          
+        }
       }
 
   return (
@@ -90,9 +129,9 @@ const perfilCreador = () => {
               <section className='flexVert'>
               <div className='cajaDerecha'>
                 <strong>Buscar eventos</strong>
-                <input id='eventoAbuscar' placeholder='Ingresa el nombre del evento'/>
+                <input ref={inputTexto} placeholder='Ingresa el nombre del evento'/>
               
-                <button><Link href='../eventos'>Buscar</Link></button>
+                <button onClick={mostrarEvento}>Buscar</button>
                 </div>
                 <div className='cajaDerecha'>
                 <strong>¿Cómo usar la interfaz?</strong>

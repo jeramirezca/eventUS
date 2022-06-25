@@ -306,6 +306,7 @@ export class Administrador extends Usuario {
         }
         return new Estudiante("","","","","","");
     }
+
     
     public guardarEventoEstudiante(ev: Evento,id: string){
         

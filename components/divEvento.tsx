@@ -7,6 +7,8 @@ let abierto = false;
 const DivEvento = ({E}:E) => {
     
 const deOc = useRef<HTMLDivElement>(null); 
+const tarjetaEvento = useRef<HTMLDivElement>(null);
+
 const descrip = useRef<HTMLParagraphElement>(null); 
 //const [cambiarTexto,setCambiarTexto] = useState("Vaya, que vacio...");
 
@@ -44,7 +46,7 @@ const mostrarDescripcion = ()=>{
     //usamos el state, y añadimos el set para modificar este.
   return (
     <>
-    <div className='mostrarEvento'>
+    <div className='mostrarEvento' ref={tarjetaEvento}>
         <p>{E.getNombre()} ID: {E.getId()}</p>
         <button onClick={mostrarDescripcion}>Detalles</button>
      

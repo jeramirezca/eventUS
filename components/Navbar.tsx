@@ -32,25 +32,36 @@ const Navbar = () => {
                 event<span className="text-azul font-extrabold">US</span>
               </h1>
             </div>
+            {
+
+              }
+           
+            {/* Para las pantallas pequeñas no se mostrarán los iconos */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
               
                 <Link href="/">
                   <div className="cursor-pointer text-azul font-semibold px-3 py-2 text-xl hover:text-negro">
                     <i className="fas fa-home pr-1" />
-                    Inicio
+                    Inicio 
                   </div>
                 </Link>
                
 
                 {auth ? (
                   <>
-                  <Desplegable></Desplegable>
-                  <Link href="/notificaciones">
+                        
+                       <Link href="/notificaciones">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                         <i className="fa-solid fa-bell pr-1"></i>
+                      
                       </div>
+
                     </Link>
+                     
+                  
+                 
+                 
                     <Link href="/perfil">
                       <div className="cursor-pointer hover:bg-azul text-black hover:text-blanco px-3 py-2 rounded-md text-lg font-medium transition-all">
                         <i className="fa-solid fa-user pr-1"></i>

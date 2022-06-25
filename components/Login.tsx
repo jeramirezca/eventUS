@@ -29,6 +29,8 @@ const Login = ({datos}:any) => {
 
 
   const autent = (user: string, contrasena: string) =>{
+    console.log(admin.id);
+    console.log(admin.contrasena);
     var autenticado = admin.autenticacion(user,contrasena);
     if (autenticado.nombre == ""){
       if (admin.creadorNoAutorizado(user)){

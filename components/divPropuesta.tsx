@@ -1,11 +1,19 @@
 import React, { useRef } from 'react'
 import Link from 'next/link';
 import { Evento } from '../data/Evento';
+import { useUser } from '../contexts/user';
+import { useAdmin } from '../contexts/admin';
+import { Creador } from '../data/Creador';
+import { Administrador } from '../data/Administrador';
+import { toast } from 'react-toastify';
+import router from 'next/router';
 type E ={E:Evento};
 let abierto = false;
 
+
 const DivPropuesta = ({E}:E) => {
-    
+    const {user,setUser} = useUser();
+    const {admin,setAdmin} = useAdmin();    
     const deOc = useRef<HTMLDivElement>(null); 
     const descrip = useRef<HTMLParagraphElement>(null); 
     const EventoDiv = useRef<HTMLDivElement>(null);
@@ -38,22 +46,79 @@ const DivPropuesta = ({E}:E) => {
     
            }
        }
+
+       async function guardarAdmin() {
+        console.log(admin.toJSON());
+        const response = await fetch("/api/datos", {
+          method: "PATCH",
+          body: admin.toJSON(),
+        });
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return await response.json();
+    }
     
     const aprovarPropuesta = () =>{
+        let creador_tmp = user as Creador;
+        let proponente:string = creador_tmp.aceptarEvento(E);
+        //let admiAux:Administrador = admin;
+        admin.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento fue aprobado!");
+        //salvamos los datos
+        //setAdmin(admiAux);
+        try {
+            guardarAdmin();
+          toast.success("El estudiante será informado", {
+            position: "bottom-center",
+            autoClose: 3009,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } catch (err) {
+          console.log(err);
+        }
+        
+        //buscamos al proponente para mandarle la notificacion
         if(EventoDiv.current !== null){
             EventoDiv.current.style.display = "none";
         }
+        router.push("/creador/perfilCreador");
         //aqui deberia ir el codigo en el que se le borra el evento al creador
         
     }
     
     const denegarPropuesta = () =>{
-
+        let creador_tmp = user as Creador;
+        let proponente:string = creador_tmp.rechazarEvento(E);
+        //let admiAux:Administrador = admin;
+        admin.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento no fue aprobado!");
+        //salvamos los datos
+        //setAdmin(admiAux);
+        try {
+            guardarAdmin();
+          toast.success("El estudiante será informado", {
+            position: "bottom-center",
+            autoClose: 3009,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } catch (err) {
+          console.log(err);
+        }
+        
         if(EventoDiv.current !== null){
             EventoDiv.current.style.display = "none";
         }
         //aqui deberia ir el codigo en el que se le borra el evento al creador
-        
+        //recargas página para ver actulizado
+        router.push("/creador/perfilCreador");
+    
     }
 
 
