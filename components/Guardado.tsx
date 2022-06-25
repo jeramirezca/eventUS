@@ -4,6 +4,7 @@ import { useAdmin } from '../contexts/admin';
 import { useUser } from '../contexts/user';
 import Card from './Card';
 import { Evento } from '../data/Evento';
+import { toast } from 'react-toastify';
 
 const Guardado = () => {
     const { admin, setAdmin } = useAdmin();
@@ -12,11 +13,25 @@ const Guardado = () => {
     
 
     var adminAux = admin;
-    const eliminarEvento=(e:Evento)=>{
+    const eliminarEvento=async (e:Evento)=>{
         var listaAux=listaGuardados;
         listaAux.splice(listaAux.indexOf(e),1);
         setListaGuardados(listaAux);
-        guardarAdmin();
+
+        try {
+            await guardarAdmin();
+            toast.success("Evento Eliminado", {
+              position: "bottom-center",
+              autoClose: 3009,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } catch (err) {
+            console.log(err);
+          }
     }
     
     async function guardarAdmin() {
@@ -33,10 +48,10 @@ const Guardado = () => {
     
     return (
        <div>
-        <div className="my-5 py-5 rounded-3xl grid grid-cols-1 md:grid-cols-2  gap-x-10">
+        <div className=" rounded-3xl grid grid-cols-1 md:grid-cols-2  gap-x-12 flex space-x-14 > * + *">
           
           <div className=''>
-              <h1 className="text-2xl font-semibold">
+              <h1 className="titulo font-semibold">
                   Proximos eventos
               </h1>
               <div className='flex'>
@@ -52,7 +67,7 @@ const Guardado = () => {
           </div>
           <div className=''>
             <div className=''>
-              <h1 className="text-2xl font-semibold">
+              <h1 className="titulo font-semibold">
                   Eventos Guardados
               </h1>
             </div>
@@ -65,43 +80,43 @@ const Guardado = () => {
                     if(indice%2==0){
                         return(
                         
-                        <div className='bg-azul rounded-3xl flex'>
-                           <div>
-                            <h1>{e.nombre}</h1>
-                            <h1>{e.fecha.toISOString()}</h1>
-                            <h1>{e.horaInicio}</h1>
-                            <h1>{e.horaFin}</h1>
-                           </div>
-                           <div>
-                            <Link href="/">
-                                <div
-                                    className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-2 rounded-md text-lg font-medium"
-                                    onClick={()=>{
-                                        eliminarEvento(e)}}
-                                >eliminar
-                                </div>
-                            </Link>
-                           </div>
-                           
-                        
+                        <div className='bg-azul rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
+                            <div>
+                                <h1 className="text-2xl font-semibold">{e.nombre}</h1>
+                                <h1 className=''> 
+                                    <span className='font-semibold text-xl'>Fecha:</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
+                                </h1>
 
-
+                                <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
+                            </div>
+                            <div className='justify-center'>
+                                <Link href="">
+                                    <div 
+                                        className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-2 rounded-md text-lg font-medium  px-1 my-7"
+                                        onClick={()=>{
+                                            eliminarEvento(e)}}
+                                    >eliminar
+                                    </div>
+                                </Link>
+                            </div>
                             
                         </div>
                     )
                     }else{
                         return(
-                            <div className='bg-azul-light3 rounded-3xl'>
+                            <div className='bg-azul-light3 rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
                                 <div>
-                                    <h1>{e.nombre}</h1>
-                                    <h1>{e.fecha.toISOString()}</h1>
-                                    <h1>{e.horaInicio}</h1>
-                                    <h1>{e.horaFin}</h1>
+                                    <h1 className="text-2xl font-semibold">{e.nombre}</h1>
+                                    <h1 className=''> 
+                                        <span className='font-semibold text-xl'>Fecha:</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
+                                    </h1>
+
+                                    <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
                                 </div>
                                 <div className='justify-center'>
-                                    <Link href="/">
+                                    <Link href="">
                                         <div 
-                                            className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-2 rounded-md text-lg font-medium"
+                                            className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-2 rounded-md text-lg font-medium  px-1 my-7"
                                             onClick={()=>{
                                                 eliminarEvento(e)}}
                                         >eliminar
