@@ -290,6 +290,7 @@ export class Administrador extends Usuario {
         }
         return this.estudiantesRegistrados[0];
     }
+
     
     public guardarEventoEstudiante(ev: Evento,id: string){
         let estudiante = this.buscarEstudiante(id);

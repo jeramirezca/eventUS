@@ -147,10 +147,10 @@ export class Creador extends Usuario {
         this.eventosCreados.push(e);
     }
 
-    public  aceptarEvento():Evento{
+    public  aceptarEvento(E:Evento):string{
         //aniade el evento a eventos creados y lo saca de eventos propuestos si existe
-        let aceptado:Evento= this.propuestasEventos.shift()as unknown as Evento;
-        this.eventosCreados.push(aceptado);
+        //let aceptado:Evento= this.propuestasEventos.shift()as unknown as Evento;
+        this.eventosCreados.push(E);
         
         /*
         esto lo usabamos cuando eventos propuestos era una lista
@@ -167,12 +167,22 @@ export class Creador extends Usuario {
         */ 
        
         //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
-       return aceptado;
+        //retornamos el id del proponente para mandarle una notificacion
+       return E.idProponente;
     }
 
-    public rechazarEvento():void{
+    public rechazarEvento(E:Evento):string{
+
         //si el elemento existe en las propuestas eliminarlo
-        let rechazado:Evento= this.propuestasEventos.shift()as unknown as Evento;
+        //let rechazado:Evento= this.propuestasEventos.shift()as unknown as Evento;
+       for(let i=0; i<this.propuestasEventos.length; i++){
+        if(this.propuestasEventos[i] == E){
+            this.propuestasEventos.splice(i,1);
+            //borramos la propuesta de evento
+        }
+        //retornamos la id para despues buscar el proponente y mandarle la informacion
+        
+       }
         
         /*
        if(propuestasEventos.exists(aceptar)){
@@ -187,7 +197,7 @@ export class Creador extends Usuario {
        */
       
         //Debido a las nodificaciones para el manejo de archivo no se pueden obtener directamente los usuarios del evento.
-
+        return E.idProponente;
     }
 
     public  crearEtiquetas(e:string, ev:Evento):void{
