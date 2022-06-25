@@ -51,16 +51,16 @@ const {admin, setAdmin} = useAdmin();
   }
 
   const checkNumber = () => {
-    if(notificaciones.length != 0){
+   
       setNot(notificaciones.length);
-    }
+    
   }
  
  
   return (
     <>
       <Head>
-      <title>Notificaciones, tienes {notificaciones.length} sin leer</title>
+      <title>Notificaciones</title>
         
         
       </Head>
@@ -70,7 +70,7 @@ const {admin, setAdmin} = useAdmin();
           <>
           <br></br>
         
-        <h2><strong>Tus Notificaciones: </strong>  </h2>
+        <h2><strong>Tus Notificaciones: </strong>  {contadorNotific} sin leer  <button onClick={checkNumber}>actualizar</button> </h2>
         <div>
           <>
           {notificaciones.map((n:Notificacion) => (n != null ? <Desplegable N={n}></Desplegable>: " "))}

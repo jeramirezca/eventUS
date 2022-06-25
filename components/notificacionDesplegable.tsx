@@ -1,5 +1,5 @@
 import router from 'next/router';
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { toast } from 'react-toastify';
 import { useAdmin } from '../contexts/admin';
 import { useUser } from '../contexts/user';
@@ -13,6 +13,7 @@ import { Usuario } from '../data/Usuario';
 type N ={N:Notificacion};
 const Desplegable =   ({N}:N) =>{
   const {user,setUser} = useUser();
+  const [lista,setLista] = useState(user.notificaciones);
   const {admin, setAdmin } = useAdmin();
   const divTexto = useRef<HTMLDivElement>(null);
   
@@ -31,6 +32,7 @@ const Desplegable =   ({N}:N) =>{
       admiAux.buscarCreador(user.id).notificaciones = arr;
       user2.notificaciones = arr;
       setUser(user2);
+      setLista(arr);
     }
     if(actual instanceof Estudiante){
       let arr:Notificacion[] = admiAux.buscarEstudiante(user.id).notificaciones;
@@ -38,6 +40,7 @@ const Desplegable =   ({N}:N) =>{
       admiAux.buscarEstudiante(user.id).notificaciones = arr;
       user2.notificaciones = arr;
       setUser(user2);
+      setLista(arr);
     }
     else {
       let arr:Notificacion[] = admiAux.notificaciones;
@@ -46,6 +49,7 @@ const Desplegable =   ({N}:N) =>{
       
       user2.notificaciones = arr;
       setUser(user2);
+      setLista(arr);
       
     }
     //salvamos la info

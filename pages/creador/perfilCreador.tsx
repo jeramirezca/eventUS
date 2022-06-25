@@ -15,6 +15,7 @@ import { useAuth } from '../../contexts/auth';
 import router from 'next/router';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
+import DivMod from '../../components/divEventoMod';
 
 
 
@@ -126,7 +127,7 @@ const perfilCreador = () => {
                 <div className='cajaIzquierda'>
                   Ultimos eventos creados
                 <br></br>       
-                    {eventosCreados.map((e:Evento) => (<DivEvento E={e}></DivEvento>))}
+                    {eventosCreados.map((e:Evento) => (<DivMod E={e}></DivMod>))}
                 </div>
                 <div className='cajaIzquierda'>
                   <button onClick={() => router.push("/creador/crearEvento")}>Crear un evento</button>
@@ -143,7 +144,7 @@ const perfilCreador = () => {
                 <strong>Resultados: </strong>
                 {
                   <>
-                  {listaBusqueda != undefined ? <DivEvento E={listaBusqueda}></DivEvento>: <p>Aun no has buscado nada</p>}
+                  {listaBusqueda != undefined ? <DivMod E={listaBusqueda}></DivMod>: <p>Aun no has buscado nada</p>}
                   </>
                 }
                 <br></br>
