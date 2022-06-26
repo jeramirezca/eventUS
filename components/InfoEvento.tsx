@@ -23,6 +23,7 @@ const InfoEvento = () => {
           <br></br>
           <div className='cajaBonita'>
             <p>Lugar: {evento.lugar}</p>
+            <p>Nombre: {evento.nombre}</p>
             <p>Facultad: {evento.facultad}</p>
             <p>Hora inicio: {evento.horaInicio} Hora final: {evento.horaFin}</p>
 

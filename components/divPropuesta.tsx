@@ -70,7 +70,7 @@ const DivPropuesta = ({E}:E) => {
       var creador_tmp = user as Creador;
         let proponente:string = creador_tmp.aceptarEvento(E);
         //let admiAux:Administrador = admin;
-        admiAux.buscarEstudiante(proponente).notificacionesPendientes.push(new Notificacion("evento"+E.id,new Date(),"tu evento fue aprobado!"));
+        admiAux.buscarEstudiante(proponente).notificacionesPendientes.push(new Notificacion("evento "+E.nombre,new Date(),"tu evento fue aprobado!"));
         admiAux.buscarEstudiante(proponente).aceptarEvento(E.id);
          
         
@@ -114,7 +114,7 @@ const DivPropuesta = ({E}:E) => {
         admiAux.buscarEstudiante(proponente).borrarPropuesta(E);
         //let admiAux:Administrador = admin;
         admiAux.buscarEstudiante(proponente).noEvento(E.id);
-        admiAux.buscarEstudiante(proponente).notificacionesPendientes.push(new Notificacion("evento"+E.id,new Date(),"tu evento no fue aprobado!"));
+        admiAux.buscarEstudiante(proponente).notificacionesPendientes.push(new Notificacion("evento "+E.nombre,new Date(),"tu evento no fue aprobado!"));
         //salvamos los datos
         setUser(creador_tmp);
         setAdmin(admiAux);
