@@ -178,7 +178,7 @@ const TablaUsuarios = ({ datos }:any) => {
                     <td>{u.autorizado.toString()}</td>
                     <td className="iconosTabla">
             
-            <Tooltip title='Eliminar venta' arrow>
+            <Tooltip title='Eliminar usuario' arrow>
               <button aria-label="Eliminar" onClick={() => setOpenDialog(true)}/* onClick={(e)=>{eliminarUsuario(u.id, u.rol)}} */>
                 <i className="fa-solid fa-trash-can"></i>
               </button>
