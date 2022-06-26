@@ -78,6 +78,7 @@ const Guardado = () => {
       }
     
     return (
+        
        <div>
         <div className=" rounded-3xl grid grid-cols-1 md:grid-cols-2  gap-x-12 flex space-x-14 > * + * ">
           
@@ -103,59 +104,61 @@ const Guardado = () => {
                     let indice:number=listaPropuestos.indexOf(e);
                     if(indice%2==0){
                         return(
-                            <div className='bg-azul rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
-                            <div>
-                                <h1 className="text-2xl font-semibold">{e.nombre}</h1>
-                                <h1 className=''> 
-                                    <span className='font-semibold text-xl'>Fecha:</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
-                                </h1>
+                            <><br></br><div className='bg-azul rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
+                                <div>
+                                    <h1 className="text-2xl font-semibold">{e.nombre}</h1>
+                                    <h1 className=''>
+                                        <span className='font-semibold text-xl'>Fecha:</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
+                                    </h1>
 
-                                <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
-                                <h1><span className='font-semibold text-xl'>Creador Encargado </span>{adminAux.buscarCreador(e.idCreador).nombre}</h1>
-                            </div>
-                            <div className='grid grid-cols-1'>
-                                <div className='justify-center'>
-                                <h1 className='font-semibold'>Estado</h1>
-                                {e.estado==true ?(
-                                    <>
-                                        <div 
-                                        className=" bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-2"
-                                    >Aprobado
-                                    </div>
-                                    </>
-                                ): (
-                                    <></>
-                                )}
-                                {e.estado==false ?(
-                                    <>
-                                    <div 
-                                        className=" bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-2"
-                                    >En Espera
-                                    </div>
-                                    </>
-                                ): (
-                                    <></>
-                                )}
-
-
-                                
+                                    <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
+                                    <h1><span className='font-semibold text-xl'>Creador Encargado </span>{adminAux.buscarCreador(e.idCreador).nombre}</h1>
                                 </div>
-                                <div className='justify-center'>
-                                <Link href="">
-                                    <div 
-                                        className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-1 rounded-md text-lg font-medium  px-1 my-2"
-                                        onClick={()=>{
-                                            eliminarPropuesta(e)}}
-                                    >eliminar
+                                <div className='grid grid-cols-1'>
+                                    <div className='justify-center'>
+                                        <h1 className='font-semibold'>Estado</h1>
+                                        {e.estado == true ? (
+                                            <>
+                                                <div
+                                                    className=" bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-2"
+                                                >Aprobado
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <></>
+                                        )}
+                                        {e.estado == false ? (
+                                            <>
+                                                <div
+                                                    className=" bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-2"
+                                                >En Espera
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <></>
+                                        )}
+
+
+
                                     </div>
-                                </Link>
+                                    <div className='justify-center'>
+                                        <Link href="">
+                                            <div
+                                                className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-1 rounded-md text-lg font-medium  px-1 my-2"
+                                                onClick={() => {
+                                                    eliminarPropuesta(e);
+                                                } }
+                                            >eliminar
+                                            </div>
+                                        </Link>
+
+                                    </div>
 
                                 </div>
 
-                            </div>
-                            
-                            
-                        </div>
+
+                            </div><br></br></>
+                      
                     )
                     }else{
                         return(
@@ -241,29 +244,29 @@ const Guardado = () => {
                     let indice:number=listaGuardados.indexOf(e);
                     if(indice%2==0){
                         return(
-                        
-                        <div className='bg-azul rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
-                            <div>
-                                <h1 className="text-2xl font-semibold">{e.nombre}</h1>
-                                <h1 className=''> 
-                                    <span className='font-semibold text-xl'>Fecha:</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
-                                </h1>
+                        <><br></br><div className='bg-azul rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
+                                <div>
+                                    <h1 className="text-2xl font-semibold">{e.nombre}</h1>
+                                    <h1 className=''>
+                                        <span className='font-semibold text-xl'>Fecha:</span>{e.fecha.getDate()}/{e.fecha.getMonth()}/{e.fecha.getFullYear()}
+                                    </h1>
 
-                                <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
-                                <h1><span className='font-semibold text-xl'>Lugar </span>{e.lugar}</h1>
-                            </div>
-                            <div className='justify-center'>
-                                <Link href="">
-                                    <div 
-                                        className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-2 rounded-md text-lg font-medium  px-1 my-7"
-                                        onClick={()=>{
-                                            eliminarEvento(e)}}
-                                    >eliminar
-                                    </div>
-                                </Link>
-                            </div>
-                            
-                        </div>
+                                    <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
+                                    <h1><span className='font-semibold text-xl'>Lugar </span>{e.lugar}</h1>
+                                </div>
+                                <div className='justify-center'>
+                                    <Link href="">
+                                        <div
+                                            className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-2 rounded-md text-lg font-medium  px-1 my-7"
+                                            onClick={() => {
+                                                eliminarEvento(e);
+                                            } }
+                                        >eliminar
+                                        </div>
+                                    </Link>
+                                </div>
+
+                            </div><br></br></>
                     )
                     }else{
                         return(

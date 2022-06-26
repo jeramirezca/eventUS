@@ -111,7 +111,7 @@ const Desplegable =   ({N}:N) =>{
           {N.id}
             { //pendiente estilizar esta parte de notificaciones
         }</p>
-        <p>{N.fecha.toString()}</p>
+        
         
         <p>Descripcion: {N.descripcion != undefined ? N.descripcion: "No hay descripcion disponible"}</p>
          <button onClick={borrarNotificacion}>Aceptar</button>
