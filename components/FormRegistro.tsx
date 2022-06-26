@@ -177,6 +177,7 @@ const FormRegistro = ({ datos }: any) => {
               <option value="ENFERMERIA"> Enfermería </option>
               <option value="MEDICINA"> Medicina </option>
               <option value="ODONTOLOGIA"> Odontología </option>
+              <option value="BIENESTAR"> Bienestar </option>
             </select>
           </div>
           <div className="">

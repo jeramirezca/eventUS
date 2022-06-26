@@ -212,6 +212,7 @@ const FormCreacionE = () => {
               <option value="CIENCIAS">Ciencias</option>
               <option value="ENFERMERIA">Enfermería</option>
               <option value="ODONTOLOGIA">Odontologia</option>
+              <option value="BIENESTAR"> Bienestar </option>
             </select>
         </div>
         <div className="flex flex-col justify-center items-center ">
