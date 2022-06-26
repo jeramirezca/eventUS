@@ -36,7 +36,8 @@ const {admin, setAdmin} = useAdmin();
     }
     else if(usuario instanceof Estudiante){
       //  notificaciones = admin.buscarEstudiante(user.id).notificaciones;
-      notificaciones = user.notificaciones;
+      let _user:Estudiante = user as Estudiante;
+      notificaciones = _user.notificacionesPendientes;
     
     }
   

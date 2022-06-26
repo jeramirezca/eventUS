@@ -23,7 +23,7 @@ export class Evento {
 	//Constructor
 
     constructor(id:string , nombre:string, fecha:Date, horaInicio: string, horaFin: string,lugar:string, descripcion:string,
-			idCreador:string, facultad:string, idProponente:string, estado?: boolean ,aforo?:number, etiquetas?:string[]) {
+			idCreador:string, facultad:string, idProponente:string, estado: boolean ,aforo?:number, etiquetas?:string[]) {
 		this.id = id;
 		this.nombre = nombre;
 		this.fecha = fecha;

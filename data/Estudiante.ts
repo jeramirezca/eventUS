@@ -67,7 +67,7 @@ export class Estudiante extends Usuario{
         let eventosGuardados : string = "[";
         let j: number = 0;
         for ( j ; j < auxEventGuardados.length; j++) {
-            eventosGuardados += auxEventGuardados[0].toJSON() ;
+            eventosGuardados += auxEventGuardados[j].toJSON() ;
             if (j != auxEventGuardados.length-1){
                 eventosGuardados += ',';
             }
@@ -78,7 +78,7 @@ export class Estudiante extends Usuario{
         let eventPendientes : string = "[";
         let k: number = 0;
         for ( k ; k < auxEventPendientes.length; k++) {
-            eventPendientes += auxEventPendientes[0].toJSON() ; 
+            eventPendientes += auxEventPendientes[k].toJSON() ; 
             //eventPendientes += JSON.stringify(auxEventPendientes.getFirst());
             if (k != auxEventPendientes.length-1){
                 eventPendientes += ',';
@@ -149,6 +149,27 @@ export class Estudiante extends Usuario{
         }
     }
 
+    public aceptarEvento(E:string){
+        for(let i=0; i<this.eventosPropuestos.length; i++){
+            let evento:Evento = this.eventosPropuestos[i];
+            if(evento.id = E){
+                evento.estado = true;
+            }
+
+        }
+    }
+
+    public noEvento(E:string){
+        for(let i=0; i<this.eventosPropuestos.length; i++){
+            let evento:Evento = this.eventosPropuestos[i];
+            if(evento.id = E){
+                evento.estado = false;
+            }
+
+        }
+    }
+
+
     public sugerirEvento( e:Evento, c:Creador):void {
         e.setProponente(this.getId());
             this.eventosPropuestos.push(e);
@@ -156,6 +177,17 @@ export class Estudiante extends Usuario{
            
             // pendiente poder enviar ese evento al creador para que lo pueda autorizar
         }
+
+    public borrarPropuesta(e:Evento){
+        for(let i=0; i<this.eventosPropuestos.length; i++){
+            if(this.eventosGuardados[i] == e){
+                this.eventosPropuestos.splice(i,1);
+                //borramos la propuesta de evento
+            }
+            //retornamos la id para despues buscar el proponente y mandarle la informacion
+            
+           }
+    }
       
     public guardarEvento(nuevoEvento:Evento):void{
         this.eventosGuardados.push(nuevoEvento);

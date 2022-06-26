@@ -5,15 +5,46 @@ import { useUser } from '../contexts/user';
 import Card from './Card';
 import { Evento } from '../data/Evento';
 import { toast } from 'react-toastify';
+import { Estudiante } from '../data/Estudiante';
 
 const Guardado = () => {
+ 
     const { admin, setAdmin } = useAdmin();
     const {user, setUser} = useUser();
     const [listaGuardados, setListaGuardados] = useState(admin.buscarEstudiante(user.id).getEventosGuardados());
     const [listaPropuestos, setListaPropuestos]=useState(admin.buscarEstudiante(user.id).eventosPropuestos);
     
+    let xd:Estudiante = user as Estudiante;
+    console.log(`Este 
+    son los eventos propuestos 
+    ${ xd.eventosPropuestos}`)
+    console.log(xd.eventosPropuestos)
 
     var adminAux = admin;
+    const eliminarPropuesta=async (e:Evento)=>{
+        var listaAux=listaPropuestos;
+        listaAux.splice(listaAux.indexOf(e),1);
+        setListaPropuestos(listaAux);
+        var listaEventosPropuestosAlCreador=adminAux.buscarCreador(e.idCreador).propuestasEventos;
+        listaEventosPropuestosAlCreador.splice(listaEventosPropuestosAlCreador.indexOf(e),1);
+        adminAux.buscarCreador(e.idCreador).propuestasEventos=listaEventosPropuestosAlCreador;
+        setAdmin(adminAux)
+
+        try {
+            await guardarAdmin();
+            toast.success("Evento Eliminado", {
+              position: "bottom-center",
+              autoClose: 3009,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } catch (err) {
+            console.log(err);
+          }
+    }
     const eliminarEvento=async (e:Evento)=>{
         var listaAux=listaGuardados;
         listaAux.splice(listaAux.indexOf(e),1);
@@ -72,8 +103,7 @@ const Guardado = () => {
                     let indice:number=listaPropuestos.indexOf(e);
                     if(indice%2==0){
                         return(
-                        
-                        <div className='bg-azul rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
+                            <div className='bg-azul rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
                             <div>
                                 <h1 className="text-2xl font-semibold">{e.nombre}</h1>
                                 <h1 className=''> 
@@ -83,34 +113,24 @@ const Guardado = () => {
                                 <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
                                 <h1><span className='font-semibold text-xl'>Creador Encargado </span>{adminAux.buscarCreador(e.idCreador).nombre}</h1>
                             </div>
-                            <div className='justify-center'>
+                            <div className='grid grid-cols-1'>
+                                <div className='justify-center'>
                                 <h1 className='font-semibold'>Estado</h1>
-                                {e.estado==undefined ?(
-                                    <>
-                                        <div 
-                                        className="cursor-pointer bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-7"
-                                       
-                                    >En espera
-                                    </div>
-                                    </>
-                                ): (
-                                    <></>
-                                )}
                                 {e.estado==true ?(
                                     <>
                                         <div 
-                                        className="cursor-pointer bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-7"
+                                        className=" bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-2"
                                     >Aprobado
                                     </div>
                                     </>
                                 ): (
                                     <></>
                                 )}
-                                {e.estado==true ?(
+                                {e.estado==false ?(
                                     <>
-                                        <div 
-                                        className="cursor-pointer bg-red-light text-blanco py-1 rounded-md text-lg font-medium my-7"
-                                    >Denegado
+                                    <div 
+                                        className=" bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-2"
+                                    >En Espera
                                     </div>
                                     </>
                                 ): (
@@ -119,13 +139,27 @@ const Guardado = () => {
 
 
                                 
+                                </div>
+                                <div className='justify-center'>
+                                <Link href="">
+                                    <div 
+                                        className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-1 rounded-md text-lg font-medium  px-1 my-2"
+                                        onClick={()=>{
+                                            eliminarPropuesta(e)}}
+                                    >eliminar
+                                    </div>
+                                </Link>
+
+                                </div>
+
                             </div>
+                            
                             
                         </div>
                     )
                     }else{
                         return(
-                            <div className='bg-azul-light rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
+                            <div className='bg-azul-light3 rounded-3xl flex space-x-12 > * + * px-5 grid grid-cols-2'>
                             <div>
                                 <h1 className="text-2xl font-semibold">{e.nombre}</h1>
                                 <h1 className=''> 
@@ -135,33 +169,24 @@ const Guardado = () => {
                                 <h1><span className='font-semibold text-xl'>Hora: </span>{e.horaInicio}-{e.horaFin}</h1>
                                 <h1><span className='font-semibold text-xl'>Creador Encargado </span>{adminAux.buscarCreador(e.idCreador).nombre}</h1>
                             </div>
-                            <div className='justify-center'>
+                            <div className='grid grid-cols-1'>
+                                <div className='justify-center'>
                                 <h1 className='font-semibold'>Estado</h1>
-                                {e.estado==undefined ?(
-                                    <>
-                                        <div 
-                                        className="cursor-pointer bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-7"
-                                    >En espera
-                                    </div>
-                                    </>
-                                ): (
-                                    <></>
-                                )}
                                 {e.estado==true ?(
                                     <>
                                         <div 
-                                        className="cursor-pointer bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-7"
+                                        className=" bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-2"
                                     >Aprobado
                                     </div>
                                     </>
                                 ): (
                                     <></>
                                 )}
-                                {e.estado==true ?(
+                                {e.estado==false ?(
                                     <>
-                                        <div 
-                                        className="cursor-pointer bg-red-light text-blanco py-1 rounded-md text-lg font-medium my-7"
-                                    >Denegado
+                                    <div 
+                                        className=" bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-2"
+                                    >En Espera
                                     </div>
                                     </>
                                 ): (
@@ -170,7 +195,21 @@ const Guardado = () => {
 
 
                                 
+                                </div>
+                                <div className='justify-center'>
+                                <Link href="">
+                                    <div 
+                                        className="cursor-pointer bg-red-light text-blanco hover:bg-negro px-3 py-1 rounded-md text-lg font-medium  px-1 my-2"
+                                        onClick={()=>{
+                                            eliminarPropuesta(e)}}
+                                    >eliminar
+                                    </div>
+                                </Link>
+
+                                </div>
+
                             </div>
+                            
                             
                         </div>
                         )

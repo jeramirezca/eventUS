@@ -15,27 +15,25 @@ const InfoEvento = () => {
       <h2>Información del evento {evento.id}</h2>
       
       {
+       <p></p>
        
-        /*
-          <form className="">
-            <h1 className="font-bold text-3xl p-4">Info evento</h1>
-            <div className="flex flex-col justify-center items-center">
-                <label className ="p-3">Usuario</label>
-                <input id="usuario" type="text" placeholder ="Ingrese su usuario" className=""/>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-                <label  className ="p-3">Contraseña</label>
-                <input id="contrasena"type="password" placeholder ="Ingrese su contraseña" className="" disabled/>
-            </div>
-              <button  className="bg-azul mt-6 mb-2"> Iniciar Sesión </button>          
-        </form>
-            */
       }
+
+          </div>
+          <br></br>
+          <div className='cajaBonita'>
+            <p>Lugar: {evento.lugar}</p>
+            <p>Facultad: {evento.facultad}</p>
+            <p>Hora inicio: {evento.horaInicio} Hora final: {evento.horaFin}</p>
+
           </div>
         <div>
         <br></br>
     
-          <DivEvento E={evento}></DivEvento> 
+          <div className='cajaBonita'>
+            <p><strong>Descripción:</strong></p>
+            <p>{evento.descripcion}</p>
+          </div>
           
         </div>
     </div>

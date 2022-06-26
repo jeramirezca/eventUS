@@ -64,11 +64,9 @@ const Login = ({datos}:any) => {
           /**
            * Sección de pruebas: xdon si es molesto jaj
            */
-          if(autenticado instanceof Creador){
-            autenticado.eventosCreados.push(new Evento("229-12","evento de prueba",new Date(),"2:00","3:00","cyt","descripcion de prueba, este evento trata de monas chinas",autenticado.id,"medicina"," ",true,29,["casual","indie"]));
-            autenticado.eventosCreados.push(new Evento("22-13","evento 2",new Date(),"2:00","3:00","cyt","descripcion de prueba, este evento trata de monas chinas",autenticado.id,"medicina"," ",true,29,["casual","indie"]));
-          }
+         
           {autenticado.agregarNotificaciones("Bienvenido a eventUS",new Date(),"Esperamos que disfrutes tu estadia")}
+          /*Esto no deberia verse mas de una vez, pues no se guarda al admin, o si?*/
           {console.log("notificaciones" + autenticado.notificaciones)}  
           {console.log("se ejecuto una ves")}
           return router.push("/");

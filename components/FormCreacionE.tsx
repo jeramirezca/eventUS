@@ -6,10 +6,21 @@ import { useUser } from '../contexts/user';
 import { Evento } from '../data/Evento';
 import { time } from 'console';
 import { Usuario } from '../data/Usuario';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+
 
 const FormCreacionE = () => {
-
+  async function guardarAdmin() {
+    console.log(admin.toJSON());
+    const response = await fetch("/api/datos", {
+      method: "PATCH",
+      body: admin.toJSON(),
+    });
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return await response.json();
+  }
     const { admin, setAdmin } = useAdmin();
     const {user, setUser} = useUser();
     const [listaGuardados, setListaGuardados] = useState(admin.buscarEstudiante(user.id).getEventosGuardados());
@@ -28,64 +39,53 @@ const FormCreacionE = () => {
         descripcion:string
     }
     const guardarInfo = async (values:initial) =>{
-      //var adminAux = admin;
+      var adminAux = admin;
       let evento:Evento;
       if(user.rol=="CREADOR"){
           let fecha:Date=new Date(values.fecha);
-          evento= new Evento("edsnfjs", values.nombreEvento, fecha, values.horaInicio, values.horaFin,values.lugar, values.descripcion,user.id, values.facultad,user.id,false)
+          evento= new Evento(Math.random().toString(), values.nombreEvento, fecha, values.horaInicio, values.horaFin,values.lugar, values.descripcion,user.id, values.facultad,user.id,true,3,[
+            "et1",
+            "et2",
+            "et3",
+            "et4",
+            "et5"
+        ])
           let listaEventosCreadosAux=listaEventosCreados;
           listaEventosCreadosAux.push(evento);
           setListaEventosCreados(listaEventosCreadosAux);
-          admin.buscarCreador(user.id).eventosCreados=listaEventosCreados;
-          //setAdmin(adminAux);
+          adminAux.buscarCreador(user.id).eventosCreados=listaEventosCreados;
+          setAdmin(adminAux);
 
-          try {
-            await guardarAdmin();
-            toast.success("Evento Creador", {
-              position: "bottom-center",
-              autoClose: 3009,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-          } catch (err) {
-            console.log(err);
-          }
+        
           //alert(JSON.stringify(values));
           //alert(JSON.stringify(adminAux.buscarEstudiante(user.id).getEventosPropuestos().map))
 
         }
         if (user.rol=="ESTUDIANTE"){
           let fecha:Date=new Date(values.fecha);
-          evento= new Evento("edsnfjs", values.nombreEvento, fecha, values.horaInicio, values.horaFin,values.lugar, values.descripcion,(admin.buscarCreador(values.creadores).id), values.facultad,user.id,undefined)
+          console.log(values.nombreEvento);
+          evento= new Evento(Math.random().toString(), values.nombreEvento, fecha, values.horaInicio, values.horaFin,values.lugar, values.descripcion,values.creadores, values.facultad,user.id,false,3,[
+            "et1",
+            "et2",
+            "et3",
+            "et4",
+            "et5"
+        ])
 
-          var listaPropuestosAux=listaPropuestos;
+          //var listaPropuestosAux=listaPropuestos;
+          //listaPropuestosAux.push(evento);
+          //setListaPropuestos(listaPropuestosAux);
+          adminAux.guardarEventosPropuestos(evento,user.id);
+
+          setAdmin(adminAux);
           
-          admin.guardarEventosPropuestos(evento,user.id);
-          //setAdmin(adminAux);
-          try {
-            await guardarAdmin();
-            toast.success("Evento Creador", {
-              position: "bottom-center",
-              autoClose: 3009,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-          } catch (err) {
-            console.log(err);
-          }
           
-          let listaPropuestasEventos=admin.buscarCreador(values.creadores).propuestasEventos;
+          let listaPropuestasEventos=adminAux.buscarCreador(values.creadores).propuestasEventos;
           listaPropuestasEventos.push(evento);
           
 
-          admin.buscarCreador(values.creadores).propuestasEventos=listaPropuestasEventos;
-          //setAdmin(adminAux);
+          /*adminAux.buscarCreador(values.creadores).propuestasEventos=listaPropuestasEventos;
+          setAdmin(adminAux);
           try {
             await guardarAdmin();
             toast.success("Evento Creador", {
@@ -108,25 +108,30 @@ const FormCreacionE = () => {
             )
           })))*/
         }
+        try {
+          await guardarAdmin();
+          toast.success("Evento Creado", {
+            position: "bottom-center",
+            autoClose: 3009,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } catch (err) {
+          console.log(err);
+        }
       
       
   
     }
 
     
-    async function guardarAdmin() {
-        console.log(admin.toJSON());
-        const response = await fetch("/api/datos", {
-          method: "PATCH",
-          body: admin.toJSON(),
-        });
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return await response.json();
-      }
+    
     
   return (
+   <>
     <div className='md:w-200 w-2/4 bg-azul-light rounded-3xl'>
       <Formik
       initialValues={{
@@ -244,9 +249,23 @@ const FormCreacionE = () => {
     )}
       
       </Formik>
-          
+      
             
     </div>
+    
+    <ToastContainer
+        position="bottom-center"
+        autoClose={3009}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
+  </> 
   )
 }
 
