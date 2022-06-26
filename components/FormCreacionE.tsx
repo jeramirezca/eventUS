@@ -201,12 +201,12 @@ const FormCreacionE = () => {
             value={values.facultad}
             onChange={handleChange}
             >
-              <option>Ingenieria</option>
-              <option>Medicina</option>
-              <option>Derecho</option>
-              <option>Enfermeria</option>
-              <option>Economia</option>
-              <option>Universidad</option>
+              <option value="INGENIERIA">Ingenieria</option>
+              <option value="MEDICINA">Medicina</option>
+              <option value="ARTES">Artes</option>
+              <option value="CIENCIAS">Ciencias</option>
+              <option value="ENFERMERIA">Enfermería</option>
+              <option value="ODONTOLOGIA">Odontologia</option>
             </select>
         </div>
         <div className="flex flex-col justify-center items-center ">
