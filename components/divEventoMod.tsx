@@ -3,10 +3,15 @@ import Link from 'next/link';
 import { Evento } from '../data/Evento';
 import { useRef,  useLayoutEffect } from 'react';
 import { useAdmin } from '../contexts/admin';
+import { useUser } from '../contexts/user';
+import Eventos from './Eventos';
+import { toast } from 'react-toastify';
 type E ={E:Evento};
 let abierto = false;
 const DivMod = ({E}:E) => {
 const {admin,setAdmin} = useAdmin();
+const {user,setUser} = useUser();
+
 const deOc = useRef<HTMLDivElement>(null); 
 const tarjetaEvento = useRef<HTMLDivElement>(null);
 
@@ -43,13 +48,47 @@ const mostrarDescripcion = ()=>{
        }
    }
  
-const modEvento = () =>{
+
+
+const borrarEvento = async () =>{
+    var adminAux = admin;
+    let evn:Evento[] = adminAux.buscarCreador(user.id).eventosCreados;
+    //borra al evento
+    evn.splice(evn.indexOf(E),1);
+    adminAux.buscarCreador(user.id).eventosCreados = evn;
+    setAdmin(adminAux);
+
+    try {
+       await guardarAdmin();
+      toast.success("evento borrado", {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
+    if(tarjetaEvento.current != null){
+        tarjetaEvento.current.style.display = "none";
+    }
 
 }
 
-const borrarEvento = () =>{
-    var adminAux = admin;
-
+async function guardarAdmin() {
+    console.log(admin.toJSON());
+    const response = await fetch("/api/datos", {
+      method: "PATCH",
+      body: admin.toJSON(),
+    });
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return await response.json();
 }
 
 

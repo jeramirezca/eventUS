@@ -175,7 +175,7 @@ const Guardado = () => {
                                 {e.estado==true ?(
                                     <>
                                         <div 
-                                        className=" bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-2"
+                                        className=" bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-2"
                                     >Aprobado
                                     </div>
                                     </>
