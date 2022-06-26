@@ -5,14 +5,21 @@ import { useUser } from '../contexts/user';
 import Card from './Card';
 import { Evento } from '../data/Evento';
 import { toast } from 'react-toastify';
+import { Estudiante } from '../data/Estudiante';
 
 const Guardado = () => {
+ 
     const { admin, setAdmin } = useAdmin();
     const {user, setUser} = useUser();
     const [listaGuardados, setListaGuardados] = useState(admin.buscarEstudiante(user.id).getEventosGuardados());
     const [listaPropuestos, setListaPropuestos]=useState(admin.buscarEstudiante(user.id).eventosPropuestos);
     
-    
+    let xd:Estudiante = user as Estudiante;
+    console.log(`Este 
+    son los eventos propuestos 
+    ${ xd.eventosPropuestos}`)
+    console.log(xd.eventosPropuestos)
+
     var adminAux = admin;
     const eliminarPropuesta=async (e:Evento)=>{
         var listaAux=listaPropuestos;
@@ -112,7 +119,7 @@ const Guardado = () => {
                                 {e.estado==true ?(
                                     <>
                                         <div 
-                                        className=" bg-naranja-light text-blanco py-1 rounded-md text-lg font-medium my-2"
+                                        className=" bg-verde-light text-blanco py-1 rounded-md text-lg font-medium my-2"
                                     >Aprobado
                                     </div>
                                     </>

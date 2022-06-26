@@ -57,9 +57,10 @@ const borrarEvento = () =>{
     <>
     <div className='mostrarEvento' ref={tarjetaEvento}>
         <p>{E.getNombre()} ID: {E.getId()}</p>
-        <button className='botonInfo' onClick={mostrarDescripcion}>Detalles</button>
         <button className='botonInfo' onClick={borrarEvento}>Borrar</button>
-        <button className='botonInfo' onClick={modEvento}>Modificar</button>
+        <button className='botonInfo' onClick={mostrarDescripcion}>Detalles</button>
+       
+
 
 
      

@@ -165,6 +165,15 @@ export class Creador extends Usuario {
         //aniade el evento a eventos creados y lo saca de eventos propuestos si existe
         //let aceptado:Evento= this.propuestasEventos.shift()as unknown as Evento;
         this.eventosCreados.push(E);
+
+        for(let i=0; i<this.propuestasEventos.length; i++){
+            if(this.propuestasEventos[i] == E){
+                this.propuestasEventos.splice(i,1);
+                //borramos la propuesta de evento
+            }
+            //retornamos la id para despues buscar el proponente y mandarle la informacion
+            
+           }
         
         /*
         esto lo usabamos cuando eventos propuestos era una lista

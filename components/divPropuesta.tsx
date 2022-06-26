@@ -7,12 +7,15 @@ import { Creador } from '../data/Creador';
 import { Administrador } from '../data/Administrador';
 import { toast } from 'react-toastify';
 import router from 'next/router';
+import { Notificacion } from '../data/Notificacion';
 type E ={E:Evento};
 let abierto = false;
 
 
 const DivPropuesta = ({E}:E) => {
+
     const {user,setUser} = useUser();
+    //const [evento,setEvento] = useState(admin.buscarEvento())
     const {admin,setAdmin} = useAdmin();    
     const deOc = useRef<HTMLDivElement>(null); 
     const descrip = useRef<HTMLParagraphElement>(null); 
@@ -60,11 +63,15 @@ const DivPropuesta = ({E}:E) => {
     }
     
     const aprovarPropuesta = () =>{
+      E.estado = true;
       var admiAux = admin;
-        let creador_tmp = user as Creador;
+      console.log(E);
+      var creador_tmp = user as Creador;
         let proponente:string = creador_tmp.aceptarEvento(E);
         //let admiAux:Administrador = admin;
-        admiAux.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento fue aprobado!");
+        admiAux.buscarEstudiante(proponente).notificacionesPendientes.push(new Notificacion("evento"+E.id,new Date(),"tu evento fue aprobado!"));
+      //admiAux.buscarEstudiante(proponente).borrarPropuesta(E);
+      //culpa de palacios
         //salvamos los datos
         setAdmin(admiAux);
         setUser(creador_tmp);
@@ -87,17 +94,22 @@ const DivPropuesta = ({E}:E) => {
         if(EventoDiv.current !== null){
             EventoDiv.current.style.display = "none";
         }
-        router.push("/creador/perfilCreador");
+      
         //aqui deberia ir el codigo en el que se le borra el evento al creador
         
     }
     
     const denegarPropuesta = () =>{
+     
+      E.estado = false;
+      console.log(E);
       var admiAux = admin;
         let creador_tmp = user as Creador;
         let proponente:string = creador_tmp.rechazarEvento(E);
+        admiAux.buscarEstudiante(proponente).borrarPropuesta(E);
         //let admiAux:Administrador = admin;
-        admiAux.buscarEstudiante(proponente).agregarNotificaciones("evento"+E.id,new Date(),"tu evento no fue aprobado!");
+
+        admiAux.buscarEstudiante(proponente).notificacionesPendientes.push(new Notificacion("evento"+E.id,new Date(),"tu evento no fue aprobado!"));
         //salvamos los datos
         setUser(creador_tmp);
         setAdmin(admiAux);
@@ -121,7 +133,6 @@ const DivPropuesta = ({E}:E) => {
         }
         //aqui deberia ir el codigo en el que se le borra el evento al creador
         //recargas página para ver actulizado
-        router.push("/creador/perfilCreador");
     
     }
 
@@ -132,7 +143,7 @@ const DivPropuesta = ({E}:E) => {
     <div className='mostrarEvento' ref={EventoDiv} >
         <p>{E.getNombre()}    ID:   {E.getId()}</p>
         <button onClick={mostrarDescripcion}>Detalles</button>
-        <button onClick={aprovarPropuesta}>Aprovar</button>
+        <button onClick={aprovarPropuesta}>Aprobar</button>
         <button onClick={denegarPropuesta}>Denegar</button>
      
     </div>

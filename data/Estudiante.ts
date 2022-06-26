@@ -156,6 +156,17 @@ export class Estudiante extends Usuario{
            
             // pendiente poder enviar ese evento al creador para que lo pueda autorizar
         }
+
+    public borrarPropuesta(e:Evento){
+        for(let i=0; i<this.eventosPropuestos.length; i++){
+            if(this.eventosGuardados[i] == e){
+                this.eventosPropuestos.splice(i,1);
+                //borramos la propuesta de evento
+            }
+            //retornamos la id para despues buscar el proponente y mandarle la informacion
+            
+           }
+    }
       
     public guardarEvento(nuevoEvento:Evento):void{
         this.eventosGuardados.push(nuevoEvento);

@@ -15,7 +15,7 @@ const InfoEvento = () => {
       <h2>Información del evento {evento.id}</h2>
       
       {
-       
+       <p>Aforo </p>
         /*
           <form className="">
             <h1 className="font-bold text-3xl p-4">Info evento</h1>

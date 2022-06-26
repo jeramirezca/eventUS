@@ -16,16 +16,17 @@ const Desplegable =   ({N}:N) =>{
   const [lista,setLista] = useState(user.notificaciones);
   const {admin, setAdmin } = useAdmin();
   const divTexto = useRef<HTMLDivElement>(null);
-  
+  console.log(N);
   async function borrarNotificacion(){
     var admiAux = admin;
     var user2 = user;
+
 
     if(divTexto.current != null){
       divTexto.current.style.display = "none";
     }
     //buscamos al usuario y le quitamos esa notificacion
-    let actual:Usuario = user;
+    let actual:Estudiante = user as Estudiante;
     if(actual instanceof Creador){
       let arr:Notificacion[] = admiAux.buscarCreador(user.id).notificaciones;
       arr = eliminarItem(arr,N);
@@ -35,9 +36,9 @@ const Desplegable =   ({N}:N) =>{
       setLista(arr);
     }
     if(actual instanceof Estudiante){
-      let arr:Notificacion[] = admiAux.buscarEstudiante(user.id).notificaciones;
+      let arr:Notificacion[] = admiAux.buscarEstudiante(user.id).notificacionesPendientes;
       arr = eliminarItem(arr,N);
-      admiAux.buscarEstudiante(user.id).notificaciones = arr;
+      admiAux.buscarEstudiante(user.id).notificacionesPendientes = arr;
       user2.notificaciones = arr;
       setUser(user2);
       setLista(arr);
@@ -85,6 +86,10 @@ const Desplegable =   ({N}:N) =>{
     return arr;
   }
 
+  function convertirArtesanalmente(d:Date):string{
+    return d.getDate().toString();
+  }
+
   async function guardarAdmin() {
     console.log(admin.toJSON());
     const response = await fetch("/api/datos", {
@@ -106,7 +111,8 @@ const Desplegable =   ({N}:N) =>{
           {N.id}
             { //pendiente estilizar esta parte de notificaciones
         }</p>
-        <p>{N.fecha.toDateString()}</p>
+        <p>{N.fecha.toString()}</p>
+        
         <p>Descripcion: {N.descripcion != undefined ? N.descripcion: "No hay descripcion disponible"}</p>
          <button onClick={borrarNotificacion}>Aceptar</button>
         
