@@ -147,10 +147,7 @@ export class Administrador extends Usuario {
         let k: number = 0;
         for (k; k < this.estudiantesRegistrados.length; k++) {
             if (this.estudiantesRegistrados[k].id == id) {
-                console.log("encontrado")
-                console.log(this.estudiantesRegistrados.length)
                 this.estudiantesRegistrados.splice(k, 1);
-                console.log(this.estudiantesRegistrados.length)
                 return;
             }
         }

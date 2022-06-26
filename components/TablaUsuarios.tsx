@@ -68,6 +68,7 @@ const TablaUsuarios = ({ datos }:any) => {
   } */
 
   const eliminarUsuario = async (id: string, rol: string)=>{
+    console.log(id);
     var adminAux = admin;
     setOpenDialog(false);
     if (rol == "ESTUDIANTE"){
@@ -172,14 +173,14 @@ const TablaUsuarios = ({ datos }:any) => {
                 return (
                   <tr key={u.id}> 
                     <td>{u.nombre}</td>
-                    <td>{u.correo}</td>
+                    <td>{u.usuario}</td>
                     <td>{u.rol}</td>
                     <td>{u.correo}</td>
                     <td>{u.autorizado.toString()}</td>
                     <td className="iconosTabla">
             
             <Tooltip title='Eliminar usuario' arrow>
-              <button aria-label="Eliminar" onClick={() => setOpenDialog(true)}/* onClick={(e)=>{eliminarUsuario(u.id, u.rol)}} */>
+              <button aria-label="Eliminar" onClick={(e)=>{eliminarUsuario(u.id, u.rol)}}>
                 <i className="fa-solid fa-trash-can"></i>
               </button>
             </Tooltip>
