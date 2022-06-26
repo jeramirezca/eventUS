@@ -63,13 +63,21 @@ const DivPropuesta = ({E}:E) => {
     }
     
     const aprovarPropuesta = () =>{
-      E.estado = true;
+     
       var admiAux = admin;
+      E.estado = true;
       console.log(E);
       var creador_tmp = user as Creador;
         let proponente:string = creador_tmp.aceptarEvento(E);
         //let admiAux:Administrador = admin;
         admiAux.buscarEstudiante(proponente).notificacionesPendientes.push(new Notificacion("evento"+E.id,new Date(),"tu evento fue aprobado!"));
+        admiAux.buscarEstudiante(proponente).eventosPropuestos.map((d:Evento) => {
+          if(d == E){
+            d.estado = true;
+          }
+        }
+         
+        )
       //admiAux.buscarEstudiante(proponente).borrarPropuesta(E);
       //culpa de palacios
         //salvamos los datos
@@ -101,14 +109,19 @@ const DivPropuesta = ({E}:E) => {
     
     const denegarPropuesta = () =>{
      
-      E.estado = false;
+     
       console.log(E);
       var admiAux = admin;
+      E.estado = false;
         let creador_tmp = user as Creador;
         let proponente:string = creador_tmp.rechazarEvento(E);
         admiAux.buscarEstudiante(proponente).borrarPropuesta(E);
         //let admiAux:Administrador = admin;
-
+        admiAux.buscarEstudiante(proponente).eventosPropuestos.map((d:Evento) => {
+          if(d == E){
+            d.estado = false;
+          }
+        });
         admiAux.buscarEstudiante(proponente).notificacionesPendientes.push(new Notificacion("evento"+E.id,new Date(),"tu evento no fue aprobado!"));
         //salvamos los datos
         setUser(creador_tmp);

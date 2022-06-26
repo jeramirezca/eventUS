@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Evento } from '../data/Evento';
 import { useRef,  useLayoutEffect } from 'react';
+import { useAdmin } from '../contexts/admin';
 type E ={E:Evento};
 let abierto = false;
 const DivMod = ({E}:E) => {
-    
+const {admin,setAdmin} = useAdmin();
 const deOc = useRef<HTMLDivElement>(null); 
 const tarjetaEvento = useRef<HTMLDivElement>(null);
 
@@ -47,7 +48,8 @@ const modEvento = () =>{
 }
 
 const borrarEvento = () =>{
-    //pendiente implementar
+    var adminAux = admin;
+
 }
 
 
