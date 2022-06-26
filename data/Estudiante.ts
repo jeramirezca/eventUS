@@ -149,6 +149,27 @@ export class Estudiante extends Usuario{
         }
     }
 
+    public aceptarEvento(E:string){
+        for(let i=0; i<this.eventosPropuestos.length; i++){
+            let evento:Evento = this.eventosPropuestos[i];
+            if(evento.id = E){
+                evento.estado = true;
+            }
+
+        }
+    }
+
+    public noEvento(E:string){
+        for(let i=0; i<this.eventosPropuestos.length; i++){
+            let evento:Evento = this.eventosPropuestos[i];
+            if(evento.id = E){
+                evento.estado = false;
+            }
+
+        }
+    }
+
+
     public sugerirEvento( e:Evento, c:Creador):void {
         e.setProponente(this.getId());
             this.eventosPropuestos.push(e);
