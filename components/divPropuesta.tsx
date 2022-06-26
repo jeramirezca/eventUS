@@ -62,7 +62,7 @@ const DivPropuesta = ({E}:E) => {
         return await response.json();
     }
     
-    const aprovarPropuesta = () =>{
+    const aprovarPropuesta = async () =>{
      
       var admiAux = admin;
       E.estado = true;
@@ -80,7 +80,7 @@ const DivPropuesta = ({E}:E) => {
         setAdmin(admiAux);
         setUser(creador_tmp);
         try {
-            guardarAdmin();
+          await guardarAdmin();
           toast.success("El estudiante será informado", {
             position: "bottom-center",
             autoClose: 2000,
@@ -103,7 +103,7 @@ const DivPropuesta = ({E}:E) => {
         
     }
     
-    const denegarPropuesta = () =>{
+    const denegarPropuesta = async () =>{
      
      
       console.log(E);
@@ -119,7 +119,7 @@ const DivPropuesta = ({E}:E) => {
         setUser(creador_tmp);
         setAdmin(admiAux);
         try {
-            guardarAdmin();
+          await guardarAdmin();
           toast.success("El estudiante será informado", {
             position: "bottom-center",
             autoClose: 2000,
