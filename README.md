@@ -1,29 +1,30 @@
-# 🗓 Proyecto eventUS
+# 🗓 Proyecto EventUS
 ## 📋 Descripción del proyecto:
-![image](https://user-images.githubusercontent.com/82006611/180501209-6721314d-5282-4a41-81b2-88f4d29b1f56.png)
-
+![image](https://user-images.githubusercontent.com/82006611/164983396-285b0d48-d182-4341-95ca-b65ff88d422b.png)
 <br>
 
-El presente proyecto tiene como finalidad el desarrollo de una tienda basada en la programación orientada a objetos, en la que se tiene acceso a los productos y servicios ofrecidos por una comunidad pequeña para otros posibles compradores. <br>
-Para este fin la aplicación cuenta con las siguientes funcionalidades que se ofrecen mediante la consola:
-
-- Como usuario puedo agragar a mi carro de compra la cantidad específica de un producto que deseo adquirir.
-- Como usuario puedo conocer todas las caraterísticas principales de un producto antes de agregarlo al carro.
-- Como usuario tengo la opcion de eliminar productos ya agragados al carrito de compra.
-- Como usuario tengo la opción de observar mi historial de compras realizadas anteriormente en la aplicación.
-- Como usuario tengo la opción de realizar la busqueda de un producto según su nombre.
-- Como usuario tengo la opción de terminar la compra donde aparecerá el monto total a pagar por los productos.
+El presente proyecto tiene como finalidad desarrollar una página web que permita organizar y administrar de forma facil y eficiente los diferentes eventos que se realizan en la Universidad Nacional de Colombia. <br>
+Para este fin la aplicación cuenta con las funcionalidades basicas para la creación, edición y eliminación de eventos.
 
 ⌛️ **Estado del proyecto:** Terminado.
 
 ## 🛠️ Herramientas de desarrollo:
 
-- Java
+- Framework para Backend y Frondend:
+  * Next.js:
+    - HTML5.
+    - CSS3.
+    - Typescript.
+- CSS Framework:
+  * Bootstrap. 
+- Base de datos:
+  * Firebase. 
 
 ## 💻Equipo de desarrollo:
-**1. Juan Manuel Cortez:** jcortesj@unal.edu.co <br>
-**2. Jose Simon Ramos Sandoval:** joramos@unal.edu.co <br>
-**3. Jefferson Duvan Ramirez:** jeramirezca@unal.edu.co <br>
-
+**1. Juan David Palacios:** jupalaciosf@unal.edu.co <br>
+**2. Juan Manuel Cortez:** jcortesj@unal.edu.co <br>
+**3. Yenifer Yulieth Mora:** ymoras@unal.edu.co <br>
+**4. Samuel Gomez Guio:** samgomezgu@unal.edu.co <br>
+**5. Jefferson Duvan Ramirez:** jeramirezca@unal.edu.co <br>
 
 
